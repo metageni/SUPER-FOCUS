@@ -6,16 +6,18 @@ A tool for agile functional analysis of shotgun metagenomic data || version 0.26
 website: 	https://edwards.sdsu.edu/SUPERFOCUS
 ---------------------------------------------------------------------------------------------------------------------------------------
 
-#############################################################################################################
+Download Database
+--------------------------------------------------------------------------------------------------------------------------------
 Program: superfocus__downloadDB.py: Downloads and formats the SUPER_FOCUS database for the available aligners
-#############################################################################################################
 (1) USAGE
+--------------------------------------------------------------------------------------------------------------------------------
 python superfocus__downloadDB.py aligner
 Example: python superfocus__downloadDB.py rapsearch blast diamond
 
 You may choose as many aligners as you want among the three, as long as they are installed.
 
 (2) RECOMMENDATIONS
+--------------------------------------------------------------------------------------------------------------------------------
 	- RAPSearch2 and DIAMOND don't work properly using a already formatted database with a newer version of the 
 	  aligner. Thus, please re-run 'superfocus__downloadDB.py' in the case of any aligner was updated in the 
 	  system.
@@ -24,7 +26,7 @@ You may choose as many aligners as you want among the three, as long as they are
 Program: superfocus.py: SUPER-FOCUS main program
 #############################################################################################################
 
-(1) USAGE
+(1) SUPER-FOCUS USAGE
 -----
 SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data
 --------------------------------------------------------------------------------------------------------------------------------
