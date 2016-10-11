@@ -1,69 +1,93 @@
-# Scaffold_builder
- Combining de novo and reference-guided assembly with Scaffold_builder
+#SUPER-FOCUS
+A tool for agile functional analysis of shotgun metagenomic data || version 0.26
+---------------------------------------------------------------------------------------------------------------------------------------
+(c)   Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
+		SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. Bioinformatics. 2015 Oct 9. pii: btv584.
+website: 	https://edwards.sdsu.edu/SUPERFOCUS
+---------------------------------------------------------------------------------------------------------------------------------------
+
+#############################################################################################################
+Program: superfocus__downloadDB.py: Downloads and formats the SUPER_FOCUS database for the available aligners
+#############################################################################################################
+(1) USAGE
+python superfocus__downloadDB.py aligner
+Example: python superfocus__downloadDB.py rapsearch blast diamond
+
+You may choose as many aligners as you want among the three, as long as they are installed.
+
+(2) RECOMMENDATIONS
+	- RAPSearch2 and DIAMOND don't work properly using a already formatted database with a newer version of the 
+	  aligner. Thus, please re-run 'superfocus__downloadDB.py' in the case of any aligner was updated in the 
+	  system.
+
+#############################################################################################################
+Program: superfocus.py: SUPER-FOCUS main program
+#############################################################################################################
+
+(1) USAGE
 -----
+SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data
+--------------------------------------------------------------------------------------------------------------------------------
+Options:
+-h     ------: print help
 
-(c)            Silva GG, Dutilh BE, Matthews TD, Elkins K, Schmieder R, Dinsdale EA, Edwards RA
-Please cite:   "Combining de novo and reference-guided assembly with Scaffold_builder", Source Code for Biology and Medicine 2013
+-q     query file (FASTA or FASTQ format) or folder with multiple FASTA/FASTQ files when -m 1
 
-WEBSERVER
------
-http://edwards.sdsu.edu/scaffold_builder/
+-dir   string: output directory
 
+-m     int:    run the program for multiple files – 0 (False) / 1 ( True) (default: 0)	 
+ 
+-o     string: project name (default 'my_project')
 
+-mi    float:  minimum identity (default 60 %)
 
-USAGE
------
-python scaffold_builder.py -q query_contigs.fna -r reference_genome.fna -p output_prefix [-t] [-i] [-a] [-b]
+-ml    int:    minimum alignment (amino acids) (default: 15)
 
-	-q fasta file of contigs
-		Required. Query contigs in Fasta format. These contigs may be the output of a de novo
-		assembly program such as Newbler, Velvet or MIRA.
+-focus int:    runs FOCUS; 1 does run; 0 does not run: default 0
 
-	-r fasta file containing reference genome
-		Required. Reference genome in Fasta format. This should preferably be a completed genome
-		sequence.
+-t     int:    number of threads (default 8)
 
-	-p prefix output files
-		Required. All the output files have this project name as prefix.
+-e     float:  e-value (default 0.00001)
 
-	-t length of terminus that will be aligned (default 300 nt)
-		At any break between two contigs, scaffold_builder checks whether the termini
-		of the adjacent contigs are homologous by aligning them using Smith-Waterman's Algorithm, and
-		combines them if that is the case.
+-db    string: database (DB_90, DB_95, DB_98, or DB_100; default DB_98)
 
-	-i minimum identity for merging contigs (default 80%)
-		If the termini are similar, scaffold_builder assumes that the contigs should
-		have been combined by the assembly program, but the similarity was probably
-		below the assembly thresholds, or the contigs were not merged due to ambiguous
-		read mapping. The sequences are combined and in the case that non-identical
-		nucleotides are aligned, the IUPAC code of their consensus is placed in the
-		resulting sequence.
+-p     int:    amino acid input; 0 nucleotides; 1 amino acids (default 0)
 
-	-a minimum length for ambiguously mapped contigs (default 95%)
-		If a contig maps to more than one location on the reference genome, it will
-		not be scaffolded because it's location is ambiguous. This parameter defines
-		how much of the length of a contig should be mapped in more than one location
-		for it to be considered ambiguously mapped.
+-a     string: aligner choice (rapsearch, blast, diamond; default rapsearch)
 
-	-b 0/1 dictates behavior for rearrangements (default 0)
-		0: place end-to-end
-		1: create new scaffold sequence
-		If the mapping of the contigs onto the reference suggests that they overlap,
-		but the contig termini are too dissimilar to join them, this option dictates
-		whether scaffold_builder places the contigs end-to-end (default; deletions
-		expected) or to start a new scaffold sequence (inversions expected).
+-fast  int:    runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)	
+  
+-n     int:    normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)
 
-	-g maximum gap length allowed (default 5000nt)
+-r     string: use only the subsystems in the organisms predicted by "-focus"– ncbi / rast annotation  (default: ncbi)
 
+--------------------------------------------------------------------------------------------------------------------------------
+example> python superfocus.py -q query.fasta -dir myOutputdirectory
+	 
+(2) OUTPUT
+SUPER-FOCUS output will be add the folder selected in -dir
 
+(3) RECOMMENDATIONS
+	- The FOCUS reduction is not necessary if not wanted (set -focus 0)
+	- Run RAPSearch for short sequences. it is less sensitive for long sequences
+	- How BLAST if you want the result to be the most sensitive as possible
+	- Only use DIAMOND for large datasets. It is slower than blastx for small datasets
 
-DEPENDENCIES
+(4) DEPENDENCIES
 ------------
-python 2.7.X or 2.9.Y
+Python >= 2.6.X < 3.Y: http://www.python.org/download
+Jellyfish: http://www.cbcb.umd.edu/software/jellyfish
+Numpy: http://sourceforge.net/projects/numpy/files/NumPy
+SciPy: http://sourceforge.net/projects/scipy
+
+One of the below aligners:
+RAPSearch2: http://rapsearch2.sourceforge.net
+DIAMOND: http://ab.inf.uni-tuebingen.de/software/diamond
+BLAST: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 
 COPYRIGHT AND LICENSE
 ---------------------
-Copyright (C) 2011-2013  Genivaldo GZ Silva
+Copyright (C) 2014-2015  Genivaldo Gueiros Z. Silva
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
