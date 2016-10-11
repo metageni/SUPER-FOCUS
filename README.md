@@ -1,6 +1,7 @@
-SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data || version 0.26
+SUPER-FOCUS
+A tool for agile functional analysis of shotgun metagenomic data || version 0.26
 ---------------------------------------------------------------------------------------------------------------------------------------
-(c)            Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
+(c)   Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
 		SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. Bioinformatics. 2015 Oct 9. pii: btv584.
 website: 	https://edwards.sdsu.edu/SUPERFOCUS
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -28,22 +29,22 @@ Program: superfocus.py: SUPER-FOCUS main program
 SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data
 --------------------------------------------------------------------------------------------------------------------------------
 Options:
-         -h     ------: print help
-         -q     query file (FASTA or FASTQ format) or folder with multiple FASTA/FASTQ files when -m 1
-         -dir   string: output directory
-         -m     int:    run the program for multiple files – 0 (False) / 1 ( True) (default: 0)	  
-         -o     string: project name (default 'my_project')
-         -mi    float:  minimum identity (default 60 %)
-         -ml    int:    minimum alignment (amino acids) (default: 15)
-         -focus int:    runs FOCUS; 1 does run; 0 does not run: default 0 
-         -t     int:    number of threads (default 8)
-         -e     float:  e-value (default 0.00001)
-         -db    string: database (DB_90, DB_95, DB_98, or DB_100; default DB_98)
-         -p     int:    amino acid input; 0 nucleotides; 1 amino acids (default 0)
-         -a     string: aligner choice (rapsearch, blast, diamond; default rapsearch)
-         -fast  int:    runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)	  
-         -n     int:    normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)
-         -r     string: use only the subsystems in the organisms predicted by "-focus"– ncbi / rast annotation  (default: ncbi)
+-h     ------: print help
+-q     query file (FASTA or FASTQ format) or folder with multiple FASTA/FASTQ files when -m 1
+-dir   string: output directory
+-m     int:    run the program for multiple files – 0 (False) / 1 ( True) (default: 0)	  
+-o     string: project name (default 'my_project')
+-mi    float:  minimum identity (default 60 %)
+-ml    int:    minimum alignment (amino acids) (default: 15)
+-focus int:    runs FOCUS; 1 does run; 0 does not run: default 0 
+-t     int:    number of threads (default 8)
+-e     float:  e-value (default 0.00001)
+-db    string: database (DB_90, DB_95, DB_98, or DB_100; default DB_98)
+-p     int:    amino acid input; 0 nucleotides; 1 amino acids (default 0)
+-a     string: aligner choice (rapsearch, blast, diamond; default rapsearch)
+-fast  int:    runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)	  
+-n     int:    normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)
+-r     string: use only the subsystems in the organisms predicted by "-focus"– ncbi / rast annotation  (default: ncbi)
 --------------------------------------------------------------------------------------------------------------------------------
 example> python superfocus.py -q query.fasta -dir myOutputdirectory
 	 
