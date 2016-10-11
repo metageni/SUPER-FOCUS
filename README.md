@@ -79,9 +79,7 @@ Options:
 	-r string
 		use only the subsystems in the organisms predicted by "-focus"– ncbi / rast annotation  (default: ncbi)
 		
-example> python superfocus.py -q query.fasta -dir myOutputdirectory
---------------------------------------------------------------------------------------------------------------------------------
-
+	example> python superfocus.py -q query.fasta -dir myOutputdirectory
 	 
 (2) Output
 SUPER-FOCUS output will be add the folder selected in -dir
