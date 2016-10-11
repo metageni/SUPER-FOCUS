@@ -29,37 +29,55 @@ Program: superfocus.py: SUPER-FOCUS main program
 SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data
 --------------------------------------------------------------------------------------------------------------------------------
 Options:
--h     ------: print help
 
--q     query file (FASTA or FASTQ format) or folder with multiple FASTA/FASTQ files when -m 1
 
--dir   string: output directory
+	-h print help
+	
+	-q FASTA/FASTQ
+		query file (FASTA or FASTQ format) or folder with multiple FASTA/FASTQ files when -m 1
 
--m     int:    run the program for multiple files – 0 (False) / 1 ( True) (default: 0)	 
- 
--o     string: project name (default 'my_project')
+	-dir string
+		output directory
+		
+	-m int
+		run the program for multiple files – 0 (False) / 1 ( True) (default: 0)
 
--mi    float:  minimum identity (default 60 %)
+	-o string
+		project name (default 'my_project')
+	
+	-mi float
+		minimum identity (default 60 %)
 
--ml    int:    minimum alignment (amino acids) (default: 15)
 
--focus int:    runs FOCUS; 1 does run; 0 does not run: default 0
+	-ml int
+		minimum alignment (amino acids) (default: 15)
 
--t     int:    number of threads (default 8)
+	-focus int
+		runs FOCUS; 1 does run; 0 does not run: default 0
 
--e     float:  e-value (default 0.00001)
+	-t int
+		number of threads (default 8	)
 
--db    string: database (DB_90, DB_95, DB_98, or DB_100; default DB_98)
+	-e float
+		e-value (default 0.00001)
 
--p     int:    amino acid input; 0 nucleotides; 1 amino acids (default 0)
+	-db string
+		database (DB_90, DB_95, DB_98, or DB_100; default DB_98)
 
--a     string: aligner choice (rapsearch, blast, diamond; default rapsearch)
+	-p int
+		amino acid input; 0 nucleotides; 1 amino acids (default 0)
 
--fast  int:    runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)	
+	-a string
+		aligner choice (rapsearch, blast, diamond; default rapsearch)
+
+	-fast int
+		runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)	
   
--n     int:    normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)
+	-n nt
+		normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)
 
--r     string: use only the subsystems in the organisms predicted by "-focus"– ncbi / rast annotation  (default: ncbi)
+	-r string
+		use only the subsystems in the organisms predicted by "-focus"– ncbi / rast annotation  (default: ncbi)
 
 --------------------------------------------------------------------------------------------------------------------------------
 example> python superfocus.py -q query.fasta -dir myOutputdirectory
