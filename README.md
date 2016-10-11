@@ -6,17 +6,17 @@ A tool for agile functional analysis of shotgun metagenomic data || version 0.26
 website: 	https://edwards.sdsu.edu/SUPERFOCUS
 ---------------------------------------------------------------------------------------------------------------------------------------
 
-Download Database
+DOWNLOAD DATABASE
 --------------------------------------------------------------------------------------------------------------------------------
 Program: superfocus__downloadDB.py: Downloads and formats the SUPER_FOCUS database for the available aligners
-(1) USAGE
+(1) Usage
 --------------------------------------------------------------------------------------------------------------------------------
 python superfocus__downloadDB.py aligner
 Example: python superfocus__downloadDB.py rapsearch blast diamond
 
 You may choose as many aligners as you want among the three, as long as they are installed.
 
-(2) RECOMMENDATIONS
+(2) Recommendations
 --------------------------------------------------------------------------------------------------------------------------------
 	- RAPSearch2 and DIAMOND don't work properly using a already formatted database with a newer version of the 
 	  aligner. Thus, please re-run 'superfocus__downloadDB.py' in the case of any aligner was updated in the 
@@ -27,8 +27,6 @@ Program: superfocus.py: SUPER-FOCUS main program
 #############################################################################################################
 
 (1) SUPER-FOCUS USAGE
------
-SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data
 --------------------------------------------------------------------------------------------------------------------------------
 Options:
 
@@ -84,16 +82,16 @@ example> python superfocus.py -q query.fasta -dir myOutputdirectory
 --------------------------------------------------------------------------------------------------------------------------------
 
 	 
-(2) OUTPUT
+(2) Output
 SUPER-FOCUS output will be add the folder selected in -dir
 
-(3) RECOMMENDATIONS
+(3) Recommendations
 	- The FOCUS reduction is not necessary if not wanted (set -focus 0)
 	- Run RAPSearch for short sequences. it is less sensitive for long sequences
 	- How BLAST if you want the result to be the most sensitive as possible
 	- Only use DIAMOND for large datasets. It is slower than blastx for small datasets
 
-(4) DEPENDENCIES
+(4) Dependencies
 ------------
 Python >= 2.6.X < 3.Y: http://www.python.org/download
 Jellyfish: http://www.cbcb.umd.edu/software/jellyfish
