@@ -48,7 +48,6 @@ Options:
 	-mi float
 		minimum identity (default 60 %)
 
-
 	-ml int
 		minimum alignment (amino acids) (default: 15)
 
@@ -73,7 +72,7 @@ Options:
 	-fast int
 		runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)	
   
-	-n nt
+	-n int
 		normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)
 
 	-r string
