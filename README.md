@@ -25,12 +25,10 @@ You may choose as many aligners as you want among the three, as long as they are
 	  aligner. Thus, please re-run 'superfocus__downloadDB.py' in the case of any aligner was updated in the 
 	  system.
 
-#############################################################################################################
-Program: superfocus.py: SUPER-FOCUS main program
-#############################################################################################################
 
 (1) SUPER-FOCUS USAGE
 --------------------------------------------------------------------------------------------------------------------------------
+Program: superfocus.py: SUPER-FOCUS main program
 Options:
 
 
