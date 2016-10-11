@@ -1,0 +1,1291 @@
+Primary key	Level 1	Level 2	Level 3/Subsystem Name
+55	Amino Acids and Derivatives	Alanine, serine, and glycine	Sarcosine oxidases, monomeric and heterotetrameric
+56	Amino Acids and Derivatives	Alanine, serine, and glycine	Sarcosine temp
+62	Amino Acids and Derivatives	Alanine, serine, and glycine	Serine Biosynthesis
+189	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Threonine anaerobic catabolism gene cluster
+190	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Threonine and Homoserine Biosynthesis
+191	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Threonine degradation
+231	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Tryptophan catabolism
+232	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Tryptophan metabolism in plants
+233	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Tryptophan synthesis
+249	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Tyrosine and phenylalanine metabolism in plants
+276	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Urea decomposition
+277	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Urease subunits
+283	Amino Acids and Derivatives	Branched-chain amino acids	Valine degradation
+303	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Bacilysin biosynthesis
+423	Amino Acids and Derivatives	Branched-chain amino acids	Branched chain amino acid degradation regulons
+424	Amino Acids and Derivatives	Branched-chain amino acids	Branched-Chain Amino Acid Biosynthesis
+425	Amino Acids and Derivatives	Branched-chain amino acids	Branched-chain amino acid metabolism in plants
+466	Amino Acids and Derivatives	Proline and 4-hydroxyproline	A Hypothetical Protein Related to Proline Metabolism
+506	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	CBSS-84588.1.peg.1247
+572	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Chorismate Synthesis
+574	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Cinnamic Acid Degradation
+602	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Common Pathway For Synthesis of Aromatic Compounds (DAHP synthase to chorismate)
+615	Amino Acids and Derivatives	-	Creatine and Creatinine Degradation
+624	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Cyanophycin Metabolism
+626	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Cysteine Biosynthesis
+627	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Cysteine Biosynthesis, MCB 432
+646	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	D-nopaline catabolic operon
+784	Amino Acids and Derivatives	Glutamine, glutamate, aspartate, asparagine; ammonia assimilation	Glutamate dehydrogenases
+787	Amino Acids and Derivatives	Glutamine, glutamate, aspartate, asparagine; ammonia assimilation	Glutamine synthetases
+788	Amino Acids and Derivatives	Glutamine, glutamate, aspartate, asparagine; ammonia assimilation	Glutamine, Glutamate, Aspartate and Asparagine Biosynthesis
+789	Amino Acids and Derivatives	Glutamine, glutamate, aspartate, asparagine; ammonia assimilation	Glutamine, glutamate, aspartate, asparagine metabolism in plants
+803	Amino Acids and Derivatives	Alanine, serine, and glycine	Glycine Biosynthesis
+804	Amino Acids and Derivatives	Alanine, serine, and glycine	Glycine and Serine Utilization
+805	Amino Acids and Derivatives	Alanine, serine, and glycine	Glycine cleavage system
+822	Amino Acids and Derivatives	Branched-chain amino acids	HMG CoA Synthesis
+823	Amino Acids and Derivatives	Branched-chain amino acids	HMG-CoA
+829	Amino Acids and Derivatives	Alanine, serine, and glycine	Alanine biosynthesis
+838	Amino Acids and Derivatives	Histidine Metabolism	Histidine Biosynthesis
+839	Amino Acids and Derivatives	Histidine Metabolism	Histidine Biosynthesis in plants
+840	Amino Acids and Derivatives	Histidine Metabolism	Histidine Degradation
+854	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Indole-pyruvate oxidoreductase complex
+872	Amino Acids and Derivatives	Branched-chain amino acids	Isoleucine degradation
+882	Amino Acids and Derivatives	Branched-chain amino acids	Ketoisovalerate oxidoreductase
+883	Amino Acids and Derivatives	Branched-chain amino acids	Khodge314 Isoleucine Biosynthesis
+884	Amino Acids and Derivatives	-	L-2-amino-thiazoline-4-carboxylic acid-Lcysteine conversion
+904	Amino Acids and Derivatives	Branched-chain amino acids	Leucine Biosynthesis
+905	Amino Acids and Derivatives	Branched-chain amino acids	Leucine Degradation and HMG-CoA Metabolism
+925	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine Biosynthesis DAP Pathway
+926	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine and threonine metabolism in plants
+927	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine biosynthesis AAA pathway 2
+928	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine degradation
+929	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine fermentation
+930	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Lysine fermentation MCB 432
+967	Amino Acids and Derivatives	Aromatic amino acids and derivatives	MethanopterinAromatic
+969	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Methionine Biosynthesis
+970	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Methionine Degradation
+971	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Methionine Salvage
+972	Amino Acids and Derivatives	Lysine, threonine, methionine, and cysteine	Methionine and cysteine metabolism in plants
+986	Amino Acids and Derivatives	-	Amino acid racemase
+1042	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Anaerobic Oxidative Degradation of L-Ornithine
+1139	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Phenylalanine and Tyrosine Branches from Chorismate
+1154	Amino Acids and Derivatives	-	Phosphonoalanine utilization
+1164	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Arginine Biosynthesis extended
+1170	Amino Acids and Derivatives	Glutamine, glutamate, aspartate, asparagine; ammonia assimilation	Poly-gamma-glutamate biosynthesis
+1171	Amino Acids and Derivatives	Glutamine, glutamate, aspartate, asparagine; ammonia assimilation	Poly-gamma-glutamate biosynthesis COPY
+1174	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Arginine Deiminase Pathway
+1175	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Polyamine Metabolism
+1185	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Arginine and Ornithine Degradation
+1188	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Prenylated indole derivatives in actinomycetes
+1190	Amino Acids and Derivatives	Proline and 4-hydroxyproline	Proline Synthesis
+1191	Amino Acids and Derivatives	Proline and 4-hydroxyproline	Proline metabolism in plants
+1192	Amino Acids and Derivatives	Proline and 4-hydroxyproline	Proline, 4-hydroxyproline uptake and utilization
+1206	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Arginine metabolism and urea cycle in plants
+1228	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Aromatic amino acid degradation
+1232	Amino Acids and Derivatives	Arginine; urea cycle, polyamines	Putrescine utilization pathways
+1238	Amino Acids and Derivatives	Aromatic amino acids and derivatives	Aromatic amino acid interconversions with aryl acids
+1019	Arabinose Sensor and transport module	Arabinose	An Arabinose Sensor
+251	Carbohydrates	Nucleotide sugars	UDP-D-galacturonate biosynthesis in plants
+252	Carbohydrates	Nucleotide sugars	UDP-D-glucuronate, UDP-D-xylose and UDP-D-apiose biosynthesis in plants
+253	Carbohydrates	Nucleotide sugars	UDP-L-arabinose biosynthesis in plants
+254	Carbohydrates	Nucleotide sugars	UDP-L-rhamnose Biosynthesis in plants
+256	Carbohydrates	Nucleotide sugars	UDP-glucose and UDP-galactose biosynthesis in plants
+674	Carbohydrates	Aceton metabolism	Acetone carboxylase subunits 2
+775	Carbohydrates	Nucleotide sugars	GDP-sugars biosynthesis and interconversions in plants
+44	Carbohydrates	CO2 fixation	Rubisco shunt in plants
+63	Carbohydrates	One-carbon Metabolism	Serine-glyoxylate cycle
+89	Carbohydrates	One-carbon Metabolism	Soluble methane monooxygenase (sMMO)
+112	Carbohydrates	Polysaccharides	Starch biosynthesis in plants
+113	Carbohydrates	Polysaccharides	Starch degradation in plants
+130	Carbohydrates	Di- and oligosaccharides	Sucrose metabolism in plants
+131	Carbohydrates	Di- and oligosaccharides	Sucrose utilization
+132	Carbohydrates	Di- and oligosaccharides	Sucrose utilization Shewanella
+134	Carbohydrates	-	Sugar utilization in Thermotogales
+150	Carbohydrates	Central carbohydrate metabolism	TCA Cycle
+151	Carbohydrates	Central carbohydrate metabolism	TCA cycle in plants
+152	Carbohydrates	Monosaccharides	Tagatose utilization
+208	Carbohydrates	Organic acids	2-methylcitrate to 2-methylaconitate metabolism cluster
+223	Carbohydrates	Di- and oligosaccharides	Trehalose  metabolism in plants
+224	Carbohydrates	Di- and oligosaccharides	Trehalose Biosynthesis
+225	Carbohydrates	Di- and oligosaccharides	Trehalose Uptake and Utilization
+228	Carbohydrates	Organic acids	Tricarballylate Utilization
+265	Carbohydrates	-	Unknown carbohydrate utilization ( cluster Ydj )
+266	Carbohydrates	-	Unknown carbohydrate utilization ( cluster Yeg )
+267	Carbohydrates	Polysaccharides	Unknown carbohydrate utilization containing Fructose-bisphosphate aldolase
+268	Carbohydrates	Di- and oligosaccharides	Unknown oligosaccharide utilization Sde 1396
+269	Carbohydrates	-	Unknown sugar utilization (cluster yphABCDEFG)
+273	Carbohydrates	Monosaccharides	Unspecified monosaccharide transport cluster
+281	Carbohydrates	-	VC0266
+299	Carbohydrates	Polysaccharides	Xyloglucan Utilization
+301	Carbohydrates	Monosaccharides	Xylose utilization
+302	Carbohydrates	Monosaccharides	Xylose utilization in plants
+318	Carbohydrates	Central carbohydrate metabolism	acinetobacter tca
+319	Carbohydrates	CO2 fixation	alpha carboxysome
+321	Carbohydrates	CO2 fixation	beta carboxysome
+322	Carbohydrates	-	beta-glucuronide utilization
+339	Carbohydrates	One-carbon Metabolism	millsd methanogensis
+402	Carbohydrates	Di- and oligosaccharides	Beta-Glucoside Metabolism
+405	Carbohydrates	-	Beta-lactamase cluster in Streptococcus
+428	Carbohydrates	Fermentation	Butanol Biosynthesis
+515	Carbohydrates	CO2 fixation	CO2 uptake, carboxysome
+528	Carbohydrates	CO2 fixation	Calvin-Benson cycle
+529	Carbohydrates	CO2 fixation	Calvin-Benson-Bassham cycle in plants
+542	Carbohydrates	CO2 fixation	Carboxysome
+556	Carbohydrates	Polysaccharides	Cellulosome
+558	Carbohydrates	Aminosugars	Chitin and N-acetylglucosamine utilization
+559	Carbohydrates	Di- and oligosaccharides	Chitobiose
+575	Carbohydrates	Organic acids	CitAB
+576	Carbohydrates	Organic acids	Citrate Metabolism KE2
+580	Carbohydrates	-	Cluster Ytf and putative sugar transporter
+606	Carbohydrates	-	Conserved cluster around inner membrane protein gene yghQ, probably involved in polysaccharide biosynthesis
+635	Carbohydrates	Monosaccharides	D-Galacturonate and D-Glucuronate Utilization
+636	Carbohydrates	Monosaccharides	D-Sorbitol(D-Glucitol) and L-Sorbose Utilization
+637	Carbohydrates	Monosaccharides	D-Tagatose and Galactitol Utilization
+638	Carbohydrates	Monosaccharides	D-allose utilization
+639	Carbohydrates	Monosaccharides	D-galactarate, D-glucarate and D-glycerate catabolism
+640	Carbohydrates	Monosaccharides	D-galactarate, D-glucarate and D-glycerate catabolism - gjo
+641	Carbohydrates	Fermentation	Acetoin, butanediol metabolism
+642	Carbohydrates	Monosaccharides	D-galactonate catabolism
+643	Carbohydrates	Monosaccharides	D-gluconate and ketogluconates metabolism
+644	Carbohydrates	Aminosugars	D-glucosaminate utilization
+645	Carbohydrates	Monosaccharides	D-mannitol and D-mannose degradation in plants
+647	Carbohydrates	Monosaccharides	D-ribose utilization
+651	Carbohydrates	Fermentation	Acetone Butanol Ethanol Synthesis
+662	Carbohydrates	-	Acetone carboxylase
+678	Carbohydrates	Central carbohydrate metabolism	Dehydrogenase complexes
+681	Carbohydrates	Monosaccharides	Deoxyribose and Deoxynucleoside Catabolism
+683	Carbohydrates	Central carbohydrate metabolism	Dihydroxyacetone kinases
+697	Carbohydrates	Central carbohydrate metabolism	Acetyl-CoA biosynthesis in plants
+717	Carbohydrates	Fermentation	Acetyl-CoA fermentation to Butyrate
+719	Carbohydrates	Central carbohydrate metabolism	Entner-Doudoroff Pathway
+721	Carbohydrates	Sugar alcohols	Erythritol utilization
+723	Carbohydrates	Sugar alcohols	Ethanolamine utilization
+724	Carbohydrates	Central carbohydrate metabolism	Ethylmalonyl-CoA pathway of C2 assimilation
+725	Carbohydrates	Central carbohydrate metabolism	Ethylmalonyl-CoA pathway of C2 assimilation, GJO
+748	Carbohydrates	Fermentation	Fermentations: Lactate
+749	Carbohydrates	Fermentation	Fermentations: Mixed acid
+761	Carbohydrates	One-carbon Metabolism	Folate-mediated one-carbon metabolism in plants
+763	Carbohydrates	One-carbon Metabolism	Formaldehyde assimilation: Ribulose monophosphate pathway
+769	Carbohydrates	Di- and oligosaccharides	Fructooligosaccharides(FOS) and Raffinose Utilization
+771	Carbohydrates	Monosaccharides	Fructose utilization
+772	Carbohydrates	Aminosugars	Fructoselysine (Amadori product) utilization pathway
+777	Carbohydrates	Monosaccharides	Galactose degradation in plants
+799	Carbohydrates	Organic acids	Glycerate metabolism
+800	Carbohydrates	Sugar alcohols	Glycerol and Glycerol-3-phosphate Uptake and Utilization
+801	Carbohydrates	Sugar alcohols	Glycerol fermentation to 1,3-propanediol
+807	Carbohydrates	Polysaccharides	Glycogen metabolism
+808	Carbohydrates	Central carbohydrate metabolism	Glycolate, glyoxylate interconversions
+809	Carbohydrates	Central carbohydrate metabolism	Glycolysis and Gluconeogenesis
+810	Carbohydrates	Central carbohydrate metabolism	Glycolysis and Gluconeogenesis in plants
+811	Carbohydrates	Central carbohydrate metabolism	Glycolysis and Gluconeogenesis, including Archaeal enzymes
+812	Carbohydrates	Central carbohydrate metabolism	Glycolysis test
+814	Carbohydrates	Central carbohydrate metabolism	Glyoxylate bypass
+835	Carbohydrates	Monosaccharides	Hexose Phosphate Uptake System
+857	Carbohydrates	Sugar alcohols	Inositol catabolism
+871	Carbohydrates	Organic acids	Isobutyryl-CoA to Propionyl-CoA Module
+885	Carbohydrates	Monosaccharides	L-Arabinose utilization
+887	Carbohydrates	Monosaccharides	L-ascorbate utilization (and related gene clusters)
+888	Carbohydrates	Monosaccharides	L-fucose utilization
+889	Carbohydrates	Monosaccharides	L-fucose utilization temp
+890	Carbohydrates	Monosaccharides	L-rhamnose utilization
+895	Carbohydrates	Organic acids	Lactate utilization
+896	Carbohydrates	-	Lacto-N-Biose I and Galacto-N-Biose Metabolic Pathway
+897	Carbohydrates	Di- and oligosaccharides	Lactose and Galactose Uptake and Utilization
+898	Carbohydrates	Di- and oligosaccharides	Lactose utilization
+939	Carbohydrates	Organic acids	Malonate decarboxylase
+940	Carbohydrates	Organic acids	Malonate_
+941	Carbohydrates	Di- and oligosaccharides	Maltose and Maltodextrin Utilization
+943	Carbohydrates	Polysaccharides	Alpha-Amylase locus in Streptocococcus
+944	Carbohydrates	Sugar alcohols	Mannitol Utilization
+945	Carbohydrates	Monosaccharides	Mannose Metabolism
+950	Carbohydrates	Di- and oligosaccharides	Melibiose Utilization
+951	Carbohydrates	Di- and oligosaccharides	Melibiose degradation in plants
+954	Carbohydrates	Organic acids	Alpha-acetolactate operon
+962	Carbohydrates	One-carbon Metabolism	Methanogenesis
+963	Carbohydrates	One-carbon Metabolism	Methanogenesis from methylated compounds
+973	Carbohydrates	Organic acids	Methylcitrate cycle
+974	Carbohydrates	Central carbohydrate metabolism	Methylglyoxal Metabolism
+976	Carbohydrates	Aminosugars	(GlcNAc)2 Catabolic Operon
+1021	Carbohydrates	Monosaccharides	2-Ketogluconate Utilization
+1040	Carbohydrates	Aminosugars	N-Acetyl-Galactosamine and Galactosamine Utilization
+1052	Carbohydrates	Aminosugars	Neotrehalosadiamine (NTD) Biosynthesis Operon
+1079	Carbohydrates	One-carbon Metabolism	One-carbon metabolism by tetrahydropterines
+1095	Carbohydrates	One-carbon Metabolism	Particulate methane monooxygenase (pMMO)
+1097	Carbohydrates	Central carbohydrate metabolism	Pentose phosphate pathway
+1098	Carbohydrates	Central carbohydrate metabolism	Pentose phosphate pathway in plants
+1106	Carbohydrates	Central carbohydrate metabolism	Peripheral Glucose Catabolism Pathways
+1157	Carbohydrates	CO2 fixation	Photorespiration (oxidative C2 cycle)
+1158	Carbohydrates	CO2 fixation	Photorespiration (oxidative C2 cycle) in plants
+1184	Carbohydrates	-	Predicted mycobacterial monooxygenase
+1186	Carbohydrates	Di- and oligosaccharides	2-O-alpha-mannosyl-D-glycerate utilization
+1193	Carbohydrates	Sugar alcohols	Propanediol utilization
+1197	Carbohydrates	Organic acids	Propionate-CoA to Succinate Module
+1198	Carbohydrates	Organic acids	Propionyl-CoA to Succinyl-CoA Module
+1231	Carbohydrates	-	Putative sugar ABC transporter (ytf cluster)
+1241	Carbohydrates	Central carbohydrate metabolism	Pyruvate Alanine Serine Interconversions
+1242	Carbohydrates	Central carbohydrate metabolism	Pyruvate metabolism I: anaplerotic reactions, PEP
+1243	Carbohydrates	Central carbohydrate metabolism	Pyruvate metabolism II: acetyl-CoA, acetogenesis from pyruvate
+1244	Carbohydrates	Central carbohydrate metabolism	Pyruvate:ferredoxin oxidoreductase
+235	Cell Division and Cell Cycle	-	Two cell division clusters relating to chromosome partitioning
+308	Cell Division and Cell Cycle	-	YgjD and YeaZ
+366	Cell Division and Cell Cycle	-	Bacterial Cytoskeleton
+610	Cell Division and Cell Cycle	-	Control of cell elongation - division cycle in Bacilli
+622	Cell Division and Cell Cycle	-	Cyanobacterial Circadian Clock
+682	Cell Division and Cell Cycle	 Bacterial checkpoint control	Diadenylate cyclase cluster
+834	Cell Division and Cell Cycle	-	Heterocyst formation in cyanobacteria
+861	Cell Division and Cell Cycle	-	Intracellular septation in Enterobacteria
+936	Cell Division and Cell Cycle	-	Macromolecular synthesis operon
+988	Cell Division and Cell Cycle	-	MukBEF Chromosome Condensation
+14	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Rhamnose containing glycans
+64	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Serotype determining Capsular polysaccharide biosynthesis in Staphylococcus
+66	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Sialic Acid Metabolism
+90	Cell Wall and Capsule	Gram-Positive cell wall components	Sortase
+116	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Streptococcal Hyaluronic Acid Capsule
+155	Cell Wall and Capsule	Gram-Positive cell wall components	Teichoic and lipoteichoic acids biosynthesis
+157	Cell Wall and Capsule	Gram-Positive cell wall components	Teichuronic acid biosynthesis
+255	Cell Wall and Capsule	-	UDP-N-acetylmuramate from Fructose-6-phosphate Biosynthesis
+286	Cell Wall and Capsule	Gram-Negative cell wall components	Vibrio Core Oligosaccharide Biosynthesis
+287	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Vibrio Polysaccharide (VPS) Biosynthesis
+295	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Xanthan Exopolysaccharide Biosynthesis and Export
+309	Cell Wall and Capsule	Capsular and extracellular polysacchrides	YjbEFGH Locus Involved in Exopolysaccharide Production
+310	Cell Wall and Capsule	-	YjeE
+330	Cell Wall and Capsule	Capsular and extracellular polysacchrides	dTDP-rhamnose synthesis
+341	Cell Wall and Capsule	Cell wall of Mycobacteria	mycolic acid synthesis
+387	Cell Wall and Capsule	-	tRNA-dependent amino acid transfers
+398	Cell Wall and Capsule	Gram-Negative cell wall components	Bacteroides capsular polysaccharide transcription antitermination proteins
+427	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Brucella Wbk Region and LPS genes
+512	Cell Wall and Capsule	Capsular and extracellular polysacchrides	CMP-N-acetylneuraminate Biosynthesis
+533	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Capsular Polysaccharide (CPS) of Campylobacter
+534	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Capsular Polysaccharides Biosynthesis and Assembly
+535	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Capsular heptose biosynthesis
+536	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Capsular surface virulence antigen loci
+596	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Colanic acid biosynthesis
+613	Cell Wall and Capsule	Gram-Negative cell wall components	Core Oligosaccharide Glycosylation in Pseudomonas
+634	Cell Wall and Capsule	Gram-Positive cell wall components	D-Alanyl Lipoteichoic Acid Biosynthesis
+726	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Exopolysaccharide Biosynthesis
+731	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Extracellular Polysaccharide Biosynthesis of Streptococci
+855	Cell Wall and Capsule	Gram-Negative cell wall components	Inner membrane protein YhjD and conserved cluster involved in LPS biosynthesis
+858	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Alginate metabolism
+879	Cell Wall and Capsule	Gram-Negative cell wall components	KDO2-Lipid A biosynthesis
+893	Cell Wall and Capsule	Gram-Negative cell wall components	LOS core oligosaccharide biosynthesis
+901	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Legionaminic Acid Biosynthesis
+907	Cell Wall and Capsule	-	Lipid A biosynthesis in plants
+908	Cell Wall and Capsule	Gram-Negative cell wall components	Lipid A modifications
+909	Cell Wall and Capsule	Gram-Negative cell wall components	Lipid A-Ara4N pathway ( Polymyxin resistance )
+910	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Lipid-linked oligosaccharide synthesis related cluster
+914	Cell Wall and Capsule	Gram-Negative cell wall components	Lipopolysaccharide assembly
+916	Cell Wall and Capsule	Gram-Negative cell wall components	Lipopolysaccharide-related cluster in Alphaproteobacteria
+918	Cell Wall and Capsule	Gram-Negative cell wall components	Lipoprotein sorting system
+938	Cell Wall and Capsule	Gram-Negative cell wall components	Major Outer Membrane Proteins
+995	Cell Wall and Capsule	-	Murein Hydrolases
+1014	Cell Wall and Capsule	Cell wall of Mycobacteria	Mycobacterial cell wall virulence lipid phthiocerol dimycocerosate (PDIM)
+1035	Cell Wall and Capsule	Cell wall of Mycobacteria	Mycolic acid synthesis 2
+1071	Cell Wall and Capsule	Gram-Positive cell wall components	Anthrose Biosynthesis
+1074	Cell Wall and Capsule	Capsular and extracellular polysacchrides	O-Methyl Phosphoramidate Capsule Modification in Campylobacter
+1085	Cell Wall and Capsule	Gram-Negative cell wall components	Outer membrane
+1102	Cell Wall and Capsule	-	Peptidoglycan Biosynthesis
+1103	Cell Wall and Capsule	-	Peptidoglycan Crosslinking of Peptide Stems
+1104	Cell Wall and Capsule	-	Peptidoglycan biosynthesis--gjo
+1111	Cell Wall and Capsule	Gram-Negative cell wall components	Perosamine Synthesis Vibrio
+1155	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Phosphorylcholine incorporation in LPS
+1176	Cell Wall and Capsule	Gram-Positive cell wall components	Polyglycerolphosphate lipoteichoic acid biosynthesis
+1180	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Polysaccharide deacetylases
+1213	Cell Wall and Capsule	Capsular and extracellular polysacchrides	Pseudaminic Acid Biosynthesis
+1276	Cell Wall and Capsule	-	Raj MurE
+1281	Cell Wall and Capsule	-	Recycling of Peptidoglycan Amino Acids
+1282	Cell Wall and Capsule	-	Recycling of Peptidoglycan Amino Sugars
+623	Central metabolism	TCA	Cyanobacterial bypass in the TCA
+709	Central metabolism	-	EC 6.4.1.- Ligases that form carbon-carbon bonds
+61	Clustering-based subsystems	Chromosome Replication	SeqA and Co-occurring Genes
+137	Clustering-based subsystems	Sulfatases and sulfatase modifying factor 1 (and a hypothetical)	Sulfatases and sulfatase modifying factor 1
+246	Clustering-based subsystems	Type III secretion system, extended	Type III secretion systems, extended
+325	Clustering-based subsystems	Cell Division	cell division cluster containing FtsQ
+431	Clustering-based subsystems	Pigment biosynthesis	CBSS-176299.3.peg.235
+432	Clustering-based subsystems	Probably GTP or GMP signaling related	CBSS-176299.4.peg.1292
+433	Clustering-based subsystems	Ribosome-related cluster	A Gammaproteobacteria Cluster Relating to Translation
+434	Clustering-based subsystems	contains Thr-tRNA-syn, pyridoxine biosyn, lipid A biosyn, 3 hypos	CBSS-1806.1.peg.1285
+435	Clustering-based subsystems	Three hypotheticals linked to lipoprotein biosynthesis	CBSS-188.1.peg.9880
+436	Clustering-based subsystems	Shiga toxin cluster	CBSS-194948.1.peg.143
+437	Clustering-based subsystems	Cytochrome biogenesis	CBSS-196164.1.peg.1690
+438	Clustering-based subsystems	Cytochrome biogenesis	CBSS-196164.1.peg.461
+440	Clustering-based subsystems	Recombination related cluster	CBSS-198094.1.peg.4426
+442	Clustering-based subsystems	Fage-related, replication	CBSS-205914.5.peg.1403
+443	Clustering-based subsystems	Urate degradation	CBSS-205922.3.peg.1809
+444	Clustering-based subsystems	Lysine Biosynthesis	A Glutathione-dependent Thiol Reductase Associated with a Step in Lysine Biosynthesis
+448	Clustering-based subsystems	CRISPRs and associated hypotheticals	CBSS-216592.1.peg.3534
+450	Clustering-based subsystems	Nucleotidyl-phosphate metabolic cluster	CBSS-222523.1.peg.1311
+451	Clustering-based subsystems	Degradation of Polyphenols (?)	CBSS-232721.5.peg.360
+452	Clustering-based subsystems	Translation	CBSS-243265.1.peg.198
+453	Clustering-based subsystems	Fatty acid metabolic cluster	CBSS-246196.1.peg.364
+454	Clustering-based subsystems	Hypothetical protein possible functionally linked with Alanyl-tRNA synthetase	CBSS-257314.1.peg.488
+455	Clustering-based subsystems	Ribosomal Protein L28P relates to a set of uncharacterized proteins	A Gram-positive cluster that relates ribosomal protein L28P to a set of uncharacterized proteins
+456	Clustering-based subsystems	Two related proteases	CBSS-257314.1.peg.676
+457	Clustering-based subsystems	Biosynthesis of galactoglycans and related lipopolysacharides	CBSS-258594.1.peg.3339
+458	Clustering-based subsystems	recX and regulatory cluster	CBSS-261594.1.peg.788
+459	Clustering-based subsystems	Catabolism of an unknown compound	CBSS-262316.1.peg.2929
+461	Clustering-based subsystems	Methylamine utilization	CBSS-265072.7.peg.546
+462	Clustering-based subsystems	Probably organic hydroperoxide resistance related hypothetical protein	CBSS-269482.1.peg.1294
+463	Clustering-based subsystems	Molybdopterin oxidoreductase	CBSS-269799.3.peg.2220
+464	Clustering-based subsystems	DNA metabolism	CBSS-269801.1.peg.2186
+469	Clustering-based subsystems	Pyruvate kinase associated cluster	CBSS-288000.5.peg.1793
+471	Clustering-based subsystems	Probably Pyrimidine biosynthesis-related	CBSS-306254.1.peg.1508
+472	Clustering-based subsystems	Putative Isoquinoline 1-oxidoreductase subunit	CBSS-314267.3.peg.390
+473	Clustering-based subsystems	Putative asociate of RNA polymerase sigma-54 factor rpoN	CBSS-316057.3.peg.1308
+475	Clustering-based subsystems	Probably Ybbk-related hypothetical membrane proteins	CBSS-316057.3.peg.659
+478	Clustering-based subsystems	Hypothetical lipase related to Phosphatidate metabolism	CBSS-316407.3.peg.1371
+481	Clustering-based subsystems	Carotenoid biosynthesis	CBSS-320388.3.peg.3759
+482	Clustering-based subsystems	Flagella protein?	CBSS-323098.3.peg.2823
+483	Clustering-based subsystems	Chemotaxis, response regulators	CBSS-323850.3.peg.3142
+484	Clustering-based subsystems	Hypothetical in Lysine biosynthetic cluster	CBSS-323850.3.peg.3269
+485	Clustering-based subsystems	Putative GGDEF domain protein related to agglutinin secretion	CBSS-323850.3.peg.3284
+486	Clustering-based subsystems	Translation	CBSS-326442.4.peg.1852
+487	Clustering-based subsystems	DNA polymerase III epsilon cluster	CBSS-342610.3.peg.1536
+489	Clustering-based subsystems	D-tyrosyl-tRNA(Tyr) deacylase (EC 3.1.-.-) cluster	CBSS-342610.3.peg.283
+490	Clustering-based subsystems	Choline bitartrate degradation, putative	CBSS-344610.3.peg.2335
+492	Clustering-based subsystems	TldD cluster	CBSS-354.1.peg.2917
+493	Clustering-based subsystems	Biosynthesis of galactoglycans and related lipopolysacharides	CBSS-376686.6.peg.291
+494	Clustering-based subsystems	Protein export?	CBSS-393121.3.peg.2760
+495	Clustering-based subsystems	Related to Menaquinone-cytochrome C reductase 	CBSS-393130.3.peg.129
+496	Clustering-based subsystems	Cell Division	CBSS-393130.3.peg.794
+497	Clustering-based subsystems	Tricarboxylate transporter	CBSS-49338.1.peg.459
+500	Clustering-based subsystems	 Tartronate-semialdehyde related area (links to pyridoxine and aldorate metabolism)	CBSS-502800.3.peg.2785
+501	Clustering-based subsystems	alpha-proteobacterial cluster of hypotheticals	CBSS-52598.3.peg.2843
+503	Clustering-based subsystems	A bicyclomycin resistance protein, a helicase, and a pseudouridine synthase	CBSS-584.1.peg.841
+504	Clustering-based subsystems	Membrane-bound hydrogenase	CBSS-69014.3.peg.2094
+505	Clustering-based subsystems	Isoprenoid/cell wall biosynthesis: PREDICTED UNDECAPRENYL DIPHOSPHATE PHOSPHATASE	CBSS-83331.1.peg.3039
+507	Clustering-based subsystems	tRNA sulfuration	CBSS-89187.3.peg.2957
+549	Clustering-based subsystems	Cell Division	Cell Division Cluster
+550	Clustering-based subsystems	Cell Division	Cell Division Subsystem including YidCD
+552	Clustering-based subsystems	Cell Division	Cell division cluster containing FtsZ and FtsW
+581	Clustering-based subsystems	proteosome related	Cluster-based Subsystem Grouping Hypotheticals - perhaps Proteosome Related
+774	Clustering-based subsystems	Putrescine/GABA utilization cluster-temporal,to add to SSs	GABA and putrescine metabolism from cluters
+826	Clustering-based subsystems	heat shock, cell division, proteases, and a methyltransferase	Heat shock Cell division Proteases and a Methyltransferase
+850	Clustering-based subsystems	Hypothetical associated with RecF	Hypothetical Coupled to RecF
+851	Clustering-based subsystems	Hypothetical Related to Dihydroorate Dehydrogenase	Hypothetical Related to Dihydroorotate dehydrogenase
+1202	Clustering-based subsystems	Proteasome related clusters	Proteasome subunit alpha archaeal cluster
+1226	Clustering-based subsystems	Streptococcus cluster: maybe related to transport	Putative Toxic Anion Resistance Operon
+1277	Clustering-based subsystems	clustering of 2 heat shock proteins, phosphoenolpyruvate carboxykinase and a putative hydrolase	Rcs negative regulator IgaA
+108	Clustering-based subsystems	-	Sporulation-related Hypotheticals
+160	Clustering-based subsystems	-	TenI-like tautomerase
+346	Clustering-based subsystems	-	Bacterial Cell Division
+388	Clustering-based subsystems	-	tRNA-methylthiotransferase containing cluster
+422	Clustering-based subsystems	-	A DNA integrity scanning protein that co-occurs with RadA
+430	Clustering-based subsystems	-	CBSS-100226.1.peg.2266
+439	Clustering-based subsystems	-	CBSS-196620.1.peg.2477
+445	Clustering-based subsystems	-	CBSS-208964.1.peg.1012
+446	Clustering-based subsystems	-	CBSS-211586.1.peg.2357
+447	Clustering-based subsystems	-	CBSS-211586.1.peg.3133
+449	Clustering-based subsystems	-	CBSS-216592.1.peg.3937
+460	Clustering-based subsystems	-	CBSS-262719.3.peg.410
+465	Clustering-based subsystems	-	CBSS-279010.5.peg.3195
+467	Clustering-based subsystems	-	CBSS-280355.3.peg.2835
+468	Clustering-based subsystems	-	CBSS-281090.3.peg.464
+470	Clustering-based subsystems	-	CBSS-292415.3.peg.2341
+474	Clustering-based subsystems	-	CBSS-316057.3.peg.563
+476	Clustering-based subsystems	-	CBSS-316275.9.peg.382
+479	Clustering-based subsystems	-	CBSS-318161.14.peg.2599
+480	Clustering-based subsystems	-	CBSS-320372.3.peg.6046
+491	Clustering-based subsystems	-	CBSS-350688.3.peg.1509
+498	Clustering-based subsystems	-	CBSS-498211.3.peg.1514
+502	Clustering-based subsystems	-	CBSS-56780.10.peg.1536
+553	Clustering-based subsystems	-	Cell division-ribosomal stress proteins cluster
+590	Clustering-based subsystems	-	Coenzyme B12 related Hypothetical: Clusters with cobST
+710	Clustering-based subsystems	-	EC699-706
+892	Clustering-based subsystems	-	LMPTP YwlE cluster
+915	Clustering-based subsystems	-	Lipopolysaccharide assembly cluster
+1073	Clustering-based subsystems	-	NusA-TFII Cluster
+1227	Clustering-based subsystems	-	Putative diaminopropionate ammonia-lyase cluster
+1229	Clustering-based subsystems	-	Putative hemin transporter
+1275	Clustering-based subsystems	-	RP Bacterial Cell Division
+181	Cofactors, Vitamins, Prosthetic Groups, Pigments	Thiamin	ThiD ThiE fusions
+17	Cofactors, Vitamins, Prosthetic Groups, Pigments	Riboflavin, FMN, FAD	Riboflavin, FMN and FAD biosynthesis in plants
+18	Cofactors, Vitamins, Prosthetic Groups, Pigments	Riboflavin, FMN, FAD	Riboflavin, FMN and FAD metabolism Extended
+167	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Test - DHFR
+168	Cofactors, Vitamins, Prosthetic Groups, Pigments	Riboflavin, FMN, FAD	Test - Riboflavin
+170	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Test - Thiamin
+171	Cofactors, Vitamins, Prosthetic Groups, Pigments	Pyridoxine	Test Pyridoxin B6
+182	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Thiamin Copy RZ
+183	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Thiamin biosynthesis
+184	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Thiamin biosynthesis LDP
+185	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Thiamin biosynthesis in plants
+187	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Thiamine-biosynthesis
+194	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Tocopherols and tocotrienols (vitamin E) in plants and cyanobacteria
+229	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	B12 duf71
+239	Cofactors, Vitamins, Prosthetic Groups, Pigments	Lipoic acid	BEY LIP
+257	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Ubiquinone Biosynthesis
+259	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Ubiquinone biosynthesis -- gjo
+260	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Ubiquinone biosynthesis in plants
+306	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	YgfZ
+327	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme A	coA-FolK
+328	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme M	coenzyme M biosynthesis
+331	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme A	dcernst CoA Salvage
+332	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	dephospho-tetrahydromethanopterin biosynthesis MYousef
+333	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	ergothioneine biosynthesis
+337	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	methanopterin biosynthesis
+340	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	mycofactocin system
+343	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	p-Aminobenzoyl-Glutamate Utilization
+353	Cofactors, Vitamins, Prosthetic Groups, Pigments	Riboflavin, FMN, FAD	riboflavin to FAD
+404	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	5-FCL-like protein
+409	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Bilin Biosynthesis
+417	Cofactors, Vitamins, Prosthetic Groups, Pigments	Biotin	Biotin biosynthesis
+418	Cofactors, Vitamins, Prosthetic Groups, Pigments	Biotin	Biotin biosynthesis in plants
+419	Cofactors, Vitamins, Prosthetic Groups, Pigments	Biotin	Biotin synthesis & utilization
+511	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	CLO thiaminPP biosynthesis
+548	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	CbiZ Main
+564	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Chlorophyll Biosynthesis in plants and prokaryotes
+565	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Chlorophyll Degradation
+583	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Cobalamin
+584	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Cobalamin Dh
+585	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Cobalamin synthesis
+587	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme A	Coenzyme A Biosynthesis
+588	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme B	Coenzyme B synthesis
+589	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Coenzyme B12 biosynthesis
+592	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme F420	Coenzyme F420 synthesis
+594	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Coenzyme PQQ synthesis
+595	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme M	CoenzymeM Archaea
+614	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Core tetrapyrrole biosynthesis in plants
+720	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Ergothioneine Cyano
+730	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Experimental ThMP RZ
+737	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme F420	F420 bobik
+745	Cofactors, Vitamins, Prosthetic Groups, Pigments	Fe-S clusters	Fe-S cluster assembly
+756	Cofactors, Vitamins, Prosthetic Groups, Pigments	Riboflavin, FMN, FAD	Flavodoxin
+759	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Folate Biosynthesis
+760	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Folate biosynthesis in plants
+762	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	FolateExerciseMaizeClassVDC
+830	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Heme and Siroheme biosynthesis in plants
+831	Cofactors, Vitamins, Prosthetic Groups, Pigments	Tetrapyrroles	Heme biosynthesis orphans
+912	Cofactors, Vitamins, Prosthetic Groups, Pigments	Lipoic acid	Lipoate  transport
+913	Cofactors, Vitamins, Prosthetic Groups, Pigments	Lipoic acid	Lipoic acid metabolism
+952	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Menaquinone Biosynthesis via Futalosine
+953	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Menaquinone and Phylloquinone Biosynthesis
+955	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Menaquinone biosynthesis from chorismate via 1,4-dihydroxy-2-naphthoate
+956	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Menaquinone biosynthesis from chorismate via 1,4-dihydroxy-6-naphthoate
+960	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Methanofuran
+961	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Methanofuran erick jmorales
+966	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Methanopterin biosynthesis2
+983	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Molybdenum cofactor biosynthesis
+984	Cofactors, Vitamins, Prosthetic Groups, Pigments	-	Molybdopterin cytosine dinucleotide
+1044	Cofactors, Vitamins, Prosthetic Groups, Pigments	NAD and NADP	NAD and NADP cofactor biosynthesis global
+1045	Cofactors, Vitamins, Prosthetic Groups, Pigments	NAD and NADP	NAD regulation
+1054	Cofactors, Vitamins, Prosthetic Groups, Pigments	NAD and NADP	Niacin, NAD and NADP biosynthesis in plants
+1094	Cofactors, Vitamins, Prosthetic Groups, Pigments	Coenzyme A	Pantothenate and CoA biosynthesis in plants
+1168	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Plastoquinone Biosynthesis
+1169	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Plastoquinone biosynthesis in plants
+1216	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Pterin biosynthesis
+1218	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Pterin carbinolamine dehydratase
+1219	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Pterin metabolism
+1220	Cofactors, Vitamins, Prosthetic Groups, Pigments	Folate and pterines	Pterin metabolism 3
+1233	Cofactors, Vitamins, Prosthetic Groups, Pigments	Pyridoxine	Pyridoxin (Vitamin B6) Biosynthesis
+1234	Cofactors, Vitamins, Prosthetic Groups, Pigments	Pyridoxine	Pyridoxin(Vitamin B6) Degradation Pathway
+1235	Cofactors, Vitamins, Prosthetic Groups, Pigments	Pyridoxine	Pyridoxine (vitamin B6) biosynthesis in plants
+1239	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Pyrroloquinoline Quinone biosynthesis
+1254	Cofactors, Vitamins, Prosthetic Groups, Pigments	Quinone cofactors	Quinone disambuiguation
+12	DNA Metabolism	-	Restriction-Modification System
+46	DNA Metabolism	DNA recombination	RuvABC plus a hypothetical
+243	DNA Metabolism	-	Type I Restriction-Modification
+275	DNA Metabolism	DNA repair	Uracil-DNA glycosylase
+304	DNA Metabolism	-	YcfH
+315	DNA Metabolism	DNA repair	2-phosphoglycolate salvage
+521	DNA Metabolism	CRISPs	CRISP Cmr Cluster
+522	DNA Metabolism	CRISPs	CRISPR-associated cluster
+523	DNA Metabolism	CRISPs	CRISPRs
+597	DNA Metabolism	DNA repair	ATP-dependent Nuclease
+603	DNA Metabolism	DNA uptake, competence	Competence in Streptococci
+650	DNA Metabolism	DNA replication	DNA Helicase of Unknown Function
+652	DNA Metabolism	DNA repair	DNA Repair Base Excision
+653	DNA Metabolism	-	DNA phosphorothioation
+654	DNA Metabolism	DNA uptake, competence	DNA processing cluster
+655	DNA Metabolism	DNA recombination	DNA recombination, archaeal
+656	DNA Metabolism	DNA repair	DNA repair and recombination eukaryotic
+657	DNA Metabolism	DNA repair	DNA repair, UvrABC system
+658	DNA Metabolism	DNA repair	DNA repair, bacterial
+659	DNA Metabolism	DNA repair	DNA repair, bacterial DinG and relatives
+660	DNA Metabolism	DNA repair	DNA repair, bacterial MutL-MutS system
+661	DNA Metabolism	DNA repair	DNA repair, bacterial RecBCD pathway
+664	DNA Metabolism	DNA repair	DNA repair, bacterial RecFOR pathway
+665	DNA Metabolism	DNA repair	DNA repair, bacterial UmuCD system
+666	DNA Metabolism	DNA repair	DNA repair, bacterial UvrD and related helicases
+667	DNA Metabolism	DNA repair	DNA repair, bacterial photolyase
+668	DNA Metabolism	DNA replication	DNA replication, archaeal
+669	DNA Metabolism	-	DNA structural proteins, bacterial
+670	DNA Metabolism	DNA replication	DNA topoisomerases, Type I, ATP-independent
+671	DNA Metabolism	DNA replication	DNA topoisomerases, Type II, ATP-dependent
+673	DNA Metabolism	DNA replication	DNA-replication
+815	DNA Metabolism	DNA uptake, competence	Gram Positive Competence
+899	DNA Metabolism	DNA uptake, competence	Late competence
+1051	DNA Metabolism	DNA uptake, competence	Natural DNA Transformation in Vibrio
+1063	DNA Metabolism	DNA repair	Nonhomologous End-Joining in Bacteria
+1067	DNA Metabolism	-	Nucleoid-associated proteins in Bacteria
+1165	DNA Metabolism	DNA replication	Plasmid replication
+1280	DNA Metabolism	DNA repair	RecA and RecX
+84	Dormancy and Sporulation	Spore DNA protection	Small acid-soluble spore proteins
+96	Dormancy and Sporulation	-	SpoVS protein family
+97	Dormancy and Sporulation	-	Spore Core Dehydration
+98	Dormancy and Sporulation	-	Spore germination
+99	Dormancy and Sporulation	-	Spore pigment biosynthetic cluster in Actinomycetes
+101	Dormancy and Sporulation	-	Sporulation Cluster
+104	Dormancy and Sporulation	-	Sporulation Cluster III A
+105	Dormancy and Sporulation	-	Sporulation draft
+106	Dormancy and Sporulation	-	Sporulation gene orphans
+107	Dormancy and Sporulation	-	Sporulation-associated proteins with broader functions
+271	Dormancy and Sporulation	-	Bacillus Sporulation Killing Factor A Biosynthetic Cluster
+282	Dormancy and Sporulation	-	Bacillus biofilm matrix protein component TasA and homologs
+691	Dormancy and Sporulation	Spore DNA protection	Dipicolinate Synthesis
+729	Dormancy and Sporulation	-	Exosporium
+735	Dormancy and Sporulation	-	F1453 mlsummers
+1113	Dormancy and Sporulation	-	Persister Cells
+93	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Sphingolipid biosynthesis
+94	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Sphingolipid biosynthesis in plants
+226	Fatty Acids, Lipids, and Isoprenoids	Triacylglycerols	Triacylglycerol metabolism
+227	Fatty Acids, Lipids, and Isoprenoids	Triacylglycerols	Triacylglycerol metabolism in plants
+270	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Unsaturated Fatty Acid Metabolism
+272	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Unsaturated Fatty Acid biosynthesis in plants
+285	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Very long  fatty acid biosynthesis in plants
+320	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	archaeal lipids bobik
+349	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	polyprenyl synthesis
+407	Fatty Acids, Lipids, and Isoprenoids	-	Betaine lipids in bactera
+508	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	CDP-diacylglycerol biosynthesis in plants
+543	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Cardiolipin biosynthesis in plants
+544	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Carnitine Metabolism in Microorganisms
+545	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Carotenoid biosynthesis
+546	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Carotenoids
+568	Fatty Acids, Lipids, and Isoprenoids	-	Cholesterol catabolic operon in Mycobacteria
+571	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Choline biosynthesis in plants
+625	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Cyclopropane and cyclopropene fatty acids biosynthesis in plants
+707	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Acetyl-CoA carboxylase complexes in plants
+727	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Acyclic terpenes utilization
+739	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Fatty Acid Biosynthesis FASI
+740	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Fatty Acid Biosynthesis FASII
+741	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Fatty acid biosynthesis in plants (mitochondrial)
+742	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Fatty acid biosynthesis in plants (plastidial)
+743	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Fatty acid degradation regulons
+747	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Acyl-CoA thioesterase II
+802	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Glycerolipid and Glycerophospholipid Metabolism in Bacteria
+813	Fatty Acids, Lipids, and Isoprenoids	-	Glycosylglycerides biosynthesis in plants
+825	Fatty Acids, Lipids, and Isoprenoids	-	Head-to-head olefinic hydrocarbon biosynthesis
+873	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Isoprenoid Biosynthesis
+874	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Isoprenoid Biosynthesis: Interconversions
+875	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Isoprenoid biosynthesis in plants, mevalonate branch
+876	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Isoprenoid biosynthesis in plants, nonmevalonate branch
+877	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Isoprenoid scratch
+878	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Isoprenoinds for Quinones
+891	Fatty Acids, Lipids, and Isoprenoids	-	Alkane synthesis in bacteria 2
+998	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Mycobacterial FadD proteins (fatty acid CoA- and AMP- ligases)
+999	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Mycobacterial FadE proteins Acyl-CoA dehydrogenase
+1000	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Mycobacterial HadABC proteins ((3R)-hydroxyacyl-ACP dehydrates of FASII)
+1015	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Mycobacterial gene cluster associated with resistance against FAS-II antibiotics
+1037	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Myxoxanthophyll biosynthesis in Cyanobacteria
+1064	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Nonmevalonate Branch of Isoprenoid Biosynthesis
+1092	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	PUFA enrichment in oilseed in plants
+1101	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Archaeal lipids
+1144	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Phosphatidylcholine biosynthesis in plants
+1146	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Phosphatidylethanolamine biosynthesis in plants
+1147	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Phosphatidylglycerol biosynthesis in plants
+1151	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Phospholipid and Fatty acid biosynthesis related cluster
+1152	Fatty Acids, Lipids, and Isoprenoids	Phospholipids	Phospholipid desaturation in plants
+1172	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Poly-hydroxy fatty acids metabolism in plants
+1177	Fatty Acids, Lipids, and Isoprenoids	-	Polyhydroxybutyrate metabolism
+1179	Fatty Acids, Lipids, and Isoprenoids	Isoprenoids	Polyprenyl Diphosphate Biosynthesis
+1181	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Polyunsaturated Fatty Acids synthesis
+1182	Fatty Acids, Lipids, and Isoprenoids	-	Polyunsaturated fatty acids biosynthesis in plants
+1230	Fatty Acids, Lipids, and Isoprenoids	Fatty acids	Putative oxidase COG2907
+53	Iron acquisition and metabolism	Siderophores	Salmochelin-mediated Iron Acquisition
+67	Iron acquisition and metabolism	Siderophores	Siderophore Achromobactin
+68	Iron acquisition and metabolism	Siderophores	Siderophore Aerobactin
+70	Iron acquisition and metabolism	Siderophores	Siderophore Desferrioxamine E
+71	Iron acquisition and metabolism	Siderophores	Siderophore Enterobactin
+72	Iron acquisition and metabolism	Siderophores	Siderophore Pyoverdine
+73	Iron acquisition and metabolism	Siderophores	Siderophore Staphylobactin
+74	Iron acquisition and metabolism	Siderophores	Siderophore Yersiniabactin Biosynthesis
+75	Iron acquisition and metabolism	Siderophores	Siderophore [Alcaligin-like]
+76	Iron acquisition and metabolism	Siderophores	Siderophore assembly kit
+77	Iron acquisition and metabolism	Siderophores	Siderophore pyochelin
+217	Iron acquisition and metabolism	-	Transport of Iron
+261	Iron acquisition and metabolism	Siderophores	Bacillibactin Siderophore
+289	Iron acquisition and metabolism	Siderophores	Vibrioferrin synthesis
+317	Iron acquisition and metabolism	Siderophores	acinetobacter siderophore assembly
+530	Iron acquisition and metabolism	-	Campylobacter Iron Metabolism
+573	Iron acquisition and metabolism	-	ABC-type iron transport system
+750	Iron acquisition and metabolism	-	Ferrous iron transporter EfeUOB, low-pH-induced
+832	Iron acquisition and metabolism	-	Heme, hemin uptake and utilization systems in GramPositives
+833	Iron acquisition and metabolism	-	Hemin transport system
+847	Iron acquisition and metabolism	Siderophores	Alcaligin Siderophore
+864	Iron acquisition and metabolism	-	Iron Scavenging cluster in Thermus
+865	Iron acquisition and metabolism	-	Iron acquisition in Streptococcus
+866	Iron acquisition and metabolism	-	Iron acquisition in Vibrio
+867	Iron acquisition and metabolism	Siderophores	Iron siderophore sensor & receptor system
+868	Iron acquisition and metabolism	-	Iron(III) dicitrate transport system Fec
+1115	Iron acquisition and metabolism	Siderophores	Petrobactin-mediated iron uptake system
+1260	Iron acquisition and metabolism	-	RCJ pfr
+16	Membrane Transport	-	Riboflavin transporters
+57	Membrane Transport	Protein translocation across cytoplasmic membrane	SecY2-SecA2 Specialized Transport System
+86	Membrane Transport	Uni- Sym- and Antiporters	Sodium Hydrogen Antiporter
+133	Membrane Transport	Sugar Phosphotransferase Systems, PTS	Sucrose-specific PTS
+145	Membrane Transport	Protein secretion system, Type VI	T6SS BR
+175	Membrane Transport	Protein secretion system, Chaperone-Usher pathway (CU)	The fimbrial Sfm cluster
+176	Membrane Transport	Protein secretion system, Chaperone-Usher pathway (CU)	The fimbrial Stf cluster
+179	Membrane Transport	Protein secretion system, Chaperone-Usher pathway (CU)	The usher protein HtrE fimbrial cluster
+199	Membrane Transport	-	Ton and Tol transport systems
+200	Membrane Transport	Protein and nucleoprotein secretion system, Type IV	Toxin co-regulated pilus
+218	Membrane Transport	-	Transport of Manganese
+219	Membrane Transport	-	Transport of Molybdenum
+220	Membrane Transport	-	Transport of Nickel and Cobalt
+221	Membrane Transport	-	Transport of Zinc
+230	Membrane Transport	-	Tricarboxylate transport system
+234	Membrane Transport	Protein translocation across cytoplasmic membrane	Twin-arginine translocation system
+241	Membrane Transport	Protein and nucleoprotein secretion system, Type IV	Type 4 conjugative transfer system, IncI1 type
+244	Membrane Transport	Protein secretion system, Type III	Type III secretion system
+245	Membrane Transport	Protein secretion system, Type III	Type III secretion system orphans
+247	Membrane Transport	Protein and nucleoprotein secretion system, Type IV	Type IV pilus
+248	Membrane Transport	Protein secretion system, Type VI	Type VI secretion systems
+293	Membrane Transport	Protein secretion system, Type II	Widespread colonization island
+348	Membrane Transport	Protein and nucleoprotein secretion system, Type IV	pVir Plasmid of Campylobacter
+477	Membrane Transport	TRAP transporters	A TRAP transporter and a hypothetical
+510	Membrane Transport	ABC transporters	ABC transporter alkylphosphonate (TC 3.A.1.9.1)
+520	Membrane Transport	ABC transporters	ABC transporter branched-chain amino acid (TC 3.A.1.4.1)
+531	Membrane Transport	ABC transporters	ABC transporter dipeptide (TC 3.A.1.5.2)
+541	Membrane Transport	ABC transporters	ABC transporter of unknown substrate X
+551	Membrane Transport	ABC transporters	ABC transporter oligopeptide (TC 3.A.1.5.1)
+561	Membrane Transport	ABC transporters	ABC transporter tungstate (TC 3.A.1.6.2)
+569	Membrane Transport	-	Choline Transport
+577	Membrane Transport	-	Citrate Utilization System (CitAB, CitH, and tctABC)
+600	Membrane Transport	Protein secretion system, Chaperone-Usher pathway (CU)	Colonization factor antigen I fimbriae
+617	Membrane Transport	Protein secretion system, Type VIII (Extracellular nucleation/precipitation pathway, ENP)	Curli production
+619	Membrane Transport	ABC transporters	ATP-dependent efflux pump transporter Ybh
+693	Membrane Transport	Protein and nucleoprotein secretion system, Type IV	Dot-Icm type IV secretion system
+711	Membrane Transport	-	ECF class transporters
+712	Membrane Transport	Protein secretion system, Type VII	ESAT-6 proteins secretion system in Firmicutes
+713	Membrane Transport	Protein secretion system, Type VII	ESAT-6 proteins secretion system in Mycobacteria (locus ESX-1)
+770	Membrane Transport	Sugar Phosphotransferase Systems, PTS	Fructose and Mannose Inducible PTS
+778	Membrane Transport	Sugar Phosphotransferase Systems, PTS	Galactose-inducible PTS
+781	Membrane Transport	Protein secretion system, Type II	General Secretion Pathway
+818	Membrane Transport	-	Agrobacterium opine transport
+844	Membrane Transport	Protein translocation across cytoplasmic membrane	HtrA and Sec secretion
+946	Membrane Transport	Protein and nucleoprotein secretion system, Type IV	Mannose-sensitive hemagglutinin type 4 pilus
+1046	Membrane Transport	Uni- Sym- and Antiporters	Na(+) H(+) antiporter
+1099	Membrane Transport	ABC transporters	Peptide ABC transport system Sap
+1110	Membrane Transport	ABC transporters	Periplasmic-Binding-Protein-Dependent Transport System for &#945;-Glucosides
+1149	Membrane Transport	-	Phosphoglycerate transport system
+1187	Membrane Transport	Protein secretion system, Type II	Predicted secretion system X
+1212	Membrane Transport	Uni- Sym- and Antiporters	Proton-dependent Peptide Transporters
+50	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	Salicylate and gentisate catabolism
+51	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Salicylate ester degradation
+196	Metabolism of Aromatic Compounds	-	Toluene 4-monooxygenase (T4MO)
+198	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Toluene degradation
+284	Metabolism of Aromatic Compounds	-	Vanillate and syringate utilization
+324	Metabolism of Aromatic Compounds	-	carbazol degradation cluster
+342	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	n-Phenylalkanoic acid degradation
+344	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	p-Hydroxybenzoate degradation
+345	Metabolism of Aromatic Compounds	-	p-cymene degradation
+393	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	4-Hydroxyphenylacetic acid catabolic pathway
+399	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Benzoate catabolism
+400	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Benzoate degradation
+401	Metabolism of Aromatic Compounds	-	Benzoate transport and degradation cluster
+420	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Biphenyl Degradation
+547	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	Catechol branch of beta-ketoadipate pathway
+557	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	Central meta-cleavage pathway of aromatic compound degradation
+560	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Chloroaromatic degradation pathway
+563	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Chlorobenzoate degradation
+616	Metabolism of Aromatic Compounds	-	Cresol degradation
+686	Metabolism of Aromatic Compounds	Anaerobic degradation of aromatic compounds	Acetophenone carboxylase 1
+780	Metabolism of Aromatic Compounds	-	Gallic acid utilization
+782	Metabolism of Aromatic Compounds	-	Gentisate degradation
+841	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	Homogentisate pathway of aromatic compound degradation
+848	Metabolism of Aromatic Compounds	Anaerobic degradation of aromatic compounds	Hydroxyaromatic decarboxylase family
+1031	Metabolism of Aromatic Compounds	Anaerobic degradation of aromatic compounds	Anaerobic Aromatic Degredation (benzoate)
+1041	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	N-heterocyclic aromatic compound degradation
+1049	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Naphtalene and antracene degradation
+1050	Metabolism of Aromatic Compounds	Anaerobic degradation of aromatic compounds	Anaerobic benzoate metabolism
+1137	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Phenol hydroxylase
+1138	Metabolism of Aromatic Compounds	-	Phenylacetyl-CoA catabolic pathway (core)
+1140	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Phenylpropanoid compound degradation
+1211	Metabolism of Aromatic Compounds	Metabolism of central aromatic intermediates	Protocatechuate branch of beta-ketoadipate pathway
+1217	Metabolism of Aromatic Compounds	-	Aromatic Amin Catabolism
+1249	Metabolism of Aromatic Compounds	Peripheral pathways for catabolism of aromatic compounds	Quinate degradation
+31	Miscellaneous	Plant-Prokaryote comparative genomics	At1g48360
+39	Miscellaneous	Plant-Prokaryote comparative genomics	At1g54520
+47	Miscellaneous	Plant-Prokaryote comparative genomics	At1g69340 At2g40600
+80	Miscellaneous	Plant-Prokaryote comparative genomics	At2g33980 At1g28960
+82	Miscellaneous	Plant-Prokaryote comparative genomics	Single-Rhodanese-domain proteins
+91	Miscellaneous	Plant-Prokaryote comparative genomics	At2g44920 At1g12250
+141	Miscellaneous	Plant-Prokaryote comparative genomics	Synechocystis experimental
+147	Miscellaneous	Plant-Prokaryote comparative genomics	At5g04520 AT1G06240
+305	Miscellaneous	Plant-Prokaryote comparative genomics	YebC
+307	Miscellaneous	Plant-Prokaryote comparative genomics	YgfZ-Fe-S
+326	Miscellaneous	-	BactLuciferaseComplex
+376	Miscellaneous	-	Bacterial Luciferases
+415	Miscellaneous	-	Biolumenescence
+426	Miscellaneous	-	Broadly distributed proteins not in subsystems
+516	Miscellaneous	Plant-Prokaryote comparative genomics	COG0277
+517	Miscellaneous	Plant-Prokaryote comparative genomics	COG1836
+518	Miscellaneous	Plant-Prokaryote comparative genomics	COG2016
+519	Miscellaneous	Plant-Prokaryote comparative genomics	COG2363
+604	Miscellaneous	Plant-Prokaryote comparative genomics	Competence or DNA damage-inducible protein CinA and related protein families
+607	Miscellaneous	Plant-Prokaryote comparative genomics	Conserved gene cluster possibly involved in RNA metabolism
+694	Miscellaneous	-	EC 2.7.1.- Phosphotransferases with an alcohol group as acceptor
+703	Miscellaneous	-	EC 4. 1. 1.- Carboxy-lyases
+704	Miscellaneous	-	EC 4.1.2.- Aldehyde-lyases
+705	Miscellaneous	-	EC 4.1.3.- Oxo-acid-lyases
+706	Miscellaneous	-	EC 5.1.2.- Racemaces and epimerases acting on hydroxy acids and derivatives
+708	Miscellaneous	-	EC 6.3.4.- Ligases that form carbon-nitrogen bonds
+863	Miscellaneous	Plant-Prokaryote comparative genomics	IojapClusters
+894	Miscellaneous	Lactate racemization	Lactate Racemization
+924	Miscellaneous	-	Luciferases
+959	Miscellaneous	-	Metabolite repair
+981	Miscellaneous	-	Microbial ethylene biosynthesis
+987	Miscellaneous	-	Muconate lactonizing enzyme family
+1017	Miscellaneous	-	Mycobacterium jamboree
+1055	Miscellaneous	-	Nicotinate catabolism, anaerobic
+1076	Miscellaneous	Plant-Prokaryote comparative genomics	Omega-amidase
+1077	Miscellaneous	Plant-Prokaryote comparative genomics	Omega-amidase KE
+1078	Miscellaneous	Plant-Prokaryote comparative genomics	Omega-amidase KE2
+1145	Miscellaneous	-	Archease
+1156	Miscellaneous	-	Archease2
+13	Motility and Chemotaxis	Social motility and nonflagellar swimming in bacteria	Rhamnolipids in Pseudomonas
+355	Motility and Chemotaxis	-	Bacterial Chemotaxis
+392	Motility and Chemotaxis	Social motility and nonflagellar swimming in bacteria	Bacterial motility:Gliding
+609	Motility and Chemotaxis	Social motility and nonflagellar swimming in bacteria	Control of Swarming in Vibrio and Shewanella species
+751	Motility and Chemotaxis	Flagellar motility in Prokaryota	Flagellar motility
+752	Motility and Chemotaxis	Flagellar motility in Prokaryota	Flagellum
+753	Motility and Chemotaxis	Flagellar motility in Prokaryota	Flagellum in Campylobacter
+766	Motility and Chemotaxis	Flagellar motility in Prokaryota	Additional flagellar genes in Vibrionales
+937	Motility and Chemotaxis	Magnetotaxis	Magnetosome
+1091	Motility and Chemotaxis	Flagellar motility in Prokaryota	Archaeal Flagellum
+621	Nitrogen Metabolism	-	Cyanate hydrolysis
+679	Nitrogen Metabolism	-	Denitrification
+692	Nitrogen Metabolism	-	Dissimilatory nitrite reductase
+932	Nitrogen Metabolism	-	Allantoin Utilization
+975	Nitrogen Metabolism	-	Amidase clustered with urea and nitrile hydratase functions
+1008	Nitrogen Metabolism	-	Ammonia assimilation
+1056	Nitrogen Metabolism	-	Nitrate and nitrite ammonification
+1057	Nitrogen Metabolism	-	Nitric oxide synthase
+1058	Nitrogen Metabolism	-	Nitrilase
+1059	Nitrogen Metabolism	-	Nitrogen Metabolism in Aspergillus nidulans
+1061	Nitrogen Metabolism	-	Nitrogen fixation
+1062	Nitrogen Metabolism	-	Nitrosative stress
+22	Nucleosides and Nucleotides	-	Ribonucleotide reduction
+296	Nucleosides and Nucleotides	Purines	Xanthine Metabolism in Bacteria
+297	Nucleosides and Nucleotides	Purines	Xanthosine utilization (xap region)
+350	Nucleosides and Nucleotides	Pyrimidines	pyrimidine conversions
+579	Nucleosides and Nucleotides	-	AMP to 3-phosphoglycerate
+675	Nucleosides and Nucleotides	Purines	De Novo Purine Biosynthesis
+676	Nucleosides and Nucleotides	Pyrimidines	De Novo Pyrimidine Synthesis
+776	Nucleosides and Nucleotides	-	Adenosyl nucleosidases
+845	Nucleosides and Nucleotides	-	Hydantoin metabolism
+1066	Nucleosides and Nucleotides	Pyrimidines	Novel non-oxidative pathway of Uracil catabolism
+1215	Nucleosides and Nucleotides	-	Pseudouridine Metabolism
+1221	Nucleosides and Nucleotides	Purines	Purine Utilization
+1222	Nucleosides and Nucleotides	Purines	Purine conversions
+1223	Nucleosides and Nucleotides	Purines	Purine de novo biosynthesis in plants
+1224	Nucleosides and Nucleotides	Purines	Purine nucleotide synthesis regulator
+1236	Nucleosides and Nucleotides	Pyrimidines	Pyrimidine de novo biosynthesis in plants
+1237	Nucleosides and Nucleotides	Pyrimidines	Pyrimidine utilization
+146	Phages, Prophages, Transposable elements	Phage family-specific subsystems	T7-like cyanophage core proteins
+148	Phages, Prophages, Transposable elements	Phage family-specific subsystems	T7-like non-cyanophage core proteins
+222	Phages, Prophages, Transposable elements	-	Transposase in enterics
+1117	Phages, Prophages, Transposable elements	Superinfection Exclusion	Phage Dual Exonuclease Exclusion
+1120	Phages, Prophages, Transposable elements	Bacteriophage structural proteins	Phage capsid proteins
+1122	Phages, Prophages, Transposable elements	Phage family-specific subsystems	Phage cyanophage
+1124	Phages, Prophages, Transposable elements	Phage Host Interactions	Phage entry and exit
+1126	Phages, Prophages, Transposable elements	Bacteriophage integration/excision/lysogeny	Phage integration and excision
+40	Phages, Prophages, Transposable elements, Plasmids	Plasmid related functions	Rolling-circle replication
+109	Phages, Prophages, Transposable elements, Plasmids	Pathogenicity islands	Staphylococcal pathogenicity islands SaPI
+110	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Staphylococcal phi-Mu50B-like prophages
+143	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	T4-like cyanophage core proteins
+144	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	T4-like non-cyanophage core proteins
+149	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	T7-like phage core proteins
+193	Phages, Prophages, Transposable elements, Plasmids	Transposable elements	Tn552
+288	Phages, Prophages, Transposable elements, Plasmids	Pathogenicity islands	Vibrio pathogenicity island
+441	Phages, Prophages, Transposable elements, Plasmids	Transposable elements	CBSS-203122.12.peg.188
+605	Phages, Prophages, Transposable elements, Plasmids	Transposable elements	Conjugative transposon, Bacteroidales
+852	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	IbrA and IbrB: co-activators of prophage gene expression
+859	Phages, Prophages, Transposable elements, Plasmids	-	Integrons
+919	Phages, Prophages, Transposable elements, Plasmids	Pathogenicity islands	Listeria Pathogenicity Island LIPI-1 extended
+920	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Listeria phi-A118-like prophages
+1116	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage DNA methyltransferases
+1118	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage Ea cluster
+1119	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage Family Inoviridae
+1121	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage carbon metabolism
+1125	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage head and packaging
+1127	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage neck proteins
+1128	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage nin genes - N-independent survival
+1129	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage packaging machinery
+1130	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage photosynthesis
+1132	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage tail fiber proteins
+1133	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Phage tail proteins 2
+1166	Phages, Prophages, Transposable elements, Plasmids	Plasmid related functions	Plasmid-encoded T-DNA transfer
+1194	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Prophage lysogenic conversion modules
+1196	Phages, Prophages, Transposable elements, Plasmids	Phages, Prophages	Prophage-encoded Rst operon
+837	Phosphorus Metabolism	-	High affinity phosphate transporter and control of PHO regulon
+922	Phosphorus Metabolism	-	Alkylphosphonate utilization
+1089	Phosphorus Metabolism	-	P uptake (cyanobacteria)
+1143	Phosphorus Metabolism	-	Phosphate metabolism
+1148	Phosphorus Metabolism	-	Phosphoenolpyruvate phosphomutase
+1153	Phosphorus Metabolism	-	Phosphonate metabolism
+391	Photosynthesis	Light-harvesting complexes	Bacterial light-harvesting proteins
+397	Photosynthesis	-	Bacteriorhodopsin
+566	Photosynthesis	Light-harvesting complexes	Chlorosome
+1159	Photosynthesis	Electron transport and photophosphorylation	Photosystem I
+1160	Photosynthesis	Electron transport and photophosphorylation	Photosystem I-type photosynthetic reaction center
+1161	Photosynthesis	Electron transport and photophosphorylation	Photosystem II
+1162	Photosynthesis	Electron transport and photophosphorylation	Photosystem II-type photosynthetic reaction center
+1163	Photosynthesis	Light-harvesting complexes	Phycobilisome
+1210	Photosynthesis	-	Proteorhodopsin
+100	Plant cell walls and outer surfaces	-	Sporopollenin biosynthesis in plants
+128	Plant cell walls and outer surfaces	-	Suberin biosynthesis in plants
+298	Plant cell walls and outer surfaces	-	Xylan degradation in plants
+300	Plant cell walls and outer surfaces	-	Xyloglucan biosynthesis in plants
+527	Plant cell walls and outer surfaces	-	Callose biosynthesis in plants
+555	Plant cell walls and outer surfaces	-	Cellulose biosynthesis in plants
+618	Plant cell walls and outer surfaces	-	Cuticular wax in plants
+620	Plant cell walls and outer surfaces	-	Cutin biosynthesis in plants
+906	Plant cell walls and outer surfaces	-	Lignin biosynthesis in plants
+1096	Plant cell walls and outer surfaces	-	Pectin metabolism in plants
+347	Potassium metabolism	-	pH adaptation potassium efflux system
+793	Potassium metabolism	-	Glutathione-regulated potassium-efflux system and associated functions
+849	Potassium metabolism	-	Hyperosmotic potassium uptake
+1183	Potassium metabolism	-	Potassium homeostasis
+10	Predictions based on plant-prokaryote comparative analysis	-	At1g26220 At1g32070
+20	Predictions based on plant-prokaryote comparative analysis	-	At1g33290 At1g73170 At3g10420
+58	Predictions based on plant-prokaryote comparative analysis	-	At2g23840
+69	Predictions based on plant-prokaryote comparative analysis	-	At2g25870
+102	Predictions based on plant-prokaryote comparative analysis	-	At3g21300
+114	Predictions based on plant-prokaryote comparative analysis	-	At3g50560
+125	Predictions based on plant-prokaryote comparative analysis	-	At4g10620 At3g57180 At3g47450
+136	Predictions based on plant-prokaryote comparative analysis	-	At4g17370
+1257	Predictions based on plant-prokaryote comparative analysis	-	At1g01770
+1268	Predictions based on plant-prokaryote comparative analysis	-	At1g14345
+1279	Predictions based on plant-prokaryote comparative analysis	-	At1g21350
+1290	Predictions based on plant-prokaryote comparative analysis	-	At1g24340
+15	Protein Metabolism	Protein processing and modification	Rhombosortase
+23	Protein Metabolism	Protein processing and modification	Ribosomal protein S12p Asp methylthiotransferase
+24	Protein Metabolism	Protein processing and modification	Ribosomal protein S5p acylation
+25	Protein Metabolism	Protein biosynthesis	Ribosomal protein paralogs
+26	Protein Metabolism	Protein biosynthesis	Ribosomal proteins, zinc requirement
+27	Protein Metabolism	Protein biosynthesis	Ribosome LSU bacterial
+28	Protein Metabolism	Protein biosynthesis	Ribosome LSU chloroplast
+29	Protein Metabolism	Protein biosynthesis	Ribosome LSU eukaryotic and archaeal
+30	Protein Metabolism	Protein biosynthesis	Ribosome LSU mitochondrial
+32	Protein Metabolism	Protein biosynthesis	Ribosome SSU bacterial
+33	Protein Metabolism	Protein biosynthesis	Ribosome SSU chloroplast
+34	Protein Metabolism	Protein biosynthesis	Ribosome SSU eukaryotic and archaeal
+35	Protein Metabolism	Protein biosynthesis	Ribosome SSU mitochondrial
+36	Protein Metabolism	Protein biosynthesis	Ribosome activity modulation
+38	Protein Metabolism	Protein biosynthesis	Ribosome biogenesis bacterial
+48	Protein Metabolism	Protein processing and modification	SCIFF peptide maturase system
+59	Protein Metabolism	Selenoproteins	Selenocysteine metabolism
+60	Protein Metabolism	Selenoproteins	Selenoprotein O
+79	Protein Metabolism	Protein processing and modification	Signal peptidase
+83	Protein Metabolism	Protein biosynthesis	Single-copy ribosomal proteins
+180	Protein Metabolism	Protein folding	Thermosome, archaeal
+205	Protein Metabolism	Protein biosynthesis	Trans-translation by stalled ribosomes
+211	Protein Metabolism	Protein biosynthesis	Translation elongation factor G family
+212	Protein Metabolism	Protein biosynthesis	Translation elongation factors bacterial
+213	Protein Metabolism	Protein biosynthesis	Translation elongation factors eukaryotic and archaeal
+214	Protein Metabolism	Protein biosynthesis	Translation initiation factors bacterial
+215	Protein Metabolism	Protein biosynthesis	Translation initiation factors eukaryotic and archaeal
+216	Protein Metabolism	Protein biosynthesis	Translation termination factors bacterial
+236	Protein Metabolism	Secretion	Two partner secretion pathway (TPS)
+262	Protein Metabolism	Protein processing and modification	Ubiquitin-like archaeal modifier proteins (SAMPs)
+263	Protein Metabolism	Protein biosynthesis	Universal GTPases
+359	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Ala
+360	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Arg
+361	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Asp and Asn
+362	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Cys
+363	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Glu and Gln
+364	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Gly
+365	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, His
+367	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Ile
+368	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Leu
+369	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Lys
+370	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Met
+371	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Phe
+372	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Pyr
+373	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Ser
+374	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Thr
+375	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Trp
+377	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Tyr
+378	Protein Metabolism	Protein biosynthesis	tRNA aminoacylation, Val
+524	Protein Metabolism	Protein processing and modification	CXXX repeat peptide maturase system
+689	Protein Metabolism	Protein processing and modification	Diphthamide biosynthesis
+696	Protein Metabolism	Protein degradation	EC 3.4.11.- Aminopeptidases
+698	Protein Metabolism	Protein degradation	EC 3.4.13.- Dipeptidases
+699	Protein Metabolism	Protein degradation	EC 3.4.17.- Metallocarboxypeptidases
+700	Protein Metabolism	Protein degradation	EC 3.4.19.- Omega peptidases
+701	Protein Metabolism	Protein degradation	EC 3.4.21.- Serine endopeptidase
+702	Protein Metabolism	Protein degradation	EC 3.4.24.- Metalloendopeptidases
+746	Protein Metabolism	Protein processing and modification	FeFe hydrogenase maturation
+806	Protein Metabolism	Selenoproteins	Glycine reductase, sarcosine reductase and betaine reductase
+817	Protein Metabolism	Protein folding	GroEL GroES
+860	Protein Metabolism	Protein processing and modification	Inteins
+917	Protein Metabolism	Protein processing and modification	Lipoprotein Biosynthesis
+982	Protein Metabolism	Protein processing and modification	Modification of eukaryotic initiation factor 5A
+1043	Protein Metabolism	Protein processing and modification	N-linked Glycosylation in Bacteria
+1068	Protein Metabolism	Protein biosynthesis	Nucleolar protein complex
+1100	Protein Metabolism	Protein processing and modification	Peptide methionine sulfoxide reductase
+1105	Protein Metabolism	Protein folding	Peptidyl-prolyl cis-trans isomerase
+1109	Protein Metabolism	Protein folding	Periplasmic disulfide interchange
+1123	Protein Metabolism	Protein processing and modification	Archaeosortase C system
+1134	Protein Metabolism	Protein processing and modification	Archeaosortase A system
+1189	Protein Metabolism	Protein biosynthesis	Programmed frameshift
+1199	Protein Metabolism	Protein degradation	Proteasome archaeal
+1200	Protein Metabolism	Protein degradation	Proteasome bacterial
+1201	Protein Metabolism	Protein degradation	Proteasome eukaryotic
+1204	Protein Metabolism	Protein processing and modification	Protein Acetylation and Deacetylation in Bacteria
+1205	Protein Metabolism	Protein folding	Protein chaperones
+1207	Protein Metabolism	Protein degradation	Protein degradation
+1208	Protein Metabolism	Secretion	Protein secretion by ABC-type exporters
+1209	Protein Metabolism	Protein degradation	Proteolysis in bacteria, ATP-dependent
+1225	Protein Metabolism	Protein degradation	Putative TldE-TldD proteolytic complex
+1240	Protein Metabolism	Protein biosynthesis	Pyrrolysine
+1250	Protein Metabolism	Protein processing and modification	Quinohemoprotein amine dehydrogenase maturation
+65	Regulation and Cell signaling	-	Sex pheromones in Enterococcus faecalis and other Firmicutes
+92	Regulation and Cell signaling	Regulation of virulence	SpeB-SpeF extended regulon
+117	Regulation and Cell signaling	Regulation of virulence	Streptococcal Mga Regulon
+123	Regulation and Cell signaling	Regulation of virulence	Streptococcus pyogenes virulence regulators
+127	Regulation and Cell signaling	-	Stringent Response, (p)ppGpp metabolism
+140	Regulation and Cell signaling	Quorum sensing and biofilm formation	Symbiotic colonization and sigma-dependent biofilm formation gene cluster
+174	Regulation and Cell signaling	-	The Chv regulatory system of Alphaproteobacteria
+177	Regulation and Cell signaling	Quorum sensing and biofilm formation	Autoinducer 2 (AI-2) transport and processing (lsrACDBFGE operon)
+201	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Toxin-antitoxin replicon stabilization systems
+202	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Toxin-antitoxin system in Mycobacterium
+203	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Toxin-antitoxin systems (other than RelBE and MazEF)
+204	Regulation and Cell signaling	-	Trans-envelope signaling system VreARI in Pseudomonas
+237	Regulation and Cell signaling	Regulation of virulence	Two-component Response Regulator of Virulence ResDE
+238	Regulation and Cell signaling	-	Two-component regulatory systems in Campylobacter
+250	Regulation and Cell signaling	-	BOX, RUP and SPRITE repeats in Streptococcus pneumoniae
+290	Regulation and Cell signaling	Regulation of virulence	VieSAB signal transduction system of Vibrio
+291	Regulation and Cell signaling	-	WhiB and WhiB-type regulatory proteins_
+313	Regulation and Cell signaling	-	Zinc regulated enzymes
+323	Regulation and Cell signaling	-	cAMP signaling in bacteria
+335	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Bacterial Caspases
+410	Regulation and Cell signaling	Quorum sensing and biofilm formation	Biofilm Adhesin Biosynthesis
+411	Regulation and Cell signaling	Quorum sensing and biofilm formation	Biofilm formation in Staphylococcus
+488	Regulation and Cell signaling	Regulation of virulence	A conserved operon linked to TyrR and possibly involved in virulence
+499	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	A toxin-antitoxin module cotranscribed with DinB
+554	Regulation and Cell signaling	-	Cell envelope-associated LytR-CpsA-Psr transcriptional attenuators
+582	Regulation and Cell signaling	Proteolytic pathway	Coagulation cascade
+628	Regulation and Cell signaling	-	CytR regulation
+672	Regulation and Cell signaling	-	DNA-binding regulatory proteins, strays
+736	Regulation and Cell signaling	Quorum sensing and biofilm formation	Acyl Homoserine Lactone (AHL) Autoinducer Quorum Sensing_
+768	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Fratricide in Streptococcus
+773	Regulation and Cell signaling	-	G-protein-coupled receptor (GPCR) system in Actinobacteria
+783	Regulation and Cell signaling	-	Global Two-component Regulator PrrBA in Proteobacteria
+824	Regulation and Cell signaling	-	HPr catabolite repression system
+862	Regulation and Cell signaling	-	Iojap
+935	Regulation and Cell signaling	Proteolytic pathway	MT1-MMP Pericellular Network
+948	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	MazEF toxin-antitoxing (programmed cell death) system
+996	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Murein hydrolase regulation and cell death
+1080	Regulation and Cell signaling	-	Orphan regulatory proteins
+1087	Regulation and Cell signaling	-	Oxygen and light sensor PpaA-PpsR
+1090	Regulation and Cell signaling	Signal transduction in Eukaryotes	P38 MAP kinase pathways
+1135	Regulation and Cell signaling	Programmed Cell Death and Toxin-antitoxin Systems	Phd-Doc, YdcE-YdcD toxin-antitoxin (programmed cell death) systems
+1150	Regulation and Cell signaling	Signal transduction in Eukaryotes	Phosphoinositides biosynthesis in plants
+1167	Regulation and Cell signaling	Signal transduction in Eukaryotes	Plastidial (p)ppGpp-mediated response in plants
+1214	Regulation and Cell signaling	-	Pseudomonas quinolone signal PQS
+1256	Regulation and Cell signaling	Quorum sensing and biofilm formation	Quorum sensing in Yersinia
+1258	Regulation and Cell signaling	Quorum sensing and biofilm formation	Quorum sensing regulation in Pseudomonas
+1259	Regulation and Cell signaling	Quorum sensing and biofilm formation	Quorum-sensing in Vibrio
+1278	Regulation and Cell signaling	-	Rcs phosphorelay signal transduction pathway
+1286	Regulation and Cell signaling	Proteolytic pathway	Regulatory Intramembrane Proteolysis Pathways
+5	Respiration	Mitochondrial electron transport system in plants	Respiratory complex I in plants (mitochondrial)
+6	Respiration	Plastidial (cyanobacterial) electron transport system	Respiratory complex I in plants (plastidial) and cyanobacteria
+7	Respiration	Mitochondrial electron transport system in plants	Respiratory complex II (succinate dehydrogenase) in plants
+8	Respiration	Mitochondrial electron transport system in plants	Respiratory complex III (cytochrome b-c1) in plants
+9	Respiration	Mitochondrial electron transport system in plants	Respiratory complex IV (terminal cytochrome c oxidase) in plants
+41	Respiration	General Stress Response and Stationary Phase Response	RpoS Regulators SG1
+629	Respiration	Plastidial (cyanobacterial) electron transport system	Cytochrome b6-f complex in plants (plastidial) and cyanobacteria
+733	Respiration	Mitochondrial electron transport system in plants	F0F1-type ATP synthase in plants (mitochondrial)
+734	Respiration	Plastidial (cyanobacterial) electron transport system	F0F1-type ATP synthase in plants (plastidial)
+1251	Respiration	Mitochondrial electron transport system in plants	Quinol oxidases in plants (mitochondrial)
+1252	Respiration	Plastidial (cyanobacterial) electron transport system	Quinol oxidases in plants (plastidial)
+2	Respiration	Electron accepting reactions	Respiration / HGM
+3	Respiration	Electron accepting reactions	Respiration / Human gut microbiome
+4	Respiration	Electron donating reactions	Respiratory Complex I
+11	Respiration	Electron donating reactions	Respiratory dehydrogenases 1
+87	Respiration	-	Soluble cytochromes and functionally related electron carriers
+88	Respiration	-	Soluble electron carriers in plants
+129	Respiration	Electron donating reactions	Succinate dehydrogenase
+161	Respiration	Electron accepting reactions	Terminal AA3-600 quinol oxidase
+162	Respiration	Electron accepting reactions	Terminal cytochrome C oxidases
+163	Respiration	Electron accepting reactions	Terminal cytochrome O ubiquinol oxidase
+164	Respiration	Electron accepting reactions	Terminal cytochrome d ubiquinol oxidases
+165	Respiration	Electron accepting reactions	Terminal cytochrome oxidases
+173	Respiration	Electron accepting reactions	Tetrathionate respiration
+258	Respiration	Electron accepting reactions	Ubiquinone Menaquinone-cytochrome c reductase complexes
+279	Respiration	ATP synthases	V-Type ATP synthase
+280	Respiration	ATP synthases	V-Type ATP synthase in plants (vacuolar)
+389	Respiration	Electron accepting reactions	trimethylamine N-oxide (TMAO) reductase
+412	Respiration	-	Biogenesis of c-type cytochromes
+413	Respiration	-	Biogenesis of cbb3-type cytochrome c oxidases
+414	Respiration	-	Biogenesis of cytochrome c oxidases
+514	Respiration	Electron donating reactions	CO Dehydrogenase
+539	Respiration	-	Carbon monoxide dehydrogenase maturation factors
+540	Respiration	-	Carbon monoxide induced hydrogenase
+591	Respiration	Electron donating reactions	Coenzyme F420 hydrogenase
+593	Respiration	Electron donating reactions	Coenzyme F420-H2 dehydrogenase (methanophenazine)
+715	Respiration	Reverse electron transport	Energy conserving hydrogenase b, Methanococcales-Methanobacteriales-Methanopyrales
+716	Respiration	Reverse electron transport	Energy conserving hydrogenase, Methanococcales-Methanobacteriales-Methanopyrales
+718	Respiration	Electron donating reactions	Energy-conserving hydrogenase (ferredoxin)
+732	Respiration	ATP synthases	F0F1-type ATP synthase
+744	Respiration	Electron accepting reactions	Fe(III) respiration - Shewanella type
+755	Respiration	-	Flavocytochrome C
+764	Respiration	Electron donating reactions	Formate dehydrogenase
+765	Respiration	-	Formate hydrogenase
+821	Respiration	Electron donating reactions	H2:CoM-S-S-HTP oxidoreductase
+846	Respiration	Electron donating reactions	Hydrogenases
+964	Respiration	Electron donating reactions	Methanophenazine hydrogenase
+965	Respiration	-	Alternative NAD(P)H dehydrogenases in plants
+1038	Respiration	Sodium Ion-Coupled Energetics	N-ATPase
+1039	Respiration	Sodium Ion-Coupled Energetics	N-ATPase-2
+1047	Respiration	Electron donating reactions	Na(+)-translocating NADH-quinone oxidoreductase and rnf-like group of electron transport complexes
+1048	Respiration	Sodium Ion-Coupled Energetics	Na+ translocating decarboxylases and related biotin-dependent enzymes
+1053	Respiration	Electron donating reactions	NiFe hydrogenase maturation
+1060	Respiration	Electron accepting reactions	Anaerobic respiratory reductases
+1112	Respiration	Reverse electron transport	Archaeal membrane bound hydrogenases
+1255	Respiration	-	Quinone oxidoreductase family
+1284	Respiration	-	Reductive Dechlorination
+19	RNA Metabolism	RNA processing and modification	Ribonuclease H
+21	RNA Metabolism	RNA processing and modification	Ribonuclease P archaeal and eukaryal
+37	RNA Metabolism	RNA processing and modification	Ribosome biogenesis archaeal
+42	RNA Metabolism	Transcription	Rrf2 family transcriptional regulators
+43	RNA Metabolism	RNA processing and modification	RtcB RtcA
+95	RNA Metabolism	RNA processing and modification	Spliceosome
+172	RNA Metabolism	RNA processing and modification	Test Q
+192	RNA Metabolism	RNA processing and modification	Threonylcarbamoyladenosine
+206	RNA Metabolism	Transcription	Transcription elongation factors, archaeal
+207	RNA Metabolism	Transcription	Transcription factors bacterial
+209	RNA Metabolism	Transcription	Transcription factors cyanobacterial RpoD-like sigma factors
+210	RNA Metabolism	Transcription	Transcription initiation, bacterial sigma factors
+294	RNA Metabolism	RNA processing and modification	Wyeosine-MimG Biosynthesis
+311	RNA Metabolism	RNA processing and modification	YrdC-YciO
+312	RNA Metabolism	RNA processing and modification	YrdC-YciO-Sua5 and associated protein families
+329	RNA Metabolism	RNA processing and modification	ct6A
+334	RNA Metabolism	RNA processing and modification	eukaryotic rRNA modification and related functions
+336	RNA Metabolism	RNA processing and modification	m(6)t(6)A methlytransferase TsaA
+338	RNA Metabolism	RNA processing and modification	methyl t6A
+351	RNA Metabolism	RNA processing and modification	rRNA modification Archaea
+352	RNA Metabolism	RNA processing and modification	rRNA modification bacteria
+354	RNA Metabolism	RNA processing and modification	t(6)A synthesis in Archaea and Eukaryotes
+356	RNA Metabolism	RNA processing and modification	t(6)A synthesis in bacteria
+357	RNA Metabolism	RNA processing and modification	t6A synthesis in Archaea and Eukaryotes
+358	RNA Metabolism	RNA processing and modification	t6A synthesis in bacteria
+379	RNA Metabolism	RNA processing and modification	tRNA modification Archaea
+380	RNA Metabolism	RNA processing and modification	tRNA modification yeast cytoplasmic
+381	RNA Metabolism	RNA processing and modification	tRNA modification yeast mitochondrial
+382	RNA Metabolism	RNA processing and modification	tRNA mods Archaea
+383	RNA Metabolism	RNA processing and modification	tRNA nucleotidyltransferase
+384	RNA Metabolism	RNA processing and modification	tRNA processing
+385	RNA Metabolism	RNA processing and modification	tRNA splicing
+608	RNA Metabolism	RNA processing and modification	ATP-dependent RNA helicases, bacterial
+728	RNA Metabolism	RNA processing and modification	Exosome
+819	RNA Metabolism	-	Group II intron-associated genes
+880	RNA Metabolism	RNA processing and modification	KEOPS complex
+977	RNA Metabolism	RNA processing and modification	Methylthiotransferases
+1173	RNA Metabolism	RNA processing and modification	Polyadenylation bacterial
+1245	RNA Metabolism	RNA processing and modification	Q RZ
+1246	RNA Metabolism	RNA processing and modification	Queuosine exploration RZ
+1247	RNA Metabolism	RNA processing and modification	Queuosine-Archaeosine Biosynthesis
+1261	RNA Metabolism	RNA processing and modification	RNA 3'-terminal phosphate cyclase
+1262	RNA Metabolism	Transcription	RNA polymerase I
+1263	RNA Metabolism	Transcription	RNA polymerase II
+1264	RNA Metabolism	Transcription	RNA polymerase II initiation factors
+1265	RNA Metabolism	Transcription	RNA polymerase III
+1266	RNA Metabolism	Transcription	RNA polymerase III initiation factors
+1267	RNA Metabolism	Transcription	RNA polymerase archaeal
+1269	RNA Metabolism	Transcription	RNA polymerase archaeal initiation factors
+1270	RNA Metabolism	Transcription	RNA polymerase bacterial
+1271	RNA Metabolism	Transcription	RNA polymerase chloroplast
+1272	RNA Metabolism	RNA processing and modification	RNA processing and degradation, bacterial
+1273	RNA Metabolism	RNA processing and modification	RNA processing orphans
+1274	RNA Metabolism	RNA processing and modification	RNA pseudouridine syntheses
+416	Secondary Metabolism	Plant Glucosinolates	Biosynthesis of benzenic and indolic glucosinolates in plants (core structure and secondary modifications)
+842	Secondary Metabolism	Plant Glucosinolates	Homomethionine biosynthesis and methionine chain elongation pathway for glucosinolates in plants
+52	Secondary Metabolism	Biosynthesis of phenylpropanoids	Salicylic acid biosynthesis1
+81	Secondary Metabolism	Biosynthesis of phenylpropanoids	Sinapate ester biosynthesis in plants
+103	Secondary Metabolism	Bacterial cytostatics, differentiation factors and antibiotics	2-isocapryloyl-3R-hydroxymethyl-gamma-butyrolactone and other bacterial morphogens
+115	Secondary Metabolism	Biologically active compounds in metazoan cell defence and differentiation	Steroid sulfates
+153	Secondary Metabolism	Biosynthesis of phenylpropanoids	Tannin biosynthesis
+186	Secondary Metabolism	Plant Hormones	Auxin biosynthesis
+197	Secondary Metabolism	Plant Hormones	Auxin degradation
+292	Secondary Metabolism	-	Bacillus subtilis yydFGHIJ operon
+408	Secondary Metabolism	Biosynthesis of phenylpropanoids	Biflavanoid biosynthesis
+526	Secondary Metabolism	Biosynthesis of phenylpropanoids	Caffeic acid derivatives
+532	Secondary Metabolism	Lipid-derived mediators	Cannabinoid biosynthesis
+578	Secondary Metabolism	Bacterial cytostatics, differentiation factors and antibiotics	Clavulanic acid biosynthesis
+754	Secondary Metabolism	Biosynthesis of phenylpropanoids	Flavanones and dihydroflavonols biosynthesis in plants
+869	Secondary Metabolism	Plant Alkaloids	Alkaloid biosynthesis from L-lysine
+881	Secondary Metabolism	Hydrocarbons	Alkane biosynthesis in bacteria
+1065	Secondary Metabolism	Bacterial cytostatics, differentiation factors and antibiotics	Nonribosomal peptide synthetases (NRPS) in Frankia sp. Ccl3
+1081	Secondary Metabolism	Biosynthesis of phenylpropanoids	Apigenin derivatives
+1093	Secondary Metabolism	Bacterial cytostatics, differentiation factors and antibiotics	Paerucumarin Biosynthesis
+1136	Secondary Metabolism	Bacterial cytostatics, differentiation factors and antibiotics	Phenazine biosynthesis
+1141	Secondary Metabolism	Biosynthesis of phenylpropanoids	Phenylpropanoids general biosynthesis in plants
+1142	Secondary Metabolism	Biosynthesis of phenylpropanoids	Phenylpropionate Degradation
+1253	Secondary Metabolism	Biologically active compounds in metazoan cell defence and differentiation	Quinolinic acid and its derivatives
+45	Stress Response	Oxidative stress	Rubrerythrin
+78	Stress Response	-	SigmaB stress responce regulation
+135	Stress Response	-	Sugar-phosphate stress regulation
+142	Stress Response	Osmotic stress	Synthesis of osmoregulated periplasmic glucans
+159	Stress Response	Detoxification	Tellurite resistance: Chromosomal determinants
+166	Stress Response	Heat shock	At5g63290
+264	Stress Response	-	Universal stress protein family
+274	Stress Response	Detoxification	Uptake of selenate and selenite
+390	Stress Response	-	Bacterial hemoglobins
+406	Stress Response	Osmotic stress	Betaine biosynthesis from glycine
+538	Stress Response	-	Carbon Starvation
+570	Stress Response	Osmotic stress	Choline and Betaine Uptake and Betaine Biosynthesis
+598	Stress Response	Cold shock	Cold shock, CspA family of proteins
+601	Stress Response	-	Commensurate regulon activation
+648	Stress Response	Detoxification	D-tyrosyl-tRNA(Tyr) deacylase
+684	Stress Response	-	Dimethylarginine metabolism
+714	Stress Response	Osmotic stress	Ectoine biosynthesis and regulation
+738	Stress Response	-	FOL Commensurate regulon activation
+757	Stress Response	-	Flavohaemoglobin
+785	Stress Response	Acid stress	Glutamate transporter involved in acid tolerance in Streptococcus
+790	Stress Response	Oxidative stress	Glutaredoxins
+791	Stress Response	Oxidative stress	Glutathione analogs: mycothiol
+792	Stress Response	Detoxification	Glutathione-dependent pathway of formaldehyde detoxification
+794	Stress Response	Oxidative stress	Glutathione: Biosynthesis and gamma-glutamyl cycle
+795	Stress Response	Oxidative stress	Glutathione: Non-redox reactions
+796	Stress Response	Oxidative stress	Glutathione: Redox cycle
+798	Stress Response	Oxidative stress	Glutathionylspermidine and Trypanothione
+820	Stress Response	Osmotic stress	Gycosylglycerates
+827	Stress Response	Heat shock	Heat shock dnaK gene cluster extended
+836	Stress Response	-	Hfl operon
+843	Stress Response	Detoxification	Housecleaning nucleoside triphosphate pyrophosphatases
+1069	Stress Response	Detoxification	Nucleoside triphosphate pyrophosphohydrolase MazG
+1070	Stress Response	Detoxification	Nudix KE
+1072	Stress Response	Detoxification	Nudix proteins (nucleoside triphosphate hydrolases)
+1075	Stress Response	Dessication stress	O-antigen capsule important for environmental persistence
+1082	Stress Response	Osmotic stress	Osmoprotectant ABC transporter YehZYXW of Enterobacteriales
+1083	Stress Response	Osmotic stress	Osmoregulation
+1084	Stress Response	Osmotic stress	Osmotic stress cluster
+1086	Stress Response	Oxidative stress	Oxidative stress
+1088	Stress Response	Oxidative stress	Oxygen stress response / Human gut microbiome
+1107	Stress Response	Periplasmic Stress	Periplasmic Acid Stress Response in Enterobacteria
+1108	Stress Response	Periplasmic Stress	Periplasmic Stress Response
+1131	Stress Response	-	Phage shock protein (psp) operon
+1203	Stress Response	Oxidative stress	Protection from Reactive Oxygen Species
+1283	Stress Response	Oxidative stress	Redox-dependent regulation of nucleus processes
+1285	Stress Response	Oxidative stress	Regulation of Oxidative Stress Response
+138	Sulfur Metabolism	-	Sulfate reduction-associated complexes
+139	Sulfur Metabolism	-	Sulfur oxidation
+154	Sulfur Metabolism	Organic sulfur assimilation	Taurine Utilization
+156	Sulfur Metabolism	Organic sulfur assimilation	At5g37530 (CsdL protein family)
+188	Sulfur Metabolism	-	Thioredoxin-disulfide reductase
+278	Sulfur Metabolism	Organic sulfur assimilation	Utilization of glutathione as a sulphur source
+394	Sulfur Metabolism	-	Bacterial pathways for dimethylsulfoniopropionate and acrylate catabolism
+509	Sulfur Metabolism	-	CFE Sulfur Oxidation
+649	Sulfur Metabolism	Organic sulfur assimilation	DMSP breakdown
+685	Sulfur Metabolism	-	Dimethylsulfoniopropionate (DMSP) mineralization
+687	Sulfur Metabolism	-	Dimethylsulfoniopropionate (DMSP) mineralization, WBW
+688	Sulfur Metabolism	-	Dimethylsulfoniopropionate (DMSP) mineralization, gjo
+695	Sulfur Metabolism	-	EC 3.13.1.- Hydrolases acting on carbon-sulfur bonds
+779	Sulfur Metabolism	-	Galactosylceramide and Sulfatide metabolism
+856	Sulfur Metabolism	Inorganic sulfur assimilation	Inorganic Sulfur Assimilation
+886	Sulfur Metabolism	Organic sulfur assimilation	L-Cystine Uptake and Metabolism
+900	Sulfur Metabolism	Organic sulfur assimilation	Alkanesulfonate assimilation
+911	Sulfur Metabolism	Organic sulfur assimilation	Alkanesulfonates Utilization
+1287	Sulfur Metabolism	-	Release of Dimethyl Sulfide (DMS) from Dimethylsulfoniopropionate (DMSP)
+537	Transcriptional regulation	-	CarD
+1	Virulence	Resistance to antibiotics and toxic compounds	Resistance to fluoroquinolones
+85	Virulence	Resistance to antibiotics and toxic compounds	Small multidrug resistance strays
+119	Virulence	-	Streptococcus agalactiae virulome
+120	Virulence	Resistance to antibiotics and toxic compounds	Streptococcus pneumoniae Vancomycin Tolerance Locus
+126	Virulence	Resistance to antibiotics and toxic compounds	Streptothricin resistance
+158	Virulence	Resistance to antibiotics and toxic compounds	Teicoplanin-resistance in Staphylococcus
+169	Virulence	Fimbriae of the Chaperone/Usher Assembly Pathway	&#945;-Fimbriae
+178	Virulence	Resistance to antibiotics and toxic compounds	The mdtABCD multidrug resistance cluster
+242	Virulence	Type III, Type IV, Type VI, ESAT secretion systems	Type 4 secretion and conjugative transfer
+316	Virulence	Resistance to antibiotics and toxic compounds	Zinc resistance
+403	Virulence	Resistance to antibiotics and toxic compounds	Beta-lactamase
+421	Virulence	Resistance to antibiotics and toxic compounds	BlaR1 Family Regulatory Sensor-transducer Disambiguation
+525	Virulence	Resistance to antibiotics and toxic compounds	Cadmium resistance
+562	Virulence	Fimbriae of the Chaperone/Usher Assembly Pathway	&#945;-related Fimbriae in Yersinia
+586	Virulence	Resistance to antibiotics and toxic compounds	Cobalt-zinc-cadmium resistance
+611	Virulence	Resistance to antibiotics and toxic compounds	Copper homeostasis
+612	Virulence	Resistance to antibiotics and toxic compounds	Copper homeostasis: copper tolerance
+663	Virulence	Fimbriae of the Chaperone/Usher Assembly Pathway	&#946;-Fimbriae
+680	Virulence	Fimbriae of the Chaperone/Usher Assembly Pathway	&#954;-Fimbriae
+722	Virulence	Resistance to antibiotics and toxic compounds	Erythromycin resistance
+758	Virulence	Resistance to antibiotics and toxic compounds	Adaptation to d-cysteine
+767	Virulence	Resistance to antibiotics and toxic compounds	Fosfomycin resistance
+828	Virulence	-	Heat shock protein Hsp22.5 involved in pathogenesis of Mycobacterium tuberculosis
+870	Virulence	Fimbriae of the Chaperone/Usher Assembly Pathway	&#963;-Fimbriae
+902	Virulence	Resistance to antibiotics and toxic compounds	Legionella pneumophila Potential Resistome
+931	Virulence	Resistance to antibiotics and toxic compounds	Lysozyme inhibitors
+942	Virulence	-	Mammalian cell entry genes (MCE) in Streptomyces
+957	Virulence	Resistance to antibiotics and toxic compounds	Mercuric reductase
+958	Virulence	Resistance to antibiotics and toxic compounds	Mercury resistance operon
+968	Virulence	Resistance to antibiotics and toxic compounds	Methicillin resistance in Staphylococci
+978	Virulence	Resistance to antibiotics and toxic compounds	MexA-MexB-OprM Multidrug Efflux System
+979	Virulence	Resistance to antibiotics and toxic compounds	MexC-MexD-OprJ Multidrug Efflux System
+980	Virulence	Resistance to antibiotics and toxic compounds	MexE-MexF-OprN Multidrug Efflux System
+985	Virulence	Resistance to antibiotics and toxic compounds	Monika MRSA
+989	Virulence	Resistance to antibiotics and toxic compounds	Multidrug Resistance Efflux Pumps
+990	Virulence	Resistance to antibiotics and toxic compounds	Multidrug Resistance Operon mdtRP of Bacillus
+991	Virulence	Resistance to antibiotics and toxic compounds	Multidrug Resistance, 2-protein version Found in Gram-positive bacteria
+992	Virulence	Resistance to antibiotics and toxic compounds	Multidrug Resistance, Tripartite Systems Found in Gram Negative Bacteria
+993	Virulence	Resistance to antibiotics and toxic compounds	Multidrug efflux pump in Campylobacter jejuni (CmeABC operon)
+994	Virulence	Resistance to antibiotics and toxic compounds	Multiple Antibiotic Resistance MAR locus
+997	Virulence	Resistance to antibiotics and toxic compounds	Aminoglycoside adenylyltransferases
+1001	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL1 membrane protein cluster
+1002	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL10 membrane protein cluster
+1003	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL11 membrane protein cluster
+1004	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL12 membrane protein cluster
+1005	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL2 membrane protein cluster
+1006	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL3 membrane protein cluster
+1007	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL4 membrane protein cluster
+1009	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL5 membrane protein cluster
+1010	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL6 membrane protein cluster
+1011	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL7 membrane protein cluster
+1012	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL8 membrane protein cluster
+1013	Virulence	Resistance to antibiotics and toxic compounds	Mycobacterial MmpL9 membrane protein cluster
+1016	Virulence	-	Mycobacterial virulence operon MCE involved in cell invasion
+1018	Virulence	-	Mycobacterium virulence operon involved in DNA transcription
+1020	Virulence	-	Mycobacterium virulence operon involved in an unknown function with Superoxide dismutase
+1022	Virulence	-	Mycobacterium virulence operon involved in an unknown function with a Jag Protein and YidC and YidD
+1023	Virulence	-	Mycobacterium virulence operon involved in fatty acids biosynthesis
+1024	Virulence	-	Mycobacterium virulence operon involved in lipid degradation
+1025	Virulence	-	Mycobacterium virulence operon involved in lipid metabolism
+1026	Virulence	-	Mycobacterium virulence operon involved in protein synthesis (LSU ribosomal proteins)
+1027	Virulence	-	Mycobacterium virulence operon involved in protein synthesis (SSU ribosomal proteins)
+1028	Virulence	-	Mycobacterium virulence operon involved with a dormancy regulon
+1029	Virulence	-	Mycobacterium virulence operon involved with a mostly uncharacterized dormancy regulon
+1030	Virulence	-	Mycobacterium virulence operon involved with nitrate dormancy regulon
+1032	Virulence	-	Mycobacterium virulence operon possibly involved in quinolinate biosynthesis
+1033	Virulence	-	Mycobacterium virulence operon with Esat6-like proteins
+1034	Virulence	-	Mycobacterium virulence operon with PE family and Esat6-like proteins
+1178	Virulence	Resistance to antibiotics and toxic compounds	Polymyxin Synthetase Gene Cluster in Bacillus
+1248	Virulence	Resistance to antibiotics and toxic compounds	Arsenic resistance
+1288	Virulence	Resistance to antibiotics and toxic compounds	Resistance to Vancomycin
+1289	Virulence	Resistance to antibiotics and toxic compounds	Resistance to chromium compounds
+49	Virulence, Disease and Defense	Toxins and superantigens	SLO-NADGH Locus
+54	Virulence, Disease and Defense	Invasion and intracellular resistance	Salmonella invasion locus
+111	Virulence, Disease and Defense	Toxins and superantigens	Staphylococcus Two-component and Pore-forming Cytolysins
+118	Virulence, Disease and Defense	Toxins and superantigens	Streptococcus agalactiae hemolysin operon
+121	Virulence, Disease and Defense	-	Streptococcus pyogenes Virulome
+122	Virulence, Disease and Defense	Adhesion	Streptococcus pyogenes recombinatorial zone
+124	Virulence, Disease and Defense	Toxins and superantigens	Streptolysin S Biosynthesis and Transport
+195	Virulence, Disease and Defense	Bacteriocins, ribosomally synthesized antibacterial peptides	Tolerance to colicin E2
+240	Virulence, Disease and Defense	Adhesion	Type 1 pili (mannose-sensitive fimbriae)
+314	Virulence, Disease and Defense	Bacteriocins, ribosomally synthesized antibacterial peptides	Bacitracin Stress Response
+386	Virulence, Disease and Defense	-	Bacterial cyanide production and tolerance mechanisms
+395	Virulence, Disease and Defense	Bacteriocins, ribosomally synthesized antibacterial peptides	Bacteriocin-like peptides Blp
+396	Virulence, Disease and Defense	Bacteriocins, ribosomally synthesized antibacterial peptides	Bacteriocins in Lactobacilli
+429	Virulence, Disease and Defense	-	C jejuni colonization of chick caeca
+513	Virulence, Disease and Defense	Adhesion	CMP-pseudaminic acid pathway in Helicobacter pylori
+567	Virulence, Disease and Defense	Toxins and superantigens	Cholera toxin
+599	Virulence, Disease and Defense	Bacteriocins, ribosomally synthesized antibacterial peptides	Colicin V and Bacteriocin Production Cluster
+630	Virulence, Disease and Defense	Adhesion	Accessory colonization factor
+631	Virulence, Disease and Defense	Toxins and superantigens	Cytolethal distending toxin of Campylobacter jejuni
+632	Virulence, Disease and Defense	Toxins and superantigens	Cytolethal distending toxins
+633	Virulence, Disease and Defense	Invasion and intracellular resistance	Cytolysin and Lipase operon in Vibrio
+677	Virulence, Disease and Defense	Adhesion	Decorin binding proteins of Borrelia
+690	Virulence, Disease and Defense	Toxins and superantigens	Diphtheria toxin
+786	Virulence, Disease and Defense	Adhesion	Adhesins in Staphylococcus
+797	Virulence, Disease and Defense	Adhesion	Adhesion of Campylobacter
+816	Virulence, Disease and Defense	Invasion and intracellular resistance	Gram-Positive Extracellular Nucleases
+853	Virulence, Disease and Defense	Invasion and intracellular resistance	Inclusion membrane proteins supporting intracellular life styles in Chlamydiales
+903	Virulence, Disease and Defense	-	Legionella pneumophila Virulome
+921	Virulence, Disease and Defense	Invasion and intracellular resistance	Listeria surface proteins: Internalin-like proteins
+923	Virulence, Disease and Defense	Invasion and intracellular resistance	Listeria surface proteins: LPXTG motif
+933	Virulence, Disease and Defense	Detection	MLST
+934	Virulence, Disease and Defense	-	MRSA analysis Oli
+947	Virulence, Disease and Defense	Bacteriocins, ribosomally synthesized antibacterial peptides	Marinocine, a broad-spectrum antibacterial protein
+949	Virulence, Disease and Defense	Adhesion	Mediator of hyperadherence YidE in Enterobacteria and its conserved region
+1036	Virulence, Disease and Defense	Invasion and intracellular resistance	MymA operon of Mycobacterium tuberculosis
+1114	Virulence, Disease and Defense	Toxins and superantigens	Pertussis toxin
+1195	Virulence, Disease and Defense	Toxins and superantigens	Prophage-encoded Exotoxins

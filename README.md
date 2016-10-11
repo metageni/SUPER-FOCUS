@@ -94,15 +94,15 @@ SUPER-FOCUS output will be add the folder selected in -dir
 
 (4) Dependencies
 ------------
-Python >= 2.6.X < 3.Y: http://www.python.org/download
-Jellyfish: http://www.cbcb.umd.edu/software/jellyfish
-Numpy: http://sourceforge.net/projects/numpy/files/NumPy
-SciPy: http://sourceforge.net/projects/scipy
+- Python >= 2.6.X < 3.Y: http://www.python.org/download
+- Jellyfish: http://www.cbcb.umd.edu/software/jellyfish
+- Numpy: http://sourceforge.net/projects/numpy/files/NumPy
+- SciPy: http://sourceforge.net/projects/scipy
 
 One of the below aligners:
-RAPSearch2: http://rapsearch2.sourceforge.net
-DIAMOND: http://ab.inf.uni-tuebingen.de/software/diamond
-BLAST: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
+- RAPSearch2: http://rapsearch2.sourceforge.net
+- DIAMOND: http://ab.inf.uni-tuebingen.de/software/diamond
+- BLAST: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 
 COPYRIGHT AND LICENSE
 ---------------------

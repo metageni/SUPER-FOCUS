@@ -1,0 +1,33 @@
+-- Version history --
+
+-> SUPERFOCUS 0.26:
+- New README
+- Check when invalid aligner is passed when downloading database
+
+-> SUPERFOCUS 0.25:
+- Minor bugs were fixed
+- Big in the function profile
+
+-> SUPERFOCUS 0.24 (suggestions from Ademir Durrer):
+- SUPER-FOCUS now runs with the newest version of DIAMOND (v0.7.10), which uses different parameters from the old version.
+
+-> SUPERFOCUS 0.23 (suggestions from Bachar Cheaib and Yu-Wei Wu):
+- SUPER-FOCUS runs multiple samples (-m 1) and output of all the files in one output
+- Integrates all the subsystems and function in one big table (*___results__all_levels_and_function.xls)
+
+-> SUPERFOCUS 0.22:
+- Presence /absence table annotated with RAST was added in the pipeline. NCBI is still the default table used in the 
+  program reduction
+- Minor bugs
+
+-> SUPERFOCUS 0.21:
+- Check python version and works with python 2.6(just in case the user does not have the right version installed)
+
+-> SUPERFOCUS 0.2:
+- The user can choose which aligner he/she want to format the database to. It saves storage in case the user
+does not want to use all the aligner options. Thanks Beltran Rodriguez Mueller for the comments.
+- The program deletes the alignments, to save some storage, after parsing the file.
+- Function level profile
+
+-> SUPERFOCUS 0.1:
+- First release
