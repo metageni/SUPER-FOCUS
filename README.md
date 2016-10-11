@@ -12,7 +12,8 @@ Program: superfocus__downloadDB.py: Downloads and formats the SUPER_FOCUS databa
 (1) Usage
 --------------------------------------------------------------------------------------------------------------------------------
 python superfocus__downloadDB.py aligner
-Example: python superfocus__downloadDB.py rapsearch blast diamond
+Example: 
+	python superfocus__downloadDB.py rapsearch blast diamond
 --------------------------------------------------------------------------------------------------------------------------------
 
 You may choose as many aligners as you want among the three, as long as they are installed.
