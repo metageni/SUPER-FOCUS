@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data || version 0.26
 #---------------------------------------------------------------------------------------------------------------------------------------
 #(c)            Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
@@ -11,9 +12,8 @@ options= "SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenom
       "--------------------------------------------------------------------------------------------------------------------------------\n"\
       "Options:\n"\
       "         -h     ------: print help\n"\
-      "         -q     query file (FASTA or FASTQ format) or folder with multiple FASTA/FASTQ files when -m 1\n"\
+      "         -q     query file (FASTA or FASTQ format) or folder with multiple FASTA/FASTQ files\n"\
       "         -dir   string: output directory\n"\
-      "         -m     int:    run the program for multiple files - 0 (False) / 1 ( True) (default: 0)\n"\
       "         -o     string: project name (default 'my_project')\n"\
       "         -mi    float:  minimum identity (default 60 %)\n"\
       "         -ml    int:    minimum alignment (amino acids) (default: 15)\n"\
@@ -56,9 +56,11 @@ def setParameters():
                     print "Please inform a value for "+userParameters[i]
                 else:
                     print userParameters[i]+" is not a valid parameter"
-    return check
-                
 
+    if os.path.isdir(myproject["-q"]):
+        myproject["-m"]='1'
+                        
+    return check
 
 
 def runSUPERFOCUS():

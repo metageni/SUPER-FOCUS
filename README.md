@@ -39,9 +39,6 @@ Options:
 
 	-dir string
 		output directory
-		
-	-m int
-		run the program for multiple files – 0 (False) / 1 ( True) (default: 0)
 
 	-o string
 		project name (default 'my_project')

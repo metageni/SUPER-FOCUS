@@ -1,5 +1,9 @@
 -- Version history --
 
+-> SUPERFOCUS 0.27:
+- Parameter "-m" for multiple samples is not required anymore. FOCUS identies now if the user is passing
+a directory or file
+
 -> SUPERFOCUS 0.26:
 - New README
 - Check when invalid aligner is passed when downloading database
