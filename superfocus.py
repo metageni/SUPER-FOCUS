@@ -22,6 +22,7 @@ options= "SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenom
       "         -e     float:  e-value (default 0.00001)\n"\
       "         -db    string: database (DB_90, DB_95, DB_98, or DB_100; default DB_98)\n"\
       "         -p     int:    amino acid input; 0 nucleotides; 1 amino acids (default 0)\n"\
+      "         -k     int:    keep original tabular output. 0 delete it / 1 keep it (default 0)\n"\
       "         -a     string: aligner choice (rapsearch, blast, diamond; default rapsearch)\n"\
       "         -fast  int:    runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)\n"\
       "         -n     int:    normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)\n"\
@@ -32,7 +33,7 @@ options= "SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenom
 #hash with all the default parameters
 myproject={'-o':"my_project",'-dir':"","-q":"","-mi":'60',
            "-ml":"15","-n":"1","-focus":"0","-a":"rapsearch",
-           "-t":"8","-e":"0.00001","-db":"DB_98","-p":"0","-fast":"1","-r":"ncbi","-m":"0"}
+           "-t":"8","-e":"0.00001","-db":"DB_98","-p":"0","-fast":"1","-r":"ncbi","-m":"0","-k":"0"}
 
 #gets the user parameters and add in the hash
 def setParameters():
@@ -391,7 +392,10 @@ def runSUPERFOCUS():
                 write_results(subsystems_assignments)
                 write_functions(functions_assignments)
                 print "Done :) Please check the '"+project_output+project_name+"' folder\n"
-                os.system("rm "+project_output+"/"+my_alignments+".m8")
+
+                #delete aligments if this parameter is set to 0 (default)
+                if int(myproject["-k"])==0:
+                    os.system("rm "+project_output+"/"+my_alignments+".m8")
                 
             else:
                 print "There was a problem in the alignment process"
@@ -464,7 +468,8 @@ if setParameters()==1:
         else:
             temp=myproject["-q"]
             project_name=myproject["-o"]
-            os.system("rm "+myproject["-dir"]+"/combine_* 2> /dev/null")
+            if int(myproject["-k"])==0:
+                os.system("rm "+myproject["-dir"]+"/combine_* 2> /dev/null")
             files=[ii for ii in os.listdir(myproject["-q"]) if ii.split(".")[-1].upper() in ["FASTA","FASTQ","FNA","FA"] ]
             print "\nThe following file(s) will be analyzed:"
             print "-------------------------------------"
@@ -478,7 +483,13 @@ if setParameters()==1:
                 myproject["-focus"]="0"
                 runSUPERFOCUS()
             CombineFiles(project_name)
-            os.system("rm "+myproject["-dir"]+"/combine_* 2> /dev/null")
+            if int(myproject["-k"])==0:
+                os.system("rm "+myproject["-dir"]+"/combine_* 2> /dev/null")
+            else:
+                os.system("rm "+myproject["-dir"]+"/combine_*.xls 2> /dev/null")
+                
             print "Done :) Please check the "+myproject["-dir"]+" folder for the results of multiple files"
     else:  
         runSUPERFOCUS()
+
+
