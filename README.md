@@ -1,5 +1,5 @@
 #SUPER-FOCUS
-A tool for agile functional analysis of shotgun metagenomic data || version 0.26
+A tool for agile functional analysis of shotgun metagenomic data || version 0.27
 ---------------------------------------------------------------------------------------------------------------------------------------
 (c)   Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
 		SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. Bioinformatics. 2015 Oct 9. pii: btv584.
@@ -64,7 +64,7 @@ Options:
 	-p int
 		amino acid input; 0 nucleotides; 1 amino acids (default 0)
 		
-	-align int
+	-k int
 		keep original tabular output. 0 delete it / 1 keep it (default 0)
 
 	-a string
