@@ -63,6 +63,9 @@ Options:
 
 	-p int
 		amino acid input; 0 nucleotides; 1 amino acids (default 0)
+		
+	-align int
+		keep original tabular output. 0 delete it / 1 keep it (default 0)
 
 	-a string
 		aligner choice (rapsearch, blast, diamond; default rapsearch)
