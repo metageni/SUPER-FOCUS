@@ -84,13 +84,16 @@ Options:
 (2) Output
 SUPER-FOCUS output will be add the folder selected in -dir
 
-(3) Recommendations
+(3) Plotting output
+Please read https://github.com/metageni/SUPER-FOCUS/tree/master/plotting_output for plotting your output
+
+(4) Recommendations
 	- The FOCUS reduction is not necessary if not wanted (set -focus 0)
 	- Run RAPSearch for short sequences. it is less sensitive for long sequences
 	- How BLAST if you want the result to be the most sensitive as possible
 	- Only use DIAMOND for large datasets. It is slower than blastx for small datasets
 
-(4) Dependencies
+(5) Dependencies
 ------------
 - Python >= 2.6.X < 3.Y: http://www.python.org/download
 - Jellyfish: http://www.cbcb.umd.edu/software/jellyfish
