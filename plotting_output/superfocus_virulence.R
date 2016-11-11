@@ -7,7 +7,7 @@
 #
 # Author: Daniel A Cuevas (dcuevas08.at.gmail.com)
 # Created on 26 Oct 2016
-# Updated on 08 Nov 2016
+# Updated on 11 Nov 2016
 
 # Import necessary packages
 # These may need to be installed first
@@ -149,6 +149,7 @@ summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
 #################################################################
 spec <- matrix(c(
     "sf_dir",     "d", 1, "character",    "SUPER-FOCUS file directory (required)",
+    "skiplines",  "s", 1, "integer",      "Number of non-blank lines to skip before columns (optional) [Default=0]",
     "help",       "h", 0, "logical",      "This help message"
     ), ncol=5, byrow=T)
 
@@ -165,7 +166,10 @@ if (is.null(opt$sf_dir)) {
     cat(paste(getopt(spec, usage=T), "\n"))
     q(status=1)
 }
-
+# Check if number of line to skip was set
+if (is.null(opt$skiplines)) {
+    opt$skiplines <- 0
+}
 
 #################################################################
 # DATA PROCESSING
@@ -176,7 +180,7 @@ fp <- list.files(opt$sf_dir, pattern="_____results__all_levels_and_function.xls"
 fp <- paste(opt$sf_dir, fp, sep="/")
 
 # Load data, skip first two lines
-data <- read.delim(fp, skip=2)
+data <- read.delim(fp, skip=opt$skiplines)
 
 # Grab only the Virulence subsystems
 data <- subset(data, Subsystem.Level.1 == "Virulence, Disease and Defense" | Subsystem.Level.1 == "Virulence")
@@ -185,12 +189,13 @@ data <- subset(data, Subsystem.Level.1 == "Virulence, Disease and Defense" | Sub
 names(data)[names(data) == "Subsystem.Level.3"] <- "SS3"
 names(data)[names(data) == "SEED.Function"] <- "f"
 
-# Determine number of samples
-nSamples <- (ncol(data) - 4) / 2
+# Grab only subsystem level 3, functions, and relative abundances columns
+pl.data <- data[, c(grep("^SS3$", colnames(data)),
+                    grep("^f$", colnames(data)),
+                    grep("abundance", colnames(data), ignore.case=T))]
 
 # Expand data for plotting
-# Grab only function and values
-pl.data <- melt(data[, c(3, 4, seq(ncol(data) - nSamples + 1, ncol(data)))],
+pl.data <- melt(pl.data,
                 id.vars=c("SS3", "f"),
                 variable.name="sample",
                 value.name="rel_abundance")
