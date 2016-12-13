@@ -1,0 +1,10 @@
+#SampleID	Replicate
+buccal_mucosa__SRS023837_PEAR_clean.fna  Relative Abundance (%)	Buccal mucosa
+buccal_mucosa__SRS015374_PEAR_clean.fna  Relative Abundance (%)	Buccal mucosa
+buccal_mucosa__SRS016297_PEAR_clean.fna  Relative Abundance (%)	Buccal mucosa
+throat__SRS065335_PEAR_clean.fna  Relative Abundance (%)	Throat
+throat__SRS014475_PEAR_clean.fna  Relative Abundance (%)	Throat
+throat__SRS015062_PEAR_clean.fna  Relative Abundance (%)	Throat
+vaginal_introitus__SRS062752_PEAR_clean.fna  Relative Abundance (%)	Vaginal  introitus
+vaginal_introitus__SRS014465_PEAR_clean.fna  Relative Abundance (%)	Vaginal  introitus
+vaginal_introitus__SRS015071_PEAR_clean.fna  Relative Abundance (%)	Vaginal  introitus
