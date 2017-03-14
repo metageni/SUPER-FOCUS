@@ -470,7 +470,7 @@ if setParameters()==1:
             project_name=myproject["-o"]
             if int(myproject["-k"])==0:
                 os.system("rm "+myproject["-dir"]+"/combine_* 2> /dev/null")
-            files=[ii for ii in os.listdir(myproject["-q"]) if ii.split(".")[-1].upper() in ["FASTA","FASTQ","FNA","FA"] ]
+            files=[ii for ii in os.listdir(myproject["-q"]) if ii.split(".")[-1].upper() in ["FASTA","FASTQ","FNA","FA","FQ"] ]
             print "\nThe following file(s) will be analyzed:"
             print "-------------------------------------"
             for i in xrange(len(files)):
