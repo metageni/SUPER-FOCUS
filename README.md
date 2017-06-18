@@ -67,7 +67,7 @@ Options:
 		keep original tabular output. 0 delete it / 1 keep it (default 0)
 
 	-a string
-		aligner choice (rapsearch, blast, diamond; default rapsearch)
+		aligner choice (rapsearch, blast (only fasta files), diamond; default rapsearch)
 
 	-fast int
 		runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)	
