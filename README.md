@@ -31,7 +31,6 @@ You may choose as many aligners as you want among the three, as long as they are
 Program: superfocus.py: SUPER-FOCUS main program
 Options:
 
-
 	-h print help
 	
 	-q FASTA/FASTQ
