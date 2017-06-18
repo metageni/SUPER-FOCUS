@@ -31,7 +31,6 @@ You may choose as many aligners as you want among the three, as long as they are
 Program: superfocus.py: SUPER-FOCUS main program
 Options:
 
-
 	-h print help
 	
 	-q FASTA/FASTQ
@@ -110,7 +109,7 @@ One of the below aligners:
 
 COPYRIGHT AND LICENSE
 ---------------------
-Copyright (C) 2014-2015  Genivaldo Gueiros Z. Silva
+Copyright (C) 2014-2017  Genivaldo Gueiros Z. Silva
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
