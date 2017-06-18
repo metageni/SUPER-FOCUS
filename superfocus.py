@@ -1,4 +1,5 @@
 #!/usr/bin/python
+
 #SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data || version 0.27
 #---------------------------------------------------------------------------------------------------------------------------------------
 #(c)            Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
