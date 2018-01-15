@@ -1,35 +1,31 @@
-#SUPER-FOCUS
-A tool for agile functional analysis of shotgun metagenomic data || version 0.27
----------------------------------------------------------------------------------------------------------------------------------------
-(c)   Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
-		SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. Bioinformatics. 2015 Oct 9. pii: btv584.
-website: 	https://edwards.sdsu.edu/SUPERFOCUS
----------------------------------------------------------------------------------------------------------------------------------------
+#### SUPER-FOCUS 0.27: A tool for agile functional analysis of shotgun metagenomic data
+(c) Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
+		SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. Bioinformatics. 2015 Oct 9. pii: btv584. website: https://edwards.sdsu.edu/SUPERFOCUS
 
-DOWNLOAD DATABASE
---------------------------------------------------------------------------------------------------------------------------------
+
+#### DOWNLOAD DATABASE
+
 Program: superfocus__downloadDB.py: Downloads and formats the SUPER_FOCUS database for the available aligners
-(1) Usage
---------------------------------------------------------------------------------------------------------------------------------
+#### (1) Usage
+
 python superfocus__downloadDB.py aligner
 
-#Example: 
+###### Example: 
 	python superfocus__downloadDB.py rapsearch blast diamond
---------------------------------------------------------------------------------------------------------------------------------
+
 
 You may choose as many aligners as you want among the three, as long as they are installed.
 
-(2) Recommendations
---------------------------------------------------------------------------------------------------------------------------------
-	- RAPSearch2 and DIAMOND don't work properly using a already formatted database with a newer version of the 
-	  aligner. Thus, please re-run 'superfocus__downloadDB.py' in the case of any aligner was updated in the 
+#### (2) Recommendations
+- RAPSearch2 and DIAMOND don't work properly using a already formatted database with a newer version of the aligner. Thus, please re-run 'superfocus__downloadDB.py' in the case of any aligner was updated in the 
 	  system.
 
 
-(1) SUPER-FOCUS USAGE
---------------------------------------------------------------------------------------------------------------------------------
-Program: superfocus.py: SUPER-FOCUS main program
-Options:
+#### (1) SUPER-FOCUS Usage
+
+superfocus.py: SUPER-FOCUS main program
+
+#### Options:
 
 	-h print help
 	
@@ -78,37 +74,34 @@ Options:
 	-r string
 		use only the subsystems in the organisms predicted by "-focus"– ncbi / rast annotation  (default: ncbi)
 		
-	example> python superfocus.py -q query.fasta -dir myOutputdirectory
+#### Example
+	python superfocus.py -q query.fasta -dir myOutputdirectory
 	 
-(2) Output
-------------
+#### (2) Output
 SUPER-FOCUS output will be add the folder selected in -dir
 
-(3) Plotting output
-------------
+#### (3) Plotting output
 Please read https://github.com/metageni/SUPER-FOCUS/tree/master/plotting_output for plotting your output
 
-(4) Recommendations
-------------
-	- The FOCUS reduction is not necessary if not wanted (set -focus 0)
-	- Run RAPSearch for short sequences. it is less sensitive for long sequences
-	- How BLAST if you want the result to be the most sensitive as possible
-	- Only use DIAMOND for large datasets. It is slower than blastx for small datasets
+#### (4) Recommendations
+- The FOCUS reduction is not necessary if not wanted (set -focus 0)
+- Run RAPSearch for short sequences. it is less sensitive for long sequences
+- How BLAST if you want the result to be the most sensitive as possible
+- Only use DIAMOND for large datasets. It is slower than blastx for small datasets
 
-(5) Dependencies
-------------
+#### (5) Dependencies
 - Python >= 2.6.X < 3.Y: http://www.python.org/download
 - Jellyfish: http://www.cbcb.umd.edu/software/jellyfish
 - Numpy: http://sourceforge.net/projects/numpy/files/NumPy
 - SciPy: http://sourceforge.net/projects/scipy
 
-One of the below aligners:
+#### One of the below aligners:
 - RAPSearch2: http://rapsearch2.sourceforge.net
 - DIAMOND: http://ab.inf.uni-tuebingen.de/software/diamond
 - BLAST: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 
-COPYRIGHT AND LICENSE
----------------------
+##### COPYRIGHT AND LICENSE
+
 Copyright (C) 2014-2017  Genivaldo Gueiros Z. Silva
 
 This program is free software: you can redistribute it and/or modify it under
