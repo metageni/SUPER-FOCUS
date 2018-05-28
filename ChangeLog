@@ -1,5 +1,8 @@
 -- Version history --
 
+-> SUPERFOCUS 0.28:
+- Versioning fix
+
 -> SUPERFOCUS 0.27:
 - Parameter "-m" for multiple samples is not required anymore. FOCUS identies now if the user is passing
 a directory or file

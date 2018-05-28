@@ -1,4 +1,4 @@
-#### SUPER-FOCUS 0.27: A tool for agile functional analysis of shotgun metagenomic data
+#### SUPER-FOCUS 0.28: A tool for agile functional analysis of shotgun metagenomic data
 (c) Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards: 
 		SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. Bioinformatics. 2015 Oct 9. pii: btv584. website: https://edwards.sdsu.edu/SUPERFOCUS
 
