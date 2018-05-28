@@ -1,4 +1,4 @@
-# SUPER-FOCUS version 0.26 - This program is used to download and format the databases for the tool
+# SUPER-FOCUS version 0.27 - This program is used to download and format the databases for the tool
 import os,sys
 
 #returns the path for a given program name
