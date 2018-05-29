@@ -439,9 +439,7 @@ def runSUPERFOCUS():
         f = open(project_output + "/" + my_alignments + ".m8")
 
         if aligner == "rapsearch":
-            [
-                f.readline() for line in xrange(5)
-            ]  # reads the file useless lines and avoids checking for "#"
+            [ f.readline() for line in xrange(5) ]  # reads the file useless lines and avoids checking for "#"
 
         ID = ""
 
@@ -629,28 +627,16 @@ def runSUPERFOCUS():
         temp_aligner = aligner
         if temp_aligner == "rapsearch":
             temp_aligner = "rapsearch2"
-        if (
-            len(
-                [
-                    1
-                    for i in os.listdir(myproject["dir"] + "db/static/" + temp_aligner)
-                    if i.split(".db")[0] == myproject["-db"].split("_")[-1]
-                ]
-            )
-            == 0
-        ):
-            print "     -" + aligner + " " + myproject[
-                "-db"
-            ] + " database was not found. Please first run python superfocus__downloadDB.py " + aligner + " or choose a DB which exists"
+        if not [ 1 for i in os.listdir(myproject["dir"] + "db/static/" + temp_aligner) if i.split(".db")[0] == myproject["-db"].split("_")[-1] ]:
+            print "     -" + aligner + " " + myproject["-db"] + " database was not found."
+            print "Please first run python superfocus__downloadDB.py " + aligner + " or choose a DB which exists"
             p += 1
-
         if p == 0:  # if it is 0, we can run SUPER-FOCUS
             if f == "1" and proteins == 0:  # Run FOCUS; otherwise, uses the default db
                 organisms = runNParseFocus()
                 mydb = formatDb(organisms)
             else:
                 mydb = myproject["-db"].split("_")[-1]
-
             print "1) Aligning sequences in " + query + " against DB_" + mydb + " using " + aligner
             test = align(mydb)
 
@@ -677,9 +663,7 @@ def runSUPERFOCUS():
                 print "There was a problem in the alignment process"
 
     try:
-        version = float(
-            ".".join((sys.version).split()[0].split(".")[:2])
-        )  # version of python installed
+        version = float( ".".join((sys.version).split()[0].split(".")[:2]))  # version of python installed
         if "-h" in sys.argv:
             print __doc__
             print options
