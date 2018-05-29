@@ -105,7 +105,7 @@ This will run SUPER-FOCUS using `query.fasta` as a query, and output results int
 SUPER-FOCUS output will be add the folder selected by the `-dir` argument.
 
 # Plotting output
-Please read https://github.com/metageni/SUPER-FOCUS/tree/master/plotting_output
+Please read [plotting output](https://github.com/metageni/SUPER-FOCUS/tree/master/plotting_output)
 for examples on how to plot your output.
 
 
