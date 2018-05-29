@@ -114,5 +114,5 @@ if __name__ == "__main__":
         print __doc__
         print "USAGE: python superfocus__downloadDB.py aligner_choice"
         print "Example: python superfocus__downloadDB.py rapsearch blast diamond"
-        sys.exit(1)
+        sys.exit()
     main()
