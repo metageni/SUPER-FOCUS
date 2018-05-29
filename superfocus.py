@@ -9,9 +9,7 @@ Website: https://edwards.sdsu.edu/SUPERFOCUS
 import os, sys
 import numpy as np
 
-options = """SUPER-FOCUS v0.29: A tool for agile functional analysis of shotgun metagenomic data
---------------------------------------------------------------------------------------------------------------------------------
-Options:
+options = """Options:
          -h     ------: print help
          -q     query file (FASTA or FASTQ format) or folder with multiple FASTA/FASTQ files
          -dir   string: output directory
@@ -588,7 +586,7 @@ def runSUPERFOCUS():
     def main():
         p = 0
         a = 1
-        print "SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data"
+        print __doc__
         try:
             import numpy as np
         except:
@@ -683,6 +681,7 @@ def runSUPERFOCUS():
             ".".join((sys.version).split()[0].split(".")[:2])
         )  # version of python installed
         if "-h" in sys.argv:
+            print __doc__
             print options
         elif (2.6 <= version < 3.0) == False:
             print "SUPER-FOCUS requires Python >= 2.6.X or < Python 3.Z"

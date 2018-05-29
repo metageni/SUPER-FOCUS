@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-"""SUPER-FOCUS version 0.26. This program is used to download and format the databases for SUPER-FOCUS."""
+"""SUPER-FOCUS version 0.29. This program is used to download and format the databases for SUPER-FOCUS."""
 import os, sys
 
 # returns the path for a given program name
@@ -111,6 +111,7 @@ def main():
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
+        print __doc__
         print "USAGE: python superfocus__downloadDB.py aligner_choice"
         print "Example: python superfocus__downloadDB.py rapsearch blast diamond"
         sys.exit(1)
