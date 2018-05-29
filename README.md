@@ -1,6 +1,6 @@
 # SUPER-FOCUS
-    SUPER-FOCUS 0.28: A tool for agile functional analysis of shotgun metagenomic data
-    (c) Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards
+SUPER-FOCUS 0.28: A tool for agile functional analysis of shotgun metagenomic data
+(c) Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards.
 
 If you use SUPER-FOCUS in your research, please cite:
 
@@ -23,14 +23,16 @@ One of the below aligners:
 
 ## Download SUPER-FOCUS database
 Use `superfocus_downloadDB.py` to download and format the SUPER-FOCUS database
-for the available aligners.
+for the available aligners:
 
-1.  `python superfocus_downloadDB.py <aligner>`, where `<aligner>` is
-	`rapsearch`, `blast`, or `diamond` (or all of them).
-	Example: `python superfocus_downloadDB.py rapsearch blast diamond`.
-    You may choose as many aligners as you want among the three, as long as they are installed.
+```
+python superfocus_downloadDB.py <aligner>
+```
+where `<aligner>` is `rapsearch`, `blast`, or `diamond` (or all of them). You
+may choose as many aligners as you want among the three, as long as they are
+installed.
 
-*NOTE*: RAPSearch2 and DIAMOND don't work properly if you are trying to use a
+**NOTE**: RAPSearch2 and DIAMOND won't work properly if you are trying to use a
 database formatted with an incorrect version of the aligner. Thus, please
 re-run `superfocus_downloadDB.py` in case any aligner was updated on your
 system.
@@ -94,10 +96,10 @@ superfocus.py -q query.fasta -dir myOutputDirectory
 This will run SUPER-FOCUS using `query.fasta` as a query, and output results into `myOutputDirectory`.
 
 ### General recommendations
-- The FOCUS reduction is not necessary if not wanted (set `-focus 0`)
-- Run RAPSearch for short sequences. it is less sensitive for long sequences
-- How BLAST if you want the result to be the most sensitive as possible
-- Only use DIAMOND for large datasets. It is slower than blastx for small datasets
+- The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction).
+- Run RAPSearch for short sequences, it is less sensitive for long sequences.
+- Use BLAST if you want the results to be as sensitive as possible.
+- Primarily use DIAMOND for large datasets only. It is slower than blastx for small datasets.
 	 
 ## Output
 SUPER-FOCUS output will be add the folder selected by the `-dir` argument.
