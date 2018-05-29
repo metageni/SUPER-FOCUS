@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-# SUPER-FOCUS version 0.26 - This program is used to download and format the databases for the tool
+"""SUPER-FOCUS version 0.26. This program is used to download and format the databases for SUPER-FOCUS."""
 import os, sys
 
 # returns the path for a given program name

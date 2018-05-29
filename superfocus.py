@@ -1,15 +1,15 @@
 #!/usr/bin/env python2
-"""SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data || version 0.27
+"""SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data || version 0.29
 ---------------------------------------------------------------------------------------------------------------------------------------
-(c)            Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards:
-		SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. Bioinformatics. 2015 Oct 9. pii: btv584.
-website: 	https://edwards.sdsu.edu/SUPERFOCUS
+(c) Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards:
+SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. Bioinformatics. 2015 Oct 9. pii: btv584.
+Website: https://edwards.sdsu.edu/SUPERFOCUS
 ---------------------------------------------------------------------------------------------------------------------------------------
 """
 import os, sys
 import numpy as np
 
-options = """SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data
+options = """SUPER-FOCUS v0.29: A tool for agile functional analysis of shotgun metagenomic data
 --------------------------------------------------------------------------------------------------------------------------------
 Options:
          -h     ------: print help
