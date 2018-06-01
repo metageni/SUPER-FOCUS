@@ -1,5 +1,14 @@
 -- Version history --
 
+-> SUPERFOCUS 0.29:
+- Minor changes in preparation for bioconda package creation
+- Reformat Python code
+- Reformat README
+- Renamed superfocus__downloadDB.py to superfocus_downloadDB.py (removed an
+extra '_')
+- Added portable shebangs to superfocus_downloadDB.py and superfocus.py and
+made them executable
+
 -> SUPERFOCUS 0.28:
 - Versioning fix
 
@@ -25,7 +34,7 @@ a directory or file
 
 -> SUPERFOCUS 0.22:
 - Presence /absence table annotated with RAST was added in the pipeline. NCBI is still the default table used in the 
-  program reduction
+program reduction
 - Minor bugs
 
 -> SUPERFOCUS 0.21:
