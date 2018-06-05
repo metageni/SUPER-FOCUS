@@ -1,5 +1,9 @@
 -- Version history --
 
+-> SUPERFOCUS 0.30:
+- Fix regression in superfocus_downloadDB.py
+- Add info about installation via conda to README
+
 -> SUPERFOCUS 0.29:
 - Minor changes in preparation for bioconda package creation
 - Reformat Python code
