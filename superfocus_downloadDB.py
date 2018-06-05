@@ -1,5 +1,5 @@
 #!/usr/bin/env python2
-"""SUPER-FOCUS version 0.29. This program is used to download and format the databases for SUPER-FOCUS."""
+"""SUPER-FOCUS version 0.30. This program is used to download and format the databases for SUPER-FOCUS."""
 import os, sys
 
 # returns the path for a given program name
@@ -93,14 +93,15 @@ def main():
     # Parse which aligner(s) the user wants to format the database to
     requested_aligners = {aligner.lower() for aligner in sys.argv[1:]}
     for aligner in requested_aligners:
-        if aligner not in allowed_aligners:
+        if aligner not in valid_aligners:
             print i, " is not a valid option of aligner; 'rapsearch', 'blast', or 'diamond' are valid choices"
             sys.exit(1)
-    if "rapsearch" in given and "prerapsearch" in aligner_db_creators:
+    aligners = []
+    if "rapsearch" in requested_aligners and "prerapsearch" in aligner_db_creators:
         aligners.append("prerapsearch")
-    if "diamond" in given and "diamond" in aligner_db_creators:
+    if "diamond" in requested_aligners and "diamond" in aligner_db_creators:
         aligners.append("diamond")
-    if "blast" in given and "makeblastdb" in aligner_db_creators:
+    if "blast" in requested_aligners and "makeblastdb" in aligner_db_creators:
         aligners.append("makeblastdb")
 
     os.system("rm db/clusters/ -r 2> /dev/null")  # delete folder if exists

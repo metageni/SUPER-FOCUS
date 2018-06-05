@@ -1,5 +1,5 @@
 # SUPER-FOCUS
-SUPER-FOCUS 0.28: A tool for agile functional analysis of shotgun metagenomic data
+SUPER-FOCUS 0.30: A tool for agile functional analysis of shotgun metagenomic data
 (c) Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards.
 
 If you use SUPER-FOCUS in your research, please cite:
@@ -9,6 +9,22 @@ If you use SUPER-FOCUS in your research, please cite:
 	Bioinformatics. 2015 Oct 9. pii: btv584. Website: https://edwards.sdsu.edu/SUPERFOCUS
 
 # Installation
+You can now easily install SUPER-FOCUS using [conda](https://conda.io) via the
+[Bioconda](https://bioconda.github.io/) channel. It is as easy as:
+
+    conda install -c bioconda super-focus
+
+Note that SUPER-FOCUS currently runs on Python 2.7 and if you are using a conda
+environment based on Python 3+ it might be better to create a separate conda
+environment to use with SUPER-FOCUS:
+
+    conda create -n super-focus -c bioconda super-focus 
+	conda activate super-focus
+
+This will create a conda environment called `super-focus` (as specified by the
+`-n` argument), and install SUPER-FOCUS along with all its dependencies. The second
+line activates the newly created `super-focus` conda environment.
+
 ## Dependencies
 - Python >= 2.6.X < 3.Y: http://www.python.org/download
 - Jellyfish: http://www.cbcb.umd.edu/software/jellyfish
@@ -20,6 +36,7 @@ One of the below aligners:
 - RAPSearch2: http://rapsearch2.sourceforge.net
 - DIAMOND: http://ab.inf.uni-tuebingen.de/software/diamond
 - BLAST: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
+
 
 ## Download SUPER-FOCUS database
 Use `superfocus_downloadDB.py` to download and format the SUPER-FOCUS database
