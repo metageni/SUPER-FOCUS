@@ -8,7 +8,6 @@ from pathlib import Path
 from collections import defaultdict
 
 
-
 def normalise_counts(data):
     """Normalise query counts based on number of hits.
 
@@ -63,7 +62,7 @@ def align_reads(query, output_dir, aligner, database, WORK_DIRECTORY):
         WORK_DIRECTORY (str): Path to directory where works happens
 
     Returns:
-        numpy.ndarray: K-mer counts
+        str: Path to alignment that was written
 
     """
     if aligner == "diamond":
@@ -82,10 +81,15 @@ def align_reads(query, output_dir, aligner, database, WORK_DIRECTORY):
         os.system("diamond view -a {}.daa -o {}.m8".format(output_name, output_name))
         # delete binary file
         os.system("rm {}/*.daa".format(output_dir))
+        # add aligner extension to output
+        output_name = "{}.m8".format(output_name)
+
+
+    return output_name
 
 
 def parse_alignments(alignment, results, normalise, number_samples, sample_index,
-                     minimum_identity, minimum_alignment):
+                     minimum_identity, minimum_alignment, subsystems_translation):
     """Parses alignment.
 
     Args:
@@ -96,6 +100,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
         sample_index (int): Sample index in the result
         minimum_identity (int): Minimum identity to consider a hit
         minimum_alignment (int) Minimum alignment (bp) to be consider a hit
+        subsystems_translation (dict): subsystems translation lookup table
 
     Returns:
         collections.defaultdict: Updated results
@@ -117,7 +122,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
             current_hit = row[1].split("__")
             current_subsystem_id = current_hit[1]  # Subsystem PK on SF database
             current_function_name = current_hit[-1].replace("\n", "").replace("\r", "")
-            aggregate_levels = current_subsystem_id + " " + current_function_name # <<<<<<<<<<<<<<<< CHECK JOIN
+            aggregate_levels = subsystems_translation[current_subsystem_id] + " " + current_function_name # <<<<<<<<<<<<<<<< CHECK JOIN
 
             # found a different read
             if current_read_name != previous_read_name:
@@ -136,3 +141,57 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
         update_results(results, sample_index, temp_results, normalise, number_samples)
 
     return results
+
+
+
+
+
+######
+
+
+def write_results(results, header, output_name, query_path, database):
+    """Write results in tabular format.
+
+    Args:
+        results (dict): dict with results to be written
+        header (list): header to be wrritten
+        output_name (str): Path to output
+        query_path (str): Path to query
+        database (str): Database used
+
+    """
+    with open(output_name, 'w') as outfile:
+        writer = csv.writer(outfile, delimiter='\t', lineterminator='\n')
+
+        # run info
+        writer.writerow(["Query: {}".format(query_path)])
+        writer.writerow(["Database used: {}".format(database)])
+        writer.writerow([""])
+
+        # subsystem and files header
+        writer.writerow(header)
+        for row in results:
+            if sum(results[row]) > 0:
+                writer.writerow(row.split("\t") + results[row])
+
+
+
+
+#results = defaultdict(list)
+
+#alignment = "/Users/geni.silva/Desktop/superfocus/sf2/simShort_single_sub.fasta_alignments.m8"
+#number_samples = 3
+#normalise = 1
+#minimum_identity = 60
+#minimum_alignment = 15
+#sample_position = 1
+#WORK_DIRECTORY = 'superfocus_app'
+
+
+#subsystems_translation =  get_subsystems("/Users/geni.silva/Desktop/superfocus/superfocus_app/db/database_PKs.txt")
+
+#results = parse_alignments(alignment, results, normalise, number_samples, sample_position, minimum_identity, minimum_alignment, subsystems_translation)
+
+
+#for i in results:
+#    print(i, results[i])

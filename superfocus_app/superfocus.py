@@ -5,12 +5,14 @@ import argparse
 import csv
 import logging
 import os
-import random
+
+import numpy as np
+
 
 from pathlib import Path
 from collections import defaultdict
 
-from do_alignment import align_reads
+from do_alignment import align_reads, parse_alignments
 
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
@@ -18,7 +20,6 @@ logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
 WORK_DIRECTORY = 'superfocus_app'
-
 
 
 def which(program_name):
@@ -64,6 +65,97 @@ def is_wanted_file(queries):
     return queries
 
 
+def get_denominators(results):
+    """Get denominators to normalise abundances.
+
+    Args:
+        results (dict): results
+
+    Returns:
+        numpy.ndarray: sum of columns in the metrics aka denominators for normalisation
+
+    """
+    return np.sum([results[element] for element in results], axis=0)
+
+
+def add_relative_abundance(level_results, normalizer):
+    # add relative abundance next to raw count for each of the file(s) in the analysis
+    for level in level_results:
+        relative_abundance = list((level_results[level]/normalizer) * 100)
+        level_results[level] = list(level_results[level]) + relative_abundance
+
+    return level_results
+
+
+def aggregate_level(results, position, normalizer):
+    """Aggregate abundance of subsystem level and add relative abundance.
+
+    Args:
+        results (dict): Path to results
+        position (int): Position of level in the results
+        normalizer (numpy.ndarray): normalizer denominators
+
+    Returns:
+        dict: Aggregated result targeting chosen subsystem level
+
+    """
+    level_results = defaultdict(list)
+
+    for all_levels in results:
+        level = all_levels.split("\t")[position]
+        abundance = results[all_levels]
+        level_results[level].append(abundance)
+
+    level_results = {temp_level: np.sum(level_results[temp_level], axis=0) for temp_level in level_results}
+
+    return add_relative_abundance(level_results, normalizer)
+
+
+def get_subsystems(translation_file):
+    """Create lookup table from primary key to subsystems levels 1, 2, and 3.
+
+    Args:
+        translation_file (PosixPath): Path to file with subsystems information
+
+    Returns:
+        dict: lookup table primary key to subsystem levels
+
+    """
+    subsystems_translation = {}
+    with open(translation_file) as database_file:
+        database_reader = csv.reader(database_file, delimiter='\t')
+        next(database_reader, None)
+        for row in database_reader:
+            subsystems_translation[row[0]] = "\t".join(row[1:])
+
+    return subsystems_translation
+
+
+def write_results(results, header, output_name, query_path, database):
+    """Write results in tabular format.
+
+    Args:
+        results (dict): dict with results to be written
+        header (list): header to be wrritten
+        output_name (str): Path to output
+        query_path (str): Path to query
+        database (str): Database used
+
+    """
+    with open(output_name, 'w') as outfile:
+        writer = csv.writer(outfile, delimiter='\t', lineterminator='\n')
+
+        # run info
+        writer.writerow(["Query: {}".format(query_path)])
+        writer.writerow(["Database used: {}".format(database)])
+        writer.writerow([""])
+
+        # subsystem and files header
+        writer.writerow(header)
+        for row in sorted(results):
+            if sum(results[row]) > 0:
+                writer.writerow(row.split("\t") + results[row])
+
 
 def main():
     parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data",
@@ -100,8 +192,8 @@ def main():
 
     # alignment related
     aligner = args.aligner.lower()
-    minimum_identity = args.minimum_identity
-    minimum_alignment = args.minimum_alignment
+    minimum_identity = float(args.minimum_identity)
+    minimum_alignment = int(args.minimum_alignment)
     threads = args.threads
     evalue = args.evalue
     database = args.database.split("_")[-1]
@@ -110,7 +202,7 @@ def main():
 
     # other metrics
     keep_alignment = args.keep_alignment
-    normalise_output = args.normalise_output
+    normalise_output = int(args.normalise_output)
     run_focus = args.focus
     annotation = args.annotation
     WORK_DIRECTORY = Path(args.alternate_directory) if args.alternate_directory else Path(args.work_directory)
@@ -147,13 +239,43 @@ def main():
         LOGGER.critical("WORK_DIRECTORY: {} does not exist".format(WORK_DIRECTORY))
 
     else:
+        results = defaultdict(list)
+
+        subsystems_translation = get_subsystems(Path(WORK_DIRECTORY,"db/database_PKs.txt"))
+
         # get fasta/fastq files
         query_files = is_wanted_file([temp_query for temp_query in os.listdir(queries_folder)])
         for counter, temp_query in enumerate(query_files):
             LOGGER.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             LOGGER.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
-            align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, WORK_DIRECTORY)
+            alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, WORK_DIRECTORY)
             LOGGER.info("   Parsing Alignments")
+            sample_position = query_files.index(temp_query)
+            results = parse_alignments(alignment_name, results, normalise_output, len(query_files), sample_position,
+                                        minimum_identity, minimum_alignment, subsystems_translation)
+
+        # write results
+        normalizer = get_denominators(results)
+        header_files = query_files + ["{} %".format(x) for x in query_files]
+        LOGGER.info('Writting results at {}'.format(output_directory))
+
+        # write results for each of the levels
+        for level in [1, 2, 3]:
+            LOGGER.info('  Working on subsystem level {}'.format(level))
+            temp_header = ["Subsystem {}".format(level)] + header_files
+
+            temp_results = aggregate_level(results, level - 1, normalizer)
+            output_file = "{}/{}.xls".format(output_directory, level)
+
+            write_results(temp_results, temp_header, output_file, queries_folder, database)
+
+        # write result for all the levels in one file
+        LOGGER.info ('  Working on Combined output')
+        temp_header = ["Subsystem Level 1", "Subsystem Level 2", "Subsystem Level 3"] + header_files
+        output_file = "{}/combined.xls".format (output_directory)
+        temp_results = add_relative_abundance(results, normalizer)
+        write_results(temp_results, temp_header, output_file, queries_folder, database)
+
 
     LOGGER.info('Done'.format(output_directory))
 
