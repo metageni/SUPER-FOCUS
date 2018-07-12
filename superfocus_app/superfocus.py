@@ -157,33 +157,69 @@ def write_results(results, header, output_name, query_path, database):
                 writer.writerow(row.split("\t") + results[row])
 
 
-def main():
-    parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data",
+def is_valid_number(value):
+    """ Check if input if a valid >= 0 int or float.
+
+
+    Args:
+        value (str): value to be checked
+
+    Returns:
+        bool: True if valid >= 0 number else False
+    """
+    try:
+        if float(value) >= 0:
+            return True
+        else:
+            return False
+    except:
+        return False
+
+
+def parse_args():
+    """Parse args entered by the user.
+
+    Returns:
+        argparse.Namespace: parsed arguments
+
+    """
+    parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "
+                                                 "metagenomic data",
                                      epilog="python superfocus.py -q input_folder -dir output_dir")
     # basic parameters
     parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files", required=True)
     parser.add_argument("-dir", "--output_directory",  help="Path to output files", required=True)
-    parser.add_argument("-o", "--output_prefix",  help="Output prefix (Default: output)", default="output")
+    parser.add_argument("-o", "--output_prefix",  help="Output prefix (Default: output)", default="output_")
 
     # aligner related
-    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch, blast, diamond; default rapsearch)", default="rapsearch")
+    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch, blast, diamond; default rapsearch)",
+                        default="rapsearch")
     parser.add_argument("-mi", "--minimum_identity",  help="minimum identity (default 60 perc)", default="60")
-    parser.add_argument("-ml", "--minimum_alignment",  help="minimum alignment (amino acids) (default: 15)", default="15")
-    parser.add_argument("-t", "--threads",  help="Number Threads used in the k-mer counting (Default: 4)", default="4")
+    parser.add_argument("-ml", "--minimum_alignment",  help="minimum alignment (amino acids) (default: 15)",
+                        default="15")
+    parser.add_argument("-t", "--threads",  help="Number Threads used in the k-mer counting (Default: all)",
+                        default="all")
     parser.add_argument("-e", "--evalue",  help="e-value (default 0.00001)", default="0.00001")
-    parser.add_argument("-db", "--database",  help="database (DB_90, DB_95, DB_98, or DB_100; default DB_98)", default="DB_90")
-    parser.add_argument("-p", "--amino_acid",  help="amino acid input; 0 nucleotides; 1 amino acids (default 0)", default="0.00001")
-    parser.add_argument("-f", "--fast",  help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)", default="1")
+    parser.add_argument("-db", "--database",  help="database (DB_90, DB_95, DB_98, or DB_100; default DB_98)",
+                        default="DB_90")
+    parser.add_argument("-p", "--amino_acid",  help="amino acid input; 0 nucleotides; 1 amino acids (default 0)",
+                        default="0.00001")
+    parser.add_argument("-f", "--fast",  help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) "
+                                              "(default: 1)", default="1")
 
     # extra
-    parser.add_argument("-k", "--keep_alignment",  help="keep original tabular output. 0 delete it / 1 keep it (default 0)", default="0")
-    parser.add_argument("-n", "--normalise_output",  help="normalises each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)", default="1")
+    parser.add_argument("-n", "--normalise_output",  help="normalises each query counts based on number of hits; "
+                                                          "0 doesn't normalize; 1 normalizes (default: 1)", default="1")
     parser.add_argument("-m", "--focus",  help="runs FOCUS; 1 does run; 0 does not run: default 0", default="0")
-    parser.add_argument("-r", "--annotation",  help="use only the subsystems in the organisms predicted by -focus ncbi / rast annotation  (default: ncbi)", default="ncbi")
-    parser.add_argument("-d", "--work_directory",  help="Work directory (Default: superfocus_app)", default="superfocus_app")
+    parser.add_argument("-d", "--work_directory",  help="Work directory (Default: superfocus_app)",
+                        default="superfocus_app")
     parser.add_argument("-b", "--alternate_directory",  help="Alternate directory for your databases", default="")
 
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
 
     # basic parameters
     queries_folder = Path(args.query)
@@ -201,10 +237,8 @@ def main():
     fast_mode = args.fast
 
     # other metrics
-    keep_alignment = args.keep_alignment
     normalise_output = int(args.normalise_output)
     run_focus = args.focus
-    annotation = args.annotation
     WORK_DIRECTORY = Path(args.alternate_directory) if args.alternate_directory else Path(args.work_directory)
 
     LOGGER.info("SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data")
@@ -224,7 +258,8 @@ def main():
 
     # check if aligner is valid
     elif aligner not in ["diamond", "rapsearch", "blast"]:
-        LOGGER.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond, rapsearch, or blast)".format(aligner))
+        LOGGER.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond, rapsearch, or blast)".
+                        format(aligner))
 
     # check if aligner exists
     elif not which(aligner):
@@ -238,17 +273,26 @@ def main():
     elif WORK_DIRECTORY != WORK_DIRECTORY or not WORK_DIRECTORY.exists():
         LOGGER.critical("WORK_DIRECTORY: {} does not exist".format(WORK_DIRECTORY))
 
+    # check if number of threads are valid
+    elif threads != "all" and not is_valid_number(threads):
+        LOGGER.critical("THREADS: {} is not a valid number of threads".format(threads))
+
+    # check if evalue is valid
+    elif not is_valid_number(evalue):
+        LOGGER.critical("E-VALUE: {} is not a valid evalue".format(evalue))
+
     else:
         results = defaultdict(list)
 
-        subsystems_translation = get_subsystems(Path(WORK_DIRECTORY,"db/database_PKs.txt"))
+        subsystems_translation = get_subsystems(Path(WORK_DIRECTORY, "db/database_PKs.txt"))
 
         # get fasta/fastq files
         query_files = is_wanted_file([temp_query for temp_query in os.listdir(queries_folder)])
         for counter, temp_query in enumerate(query_files):
             LOGGER.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             LOGGER.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
-            alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, WORK_DIRECTORY)
+            alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
+                                         threads, fast_mode, WORK_DIRECTORY)
             LOGGER.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results = parse_alignments(alignment_name, results, normalise_output, len(query_files), sample_position,
@@ -265,14 +309,14 @@ def main():
             temp_header = ["Subsystem {}".format(level)] + header_files
 
             temp_results = aggregate_level(results, level - 1, normalizer)
-            output_file = "{}/{}.xls".format(output_directory, level)
+            output_file = "{}/{}subsystem_level_{}.xls".format(output_directory, prefix, level)
 
             write_results(temp_results, temp_header, output_file, queries_folder, database)
 
         # write result for all the levels in one file
-        LOGGER.info ('  Working on Combined output')
-        temp_header = ["Subsystem Level 1", "Subsystem Level 2", "Subsystem Level 3"] + header_files
-        output_file = "{}/combined.xls".format (output_directory)
+        LOGGER.info('  Working on Combined output')
+        temp_header = ["Subsystem Level 1", "Subsystem Level 2", "Subsystem Level 3", "Function"] + header_files
+        output_file = "{}/{}all_levels_and_function.xls".format(output_directory, prefix)
         temp_results = add_relative_abundance(results, normalizer)
         write_results(temp_results, temp_header, output_file, queries_folder, database)
 
