@@ -202,8 +202,8 @@ def parse_args():
     parser.add_argument("-o", "--output_prefix",  help="Output prefix (Default: output)", default="output_")
 
     # aligner related
-    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch, blast, diamond; default rapsearch)",
-                        default="rapsearch")
+    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch or diamond; default diamond)",
+                        default="diamond")
     parser.add_argument("-mi", "--minimum_identity",  help="minimum identity (default 60 perc)", default="60")
     parser.add_argument("-ml", "--minimum_alignment",  help="minimum alignment (amino acids) (default: 15)",
                         default="15")
@@ -267,8 +267,8 @@ def main():
         LOGGER.critical("QUERY: {} does not have any Fasta/Fna/Fastq file".format(queries_folder))
 
     # check if aligner is valid
-    elif aligner not in ["diamond", "rapsearch", "blast"]:
-        LOGGER.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond, rapsearch, or blast)".
+    elif aligner not in ["diamond", "rapsearch"]:
+        LOGGER.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond or rapsearch)".
                         format(aligner))
 
     # check if aligner exists
@@ -306,7 +306,7 @@ def main():
             LOGGER.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results = parse_alignments(alignment_name, results, normalise_output, len(query_files), sample_position,
-                                        minimum_identity, minimum_alignment, subsystems_translation)
+                                        minimum_identity, minimum_alignment, subsystems_translation, aligner)
 
         # write results
         normalizer = get_denominators(results)
