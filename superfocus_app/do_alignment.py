@@ -56,12 +56,13 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     """Align FAST(A/Q) file to database.
 
     Args:
-        query_file (PosixPath): Path to query in FAST(A/Q) file
+        query (PosixPath): Path to query in FAST(A/Q) file
         output_dir (PosixPath): Path to alignment output
-        aligner (str): aligner name
-        evalue (str): e-value
-        threads (str): number of threads (default = all)
-        fast_mode (str): fast or sensitive mode (default = 1)
+        aligner (str): Aligner name
+        database (str): Database name
+        evalue (str): E-value
+        threads (str): Number of threads (default = all)
+        fast_mode (str): Fast or sensitive mode (default = 1)
         WORK_DIRECTORY (str): Path to directory where works happens
 
     Returns:
@@ -69,8 +70,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
 
     """
     # prepare variables
-    threads = "T" if threads == "all" else threads
-    output_name = "{}/{}_alignments".format (output_dir, query.parts[-1])
+    output_name = "{}/{}_alignments".format(output_dir, query.parts[-1])
 
     if aligner == "diamond":
         temp_folder = Path("{}/db/tmp/".format(WORK_DIRECTORY))
@@ -78,9 +78,8 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         if not temp_folder.exists():
             temp_folder.mkdir(parents=True, mode=511)
 
-
         mode_diamond = "" if fast_mode == "1" else "--sensitive"
-        database_diamond = "{}/db/static/diamond/{}.db".format (WORK_DIRECTORY, database)
+        database_diamond = "{}/db/static/diamond/{}.db".format(WORK_DIRECTORY, database)
 
         # align
         os.system("diamond blastx -t {} -d {} -q {} -a {} -p {} -e {} {}".format(temp_folder, database_diamond, query,
@@ -95,15 +94,13 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
 
     elif aligner == "rapsearch":
         mode_rapsearch = "T" if fast_mode == "1" else "F"
-        database_rapsearch = "{}/db/static/rapsearch2/{}.db".format (WORK_DIRECTORY, database)
-
+        database_rapsearch = "{}/db/static/rapsearch2/{}.db".format(WORK_DIRECTORY, database)
 
         os.system('rapsearch -a {} -q {} -d {} -o {} -v 250 -z {} -e {} -b 0 -s f'.format(mode_rapsearch, query,
                                                                                           database_rapsearch,
                                                                                           output_name, threads, evalue))
 
-
-    return output_name
+    return '{}.m8'.format(output_name) if aligner == 'rapsearch' else output_name
 
 
 def parse_alignments(alignment, results, normalise, number_samples, sample_index,
@@ -128,7 +125,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
     previous_read_name = None
     best_evalue = None
 
-    with open(alignment + ".m8") as alignment_file:
+    with open(alignment) as alignment_file:
         alignment_reader = csv.reader(alignment_file, delimiter='\t')
         if aligner == "rapsearch":
             # skip header

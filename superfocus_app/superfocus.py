@@ -141,7 +141,7 @@ def get_subsystems(translation_file):
     return subsystems_translation
 
 
-def write_results(results, header, output_name, query_path, database):
+def write_results(results, header, output_name, query_path, database, aligner):
     """Write results in tabular format.
 
     Args:
@@ -150,6 +150,7 @@ def write_results(results, header, output_name, query_path, database):
         output_name (str): Path to output
         query_path (str): Path to query
         database (str): Database used
+        aligner (str): Aligner name
 
     """
     with open(output_name, 'w') as outfile:
@@ -158,6 +159,7 @@ def write_results(results, header, output_name, query_path, database):
         # run info
         writer.writerow(["Query: {}".format(query_path)])
         writer.writerow(["Database used: {}".format(database)])
+        writer.writerow(["Aligner used: {}".format(aligner)])
         writer.writerow([""])
 
         # subsystem and files header
@@ -202,13 +204,13 @@ def parse_args():
     parser.add_argument("-o", "--output_prefix",  help="Output prefix (Default: output)", default="output_")
 
     # aligner related
-    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch or diamond; default diamond)",
-                        default="diamond")
+    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch or diamond; default rapsearch)",
+                        default="rapsearch")
     parser.add_argument("-mi", "--minimum_identity",  help="minimum identity (default 60 perc)", default="60")
     parser.add_argument("-ml", "--minimum_alignment",  help="minimum alignment (amino acids) (default: 15)",
                         default="15")
-    parser.add_argument("-t", "--threads",  help="Number Threads used in the k-mer counting (Default: all)",
-                        default="all")
+    parser.add_argument("-t", "--threads",  help="Number Threads used in the k-mer counting (Default: 4)",
+                        default="4")
     parser.add_argument("-e", "--evalue",  help="e-value (default 0.00001)", default="0.00001")
     parser.add_argument("-db", "--database",  help="database (DB_90, DB_95, DB_98, or DB_100; default DB_98)",
                         default="DB_90")
@@ -321,15 +323,14 @@ def main():
             temp_results = aggregate_level(results, level - 1, normalizer)
             output_file = "{}/{}subsystem_level_{}.xls".format(output_directory, prefix, level)
 
-            write_results(temp_results, temp_header, output_file, queries_folder, database)
+            write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
 
         # write result for all the levels in one file
         LOGGER.info('  Working on Combined output')
         temp_header = ["Subsystem Level 1", "Subsystem Level 2", "Subsystem Level 3", "Function"] + header_files
         output_file = "{}/{}all_levels_and_function.xls".format(output_directory, prefix)
         temp_results = add_relative_abundance(results, normalizer)
-        write_results(temp_results, temp_header, output_file, queries_folder, database)
-
+        write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
 
     LOGGER.info('Done')
 
