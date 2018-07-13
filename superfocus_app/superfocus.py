@@ -187,7 +187,7 @@ def parse_args():
                                                  "metagenomic data",
                                      epilog="python superfocus.py -q input_folder -dir output_dir")
     # basic parameters
-    parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files", required=True)
+    parser.add_argument("-q", "--query", help="Path to directory with FASTA/FASTQ file(s)", required=True)
     parser.add_argument("-dir", "--output_directory",  help="Path to output files", required=True)
     parser.add_argument("-o", "--output_prefix",  help="Output prefix (Default: output)", default="output_")
 
