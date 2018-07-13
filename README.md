@@ -27,14 +27,14 @@ line activates the newly created `super-focus` conda environment.
 
 ## Dependencies
 - [Python 3.XX](http://www.python.org/download)
-- [Jellyfish 2.2.6](https://github.com/gmarcais/Jellyfish/releases/tag/v2.2.6). Bioconda if you have  [macOS](https://anaconda.org/bioconda/jellyfish)
+- [Jellyfish 2.2.6](https://github.com/gmarcais/Jellyfish/releases/tag/v2.2.6). If using macOS, use [bioconda](https://anaconda.org/bioconda/jellyfish)
 - [Numpy](https://github.com/numpy/numpy)
 - [SciPy](https://github.com/scipy/scipy)
 
 ## Sequence aligners
 One of the below aligners:
 - [DIAMOND 0.9.14](http://ab.inf.uni-tuebingen.de/software/diamond)
-- [RAPSearch2 2.24](http://rapsearch2.sourceforge.net)
+- [RAPSearch2 2.24](http://rapsearch2.sourceforge.net). If using macOS, install `brew`, and then `brew install brewsci/science/rapsearch2`
 
 
 
