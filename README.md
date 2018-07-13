@@ -26,7 +26,7 @@ This will create a conda environment called `super-focus` (as specified by the
 line activates the newly created `super-focus` conda environment.
 
 ## Dependencies
-- [Python 3.XX](http://www.python.org/download)
+- [Python 3.6](http://www.python.org/download)
 - [Jellyfish 2.2.6](https://github.com/gmarcais/Jellyfish/releases/tag/v2.2.6). If using macOS, use [bioconda](https://anaconda.org/bioconda/jellyfish)
 - [Numpy](https://github.com/numpy/numpy)
 - [SciPy](https://github.com/scipy/scipy)
@@ -80,7 +80,7 @@ available command line options:
 		runs FOCUS; 1 does run; 0 does not run: default 0
 
 	-t int
-		number of threads (default 8	)
+		number of threads (default 4)
 
 	-e float
 		e-value (default 0.00001)
@@ -92,7 +92,7 @@ available command line options:
 		amino acid input; 0 nucleotides; 1 amino acids (default 0)
 
 	-a string
-		aligner choice (rapsearch (only fasta files) or diamond; default diamond)
+		aligner choice (rapsearch (only fasta files) or diamond; default rapsearch)
 
 	-fast int
 		runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)	
