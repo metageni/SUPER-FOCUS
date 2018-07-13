@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+superfocus_app/__pycache__/*
 
 # C extensions
 *.so
