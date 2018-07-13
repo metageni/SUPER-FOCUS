@@ -33,7 +33,7 @@ def download_format(aligners):
     """Download and format database base.
 
     Args:
-        aligners (list): aligners to have the database formatted
+        aligners (list): Aligners to have the database formatted
 
     """
     LOGGER.info('  Downloading DB')
@@ -75,7 +75,7 @@ def parse_args():
     """Parse args entered by the user.
 
     Returns:
-        argparse.Namespace: parsed arguments
+        argparse.Namespace: Parsed arguments
 
     """
     parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "

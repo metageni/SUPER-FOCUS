@@ -23,7 +23,7 @@ WORK_DIRECTORY = 'superfocus_app'
 
 
 def which(program_name):
-    """python implementation of unix 'which' function.
+    """Python implementation of unix 'which' function.
 
     Args:
         program_name (str): Program name
@@ -56,7 +56,7 @@ def is_wanted_file(queries):
         queries (list): List with query names
 
     Returns:
-        list: sorted list with only .fasta/.fastq/.fna files
+        list: Sorted list with only .fasta/.fastq/.fna files
 
     """
     queries = [query for query in queries if query.split(".")[-1].lower() in ["fna", "fasta", "fastq"]]
@@ -69,16 +69,26 @@ def get_denominators(results):
     """Get denominators to normalise abundances.
 
     Args:
-        results (dict): results
+        results (dict): Results
 
     Returns:
-        numpy.ndarray: sum of columns in the metrics aka denominators for normalisation
+        numpy.ndarray: Sum of columns in the metrics aka denominators for normalisation
 
     """
     return np.sum([results[element] for element in results], axis=0)
 
 
 def add_relative_abundance(level_results, normalizer):
+    """Add relative abundance to results.
+
+    Args:
+        level_results (dict): Results to be updated
+        normalizer (numpy.ndarray): Normalizer denominators
+
+    Returns:
+        dict: Results with relative abundance
+
+    """
     # add relative abundance next to raw count for each of the file(s) in the analysis
     for level in level_results:
         relative_abundance = list((level_results[level]/normalizer) * 100)
@@ -91,9 +101,9 @@ def aggregate_level(results, position, normalizer):
     """Aggregate abundance of subsystem level and add relative abundance.
 
     Args:
-        results (dict): Path to results
+        results (dict): Results
         position (int): Position of level in the results
-        normalizer (numpy.ndarray): normalizer denominators
+        normalizer (numpy.ndarray): Normalizer denominators
 
     Returns:
         dict: Aggregated result targeting chosen subsystem level
@@ -118,7 +128,7 @@ def get_subsystems(translation_file):
         translation_file (PosixPath): Path to file with subsystems information
 
     Returns:
-        dict: lookup table primary key to subsystem levels
+        dict: Lookup table primary key to subsystem levels
 
     """
     subsystems_translation = {}
@@ -135,8 +145,8 @@ def write_results(results, header, output_name, query_path, database):
     """Write results in tabular format.
 
     Args:
-        results (dict): dict with results to be written
-        header (list): header to be wrritten
+        results (dict): Dict with results to be written
+        header (list): Header to be wrritten
         output_name (str): Path to output
         query_path (str): Path to query
         database (str): Database used
@@ -160,12 +170,12 @@ def write_results(results, header, output_name, query_path, database):
 def is_valid_number(value):
     """ Check if input if a valid >= 0 int or float.
 
-
     Args:
-        value (str): value to be checked
+        value (str): Value to be checked
 
     Returns:
         bool: True if valid >= 0 number else False
+
     """
     try:
         if float(value) >= 0:
@@ -180,14 +190,14 @@ def parse_args():
     """Parse args entered by the user.
 
     Returns:
-        argparse.Namespace: parsed arguments
+        argparse.Namespace: Parsed arguments
 
     """
     parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "
                                                  "metagenomic data",
                                      epilog="python superfocus.py -q input_folder -dir output_dir")
     # basic parameters
-    parser.add_argument("-q", "--query", help="Path to directory with FASTA/FASTQ file(s)", required=True)
+    parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files", required=True)
     parser.add_argument("-dir", "--output_directory",  help="Path to output files", required=True)
     parser.add_argument("-o", "--output_prefix",  help="Output prefix (Default: output)", default="output_")
 
@@ -321,7 +331,7 @@ def main():
         write_results(temp_results, temp_header, output_file, queries_folder, database)
 
 
-    LOGGER.info('Done'.format(output_directory))
+    LOGGER.info('Done')
 
 
 if __name__ == "__main__":
