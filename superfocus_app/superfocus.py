@@ -268,6 +268,10 @@ def main():
     elif is_wanted_file(os.listdir(queries_folder)) == []:
         LOGGER.critical("QUERY: {} does not have any Fasta/Fna/Fastq file".format(queries_folder))
 
+    # check if at database choice is valid
+    elif database not in ["90", "95", "98", "100"]:
+        LOGGER.critical("DATABASE: DB_{} not valid. Choose DB_90/95/98/or 100".format(database))
+
     # check if aligner is valid
     elif aligner not in ["diamond", "rapsearch"]:
         LOGGER.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond or rapsearch)".

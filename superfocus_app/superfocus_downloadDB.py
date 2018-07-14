@@ -37,19 +37,17 @@ def download_format(aligners):
 
     """
     LOGGER.info('  Downloading DB')
-    os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip')
-    'superfocus_app/db'.mkdir(parents=True, mode=511)
-    os.system('mv db.zip superfocus_app/db')
+    #os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip')
     LOGGER.info('  Uncompressing DB')
-    os.system('unzip superfocus_app/db/db.zip')  # uncompress db
-    os.system('mv superfocus_app/clusters/ superfocus_app/db/')  # mv db
-    os.system('rm superfocus_app/db/db.zip')  # delete original downloaded file
+    os.system('unzip db.zip')  # uncompress db
+    os.system('mv clusters/ superfocus_app/db/')  # mv db
+    os.system('rm db.zip')  # delete original downloaded file
     LOGGER.info('  Joining files')
     [
         os.system(
-            'cat superfocus_app/db/clusters/{}/* > superfocus_app/db/clusters/{}.fasta'.format(cluster, cluster)
+            'cat superfocus_app/db/clusters/{}/*.faa > superfocus_app/db/clusters/{}.fasta'.format(cluster, cluster)
         )
-        for cluster in os.listdir('superfocus_app/db/clusters/')
+        for cluster in os.listdir('superfocus_app/db/clusters/') if 'cluster' in cluster
     ]
 
     # Format database
@@ -60,15 +58,15 @@ def download_format(aligners):
             if aligner == 'prerapsearch':
                 LOGGER.info('  RAPSearch2: DB_{}'.format(dbname))
                 os.system(
-                    'prerapsearch -d db/clusters/{}_clusters.fasta -n db/static/rapsearch2/{}.db'.format(dbname, dbname)
+                    'prerapsearch -d superfocus_app/db/clusters/{}_clusters.fasta -n superfocus_app/db/static/rapsearch2/{}.db'.format(dbname, dbname)
                 )
             else:
                 LOGGER.info('  DIAMOND: DB_{}'.format(dbname))
                 os.system(
-                    'diamond makedb --in  db/clusters/{}_clusters.fasta --db db/static/diamond/{}.db'.
+                    'diamond makedb --in  superfocus_app/db/clusters/{}_clusters.fasta --db superfocus_app/db/static/diamond/{}.db'.
                         format(dbname, dbname)
                 )
-    os.system('rm db/clusters/*.fasta')
+    os.system('rm superfocus_app/db/clusters/*.fasta')
 
 
 def parse_args():
@@ -109,7 +107,7 @@ def main():
     if 'diamond' in requested_aligners and 'diamond' in aligner_db_creators:
         aligners.append("diamond")
 
-    os.system('rm superfocus_app/db/clusters/ -r 2> /dev/null')  # delete folder if exists
+    #os.system('rm superfocus_app/db/clusters/ -r 2> /dev/null')  # delete folder if exists
     download_format(aligners)
     LOGGER.info('  Done! Now you can run superfocus.py')
 
