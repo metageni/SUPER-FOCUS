@@ -75,6 +75,3 @@ Biochemistry/binary_data
 
 # ipython notebook
 .ipynb_checkpoints/
-
-# the databases ...don'tadd them to git!
-db/
