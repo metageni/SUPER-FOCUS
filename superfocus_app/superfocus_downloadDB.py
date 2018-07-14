@@ -37,7 +37,7 @@ def download_format(aligners):
 
     """
     LOGGER.info('  Downloading DB')
-    #os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip')
+    os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip')
     LOGGER.info('  Uncompressing DB')
     os.system('unzip db.zip')  # uncompress db
     os.system('mv clusters/ superfocus_app/db/')  # mv db
