@@ -33,24 +33,26 @@ def check_aligners():
     ]
 
 
-def download_format(aligners):
+def download_format(aligners, debug_mode):
     """Download and format database base.
 
     Args:
         aligners (list): Aligners to have the database formatted
+        debug_mode (str): Debug mode with small database
 
     """
+    db_filename = 'db.zip' if debug_mode == '0' else 'db_small.zip'
+
     LOGGER.info('  Downloading DB')
-    os.system('wget edwards.sdsu.edu/superfocus/downloads/db_small.zip')
-    #os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip') ###############################
+    os.system('wget edwards.sdsu.edu/superfocus/downloads/{}'.format(db_filename))
 
     LOGGER.info('  Uncompressing DB')
-    #os.system('unzip db.zip')  # uncompress db ###############################
-    os.system('unzip db_small.zip')  # uncompress db
+    os.system('unzip {}'.format(db_filename))
 
-    os.system('mv clusters/ {}/db/'.format(WORK_DIRECTORY))  # mv db
-    #os.system('rm db.zip')  # delete original downloaded file
-    os.system('rm db_small.zip')  # delete original downloaded file
+    # mv db
+    os.system('mv clusters/ {}/db/'.format(WORK_DIRECTORY))
+    # delete original downloaded file
+    os.system('rm {}'.format(db_filename))
 
     LOGGER.info('  Joining files')
     [
@@ -103,6 +105,7 @@ def parse_args():
                                      epilog="python superfocus_downloadDB -a diamond,rapsearch,blast")
     # basic parameters
     parser.add_argument("-a", "--aligner", help="Aligner name separed by ',' if more than one", required=True)
+    parser.add_argument("-d", "--debug", help="Debug mode with small database", default='0')
 
     return parser.parse_args()
 
@@ -134,7 +137,7 @@ def main():
     os.system('rm {}/db/clusters/ -r 2> /dev/null'.format(WORK_DIRECTORY))  # delete folder if exists
 
     if aligners:
-        download_format(aligners)
+        download_format(aligners, args.debug)
         LOGGER.info('  Done! Now you can run superfocus')
     else:
         LOGGER.critical('  No valid aligner. We cannot move on!')

@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 superfocus_app/__pycache__/*
+tests/__pycache__/*
+
 
 # C extensions
 *.so
