@@ -30,6 +30,7 @@ def which(program_name):
         str: Program path
 
     """
+    program_name = 'blastn' if program_name == 'blast' else program_name
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
 
@@ -202,7 +203,7 @@ def parse_args():
     parser.add_argument("-o", "--output_prefix",  help="Output prefix (Default: output)", default="output_")
 
     # aligner related
-    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch or diamond; default rapsearch)",
+    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch, diamond, or blast; default rapsearch)",
                         default="rapsearch")
     parser.add_argument("-mi", "--minimum_identity",  help="minimum identity (default 60 perc)", default="60")
     parser.add_argument("-ml", "--minimum_alignment",  help="minimum alignment (amino acids) (default: 15)",
@@ -213,7 +214,7 @@ def parse_args():
     parser.add_argument("-db", "--database",  help="database (DB_90, DB_95, DB_98, or DB_100; default DB_98)",
                         default="DB_90")
     parser.add_argument("-p", "--amino_acid",  help="amino acid input; 0 nucleotides; 1 amino acids (default 0)",
-                        default="0.00001")
+                        default="0")
     parser.add_argument("-f", "--fast",  help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) "
                                               "(default: 1)", default="1")
 
@@ -262,6 +263,15 @@ def main():
         LOGGER.critical("QUERY: {} is not a directory".format(queries_folder))
 
     # check if at least one of the queries is valid
+    if run_focus != '0':
+        LOGGER.critical("FOCUS: Running FOCUS is not avaliable on this version. "
+                        "Please see https://github.com/metageni/FOCUS on how to run it")
+
+    # check if amino_acid is valid
+    elif aligner == 'blast' and amino_acid not in ['0', '1']:
+        LOGGER.critical("AMINO ACID OPTION: {} is not valid for --amino_acid. Only 0 or 1".format(amino_acid))
+
+    # check if at least one of the queries is valid
     elif is_wanted_file(os.listdir(queries_folder)) == []:
         LOGGER.critical("QUERY: {} does not have any Fasta/Fna/Fastq file".format(queries_folder))
 
@@ -270,7 +280,7 @@ def main():
         LOGGER.critical("DATABASE: DB_{} not valid. Choose DB_90/95/98/or 100".format(database))
 
     # check if aligner is valid
-    elif aligner not in ["diamond", "rapsearch"]:
+    elif aligner not in ["diamond", "rapsearch", "blast"]:
         LOGGER.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond or rapsearch)".
                         format(aligner))
 
@@ -305,7 +315,7 @@ def main():
             LOGGER.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             LOGGER.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
             alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
-                                         threads, fast_mode, WORK_DIRECTORY)
+                                         threads, fast_mode, WORK_DIRECTORY, amino_acid)
             LOGGER.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results = parse_alignments(alignment_name, results, normalise_output, len(query_files), sample_position,

@@ -1,5 +1,5 @@
 # SUPER-FOCUS
-SUPER-FOCUS 0.30: A tool for agile functional analysis of shotgun metagenomic data
+SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data
 (c) Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards.
 
 If you use SUPER-FOCUS in your research, please cite:
@@ -37,8 +37,8 @@ for the available aligners:
 ```
 superfocus_downloadDB -a <aligner>
 ```
-where `<aligner>` is `rapsearch`, or `diamond` (or all of them separated by `,`). You
-may choose as many aligners as you want among the two, as long as they are
+where `<aligner>` is `rapsearch`, `diamond`, or `blast` (or all of them separated by `,`). You
+may choose as many aligners as you want among the three, as long as they are
 installed.
 
 **NOTE**: RAPSearch2 and DIAMOND won't work properly if you are trying to use a
@@ -99,9 +99,10 @@ superfocus -q query.fasta -dir output_dir
 This will run SUPER-FOCUS using `query.fasta` as a query, and output results into `myOutputDirectory`.
 
 #### General recommendations
-- The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction).
-- Run RAPSearch for short sequences, it is less sensitive for long sequences.
-- Primarily use DIAMOND for large datasets only. It is slower than blastx for small datasets.
-	 
+- The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction)
+- Run RAPSearch for short sequences, it is less sensitive for long sequences
+- Primarily use DIAMOND for large datasets only. It is slower than blastx for small datasets
+- BLAST is known for being really slow
+
 ### Output
 SUPER-FOCUS output will be add the folder selected by the `-dir` argument.

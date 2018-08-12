@@ -28,7 +28,7 @@ def check_aligners():
     """
     return [
         info
-        for info in [which(x) for x in ['prerapsearch', 'diamond']]
+        for info in [which(x) for x in ['prerapsearch', 'diamond', 'makeblastdb']]
         if info != None
     ]
 
@@ -42,10 +42,10 @@ def download_format(aligners):
     """
     LOGGER.info('  Downloading DB')
     os.system('wget edwards.sdsu.edu/superfocus/downloads/db_small.zip')
-    #os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip')
+    #os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip') ###############################
 
     LOGGER.info('  Uncompressing DB')
-    #os.system('unzip db.zip')  # uncompress db
+    #os.system('unzip db.zip')  # uncompress db ###############################
     os.system('unzip db_small.zip')  # uncompress db
 
     os.system('mv clusters/ {}/db/'.format(WORK_DIRECTORY))  # mv db
@@ -66,18 +66,27 @@ def download_format(aligners):
     cluster_identities = ['100', '98', '95', '90']
     for dbname in cluster_identities:
         for aligner in aligners:
+            print(">>>>>>>>>> ", aligner)
+
             if aligner == 'prerapsearch':
                 LOGGER.info('  RAPSearch2: DB_{}'.format(dbname))
                 os.system(
                     'prerapsearch -d {}/db/clusters/{}_clusters.fasta '
                 ' -n {}/db/static/rapsearch2/{}.db'.format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname)
                 )
-            else:
+            elif aligner == 'diamond':
                 LOGGER.info('  DIAMOND: DB_{}'.format(dbname))
                 os.system(
                     'diamond makedb --in  {}/db/clusters/{}_clusters.fasta '
                     '--db {}/db/static/diamond/{}.db'.
                         format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname)
+                )
+            elif aligner == 'makeblastdb':
+                LOGGER.info('  BLAST: DB_{}'.format(dbname))
+                os.system(
+                    'makeblastdb -in {}/db/clusters/{}_clusters.fasta '
+                    '-out {}/db/static/blast/{}.db -title {}.db -dbtype prot'.
+                        format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname, dbname)
                 )
     os.system('rm {}/db/clusters/*.fasta'.format(WORK_DIRECTORY))
 
@@ -91,7 +100,7 @@ def parse_args():
     """
     parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "
                                                  "metagenomic data",
-                                     epilog="python superfocus_downloadDB -a diamond,rapsearch")
+                                     epilog="python superfocus_downloadDB -a diamond,rapsearch,blast")
     # basic parameters
     parser.add_argument("-a", "--aligner", help="Aligner name separed by ',' if more than one", required=True)
 
@@ -101,7 +110,7 @@ def parse_args():
 def main():
     args = parse_args()
 
-    valid_aligners = {'rapsearch', 'diamond', 'prerapsearch'}
+    valid_aligners = {'rapsearch', 'diamond', 'blast'}
     aligner_db_creators = {os.path.basename(x) for x in check_aligners() if x != 'None'}
     if not aligner_db_creators:
         LOGGER.critical('  None of the required aligners are installed {}'.format(list(valid_aligners)))
@@ -119,11 +128,16 @@ def main():
         aligners.append("prerapsearch")
     if 'diamond' in requested_aligners and 'diamond' in aligner_db_creators:
         aligners.append("diamond")
+    if 'blast' in requested_aligners and 'makeblastdb' in aligner_db_creators:
+        aligners.append("makeblastdb")
 
     os.system('rm {}/db/clusters/ -r 2> /dev/null'.format(WORK_DIRECTORY))  # delete folder if exists
-    download_format(aligners)
-    LOGGER.info('  Done! Now you can run superfocus')
 
+    if aligners:
+        download_format(aligners)
+        LOGGER.info('  Done! Now you can run superfocus')
+    else:
+        LOGGER.critical('  No valid aligner. We cannot move on!')
 
 if __name__ == "__main__":
     main()

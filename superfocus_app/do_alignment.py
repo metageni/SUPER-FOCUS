@@ -52,7 +52,7 @@ def update_results(results, sample_index, data, normalise, number_samples):
     return results
 
 
-def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode, WORK_DIRECTORY):
+def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode, WORK_DIRECTORY, amino_acid):
     """Align FAST(A/Q) file to database.
 
     Args:
@@ -64,6 +64,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         threads (str): Number of threads (default = all)
         fast_mode (str): Fast or sensitive mode (default = 1)
         WORK_DIRECTORY (str): Path to directory where works happens
+        amino_acid (str): 0 input nucleotides, 1 amino acid
 
     Returns:
         str: Path to alignment that was written
@@ -99,6 +100,15 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         os.system('rapsearch -a {} -q {} -d {} -o {} -v 250 -z {} -e {} -b 0 -s f'.format(mode_rapsearch, query,
                                                                                           database_rapsearch,
                                                                                           output_name, threads, evalue))
+
+
+    elif aligner == "blast":
+        database_blast = "{}/db/static/blast/{}.db".format(WORK_DIRECTORY, database)
+        blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
+
+        os.system('{} -db {} -query {} -out {} -outfmt 6 -evalue {} -max_target_seqs 250 -num_threads {}'
+                      .format(blast_mode, database_blast, query, output_name, evalue, threads))
+
 
     return '{}.m8'.format(output_name) if aligner == 'rapsearch' else output_name
 
