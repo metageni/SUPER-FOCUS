@@ -41,11 +41,17 @@ def download_format(aligners):
 
     """
     LOGGER.info('  Downloading DB')
-    os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip')
+    os.system('wget edwards.sdsu.edu/superfocus/downloads/db_small.zip')
+    #os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip')
+
     LOGGER.info('  Uncompressing DB')
-    os.system('unzip db.zip')  # uncompress db
+    #os.system('unzip db.zip')  # uncompress db
+    os.system('unzip db_small.zip')  # uncompress db
+
     os.system('mv clusters/ {}/db/'.format(WORK_DIRECTORY))  # mv db
-    os.system('rm db.zip')  # delete original downloaded file
+    #os.system('rm db.zip')  # delete original downloaded file
+    os.system('rm db_small.zip')  # delete original downloaded file
+
     LOGGER.info('  Joining files')
     [
         os.system(
@@ -85,7 +91,7 @@ def parse_args():
     """
     parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "
                                                  "metagenomic data",
-                                     epilog="python superfocus_downloadDB.py -a diamond,rapsearch")
+                                     epilog="python superfocus_downloadDB -a diamond,rapsearch")
     # basic parameters
     parser.add_argument("-a", "--aligner", help="Aligner name separed by ',' if more than one", required=True)
 
