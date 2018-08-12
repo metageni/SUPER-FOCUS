@@ -12,7 +12,7 @@ import numpy as np
 from pathlib import Path
 from collections import defaultdict
 
-from do_alignment import align_reads, parse_alignments
+from superfocus_app.do_alignment import align_reads, parse_alignments
 
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'

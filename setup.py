@@ -46,6 +46,7 @@ setup(
     entry_points={
         'console_scripts': [
             'superfocus = superfocus_app.superfocus:main',
+            'superfocus_downloadDB = superfocus_app.superfocus_downloadDB:main',
         ]
     },
 )

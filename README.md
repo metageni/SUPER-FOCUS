@@ -8,55 +8,47 @@ If you use SUPER-FOCUS in your research, please cite:
     SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data. 
 	Bioinformatics. 2015 Oct 9. pii: btv584. Website: https://edwards.sdsu.edu/SUPERFOCUS
 
-# Installation
-You can now easily install SUPER-FOCUS using [conda](https://conda.io) via the
-[Bioconda](https://bioconda.github.io/) channel. It is as easy as:
+## Installation
+This will give you command line program:
 
-    conda install -c bioconda super-focus
+	# clone super-focus
+	git clone git@github.com:metageni/SUPER-FOCUS.git -b gs-superfocus-refactor
 
-Note that SUPER-FOCUS currently runs on Python 3.6 and if you are using a conda
-environment based on Python 3+ it might be better to create a separate conda
-environment to use with SUPER-FOCUS:
+	# install super-focus
+	cd SUPER-FOCUS && python setup.py install
 
-    conda create -n super-focus -c bioconda super-focus
-	conda activate super-focus
-
-This will create a conda environment called `super-focus` (as specified by the
-`-n` argument), and install SUPER-FOCUS along with all its dependencies. The second
-line activates the newly created `super-focus` conda environment.
-
-## Dependencies
+### Dependencies
 - [Python 3.6](http://www.python.org/download)
 - [Jellyfish 2.2.6](https://github.com/gmarcais/Jellyfish/releases/tag/v2.2.6). If using macOS, use [bioconda](https://anaconda.org/bioconda/jellyfish)
 - [Numpy 1.12.1](https://github.com/numpy/numpy)
 - [SciPy 0.19.0](https://github.com/scipy/scipy)
 
-## Sequence aligners
+### Sequence aligners
 One of the below aligners:
 - [DIAMOND 0.9.14](http://ab.inf.uni-tuebingen.de/software/diamond)
 - [RAPSearch2 2.24](http://rapsearch2.sourceforge.net). If using macOS, install `brew`, and then `brew install brewsci/science/rapsearch2`
 
 
 
-## Download SUPER-FOCUS database
-Use `superfocus_downloadDB.py` to download and format the SUPER-FOCUS database
+### Download SUPER-FOCUS database
+Use `superfocus_downloadDB` to download and format the SUPER-FOCUS database
 for the available aligners:
 
 ```
-python superfocus_downloadDB.py <aligner>
+superfocus_downloadDB -a <aligner>
 ```
-where `<aligner>` is `rapsearch`, or `diamond` (or all of them). You
-may choose as many aligners as you want among the three, as long as they are
+where `<aligner>` is `rapsearch`, or `diamond` (or all of them separated by `,`). You
+may choose as many aligners as you want among the two, as long as they are
 installed.
 
 **NOTE**: RAPSearch2 and DIAMOND won't work properly if you are trying to use a
 database formatted with an incorrect version of the aligner. Thus, please
-re-run `superfocus_downloadDB.py` in case any aligner was updated on your
+re-run `superfocus_downloadDB` in case any aligner was updated on your
 system.
 
 
-# Run SUPER-FOCUS
-The main SUPER-FOCUS program is `superfocus.py`. Here is a list of the
+### Run SUPER-FOCUS
+The main SUPER-FOCUS program is `superfocus`. Here is a list of the
 available command line options:
 
 	-h print help
@@ -100,16 +92,16 @@ available command line options:
 	-n int
 		normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)
 
-## Usage example
+### Usage example
 ```
-superfocus.py -q query.fasta -dir output_dir
+superfocus -q query.fasta -dir output_dir
 ```
 This will run SUPER-FOCUS using `query.fasta` as a query, and output results into `myOutputDirectory`.
 
-### General recommendations
+#### General recommendations
 - The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction).
 - Run RAPSearch for short sequences, it is less sensitive for long sequences.
 - Primarily use DIAMOND for large datasets only. It is slower than blastx for small datasets.
 	 
-## Output
+### Output
 SUPER-FOCUS output will be add the folder selected by the `-dir` argument.

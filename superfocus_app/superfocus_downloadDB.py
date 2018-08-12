@@ -7,12 +7,16 @@ import os
 import sys
 import logging
 
-from superfocus import which
+from pathlib import Path
+
+from superfocus_app.superfocus import which
 
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
+
+WORK_DIRECTORY = str(Path(__file__).parents[0])
 
 
 def check_aligners():
@@ -40,14 +44,15 @@ def download_format(aligners):
     os.system('wget edwards.sdsu.edu/superfocus/downloads/db.zip')
     LOGGER.info('  Uncompressing DB')
     os.system('unzip db.zip')  # uncompress db
-    os.system('mv clusters/ superfocus_app/db/')  # mv db
+    os.system('mv clusters/ {}/db/'.format(WORK_DIRECTORY))  # mv db
     os.system('rm db.zip')  # delete original downloaded file
     LOGGER.info('  Joining files')
     [
         os.system(
-            'cat superfocus_app/db/clusters/{}/*.faa > superfocus_app/db/clusters/{}.fasta'.format(cluster, cluster)
+            'cat {}/db/clusters/{}/*.faa > {}/db/clusters/{}.fasta'.format(WORK_DIRECTORY,
+                                                                                    cluster, WORK_DIRECTORY, cluster)
         )
-        for cluster in os.listdir('superfocus_app/db/clusters/') if 'cluster' in cluster
+        for cluster in os.listdir('{}/db/clusters/'.format(WORK_DIRECTORY)) if 'cluster' in cluster
     ]
 
     # Format database
@@ -58,15 +63,17 @@ def download_format(aligners):
             if aligner == 'prerapsearch':
                 LOGGER.info('  RAPSearch2: DB_{}'.format(dbname))
                 os.system(
-                    'prerapsearch -d superfocus_app/db/clusters/{}_clusters.fasta -n superfocus_app/db/static/rapsearch2/{}.db'.format(dbname, dbname)
+                    'prerapsearch -d {}/db/clusters/{}_clusters.fasta '
+                ' -n {}/db/static/rapsearch2/{}.db'.format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname)
                 )
             else:
                 LOGGER.info('  DIAMOND: DB_{}'.format(dbname))
                 os.system(
-                    'diamond makedb --in  superfocus_app/db/clusters/{}_clusters.fasta --db superfocus_app/db/static/diamond/{}.db'.
-                        format(dbname, dbname)
+                    'diamond makedb --in  {}/db/clusters/{}_clusters.fasta '
+                    '--db {}/db/static/diamond/{}.db'.
+                        format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname)
                 )
-    os.system('rm superfocus_app/db/clusters/*.fasta')
+    os.system('rm {}/db/clusters/*.fasta'.format(WORK_DIRECTORY))
 
 
 def parse_args():
@@ -107,9 +114,9 @@ def main():
     if 'diamond' in requested_aligners and 'diamond' in aligner_db_creators:
         aligners.append("diamond")
 
-    #os.system('rm superfocus_app/db/clusters/ -r 2> /dev/null')  # delete folder if exists
+    os.system('rm {}/db/clusters/ -r 2> /dev/null'.format(WORK_DIRECTORY))  # delete folder if exists
     download_format(aligners)
-    LOGGER.info('  Done! Now you can run superfocus.py')
+    LOGGER.info('  Done! Now you can run superfocus')
 
 
 if __name__ == "__main__":
