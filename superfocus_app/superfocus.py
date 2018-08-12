@@ -19,8 +19,6 @@ LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
-WORK_DIRECTORY = 'superfocus_app'
-
 
 def which(program_name):
     """Python implementation of unix 'which' function.
@@ -223,8 +221,7 @@ def parse_args():
     parser.add_argument("-n", "--normalise_output",  help="normalises each query counts based on number of hits; "
                                                           "0 doesn't normalize; 1 normalizes (default: 1)", default="1")
     parser.add_argument("-m", "--focus",  help="runs FOCUS; 1 does run; 0 does not run: default 0", default="0")
-    parser.add_argument("-d", "--work_directory",  help="Work directory (Default: superfocus_app)",
-                        default="superfocus_app")
+    parser.add_argument("-d", "--work_directory",  help="Work directory")
     parser.add_argument("-b", "--alternate_directory",  help="Alternate directory for your databases", default="")
 
     return parser.parse_args()
@@ -251,7 +248,7 @@ def main():
     # other metrics
     normalise_output = int(args.normalise_output)
     run_focus = args.focus
-    WORK_DIRECTORY = Path(args.alternate_directory) if args.alternate_directory else Path(args.work_directory)
+    WORK_DIRECTORY = Path(args.alternate_directory) if args.alternate_directory else Path(__file__).parents[0]
 
     LOGGER.info("SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data")
 
