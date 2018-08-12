@@ -163,7 +163,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
 
             # check if alignment wanted
             if temp_mi >= minimum_identity and temp_ml >= minimum_alignment and current_evalue == best_evalue:
-                temp_results[aggregate_levels] += 1 # <<<<<<<<<<<<<<<<<< = 1 after show that results are the same
+                temp_results[aggregate_levels] = 1
 
             previous_read_name = current_read_name
 

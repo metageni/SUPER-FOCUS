@@ -68,8 +68,6 @@ def download_format(aligners, debug_mode):
     cluster_identities = ['100', '98', '95', '90']
     for dbname in cluster_identities:
         for aligner in aligners:
-            print(">>>>>>>>>> ", aligner)
-
             if aligner == 'prerapsearch':
                 LOGGER.info('  RAPSearch2: DB_{}'.format(dbname))
                 os.system(

@@ -12,7 +12,7 @@ If you use SUPER-FOCUS in your research, please cite:
 This will give you command line program:
 
 	# clone super-focus
-	git clone git@github.com:metageni/SUPER-FOCUS.git -b gs-superfocus-refactor
+	git clone git@github.com:metageni/SUPER-FOCUS.git
 
 	# install super-focus
 	cd SUPER-FOCUS && python setup.py install
@@ -26,8 +26,7 @@ This will give you command line program:
 ### Sequence aligners
 One of the below aligners:
 - [DIAMOND 0.9.14](http://ab.inf.uni-tuebingen.de/software/diamond)
-- [RAPSearch2 2.24](http://rapsearch2.sourceforge.net). If using macOS, install `brew`, and then `brew install brewsci/science/rapsearch2`
-
+- [RAPSearch2 2.24](http://rapsearch2.sourceforge.net)
 
 
 ### Download SUPER-FOCUS database
