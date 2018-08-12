@@ -19,7 +19,6 @@ This will give you command line program:
 
 ### Dependencies
 - [Python 3.6](http://www.python.org/download)
-- [Jellyfish 2.2.6](https://github.com/gmarcais/Jellyfish/releases/tag/v2.2.6). If using macOS, use [bioconda](https://anaconda.org/bioconda/jellyfish)
 - [Numpy 1.12.1](https://github.com/numpy/numpy)
 - [SciPy 0.19.0](https://github.com/scipy/scipy)
 
