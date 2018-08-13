@@ -26,6 +26,7 @@ This will give you command line program:
 One of the below aligners:
 - [DIAMOND 0.9.14](http://ab.inf.uni-tuebingen.de/software/diamond)
 - [RAPSearch2 2.24](http://rapsearch2.sourceforge.net)
+- [BLAST 2.6.0](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
 
 
 ### Download SUPER-FOCUS database
