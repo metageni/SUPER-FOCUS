@@ -20,8 +20,8 @@ setup_requirements = [
 
 setup(
     name = 'superfocus',
-    use_scm_version = True,
-    description = 'SUPER-FOCUS 0.30: A tool for agile functional analysis of shotgun metagenomic data',
+    version = 0.31,
+    description = 'SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data',
     author = 'Genivaldo G.Z. Silva',
     author_email = 'genivaldo.gueiros@gmail.com',
     url = 'https://github.com/metageni/super-focus',
@@ -39,7 +39,7 @@ setup(
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'Programming Language :: Python :: 3.6',
-        'Topic :: Scientific/Engineering :: Bioinformatics',
+        'Topic :: Scientific/Engineering :: Bio-Informatics',
     ],
     test_suite = 'tests',
     tests_require = test_requirements,
