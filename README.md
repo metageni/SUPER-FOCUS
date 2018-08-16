@@ -11,6 +11,10 @@ If you use SUPER-FOCUS in your research, please cite:
 ## Installation
 This will give you command line program:
 
+	pip install superfocus
+
+or
+
 	# clone super-focus
 	git clone git@github.com:metageni/SUPER-FOCUS.git
 
