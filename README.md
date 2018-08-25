@@ -53,7 +53,7 @@ re-run `superfocus_downloadDB` in case any aligner was updated on your
 system.
 
 
-### Run
+## Run
 The main SUPER-FOCUS program is `superfocus`. Here is a list of the
 available command line options:
 
