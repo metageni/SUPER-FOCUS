@@ -211,7 +211,7 @@ def parse_args():
     parser.add_argument("-t", "--threads",  help="Number Threads used in the k-mer counting (Default: 4)",
                         default="4")
     parser.add_argument("-e", "--evalue",  help="e-value (default 0.00001)", default="0.00001")
-    parser.add_argument("-db", "--database",  help="database (DB_90, DB_95, DB_98, or DB_100; default DB_98)",
+    parser.add_argument("-db", "--database",  help="database (DB_90, DB_95, DB_98, or DB_100; default DB_90)",
                         default="DB_90")
     parser.add_argument("-p", "--amino_acid",  help="amino acid input; 0 nucleotides; 1 amino acids (default 0)",
                         default="0")
@@ -222,7 +222,6 @@ def parse_args():
     parser.add_argument("-n", "--normalise_output",  help="normalises each query counts based on number of hits; "
                                                           "0 doesn't normalize; 1 normalizes (default: 1)", default="1")
     parser.add_argument("-m", "--focus",  help="runs FOCUS; 1 does run; 0 does not run: default 0", default="0")
-    parser.add_argument("-d", "--work_directory",  help="Work directory")
     parser.add_argument("-b", "--alternate_directory",  help="Alternate directory for your databases", default="")
 
     return parser.parse_args()
