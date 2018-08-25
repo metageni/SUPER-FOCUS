@@ -20,7 +20,7 @@ setup_requirements = [
 
 setup(
     name = 'superfocus',
-    version = 0.31,
+    version = 0.32,
     description = 'SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data',
     author = 'Genivaldo G.Z. Silva',
     author_email = 'genivaldo.gueiros@gmail.com',
