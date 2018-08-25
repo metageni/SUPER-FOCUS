@@ -14,7 +14,7 @@ test_requirements = [
 ]
 
 setup_requirements = [
-    'setuptools_scm'
+    
 ]
 
 
