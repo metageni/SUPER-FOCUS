@@ -110,6 +110,7 @@ available command line options:
 SUPER-FOCUS output will be add the folder selected by the `-dir` argument.
 
 ## Citing
+SUPER-FOCUS was written by Genivaldo G. Z. Silva. Feel free to [contact me](mailto:genivaldo.gueiros@gmail.com)
 
 If you use SUPER-FOCUS in your research, please cite:
 
