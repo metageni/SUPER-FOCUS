@@ -100,21 +100,18 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         os.system('rapsearch -a {} -q {} -d {} -o {} -v 250 -z {} -e {} -b 0 -s f'.format(mode_rapsearch, query,
                                                                                           database_rapsearch,
                                                                                           output_name, threads, evalue))
-
-
     elif aligner == "blast":
         database_blast = "{}/db/static/blast/{}.db".format(WORK_DIRECTORY, database)
         blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
-        os.system('{} -db {} -query {} -out {} -outfmt 6 -evalue {} -max_target_seqs 250 -num_threads {}'
-                      .format(blast_mode, database_blast, query, output_name, evalue, threads))
-
+        os.system('{} -db {} -query {} -out {} -outfmt 6 -evalue {} -max_target_seqs 250 -num_threads {}'.format(
+            blast_mode, database_blast, query, output_name, evalue, threads))
 
     return '{}.m8'.format(output_name) if aligner == 'rapsearch' else output_name
 
 
 def parse_alignments(alignment, results, normalise, number_samples, sample_index,
-                     minimum_identity, minimum_alignment, subsystems_translation, aligner):
+                     minimum_identity, minimum_alignment, subsystems_translation, aligner, binning_reads, query_name):
     """Parses alignment.
 
     Args:
@@ -127,6 +124,8 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
         minimum_alignment (int) Minimum alignment (bp) to be consider a hit
         subsystems_translation (dict): subsystems translation lookup table
         aligner (str): aligner name
+        binning_reads (collections.defaultdict): reads binning results
+        query_name (str): fasta/q file name used in the alignment
 
     Returns:
         collections.defaultdict: Updated results
@@ -164,10 +163,12 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
             # check if alignment wanted
             if temp_mi >= minimum_identity and temp_ml >= minimum_alignment and current_evalue == best_evalue:
                 temp_results[aggregate_levels] = 1
+                binning_reads[query_name][current_read_name].append([temp_mi, temp_ml, current_evalue,
+                                                                     aggregate_levels])
 
             previous_read_name = current_read_name
 
         # last group of reads
         update_results(results, sample_index, temp_results, normalise, number_samples)
 
-    return results
+    return results, binning_reads

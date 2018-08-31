@@ -80,3 +80,8 @@ Biochemistry/binary_data
 
 # Manifest out (only needed for dev)
 MANIFEST.in
+
+# not needed folder
+superfocus_app/clusters/
+superfocus_app/db/clusters/
+out/
