@@ -19,7 +19,7 @@ This will give you command line program:
 or
 
 	# clone super-focus
-	git clone git@github.com:metageni/SUPER-FOCUS.git
+	git clone https://github.com/metageni/SUPER-FOCUS.git
 
 	# install super-focus
 	cd SUPER-FOCUS && python setup.py install
