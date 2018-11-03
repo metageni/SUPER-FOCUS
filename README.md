@@ -24,6 +24,9 @@ or
 	# install super-focus
 	cd SUPER-FOCUS && python setup.py install
 
+	# if you do not have super user privileges, you can install it like this
+	cd SUPER-FOCUS && python setup.py install --user
+
 ## Dependencies
 - [Python 3.6](http://www.python.org/download)
 - [Numpy 1.12.1](https://github.com/numpy/numpy)
