@@ -135,6 +135,10 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
     previous_read_name = None
     best_evalue = None
 
+    # test for an empty file
+    if os.stat(alignment).st_size == 0:
+        return defaultdict(int)
+
     with open(alignment) as alignment_file:
         alignment_reader = csv.reader(alignment_file, delimiter='\t')
         if aligner == "rapsearch":

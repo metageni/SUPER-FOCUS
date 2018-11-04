@@ -19,10 +19,13 @@ This will give you command line program:
 or
 
 	# clone super-focus
-	git clone git@github.com:metageni/SUPER-FOCUS.git
+	git clone https://github.com/metageni/SUPER-FOCUS.git
 
 	# install super-focus
 	cd SUPER-FOCUS && python setup.py install
+
+	# if you do not have super user privileges, you can install it like this
+	cd SUPER-FOCUS && python setup.py install --user
 
 ## Dependencies
 - [Python 3.6](http://www.python.org/download)
