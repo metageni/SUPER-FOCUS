@@ -20,7 +20,7 @@ def normalise_counts(data):
     """
     sum_hits = sum(data.values())
 
-    return {level: data[level]/sum_hits for level in data}
+    return {level: data[level] / sum_hits for level in data}
 
 
 def update_results(results, sample_index, data, normalise, number_samples):
@@ -107,8 +107,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
         os.system('{} -db {} -query {} -out {} -outfmt 6 -evalue {} -max_target_seqs 250 -num_threads {}'
-                      .format(blast_mode, database_blast, query, output_name, evalue, threads))
-
+                  .format(blast_mode, database_blast, query, output_name, evalue, threads))
 
     return '{}.m8'.format(output_name) if aligner == 'rapsearch' else output_name
 
