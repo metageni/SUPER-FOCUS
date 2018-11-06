@@ -194,7 +194,7 @@ def write_binning(binning_result, output_name, query_path, database, aligner):
                          "Identity %", "Alignment Length", "E-value"])
         for query_name in binning_result:
             for read_name in binning_result[query_name]:
-                for row_temp in binning_result[query_name][read_name]:
+                for row_temp in set(binning_result[query_name][read_name]):
                     row = [query_name, read_name] + row_temp[-1].split("\t") + row_temp[:-1]
                     writer.writerow(row)
 
