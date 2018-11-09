@@ -144,6 +144,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
             # skip header
             [next(alignment_reader, None) for _ in range(5)]
 
+        temp_results = defaultdict(int)
         for row in alignment_reader:
             # extract need info from hit
             current_read_name = row[0]
