@@ -12,7 +12,7 @@ from pathlib import Path
 from collections import defaultdict
 
 from superfocus_app.do_alignment import align_reads, parse_alignments
-#from do_alignment import align_reads, parse_alignments
+from do_alignment import align_reads, parse_alignments
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
