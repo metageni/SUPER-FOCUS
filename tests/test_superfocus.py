@@ -19,28 +19,31 @@ def test_is_valid_number():
 
 
 def test_is_wanted_file():
-    assert is_wanted_file(["a.fasta", "b.fastq", "x.FASTq", "y.FASTA", "n.fna"]) == ['a.fasta', 'b.fastq', 'n.fna', 'x.FASTq', 'y.FASTA']
-    assert is_wanted_file(["f.png", "a.fasta", "b.fastq", "x.FASTq", "y.FASTA", "n.fna"]) == ['a.fasta', 'b.fastq', 'n.fna', 'x.FASTq', 'y.FASTA']
+    assert is_wanted_file(["a.fasta", "b.fastq", "x.FASTq", "y.FASTA", "n.fna"]) == ['a.fasta', 'b.fastq', 'n.fna',
+                                                                                     'x.FASTq', 'y.FASTA']
+    assert is_wanted_file(["f.png", "a.fasta", "b.fastq", "x.FASTq", "y.FASTA", "n.fna"]) == ['a.fasta', 'b.fastq',
+                                                                                              'n.fna', 'x.FASTq',
+                                                                                              'y.FASTA']
     assert is_wanted_file(["f.png", "queries/"]) == []
 
 
 def test_get_denominators():
     test_1 = {
-      "a": [1, 2, 3],
-      "b": [4, 8, 10]
+        "a": [1, 2, 3],
+        "b": [4, 8, 10]
     }
     assert list(get_denominators(test_1)) == [5, 10, 13]
 
     test_2 = {
-      "a": [10, 5, 30],
-      "b": [2, 7, 11],
-      "c": [4, 0, 1]
+        "a": [10, 5, 30],
+        "b": [2, 7, 11],
+        "c": [4, 0, 1]
     }
     assert list(get_denominators(test_2)) == [16, 12, 42]
 
     test_3 = {
-      "a": [0, 0, 0],
-      "b": [0, 0, 0]
+        "a": [0, 0, 0],
+        "b": [0, 0, 0]
     }
     assert list(get_denominators(test_3)) == [0, 0, 0]
 
@@ -51,9 +54,7 @@ def test_aggregate_level():
     position = 0
 
     assert aggregate_level(test_1, position, normalizer_1) == {
-      'a1': [1, 2, 3, 16.666666666666664, 16.666666666666664, 18.75],
-      'b1': [4, 8, 10, 66.666666666666657, 66.666666666666657, 62.5],
-      'c1': [1, 2, 3, 16.666666666666664, 16.666666666666664, 18.75]
+        'a1': [1, 2, 3, 16.666666666666664, 16.666666666666664, 18.75],
+        'b1': [4, 8, 10, 66.666666666666657, 66.666666666666657, 62.5],
+        'c1': [1, 2, 3, 16.666666666666664, 16.666666666666664, 18.75]
     }
-
-

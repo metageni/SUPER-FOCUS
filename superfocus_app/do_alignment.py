@@ -20,7 +20,7 @@ def normalise_counts(data):
     """
     sum_hits = sum(data.values())
 
-    return {level: data[level]/sum_hits for level in data}
+    return {level: data[level] / sum_hits for level in data}
 
 
 def update_results(results, sample_index, data, normalise, number_samples):
@@ -134,12 +134,17 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
     previous_read_name = None
     best_evalue = None
 
+    # test for an empty file
+    if os.stat(alignment).st_size == 0:
+        return defaultdict(int)
+
     with open(alignment) as alignment_file:
         alignment_reader = csv.reader(alignment_file, delimiter='\t')
         if aligner == "rapsearch":
             # skip header
             [next(alignment_reader, None) for _ in range(5)]
 
+        temp_results = defaultdict(int)
         for row in alignment_reader:
             # extract need info from hit
             current_read_name = row[0]

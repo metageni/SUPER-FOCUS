@@ -1,4 +1,4 @@
-# !/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import argparse
@@ -8,13 +8,11 @@ import os
 
 import numpy as np
 
-
 from pathlib import Path
 from collections import defaultdict
 
 from superfocus_app.do_alignment import align_reads, parse_alignments
 #from do_alignment import align_reads, parse_alignments
-
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
@@ -32,6 +30,7 @@ def which(program_name):
 
     """
     program_name = 'blastn' if program_name == 'blast' else program_name
+
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
 
@@ -91,7 +90,7 @@ def add_relative_abundance(level_results, normalizer):
     """
     # add relative abundance next to raw count for each of the file(s) in the analysis
     for level in level_results:
-        relative_abundance = list((level_results[level]/normalizer) * 100)
+        relative_abundance = list((level_results[level] / normalizer) * 100)
         level_results[level] = list(level_results[level]) + relative_abundance
 
     return level_results
@@ -230,30 +229,30 @@ def parse_args():
                                      epilog="python superfocus.py -q input_folder -dir output_dir")
     # basic parameters
     parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files", required=True)
-    parser.add_argument("-dir", "--output_directory",  help="Path to output files", required=True)
-    parser.add_argument("-o", "--output_prefix",  help="Output prefix (Default: output)", default="output_")
+    parser.add_argument("-dir", "--output_directory", help="Path to output files", required=True)
+    parser.add_argument("-o", "--output_prefix", help="Output prefix (Default: output)", default="output_")
 
     # aligner related
-    parser.add_argument("-a", "--aligner",  help="aligner choice (rapsearch, diamond, or blast; default rapsearch)",
+    parser.add_argument("-a", "--aligner", help="aligner choice (rapsearch, diamond, or blast; default rapsearch)",
                         default="rapsearch")
-    parser.add_argument("-mi", "--minimum_identity",  help="minimum identity (default 60 perc)", default="60")
-    parser.add_argument("-ml", "--minimum_alignment",  help="minimum alignment (amino acids) (default: 15)",
+    parser.add_argument("-mi", "--minimum_identity", help="minimum identity (default 60 perc)", default="60")
+    parser.add_argument("-ml", "--minimum_alignment", help="minimum alignment (amino acids) (default: 15)",
                         default="15")
-    parser.add_argument("-t", "--threads",  help="Number Threads used in the k-mer counting (Default: 4)",
+    parser.add_argument("-t", "--threads", help="Number Threads used in the k-mer counting (Default: 4)",
                         default="4")
-    parser.add_argument("-e", "--evalue",  help="e-value (default 0.00001)", default="0.00001")
-    parser.add_argument("-db", "--database",  help="database (DB_90, DB_95, DB_98, or DB_100; default DB_90)",
+    parser.add_argument("-e", "--evalue", help="e-value (default 0.00001)", default="0.00001")
+    parser.add_argument("-db", "--database", help="database (DB_90, DB_95, DB_98, or DB_100; default DB_90)",
                         default="DB_90")
-    parser.add_argument("-p", "--amino_acid",  help="amino acid input; 0 nucleotides; 1 amino acids (default 0)",
+    parser.add_argument("-p", "--amino_acid", help="amino acid input; 0 nucleotides; 1 amino acids (default 0)",
                         default="0")
-    parser.add_argument("-f", "--fast",  help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) "
-                                              "(default: 1)", default="1")
+    parser.add_argument("-f", "--fast", help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) "
+                                             "(default: 1)", default="1")
 
     # extra
-    parser.add_argument("-n", "--normalise_output",  help="normalises each query counts based on number of hits; "
-                                                          "0 doesn't normalize; 1 normalizes (default: 1)", default="1")
-    parser.add_argument("-m", "--focus",  help="runs FOCUS; 1 does run; 0 does not run: default 0", default="0")
-    parser.add_argument("-b", "--alternate_directory",  help="Alternate directory for your databases", default="")
+    parser.add_argument("-n", "--normalise_output", help="normalises each query counts based on number of hits; "
+                                                         "0 doesn't normalize; 1 normalizes (default: 1)", default="1")
+    parser.add_argument("-m", "--focus", help="runs FOCUS; 1 does run; 0 does not run: default 0", default="0")
+    parser.add_argument("-b", "--alternate_directory", help="Alternate directory for your databases", default="")
 
     return parser.parse_args()
 

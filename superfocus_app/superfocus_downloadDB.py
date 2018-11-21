@@ -1,4 +1,4 @@
-# !/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 
@@ -10,7 +10,6 @@ import logging
 from pathlib import Path
 
 from superfocus_app.superfocus import which
-
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
@@ -58,7 +57,7 @@ def download_format(aligners, debug_mode):
     [
         os.system(
             'cat {}/db/clusters/{}/*.faa > {}/db/clusters/{}.fasta'.format(WORK_DIRECTORY,
-                                                                                    cluster, WORK_DIRECTORY, cluster)
+                                                                           cluster, WORK_DIRECTORY, cluster)
         )
         for cluster in os.listdir('{}/db/clusters/'.format(WORK_DIRECTORY)) if 'cluster' in cluster
     ]
@@ -72,7 +71,7 @@ def download_format(aligners, debug_mode):
                 LOGGER.info('  RAPSearch2: DB_{}'.format(dbname))
                 os.system(
                     'prerapsearch -d {}/db/clusters/{}_clusters.fasta '
-                ' -n {}/db/static/rapsearch2/{}.db'.format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname)
+                    ' -n {}/db/static/rapsearch2/{}.db'.format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname)
                 )
             elif aligner == 'diamond':
                 LOGGER.info('  DIAMOND: DB_{}'.format(dbname))
@@ -139,6 +138,7 @@ def main():
         LOGGER.info('  Done! Now you can run superfocus')
     else:
         LOGGER.critical('  No valid aligner. We cannot move on!')
+
 
 if __name__ == "__main__":
     main()
