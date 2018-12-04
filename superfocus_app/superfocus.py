@@ -3,6 +3,7 @@
 
 import argparse
 import csv
+import itertools
 import logging
 import os
 
@@ -11,7 +12,7 @@ import numpy as np
 from pathlib import Path
 from collections import defaultdict
 
-from superfocus_app.do_alignment import align_reads, parse_alignments
+#from superfocus_app.do_alignment import align_reads, parse_alignments
 from do_alignment import align_reads, parse_alignments
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
@@ -193,7 +194,10 @@ def write_binning(binning_result, output_name, query_path, database, aligner):
                          "Identity %", "Alignment Length", "E-value"])
         for query_name in binning_result:
             for read_name in binning_result[query_name]:
-                for row_temp in set(binning_result[query_name][read_name]):
+                # remove duplicates from list
+                temp_row = binning_result[query_name][read_name]
+                temp_row = list(temp_row for temp_row, _ in itertools.groupby(temp_row))
+                for row_temp in temp_row:
                     row = [query_name, read_name] + row_temp[-1].split("\t") + row_temp[:-1]
                     writer.writerow(row)
 
@@ -344,8 +348,10 @@ def main():
         for counter, temp_query in enumerate(query_files):
             LOGGER.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             LOGGER.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
-            alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
-                                         threads, fast_mode, WORK_DIRECTORY, amino_acid)
+            #alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
+            #                             threads, fast_mode, WORK_DIRECTORY, amino_acid)
+            alignment_name = "/Users/geni.silva/Desktop/sf/mgm4536476.3.299.1.fasta_alignments.m8"
+
             LOGGER.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
