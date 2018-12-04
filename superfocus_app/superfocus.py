@@ -348,10 +348,8 @@ def main():
         for counter, temp_query in enumerate(query_files):
             LOGGER.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             LOGGER.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
-            #alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
-            #                             threads, fast_mode, WORK_DIRECTORY, amino_acid)
-            alignment_name = "/Users/geni.silva/Desktop/sf/mgm4536476.3.299.1.fasta_alignments.m8"
-
+            alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
+                                         threads, fast_mode, WORK_DIRECTORY, amino_acid)
             LOGGER.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
