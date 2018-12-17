@@ -133,6 +133,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
     """
     previous_read_name = None
     best_evalue = None
+    temp_results = defaultdict()
 
     # test for an empty file
     if os.stat(alignment).st_size == 0:
