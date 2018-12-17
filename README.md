@@ -28,16 +28,23 @@ or
 	cd SUPER-FOCUS && python setup.py install --user
 
 ## Dependencies
-- [Python 3.6](http://www.python.org/download)
+- [Python >= 3.6](http://www.python.org/download)
 - [Numpy 1.12.1](https://github.com/numpy/numpy)
-- [SciPy 0.19.0](https://github.com/scipy/scipy)
+- [SciPy 0.19.0](https://github.com/scipy/scipy)  
+
+If you have Python 3.6, you can install both dependencies with:  
+`pip install -r requirements.txt`
 
 ## Aligners
-One of the below aligners:
+One of the below aligners, which can easily be installed with [`conda`](https://conda.io/docs/):
 - [DIAMOND 0.9.14](http://ab.inf.uni-tuebingen.de/software/diamond)
 - [RAPSearch2 2.24](http://rapsearch2.sourceforge.net)
 - [BLAST 2.6.0](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
 
+To install the aligners, having [`conda`](https://conda.io/docs/installation.html) installed, simply run:  
+ `conda install -c bioconda <aligner>`
+
+ Note that they are all available from the [`bioconda`](https://bioconda.github.io/) channel.
 
 ## Database
 Use `superfocus_downloadDB` to download and format the SUPER-FOCUS database

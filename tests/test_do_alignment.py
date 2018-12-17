@@ -7,6 +7,7 @@ from superfocus_app.do_alignment import normalise_counts, update_results, parse_
 def test_parse_alignment():
     pass
 
+
 def test_normalise_counts():
     # example 1: empty input
     assert normalise_counts({}) == {}
@@ -46,7 +47,6 @@ def test_update_results():
     true_answer = {"function_1": [1], "function_2": [1]}
     assert update_results(results, sample_index, data, normalise, number_samples) == true_answer
 
-
     ## Two functions - not normalised
 
     # example 1
@@ -63,7 +63,6 @@ def test_update_results():
     true_answer = {"function_1": [2], "function_2": [1]}
     assert update_results(results, sample_index, data, normalise, number_samples) == true_answer
 
-
     # normalised example
     normalise = 1
 
@@ -72,4 +71,3 @@ def test_update_results():
 
     true_answer = {"function_1": [0.5], "function_2": [0.5]}
     assert update_results(results, sample_index, data, normalise, number_samples) == true_answer
-
