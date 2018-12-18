@@ -136,7 +136,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
     temp_results = defaultdict()
 
     # test for an empty file
-    if os.stat(alignment).st_size == 0:
+    if not os.path.exists(alignment) or os.stat(alignment).st_size == 0:
         return defaultdict(int)
 
     with open(alignment) as alignment_file:
