@@ -89,7 +89,8 @@ def add_relative_abundance(level_results, normalizer):
     """
     # add relative abundance next to raw count for each of the file(s) in the analysis
     for level in level_results:
-        relative_abundance = list((level_results[level] / normalizer) * 100)
+        relative_abundance = np.divide(list(level_results[level]), normalizer, where=normalizer!=0)
+        relative_abundance *= 100
         level_results[level] = list(level_results[level]) + relative_abundance
 
     return level_results
@@ -164,7 +165,7 @@ def write_results(results, header, output_name, query_path, database, aligner):
         writer.writerow(header)
         for row in sorted(results):
             if sum(results[row]) > 0:
-                writer.writerow(row.split("\t") + results[row])
+                writer.writerow(row.split("\t") + list(map(str, results[row])))
 
 
 def is_valid_number(value):
