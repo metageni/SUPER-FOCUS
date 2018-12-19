@@ -91,7 +91,7 @@ def add_relative_abundance(level_results, normalizer):
     for level in level_results:
         relative_abundance = np.divide(list(level_results[level]), normalizer, where=normalizer!=0)
         relative_abundance *= 100
-        level_results[level] = list(level_results[level]) + relative_abundance
+        level_results[level] = list(level_results[level]) + list(relative_abundance)
 
     return level_results
 
