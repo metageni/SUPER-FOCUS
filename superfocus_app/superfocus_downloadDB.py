@@ -43,7 +43,14 @@ def download_format(aligners, debug_mode):
     db_filename = 'db.zip' if debug_mode == '0' else 'db_small.zip'
 
     LOGGER.info('  Downloading DB')
-    os.system('wget edwards.sdsu.edu/superfocus/downloads/{}'.format(db_filename))
+    # wget is installed
+    if which('wgetl'):
+        os.system('wget edwards.sdsu.edu/superfocus/downloads/{}'.format(db_filename))
+    # curl is installed
+    elif which('curl'):
+        os.system('curl -O edwards.sdsu.edu/superfocus/downloads/{}'.format(db_filename))
+    else:
+        raise Exception('Please install either wget or curl')
 
     LOGGER.info('  Uncompressing DB')
     os.system('unzip {}'.format(db_filename))
