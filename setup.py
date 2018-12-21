@@ -17,13 +17,13 @@ setup_requirements = [
 ]
 
 setup(
-    name='superfocus',
-    version=0.32,
-    description='SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data',
-    author='Genivaldo G.Z. Silva',
-    author_email='genivaldo.gueiros@gmail.com',
-    url='https://github.com/metageni/super-focus',
-    packages=[
+    name = 'superfocus',
+    version = 0.33,
+    description = 'SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data',
+    author = 'Genivaldo G.Z. Silva',
+    author_email = 'genivaldo.gueiros@gmail.com',
+    url = 'https://github.com/metageni/super-focus',
+    packages = [
         'superfocus_app',
     ],
     package_dir={'superfocus_app': 'superfocus_app'},

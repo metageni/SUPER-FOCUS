@@ -78,5 +78,8 @@ Biochemistry/binary_data
 # ipython notebook
 .ipynb_checkpoints/
 
-# Manifest out (only needed for dev)
-MANIFEST.in
+
+# not needed folder
+superfocus_app/clusters/
+superfocus_app/db/clusters/
+out/

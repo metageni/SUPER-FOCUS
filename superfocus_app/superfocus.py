@@ -3,6 +3,7 @@
 
 import argparse
 import csv
+import itertools
 import logging
 import os
 
@@ -144,7 +145,7 @@ def write_results(results, header, output_name, query_path, database, aligner):
     """Write results in tabular format.
 
     Args:
-        results (dict): Dict with results to be written
+        results (collections.defaultdict): Dict with results to be written
         header (list): Header to be wrritten
         output_name (str): Path to output
         query_path (str): Path to query
@@ -166,6 +167,39 @@ def write_results(results, header, output_name, query_path, database, aligner):
         for row in sorted(results):
             if sum(results[row]) > 0:
                 writer.writerow(row.split("\t") + list(map(str, results[row])))
+
+
+def write_binning(binning_result, output_name, query_path, database, aligner):
+    """Write binning results in tabular format.
+
+    Args:
+        binning_result (collections.defaultdict): Dict with results to be written
+        output_name (str): Path to output
+        query_path (str): Path to query
+        database (str): Database used
+        aligner (str): Aligner name
+
+    """
+    with open(output_name, 'w') as outfile:
+        writer = csv.writer(outfile, delimiter='\t', lineterminator='\n')
+
+        # run info
+        writer.writerow(["Query: {}".format(query_path)])
+        writer.writerow(["Database used: {}".format(database)])
+        writer.writerow(["Aligner used: {}".format(aligner)])
+        writer.writerow([""])
+
+        writer.writerow(["Sample name", "Read Name",
+                         "Subsystem Level 1", "Subsystem Level 2", "Subsystem Level 3", "Function",
+                         "Identity %", "Alignment Length", "E-value"])
+        for query_name in binning_result:
+            for read_name in binning_result[query_name]:
+                # remove duplicates from list
+                temp_row = binning_result[query_name][read_name]
+                temp_row = list(temp_row for temp_row, _ in itertools.groupby(temp_row))
+                for row_temp in temp_row:
+                    row = [query_name, read_name] + row_temp[-1].split("\t") + row_temp[:-1]
+                    writer.writerow(row)
 
 
 def is_valid_number(value):
@@ -305,6 +339,7 @@ def main():
 
     else:
         results = defaultdict(list)
+        binning_reads = defaultdict(lambda: defaultdict(list))
 
         subsystems_translation = get_subsystems(Path(WORK_DIRECTORY, "db/database_PKs.txt"))
 
@@ -317,13 +352,19 @@ def main():
                                          threads, fast_mode, WORK_DIRECTORY, amino_acid)
             LOGGER.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
-            results = parse_alignments(alignment_name, results, normalise_output, len(query_files), sample_position,
-                                       minimum_identity, minimum_alignment, subsystems_translation, aligner)
+            results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
+                                                      sample_position, minimum_identity, minimum_alignment,
+                                                      subsystems_translation, aligner, binning_reads, temp_query)
 
         # write results
         normalizer = get_denominators(results)
         header_files = query_files + ["{} %".format(x) for x in query_files]
         LOGGER.info('Writting results at {}'.format(output_directory))
+
+        # write binning
+        output_file = "{}/{}binning.xls".format(output_directory, prefix)
+        write_binning(binning_reads, output_file, queries_folder, database, aligner)
+        LOGGER.info('  Working on writing binning')
 
         # write results for each of the levels
         for level in [1, 2, 3]:
