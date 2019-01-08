@@ -120,10 +120,17 @@ available command line options:
 SUPER-FOCUS output will be add the folder selected by the `-dir` argument.
 
 ## Citing
-SUPER-FOCUS was written by Genivaldo G. Z. Silva. Feel free to [contact me](mailto:genivaldo.gueiros@gmail.com)
+SUPER-FOCUS was written by Genivaldo G. Z. Silva. Feel free to create an [issue or ask questions](https://github.com/metageni/SUPER-FOCUS/issues)
 
 If you use SUPER-FOCUS in your research, please cite:
+
+#### Paper
 
     Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards:
     SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data.
 	Bioinformatics. 2015 Oct 9. pii: btv584. Website: https://edwards.sdsu.edu/SUPERFOCUS
+
+#### Extended tool manual
+    Silva, G. G. Z., F. A. Lopes, and R. A. Edwards
+    An Agile Functional Analysis of Metagenomic Data Using SUPER-FOCUS.
+	Protein Function Prediction: Methods and Protocols, 2017.
