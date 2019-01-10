@@ -13,6 +13,7 @@ from pathlib import Path
 from collections import defaultdict
 
 from superfocus_app.do_alignment import align_reads, parse_alignments
+from superfocus_app import version
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
@@ -231,6 +232,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "
                                                  "metagenomic data",
                                      epilog="python superfocus.py -q input_folder -dir output_dir")
+    parser.add_argument('-v', '--version', action='version', version='SUPER-FOCUS {}'.format(version))
     # basic parameters
     parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files", required=True)
     parser.add_argument("-dir", "--output_directory", help="Path to output files", required=True)
