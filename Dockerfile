@@ -9,7 +9,7 @@ RUN conda config --add channels defaults
 RUN conda config --add channels bioconda
 RUN conda config --add channels conda-forge
 
-# installs focus using bioconda
+# installs super-focus using bioconda
 RUN conda install super-focus
 
 # Entrypoint
