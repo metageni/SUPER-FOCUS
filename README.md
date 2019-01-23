@@ -14,7 +14,7 @@
 ## Installation
 This will give you command line program:
 
-	pip install superfocus
+	pip3 install superfocus
 
 or
 
@@ -41,7 +41,7 @@ You can now easily install SUPER-FOCUS using [conda](https://conda.io) via the
 - [SciPy 0.19.0](https://github.com/scipy/scipy)  
 
 If you have Python 3.6, you can install both dependencies with:  
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 ## Aligners
 One of the below aligners, which can easily be installed with [`conda`](https://conda.io/docs/):
