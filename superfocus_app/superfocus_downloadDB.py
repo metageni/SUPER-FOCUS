@@ -44,7 +44,7 @@ def download_format(aligners, debug_mode):
 
     LOGGER.info('  Downloading DB')
     # wget is installed
-    if which('wgetl'):
+    if which('wget'):
         os.system('wget edwards.sdsu.edu/superfocus/downloads/{}'.format(db_filename))
     # curl is installed
     elif which('curl'):
