@@ -10,6 +10,7 @@ import os
 import numpy as np
 
 from pathlib import Path
+from shutil import which
 from collections import defaultdict
 
 from superfocus_app.do_alignment import align_reads, parse_alignments
@@ -18,35 +19,6 @@ from superfocus_app import version
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
-
-
-def which(program_name):
-    """Python implementation of unix 'which' function.
-
-    Args:
-        program_name (str): Program name
-
-    Returns:
-        str: Program path
-
-    """
-    program_name = 'blastn' if program_name == 'blast' else program_name
-
-    def is_exe(fpath):
-        return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
-
-    fpath, fname = os.path.split(program_name)
-    if fpath:
-        if is_exe(program_name):
-            return program_name
-    else:
-        for path in os.environ["PATH"].split(os.pathsep):
-            path = path.strip('"')
-            exe_file = os.path.join(path, program_name)
-            if is_exe(exe_file):
-                return exe_file
-
-    return None
 
 
 def is_wanted_file(queries):
@@ -91,7 +63,7 @@ def add_relative_abundance(level_results, normalizer):
     """
     # add relative abundance next to raw count for each of the file(s) in the analysis
     for level in level_results:
-        relative_abundance = np.divide(list(level_results[level]), normalizer, where=normalizer!=0)
+        relative_abundance = np.divide(list(level_results[level]), normalizer, where=normalizer != 0)
         relative_abundance *= 100
         level_results[level] = list(level_results[level]) + list(relative_abundance)
 

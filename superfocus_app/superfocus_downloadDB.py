@@ -8,8 +8,7 @@ import sys
 import logging
 
 from pathlib import Path
-
-from superfocus_app.superfocus import which
+from shutil import which
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
