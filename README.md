@@ -75,48 +75,52 @@ system.
 The main SUPER-FOCUS program is `superfocus`. Here is a list of the
 available command line options:
 
-	-h print help
+    superfocus [-h] [-v] -q QUERY -dir OUTPUT_DIRECTORY [-o OUTPUT_PREFIX]
+                      [-a ALIGNER] [-mi MINIMUM_IDENTITY] [-ml MINIMUM_ALIGNMENT]
+                      [-t THREADS] [-e EVALUE] [-db DATABASE] [-p AMINO_ACID]
+                      [-f FAST] [-n NORMALISE_OUTPUT] [-m FOCUS]
+                      [-b ALTERNATE_DIRECTORY]
 
-	-q FASTA/FASTQ
-		Path to directory with FASTA/FASTQ file(s)
+    SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data.
 
-	-dir string
-		output directory
+    optional arguments:
+      -h, --help            show this help message and exit
+      -v, --version         show program's version number and exit
+      -q QUERY, --query QUERY
+                            Path to FAST(A/Q) file or directory with these files.
+      -dir OUTPUT_DIRECTORY, --output_directory OUTPUT_DIRECTORY
+                            Path to output files
+      -o OUTPUT_PREFIX, --output_prefix OUTPUT_PREFIX
+                            Output prefix (Default: output).
+      -a ALIGNER, --aligner ALIGNER
+                            aligner choice (rapsearch, diamond, or blast; default
+                            rapsearch).
+      -mi MINIMUM_IDENTITY, --minimum_identity MINIMUM_IDENTITY
+                            minimum identity (default 60 perc).
+      -ml MINIMUM_ALIGNMENT, --minimum_alignment MINIMUM_ALIGNMENT
+                            minimum alignment (amino acids) (default: 15).
+      -t THREADS, --threads THREADS
+                            Number Threads used in the k-mer counting (Default:
+                            4).
+      -e EVALUE, --evalue EVALUE
+                            e-value (default 0.00001).
+      -db DATABASE, --database DATABASE
+                            database (DB_90, DB_95, DB_98, or DB_100; default
+                            DB_90)
+      -p AMINO_ACID, --amino_acid AMINO_ACID
+                            amino acid input; 0 nucleotides; 1 amino acids
+                            (default 0).
+      -f FAST, --fast FAST  runs RAPSearch2 or DIAMOND on fast mode - 0 (False) /
+                            1 (True) (default: 1).
+      -n NORMALISE_OUTPUT, --normalise_output NORMALISE_OUTPUT
+                            normalises each query counts based on number of hits;
+                            0 doesn't normalize; 1 normalizes (default: 1).
+      -m FOCUS, --focus FOCUS
+                            runs FOCUS; 1 does run; 0 does not run: default 0.
+      -b ALTERNATE_DIRECTORY, --alternate_directory ALTERNATE_DIRECTORY
+                            Alternate directory for your databases.
 
-	-o string
-		output prefix (default 'output_')
-
-	-mi float
-		minimum identity (default 60 %)
-
-	-ml int
-		minimum alignment (amino acids) (default: 15)
-
-	-focus int
-		runs FOCUS; 1 does run; 0 does not run: default 0
-
-	-t int
-		number of threads (default 4)
-
-	-e float
-		e-value (default 0.00001)
-
-	-db string
-		database (DB_90, DB_95, DB_98, or DB_100; default DB_90)
-
-	-p int
-		amino acid input; 0 nucleotides; 1 amino acids (default 0)
-
-	-a string
-		aligner choice (rapsearch (only fasta files) or diamond; default rapsearch)
-
-	-fast int
-		runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) (default: 1)
-
-	-n int
-		normalizes each query counts based on number of hits; 0 doesn't normalize; 1 normalizes (default: 1)
-
-	Usage example: superfocus -q query.fasta -dir output_dir
+    superfocus -q input_folder -dir output_dir
 
 ## Recomendations
 - The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction)

@@ -24,10 +24,10 @@ def which(program_name):
     """Python implementation of unix 'which' function.
 
     Args:
-        program_name (str): Program name
+        program_name (str): Program name.
 
     Returns:
-        str: Program path
+        str: Program path.
 
     """
     program_name = 'blastn' if program_name == 'blast' else program_name
@@ -53,10 +53,10 @@ def is_wanted_file(queries):
     """Remove files from query files that not have extension .fasta/.fastq/.fna
 
     Args:
-        queries (list): List with query names
+        queries (list): List with query names.
 
     Returns:
-        list: Sorted list with only .fasta/.fastq/.fna files
+        list: Sorted list with only .fasta/.fastq/.fna files.
 
     """
     queries = [query for query in queries if query.split(".")[-1].lower() in ["fna", "fasta", "fastq"]]
@@ -69,10 +69,10 @@ def get_denominators(results):
     """Get denominators to normalise abundances.
 
     Args:
-        results (dict): Results
+        results (dict): Results.
 
     Returns:
-        numpy.ndarray: Sum of columns in the metrics aka denominators for normalisation
+        numpy.ndarray: Sum of columns in the metrics aka denominators for normalisation.
 
     """
     return np.sum([results[element] for element in results], axis=0)
@@ -82,11 +82,11 @@ def add_relative_abundance(level_results, normalizer):
     """Add relative abundance to results.
 
     Args:
-        level_results (dict): Results to be updated
-        normalizer (numpy.ndarray): Normalizer denominators
+        level_results (dict): Results to be updated.
+        normalizer (numpy.ndarray): Normalizer denominators.
 
     Returns:
-        dict: Results with relative abundance
+        dict: Results with relative abundance.
 
     """
     # add relative abundance next to raw count for each of the file(s) in the analysis
@@ -102,12 +102,12 @@ def aggregate_level(results, position, normalizer):
     """Aggregate abundance of subsystem level and add relative abundance.
 
     Args:
-        results (dict): Results
-        position (int): Position of level in the results
-        normalizer (numpy.ndarray): Normalizer denominators
+        results (dict): Results.
+        position (int): Position of level in the results.
+        normalizer (numpy.ndarray): Normalizer denominators.
 
     Returns:
-        dict: Aggregated result targeting chosen subsystem level
+        dict: Aggregated result targeting chosen subsystem level.
 
     """
     level_results = defaultdict(list)
@@ -126,10 +126,10 @@ def get_subsystems(translation_file):
     """Create lookup table from primary key to subsystems levels 1, 2, and 3.
 
     Args:
-        translation_file (PosixPath): Path to file with subsystems information
+        translation_file (PosixPath): Path to file with subsystems information.
 
     Returns:
-        dict: Lookup table primary key to subsystem levels
+        dict: Lookup table primary key to subsystem levels.
 
     """
     subsystems_translation = {}
@@ -146,12 +146,12 @@ def write_results(results, header, output_name, query_path, database, aligner):
     """Write results in tabular format.
 
     Args:
-        results (collections.defaultdict): Dict with results to be written
-        header (list): Header to be wrritten
-        output_name (str): Path to output
-        query_path (str): Path to query
-        database (str): Database used
-        aligner (str): Aligner name
+        results (collections.defaultdict): Dict with results to be written.
+        header (list): Header to be written.
+        output_name (str): Path to output.
+        query_path (str): Path to query.
+        database (str): Database used.
+        aligner (str): Aligner name.
 
     """
     with open(output_name, 'w') as outfile:
@@ -174,11 +174,11 @@ def write_binning(binning_result, output_name, query_path, database, aligner):
     """Write binning results in tabular format.
 
     Args:
-        binning_result (collections.defaultdict): Dict with results to be written
-        output_name (str): Path to output
-        query_path (str): Path to query
-        database (str): Database used
-        aligner (str): Aligner name
+        binning_result (collections.defaultdict): Dict with results to be written.
+        output_name (str): Path to output.
+        query_path (str): Path to query.
+        database (str): Database used.
+        aligner (str): Aligner name.
 
     """
     with open(output_name, 'w') as outfile:
@@ -207,10 +207,10 @@ def is_valid_number(value):
     """ Check if input if a valid >= 0 int or float.
 
     Args:
-        value (str): Value to be checked
+        value (str): Value to be checked.
 
     Returns:
-        bool: True if valid >= 0 number else False
+        bool: True if valid >= 0 number else False.
 
     """
     try:
@@ -226,39 +226,39 @@ def parse_args():
     """Parse args entered by the user.
 
     Returns:
-        argparse.Namespace: Parsed arguments
+        argparse.Namespace: Parsed arguments.
 
     """
     parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "
-                                                 "metagenomic data",
-                                     epilog="python superfocus.py -q input_folder -dir output_dir")
+                                                 "metagenomic data.",
+                                     epilog="superfocus -q input_folder -dir output_dir")
     parser.add_argument('-v', '--version', action='version', version='SUPER-FOCUS {}'.format(version))
     # basic parameters
-    parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files", required=True)
+    parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files.", required=True)
     parser.add_argument("-dir", "--output_directory", help="Path to output files", required=True)
-    parser.add_argument("-o", "--output_prefix", help="Output prefix (Default: output)", default="output_")
+    parser.add_argument("-o", "--output_prefix", help="Output prefix (Default: output).", default="output_")
 
     # aligner related
-    parser.add_argument("-a", "--aligner", help="aligner choice (rapsearch, diamond, or blast; default rapsearch)",
+    parser.add_argument("-a", "--aligner", help="aligner choice (rapsearch, diamond, or blast; default rapsearch).",
                         default="rapsearch")
-    parser.add_argument("-mi", "--minimum_identity", help="minimum identity (default 60 perc)", default="60")
-    parser.add_argument("-ml", "--minimum_alignment", help="minimum alignment (amino acids) (default: 15)",
+    parser.add_argument("-mi", "--minimum_identity", help="minimum identity (default 60 perc).", default="60")
+    parser.add_argument("-ml", "--minimum_alignment", help="minimum alignment (amino acids) (default: 15).",
                         default="15")
-    parser.add_argument("-t", "--threads", help="Number Threads used in the k-mer counting (Default: 4)",
+    parser.add_argument("-t", "--threads", help="Number Threads used in the k-mer counting (Default: 4).",
                         default="4")
-    parser.add_argument("-e", "--evalue", help="e-value (default 0.00001)", default="0.00001")
+    parser.add_argument("-e", "--evalue", help="e-value (default 0.00001).", default="0.00001")
     parser.add_argument("-db", "--database", help="database (DB_90, DB_95, DB_98, or DB_100; default DB_90)",
                         default="DB_90")
-    parser.add_argument("-p", "--amino_acid", help="amino acid input; 0 nucleotides; 1 amino acids (default 0)",
+    parser.add_argument("-p", "--amino_acid", help="amino acid input; 0 nucleotides; 1 amino acids (default 0).",
                         default="0")
     parser.add_argument("-f", "--fast", help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) "
-                                             "(default: 1)", default="1")
+                                             "(default: 1).", default="1")
 
     # extra
     parser.add_argument("-n", "--normalise_output", help="normalises each query counts based on number of hits; "
-                                                         "0 doesn't normalize; 1 normalizes (default: 1)", default="1")
-    parser.add_argument("-m", "--focus", help="runs FOCUS; 1 does run; 0 does not run: default 0", default="0")
-    parser.add_argument("-b", "--alternate_directory", help="Alternate directory for your databases", default="")
+                                                         "0 doesn't normalize; 1 normalizes (default: 1).", default="1")
+    parser.add_argument("-m", "--focus", help="runs FOCUS; 1 does run; 0 does not run: default 0.", default="0")
+    parser.add_argument("-b", "--alternate_directory", help="Alternate directory for your databases.", default="")
 
     return parser.parse_args()
 
