@@ -17,8 +17,6 @@ from superfocus_app.do_alignment import align_reads, parse_alignments
 from superfocus_app import version
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
-logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
-LOGGER = logging.getLogger(__name__)
 
 
 def is_wanted_file(queries):
@@ -231,6 +229,7 @@ def parse_args():
                                                          "0 doesn't normalize; 1 normalizes (default: 1).", default="1")
     parser.add_argument("-m", "--focus", help="runs FOCUS; 1 does run; 0 does not run: default 0.", default="0")
     parser.add_argument("-b", "--alternate_directory", help="Alternate directory for your databases.", default="")
+    parser.add_argument('-l', '--log', help='Path to log file (Default: STDOUT).', required=False)
 
     return parser.parse_args()
 
@@ -258,58 +257,67 @@ def main():
     run_focus = args.focus
     WORK_DIRECTORY = Path(args.alternate_directory) if args.alternate_directory else Path(__file__).parents[0]
 
-    LOGGER.info("SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data")
+
+    if args.log:
+        logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO, filename=args.log)
+    else:
+        logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
+
+    logger = logging.getLogger(__name__)
+
+
+    logger.info("SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data")
 
     # check if output_directory is exists - if not, creates it
     if not output_directory.exists():
         Path(output_directory).mkdir(parents=True, mode=511)
-        LOGGER.info("OUTPUT: {} does not exist - just created it :)".format(output_directory))
+        logger.info("OUTPUT: {} does not exist - just created it :)".format(output_directory))
 
     # check if at least one of the queries is valid
     if not queries_folder.is_dir():
-        LOGGER.critical("QUERY: {} is not a directory".format(queries_folder))
+        logger.critical("QUERY: {} is not a directory".format(queries_folder))
 
     # check if at least one of the queries is valid
     if run_focus != '0':
-        LOGGER.critical("FOCUS: Running FOCUS is not avaliable on this version. "
+        logger.critical("FOCUS: Running FOCUS is not avaliable on this version. "
                         "Please see https://github.com/metageni/FOCUS on how to run it")
 
     # check if amino_acid is valid
     elif aligner == 'blast' and amino_acid not in ['0', '1']:
-        LOGGER.critical("AMINO ACID OPTION: {} is not valid for --amino_acid. Only 0 or 1".format(amino_acid))
+        logger.critical("AMINO ACID OPTION: {} is not valid for --amino_acid. Only 0 or 1".format(amino_acid))
 
     # check if at least one of the queries is valid
     elif is_wanted_file(os.listdir(queries_folder)) == []:
-        LOGGER.critical("QUERY: {} does not have any Fasta/Fna/Fastq file".format(queries_folder))
+        logger.critical("QUERY: {} does not have any Fasta/Fna/Fastq file".format(queries_folder))
 
     # check if at database choice is valid
     elif database not in ["90", "95", "98", "100"]:
-        LOGGER.critical("DATABASE: DB_{} not valid. Choose DB_90/95/98/or 100".format(database))
+        logger.critical("DATABASE: DB_{} not valid. Choose DB_90/95/98/or 100".format(database))
 
     # check if aligner is valid
     elif aligner not in ["diamond", "rapsearch", "blast"]:
-        LOGGER.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond or rapsearch)".
+        logger.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond or rapsearch)".
                         format(aligner))
 
     # check if aligner exists
     elif not which(aligner):
-        LOGGER.critical("ALIGNER: {} is not in the path of your system".format(aligner))
+        logger.critical("ALIGNER: {} is not in the path of your system".format(aligner))
 
     # check if query is exists
     elif not queries_folder.exists():
-        LOGGER.critical("QUERY: {} does not exist".format(queries_folder))
+        logger.critical("QUERY: {} does not exist".format(queries_folder))
 
     # check if work directory exists
     elif WORK_DIRECTORY != WORK_DIRECTORY or not WORK_DIRECTORY.exists():
-        LOGGER.critical("WORK_DIRECTORY: {} does not exist".format(WORK_DIRECTORY))
+        logger.critical("WORK_DIRECTORY: {} does not exist".format(WORK_DIRECTORY))
 
     # check if number of threads are valid
     elif threads != "all" and not is_valid_number(threads):
-        LOGGER.critical("THREADS: {} is not a valid number of threads".format(threads))
+        logger.critical("THREADS: {} is not a valid number of threads".format(threads))
 
     # check if evalue is valid
     elif not is_valid_number(evalue):
-        LOGGER.critical("E-VALUE: {} is not a valid evalue".format(evalue))
+        logger.critical("E-VALUE: {} is not a valid evalue".format(evalue))
 
     else:
         results = defaultdict(list)
@@ -320,11 +328,11 @@ def main():
         # get fasta/fastq files
         query_files = is_wanted_file([temp_query for temp_query in os.listdir(queries_folder)])
         for counter, temp_query in enumerate(query_files):
-            LOGGER.info("1.{}) Working on: {}".format(counter + 1, temp_query))
-            LOGGER.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
+            logger.info("1.{}) Working on: {}".format(counter + 1, temp_query))
+            logger.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
             alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
                                          threads, fast_mode, WORK_DIRECTORY, amino_acid)
-            LOGGER.info("   Parsing Alignments")
+            logger.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
                                                       sample_position, minimum_identity, minimum_alignment,
@@ -333,16 +341,16 @@ def main():
         # write results
         normalizer = get_denominators(results)
         header_files = query_files + ["{} %".format(x) for x in query_files]
-        LOGGER.info('Writting results at {}'.format(output_directory))
+        logger.info('Writting results at {}'.format(output_directory))
 
         # write binning
         output_file = "{}/{}binning.xls".format(output_directory, prefix)
         write_binning(binning_reads, output_file, queries_folder, database, aligner)
-        LOGGER.info('  Working on writing binning')
+        logger.info('  Working on writing binning')
 
         # write results for each of the levels
         for level in [1, 2, 3]:
-            LOGGER.info('  Working on subsystem level {}'.format(level))
+            logger.info('  Working on subsystem level {}'.format(level))
             temp_header = ["Subsystem {}".format(level)] + header_files
 
             temp_results = aggregate_level(results, level - 1, normalizer)
@@ -351,13 +359,13 @@ def main():
             write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
 
         # write result for all the levels in one file
-        LOGGER.info('  Working on Combined output')
+        logger.info('  Working on Combined output')
         temp_header = ["Subsystem Level 1", "Subsystem Level 2", "Subsystem Level 3", "Function"] + header_files
         output_file = "{}/{}all_levels_and_function.xls".format(output_directory, prefix)
         temp_results = add_relative_abundance(results, normalizer)
         write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
 
-    LOGGER.info('Done')
+    logger.info('Done')
 
 
 if __name__ == "__main__":
