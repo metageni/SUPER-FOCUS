@@ -8,8 +8,7 @@ import sys
 import logging
 
 from pathlib import Path
-
-from superfocus_app.superfocus import which
+from shutil import which
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
@@ -44,7 +43,7 @@ def download_format(aligners, debug_mode):
 
     LOGGER.info('  Downloading DB')
     # wget is installed
-    if which('wgetl'):
+    if which('wget'):
         os.system('wget edwards.sdsu.edu/superfocus/downloads/{}'.format(db_filename))
     # curl is installed
     elif which('curl'):
