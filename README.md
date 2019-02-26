@@ -120,6 +120,8 @@ available command line options:
       -b ALTERNATE_DIRECTORY, --alternate_directory ALTERNATE_DIRECTORY
                             Alternate directory for your databases.
       -l LOG, --log LOG     Path to log file (Default: STDOUT).
+      
+      Exemple command line: superfocus -q input_folder -dir output_dir
 
 ## Recomendations
 - The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction)
