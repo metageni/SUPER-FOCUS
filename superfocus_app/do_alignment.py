@@ -27,19 +27,18 @@ def update_results(results, sample_index, data, normalise, number_samples):
     """Update final result dict.
 
     Args:
-        results (collections.defaultdict): Results that is updated for each sample
-        sample_index (int): Sample index in the result
-        data (dict): Data to be added into the final results
-        normalise (int): 0/1 Normalise or not the data
-        number_samples (int): Number of samples in the analyses
+        results (collections.defaultdict): Results that is updated for each sample.
+        sample_index (int): Sample index in the result.
+        data (dict): Data to be added into the final results.
+        normalise (int): 0/1 Normalise or not the data.
+        number_samples (int): Number of samples in the analyses.
 
     Returns:
-        collections.defaultdict: Updated results
+        collections.defaultdict: Updated results.
 
     """
     # if any hit was recorded
     if data:
-        # if len(data) not > 1, no need to normalise - it is normalised already -- ha!
         if normalise and len(data) > 1:
             data = normalise_counts(data)
 
@@ -56,18 +55,18 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     """Align FAST(A/Q) file to database.
 
     Args:
-        query (PosixPath): Path to query in FAST(A/Q) file
-        output_dir (PosixPath): Path to alignment output
-        aligner (str): Aligner name
-        database (str): Database name
-        evalue (str): E-value
-        threads (str): Number of threads (default = all)
-        fast_mode (str): Fast or sensitive mode (default = 1)
-        WORK_DIRECTORY (str): Path to directory where works happens
-        amino_acid (str): 0 input nucleotides, 1 amino acid
+        query (PosixPath): Path to query in FAST(A/Q) file.
+        output_dir (PosixPath): Path to alignment output.
+        aligner (str): Aligner name.
+        database (str): Database name.
+        evalue (str): E-value.
+        threads (str): Number of threads (default = all).
+        fast_mode (str): Fast or sensitive mode (default = 1).
+        WORK_DIRECTORY (str): Path to directory where works happens.
+        amino_acid (str): 0 input nucleotides, 1 amino acid.
 
     Returns:
-        str: Path to alignment that was written
+        str: Path to alignment that was written.
 
     """
     # prepare variables
@@ -115,20 +114,20 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
     """Parses alignment.
 
     Args:
-        alignment (PosixPath): Path to sample alignment
-        results (collections.defaultdict): Results that is updated for each sample
-        normalise (int): 0/1 Normalise or not the data
-        number_samples (int): Number of samples in the analyses
-        sample_index (int): Sample index in the result
-        minimum_identity (int): Minimum identity to consider a hit
-        minimum_alignment (int) Minimum alignment (bp) to be consider a hit
-        subsystems_translation (dict): subsystems translation lookup table
-        aligner (str): aligner name
-        binning_reads (collections.defaultdict): reads binning results
-        query_name (str): fasta/q file name used in the alignment
+        alignment (PosixPath): Path to sample alignment.
+        results (collections.defaultdict): Results that is updated for each sample.
+        normalise (int): 0/1 Normalise or not the data.
+        number_samples (int): Number of samples in the analyses.
+        sample_index (int): Sample index in the result.
+        minimum_identity (int): Minimum identity to consider a hit.
+        minimum_alignment (int) Minimum alignment (bp) to be consider a hit.
+        subsystems_translation (dict): subsystems translation lookup table.
+        aligner (str): aligner name.
+        binning_reads (collections.defaultdict): reads binning results.
+        query_name (str): fasta/q file name used in the alignment.
 
     Returns:
-        collections.defaultdict: Updated results
+        collections.defaultdict: Updated results.
 
     """
     previous_read_name = None
