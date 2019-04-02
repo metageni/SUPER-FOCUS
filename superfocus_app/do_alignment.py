@@ -95,7 +95,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
 
     elif aligner == "rapsearch":
         mode_rapsearch = "T" if fast_mode == "1" else "F"
-        database_rapsearch = "/db/static/rapsearch2/{}.db".format(database)
+        database_rapsearch = "{}/db/static/rapsearch2/{}.db".format(WORK_DIRECTORY, database)
 
         os.system('rapsearch -a {} -q {} -d {} -o {} -v 250 -z {} -e {} -b 0 -s f'.format(mode_rapsearch, query,
                                                                                           database_rapsearch,
