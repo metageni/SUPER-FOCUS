@@ -229,6 +229,7 @@ def parse_args():
                                                          "0 doesn't normalize; 1 normalizes (default: 1).", default="1")
     parser.add_argument("-m", "--focus", help="runs FOCUS; 1 does run; 0 does not run: default 0.", default="0")
     parser.add_argument("-b", "--alternate_directory", help="Alternate directory for your databases.", default="")
+    parser.add_argument('-d', '--delete_alignments', help='Delete alignments', action='store_true', required=False)
     parser.add_argument('-l', '--log', help='Path to log file (Default: STDOUT).', required=False)
 
     return parser.parse_args()
@@ -251,6 +252,7 @@ def main():
     database = args.database.split("_")[-1]
     amino_acid = args.amino_acid
     fast_mode = args.fast
+    del_alignments = args.delete_alignments
 
     # other metrics
     normalise_output = int(args.normalise_output)
@@ -336,7 +338,8 @@ def main():
             sample_position = query_files.index(temp_query)
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
                                                       sample_position, minimum_identity, minimum_alignment,
-                                                      subsystems_translation, aligner, binning_reads, temp_query)
+                                                      subsystems_translation, aligner, binning_reads, temp_query,
+                                                      del_alignments)
 
         # write results
         normalizer = get_denominators(results)

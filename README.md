@@ -75,11 +75,12 @@ system.
 The main SUPER-FOCUS program is `superfocus`. Here is a list of the
 available command line options:
 
-    superfocus [-h] [-v] -q QUERY -dir OUTPUT_DIRECTORY [-o OUTPUT_PREFIX]
-                  [-a ALIGNER] [-mi MINIMUM_IDENTITY] [-ml MINIMUM_ALIGNMENT]
-                  [-t THREADS] [-e EVALUE] [-db DATABASE] [-p AMINO_ACID]
-                  [-f FAST] [-n NORMALISE_OUTPUT] [-m FOCUS]
-                  [-b ALTERNATE_DIRECTORY] [-l LOG]
+    usage: superfocus    [-h] [-v] -q QUERY -dir OUTPUT_DIRECTORY
+                         [-o OUTPUT_PREFIX] [-a ALIGNER] [-mi MINIMUM_IDENTITY]
+                         [-ml MINIMUM_ALIGNMENT] [-t THREADS] [-e EVALUE]
+                         [-db DATABASE] [-p AMINO_ACID] [-f FAST]
+                         [-n NORMALISE_OUTPUT] [-m FOCUS] [-b ALTERNATE_DIRECTORY]
+                         [-d] [-l LOG]
 
     SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data.
 
@@ -119,9 +120,11 @@ available command line options:
                             runs FOCUS; 1 does run; 0 does not run: default 0.
       -b ALTERNATE_DIRECTORY, --alternate_directory ALTERNATE_DIRECTORY
                             Alternate directory for your databases.
+      -d, --delete_alignments
+                            Delete alignments
       -l LOG, --log LOG     Path to log file (Default: STDOUT).
-      
-      Exemple command line: superfocus -q input_folder -dir output_dir
+
+    superfocus -q input_folder -dir output_dir
 
 ## Recomendations
 - The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction)
