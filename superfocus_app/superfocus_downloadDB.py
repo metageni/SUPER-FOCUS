@@ -10,6 +10,8 @@ import logging
 from pathlib import Path
 from shutil import which
 
+from superfocus_app import version
+
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
@@ -21,7 +23,7 @@ def check_aligners():
     """Check if aligners are installed on the system path.
 
     Returns:
-        list: Paths for aligners if exists
+        list: Paths for aligners if exists.
 
     """
     return [
@@ -31,84 +33,69 @@ def check_aligners():
     ]
 
 
-def download_format(aligners, debug_mode):
-    """Download and format database base.
+def format_database(aligners, target_files, cluster_identities):
+    """Format database for target aligner(s) and folder with files.
 
     Args:
-        aligners (list): Aligners to have the database formatted
-        debug_mode (str): Debug mode with small database
+        aligners (list): Aligners to have the database formatted.
+        target_files (str): Download database.
+        cluster_identities (list): Clusters used when formating database.
 
     """
-    db_filename = 'db.zip' if debug_mode == '0' else 'db_small.zip'
-
-    LOGGER.info('  Downloading DB')
-    # wget is installed
-    if which('wget'):
-        os.system('wget edwards.sdsu.edu/superfocus/downloads/{}'.format(db_filename))
-    # curl is installed
-    elif which('curl'):
-        os.system('curl -O edwards.sdsu.edu/superfocus/downloads/{}'.format(db_filename))
-    else:
-        raise Exception('Please install either wget or curl')
-
-    LOGGER.info('  Uncompressing DB')
-    os.system('unzip {}'.format(db_filename))
-
-    # mv db
-    os.system('mv clusters/ {}/db/'.format(WORK_DIRECTORY))
-    # delete original downloaded file
-    os.system('rm {}'.format(db_filename))
-
     LOGGER.info('  Joining files')
     [
         os.system(
-            'cat {}/db/clusters/{}/*.faa > {}/db/clusters/{}.fasta'.format(WORK_DIRECTORY,
-                                                                           cluster, WORK_DIRECTORY, cluster)
+            'cat {}/{}/*.faa > {}.fasta'.format(target_files, cluster, cluster)
         )
-        for cluster in os.listdir('{}/db/clusters/'.format(WORK_DIRECTORY)) if 'cluster' in cluster
+        for cluster in os.listdir(target_files) if cluster.endswith("_clusters")
     ]
 
     # Format database
     LOGGER.info('  Formatting Database')
-    cluster_identities = ['100', '98', '95', '90']
     for dbname in cluster_identities:
         for aligner in aligners:
             if aligner == 'prerapsearch':
                 LOGGER.info('  RAPSearch2: DB_{}'.format(dbname))
                 os.system(
-                    'prerapsearch -d {}/db/clusters/{}_clusters.fasta '
-                    ' -n {}/db/static/rapsearch2/{}.db'.format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname)
+                    'prerapsearch -d {}_clusters.fasta '
+                    ' -n {}/db/static/rapsearch2/{}_clusters.db'.format(dbname, WORK_DIRECTORY, dbname)
                 )
             elif aligner == 'diamond':
                 LOGGER.info('  DIAMOND: DB_{}'.format(dbname))
                 os.system(
-                    'diamond makedb --in  {}/db/clusters/{}_clusters.fasta '
-                    '--db {}/db/static/diamond/{}.db'.
-                        format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname)
+                    'diamond makedb --in  {}_clusters.fasta '
+                    '--db {}/db/static/diamond/{}_clusters.db'.
+                        format(dbname, WORK_DIRECTORY, dbname)
                 )
             elif aligner == 'makeblastdb':
                 LOGGER.info('  BLAST: DB_{}'.format(dbname))
                 os.system(
-                    'makeblastdb -in {}/db/clusters/{}_clusters.fasta '
-                    '-out {}/db/static/blast/{}.db -title {}.db -dbtype prot'.
-                        format(WORK_DIRECTORY, dbname, WORK_DIRECTORY, dbname, dbname)
+                    'makeblastdb -in {}_clusters.fasta '
+                    '-out {}/db/static/blast/{}_clusters.db -title {}_clusters.db -dbtype prot'.
+                        format(dbname, WORK_DIRECTORY, dbname, dbname)
                 )
-    os.system('rm {}/db/clusters/*.fasta'.format(WORK_DIRECTORY))
+        # remove joint file
+        os.remove("{}_clusters.fasta".format(dbname))
 
 
 def parse_args():
     """Parse args entered by the user.
 
     Returns:
-        argparse.Namespace: Parsed arguments
+        argparse.Namespace: Parsed arguments.
 
     """
     parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "
                                                  "metagenomic data",
-                                     epilog="python superfocus_downloadDB -a diamond,rapsearch,blast")
+                                     epilog="superfocus_downloadDB -a diamond,rapsearch,blast -i clusters/")
     # basic parameters
     parser.add_argument("-a", "--aligner", help="Aligner name separed by ',' if more than one", required=True)
-    parser.add_argument("-d", "--debug", help="Debug mode with small database", default='0')
+    parser.add_argument("-c", "--clusters", help="DB types separed by ',' if more than one (e.g 90,95,98,"
+                                                 "100) - default 90",
+                        required=False, default="90")
+    parser.add_argument("-i", "--input", help="Target input files to be formatted into the database", required=True)
+    parser.add_argument('-v', '--version', action='version', version='superfocus_downloadDB version {}'.format(
+        version))
 
     return parser.parse_args()
 
@@ -137,11 +124,17 @@ def main():
     if 'blast' in requested_aligners and 'makeblastdb' in aligner_db_creators:
         aligners.append("makeblastdb")
 
-    os.system('rm {}/db/clusters/ -r 2> /dev/null'.format(WORK_DIRECTORY))  # delete folder if exists
+    clusters_target = args.clusters.split(",")
+
+    for cluster in clusters_target:
+        if cluster not in ["90","95", "98", "100"]:
+            raise ValueError(
+                '{} is not sa valid cluster. Please enter 90, 95, 98, or 100'.format(args.clusters))
 
     if aligners:
-        download_format(aligners, args.debug)
-        LOGGER.info('  Done! Now you can run superfocus')
+        LOGGER.info('Formating Database for aligner(s): {} and cluster(s): {}'.format(args.aligner, args.clusters))
+        format_database(aligners, args.input, clusters_target)
+        LOGGER.info('  Done :)')
     else:
         LOGGER.critical('  No valid aligner. We cannot move on!')
 

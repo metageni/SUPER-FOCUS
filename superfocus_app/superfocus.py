@@ -302,7 +302,7 @@ def main():
                         format(aligner))
 
     # check if aligner exists
-    elif not which(aligner):
+    elif not which(aligner) and aligner.lower() != "blast":
         logger.critical("ALIGNER: {} is not in the path of your system".format(aligner))
 
     # check if query is exists

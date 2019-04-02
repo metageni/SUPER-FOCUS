@@ -71,6 +71,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     """
     # prepare variables
     output_name = "{}/{}_alignments".format(output_dir, query.parts[-1])
+    database = "{}_clusters".format(database)
 
     if aligner == "diamond":
         temp_folder = Path("{}/db/tmp/".format(WORK_DIRECTORY))
