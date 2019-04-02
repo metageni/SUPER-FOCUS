@@ -252,7 +252,7 @@ def main():
     database = args.database.split("_")[-1]
     amino_acid = args.amino_acid
     fast_mode = args.fast
-    delete_alignments = args.delete_alignments
+    del_alignments = args.delete_alignments
 
     # other metrics
     normalise_output = int(args.normalise_output)
@@ -339,7 +339,7 @@ def main():
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
                                                       sample_position, minimum_identity, minimum_alignment,
                                                       subsystems_translation, aligner, binning_reads, temp_query,
-                                                      delete_alignments)
+                                                      del_alignments)
 
         # write results
         normalizer = get_denominators(results)

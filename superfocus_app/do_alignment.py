@@ -177,7 +177,8 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
         # last group of reads
         update_results(results, sample_index, temp_results, normalise, number_samples)
 
-    if delete_alignments:
+    # delete file if wanted and it exists
+    if delete_alignments and Path(alignment).exists():
         os.remove(alignment)
 
     return results, binning_reads
