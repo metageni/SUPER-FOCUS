@@ -55,13 +55,26 @@ To install the aligners, having [`conda`](https://conda.io/docs/installation.htm
  Note that they are all available from the [`bioconda`](https://bioconda.github.io/) channel.
 
 ## Database
-Use `superfocus_downloadDB` to download and format the SUPER-FOCUS database
-for the available aligners:
 
+Some of the steps below could be automatized. However, many users have had problem with the database formatting, and it was requested for the initial steps to be manual.
+
+#### Download and uncompress
+First download the database with the steps below or using your favorite method to download and uncompress files:
 ```
-superfocus_downloadDB -a <aligner>
+# download
+wget edwards.sdsu.edu/superfocus/downloads/db.zip
+# uncompress
+unzip db.zip
 ```
-where `<aligner>` is `rapsearch`, `diamond`, or `blast` (or all of them separated by `,`). You
+**NOTE**: You can also download the small file named `db_small.zip` and test the instalation before downloading the large file.
+
+#### Format
+Now that you downloaded the database, please use the instructions below to format it and move into the database folder.
+```
+superfocus_downloadDB -i <clusters_folder> -a <aligner>
+```
+where `<clusters_folder>` is the path to the database you downloaded and uncompressed above (folder `clusters/`)
+and `<aligner>` is `rapsearch`, `diamond`, or `blast` (or all of them separated by `,`). You
 may choose as many aligners as you want among the three, as long as they are
 installed.
 
