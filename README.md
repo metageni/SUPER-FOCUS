@@ -71,12 +71,14 @@ unzip db.zip
 #### Format
 Now that you downloaded the database, please use the instructions below to format it and move into the database folder.
 ```
-superfocus_downloadDB -i <clusters_folder> -a <aligner>
+superfocus_downloadDB -i <clusters_folder> -a <aligner> -c <clusters>
 ```
-where `<clusters_folder>` is the path to the database you downloaded and uncompressed above (folder `clusters/`)
-and `<aligner>` is `rapsearch`, `diamond`, or `blast` (or all of them separated by `,`). You
+where
+- `<clusters_folder>` is the path to the database you downloaded and uncompressed above (folder `clusters/`)
+- `<aligner>` is `rapsearch`, `diamond`, or `blast` (or all of them separated by `,`). You
 may choose as many aligners as you want among the three, as long as they are
 installed.
+- `<clusters>` is the cluster of the database you want to format which are `90`, `95`, `98`, and/or `100`. Default: `90`. If more than one, please separe by comma (e.g. 90,95,98,100).
 
 **NOTE**: RAPSearch2 and DIAMOND won't work properly if you are trying to use a
 database formatted with an incorrect version of the aligner. Thus, please

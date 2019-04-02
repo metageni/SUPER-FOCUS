@@ -124,16 +124,17 @@ def main():
     if 'blast' in requested_aligners and 'makeblastdb' in aligner_db_creators:
         aligners.append("makeblastdb")
 
-    clusters = args.clusters.split(",")
+    clusters_target = args.clusters.split(",")
 
-    for cluster in clusters:
+    for cluster in clusters_target:
         if cluster not in ["90","95", "98", "100"]:
             raise ValueError(
-                '{} is not sa valid cluster. Please enter 90, 95, 98, or 100'.format(cluster))
+                '{} is not sa valid cluster. Please enter 90, 95, 98, or 100'.format(args.clusters))
 
     if aligners:
-        format_database(aligners, args.input, clusters)
-        LOGGER.info('  Done! Now you can run superfocus')
+        LOGGER.info('Formating Database for aligner(s): {} and cluster(s): {}'.format(args.aligner, args.clusters))
+        format_database(aligners, args.input, clusters_target)
+        LOGGER.info('  Done :)')
     else:
         LOGGER.critical('  No valid aligner. We cannot move on!')
 
