@@ -109,8 +109,8 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     return '{}.m8'.format(output_name) if aligner == 'rapsearch' else output_name
 
 
-def parse_alignments(alignment, results, normalise, number_samples, sample_index,
-                     minimum_identity, minimum_alignment, subsystems_translation, aligner, binning_reads, query_name):
+def parse_alignments(alignment, results, normalise, number_samples, sample_index, minimum_identity, minimum_alignment,
+                     subsystems_translation, aligner, binning_reads, query_name, delete_alignments):
     """Parses alignment.
 
     Args:
@@ -125,6 +125,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
         aligner (str): aligner name.
         binning_reads (collections.defaultdict): reads binning results.
         query_name (str): fasta/q file name used in the alignment.
+        delete_alignments (bool): True if files of alignments should be deleted.
 
     Returns:
         collections.defaultdict: Updated results.
@@ -175,5 +176,8 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
 
         # last group of reads
         update_results(results, sample_index, temp_results, normalise, number_samples)
+
+    if delete_alignments:
+        os.remove(alignment)
 
     return results, binning_reads
