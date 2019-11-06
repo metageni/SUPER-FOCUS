@@ -1,8 +1,29 @@
 -- Version history --
 
+-> SUPERFOCUS 0.34:
+- A manual download of the database and better script for formatting it to help with debugging for bioconda
+- A parameter to delete alignment post-parsing. It will save some people when some really large files are generated (set
+ -d to activate this feature)
+- print version of the tool when doing superfocus -v
+- Native which
+- Add logger and output log (-l)
+- Improve docstrings
+
+-> SUPERFOCUS 0.33:
+- Binning of reads as additional output
+- Add curl as download database method
+- Handle empty alignment file
+- Minor PEP style changes
+
+-> SUPERFOCUS 0.32:
+- Bioconda
+
 -> SUPERFOCUS 0.31:
-- Tool refactoring into python3
-- Setuptool
+- SUPER-FOCUS complete refactoring from Python2 to Python 3
+- Tests and PEP style
+- Allow installing the tool using setuptools
+- PIP
+- Bioconda
 
 -> SUPERFOCUS 0.30:
 - Fix regression in superfocus_downloadDB.py

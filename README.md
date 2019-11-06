@@ -27,13 +27,6 @@ or
 	# if you do not have super user privileges, you can install it like this
 	cd SUPER-FOCUS && python setup.py install --user
 
-### Bioconda
-You can now easily install SUPER-FOCUS using [conda](https://conda.io) via the
-[Bioconda](https://bioconda.github.io/) channel. It is as easy as:
-
-    # bioconda should handle all the dependencies
-    conda create -n super-focus -c bioconda super-focus
-	source activate super-focus
 
 ## Dependencies
 - [Python >= 3.6](http://www.python.org/download)
