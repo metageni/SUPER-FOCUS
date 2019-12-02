@@ -72,6 +72,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     # prepare variables
     output_name = "{}/{}_alignments".format(output_dir, query.parts[-1])
     database = "{}_clusters".format(database)
+    blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
     if aligner == "diamond":
         temp_folder = Path("{}/db/tmp/".format(WORK_DIRECTORY))
@@ -83,9 +84,9 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         database_diamond = "{}/db/static/diamond/{}.db".format(WORK_DIRECTORY, database)
 
         # align
-        os.system("diamond blastx -t {} -d {} -q {} -a {} -p {} -e {} {}".format(temp_folder, database_diamond, query,
-                                                                                 output_name, threads, evalue,
-                                                                                 mode_diamond))
+        os.system("diamond {} -t {} -d {} -q {} -a {} -p {} -e {} {}".format(blast_mode, temp_folder, database_diamond,
+                                                                             query, output_name, threads, evalue,
+                                                                             mode_diamond))
         # dump
         os.system("diamond view -a {}.daa -o {}.m8".format(output_name, output_name))
         # delete binary file
@@ -102,7 +103,6 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
                                                                                           output_name, threads, evalue))
     elif aligner == "blast":
         database_blast = "{}/db/static/blast/{}.db".format(WORK_DIRECTORY, database)
-        blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
         os.system('{} -db {} -query {} -out {} -outfmt 6 -evalue {} -max_target_seqs 250 -num_threads {}'.format(
             blast_mode, database_blast, query, output_name, evalue, threads))
