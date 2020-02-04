@@ -10,6 +10,8 @@
 * [Ouput](#output)
 * [Citing](#citing)
 
+## Is SUPER-FOCUS right for you?
+This [blog post](https://onestopdataanalysis.com/metagenome-functional-profile/) talks about SUPER_FOCUS. Please read it and make sure the tool is right for you.
 
 ## Installation
 This will give you command line program:
