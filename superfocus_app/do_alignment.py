@@ -7,6 +7,9 @@ import csv
 from pathlib import Path
 from collections import defaultdict
 
+# increase CSV load limit
+csv.field_size_limit(100000000)
+
 
 def normalise_counts(data):
     """Normalise query counts based on number of hits.
