@@ -3,9 +3,6 @@
 
 from superfocus_app.superfocus import is_wanted_file, get_denominators, aggregate_level, is_valid_number
 
-import pytest
-
-
 def test_is_valid_number():
     assert is_valid_number("1") == True
     assert is_valid_number("1.0") == True
