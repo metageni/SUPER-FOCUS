@@ -258,9 +258,9 @@ def main():
     normalise_output = int(args.normalise_output)
     run_focus = args.focus
     if args.alternate_directory:
-        WORK_DIRECTORY = args.alternate_directory
+        WORK_DIRECTORY = Path(args.alternate_directory)
     elif 'SUPERFOCUS_DB' in os.environ:
-        WORK_DIRECTORY = os.environ['SUPERFOCUS_DB']
+        WORK_DIRECTORY = Path(os.environ['SUPERFOCUS_DB'])
     else:
         WORK_DIRECTORY =  Path(__file__).parents[0]
 
