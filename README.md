@@ -51,6 +51,11 @@ To install the aligners, having [`conda`](https://conda.io/docs/installation.htm
 
 ## Database
 
+If you have the superfocus databases downloaded already, you can set the `SUPERFOCUS_DB` environment variable to point
+to that directory. Alternatively, you can provide the `--alternate_directory` flag to point to that location.
+
+### Installing the databases
+
 Some of the steps below could be automatized. However, many users have had problem with the database formatting, and it was requested for the initial steps to be manual.
 
 #### Download and uncompress
