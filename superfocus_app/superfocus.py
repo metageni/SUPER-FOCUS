@@ -6,6 +6,7 @@ import csv
 import itertools
 import logging
 import os
+import shutil
 import sys
 import tempfile
 
@@ -390,7 +391,7 @@ def main():
         write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
 
     # clean up our mess
-    tmpdir.cleanup()
+    shutil.rmtree(tmpdir)
 
     logger.info('Done')
 
