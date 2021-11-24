@@ -288,8 +288,14 @@ def main():
     tmp = "/tmp"
     if args.temp_directory:
         tmp = args.temp_directory
+        if not os.path.exists(tmp):
+            logger.info(f"Creating temporary path: {tmp}")
+            os.makedirs(tmp, exist_ok=True)
     elif 'TMPDIR' in os.environ:
         tmp = os.environ['TMPDIR']
+        if not os.path.exists(tmp):
+            logger.info(f"Creating temporary path: {tmp}")
+            os.makedirs(tmp, exist_ok=True)
     else:
         sys.stderr.write(f"WARNING: Using {tmp} as the base temporary directory")
     tmpdir = tempfile.mkdtemp(dir=tmp)
