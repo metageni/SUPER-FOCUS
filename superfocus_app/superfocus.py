@@ -6,6 +6,8 @@ import csv
 import itertools
 import logging
 import os
+import sys
+import tempfile
 
 import numpy as np
 
@@ -207,6 +209,7 @@ def parse_args():
     parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files.", required=True)
     parser.add_argument("-dir", "--output_directory", help="Path to output files", required=True)
     parser.add_argument("-o", "--output_prefix", help="Output prefix (Default: output).", default="output_")
+    parser.add_argument("-tmp", "--temp_directory", help="specify an alternate temporary directory to use")
 
     # aligner related
     parser.add_argument("-a", "--aligner", help="aligner choice (rapsearch, diamond, or blast; default rapsearch).",
@@ -280,6 +283,18 @@ def main():
         Path(output_directory).mkdir(parents=True, mode=511)
         logger.info("OUTPUT: {} does not exist - just created it :)".format(output_directory))
 
+    # find a temp directory location
+    tmp = "/tmp"
+    if args.temp_directory:
+        tmp = args.temp_directory
+    elif 'TMPDIR' in os.environ:
+        tmp = os.environ['TMPDIR']
+    else:
+        sys.stderr.write(f"WARNING: Using {tmp} as the base temporary directory")
+    tmpdir = tempfile.mkdtemp(dir=tmp)
+    os.makedirs(tmpdir, exist_ok=True)
+    logger.info(f"Using {tmpdir} as the temporary directory")
+
     # check if at least one of the queries is valid
     if not queries_folder.is_dir():
         logger.critical("QUERY: {} is not a directory".format(queries_folder))
@@ -334,6 +349,7 @@ def main():
 
         # get fasta/fastq files
         query_files = is_wanted_file([temp_query for temp_query in os.listdir(queries_folder)])
+
         for counter, temp_query in enumerate(query_files):
             logger.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             logger.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
@@ -372,6 +388,9 @@ def main():
         output_file = "{}/{}all_levels_and_function.xls".format(output_directory, prefix)
         temp_results = add_relative_abundance(results, normalizer)
         write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
+
+    # clean up our mess
+    tmpdir.cleanup()
 
     logger.info('Done')
 

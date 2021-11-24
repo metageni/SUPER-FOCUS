@@ -54,7 +54,7 @@ def update_results(results, sample_index, data, normalise, number_samples):
     return results
 
 
-def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode, WORK_DIRECTORY, amino_acid):
+def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode, WORK_DIRECTORY, amino_acid, temp_folder):
     """Align FAST(A/Q) file to database.
 
     Args:
@@ -67,6 +67,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         fast_mode (str): Fast or sensitive mode (default = 1).
         WORK_DIRECTORY (str): Path to directory where works happens.
         amino_acid (str): 0 input nucleotides, 1 amino acid.
+        temp_folder: a temporary directory to write to
 
     Returns:
         str: Path to alignment that was written.
@@ -78,11 +79,6 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
     if aligner == "diamond":
-        temp_folder = Path("{}/db/tmp/".format(WORK_DIRECTORY))
-
-        if not temp_folder.exists():
-            temp_folder.mkdir(parents=True, mode=511)
-
         mode_diamond = "" if fast_mode == "1" else "--sensitive"
         database_diamond = "{}/db/static/diamond/{}.db".format(WORK_DIRECTORY, database)
 
@@ -91,7 +87,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
                                                                              query, output_name, threads, evalue,
                                                                              mode_diamond))
         # dump
-        os.system("diamond view -a {}.daa -o {}.m8".format(output_name, output_name))
+        os.system("diamond view -a {}.daa -o {}.m8 -t {} -p {}".format(output_name, output_name, temp_folder, threads))
         # delete binary file
         os.system("rm {}/*.daa".format(output_dir))
         # add aligner extension to output
