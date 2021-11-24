@@ -355,7 +355,7 @@ def main():
             logger.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             logger.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
             alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
-                                         threads, fast_mode, WORK_DIRECTORY, amino_acid)
+                                         threads, fast_mode, WORK_DIRECTORY, amino_acid, tmpdir)
             logger.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
