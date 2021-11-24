@@ -3,6 +3,7 @@
 
 import os
 import csv
+import uuid
 
 from pathlib import Path
 from collections import defaultdict
@@ -78,7 +79,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
     if aligner == "diamond":
-        temp_folder = Path("{}/db/tmp/".format(WORK_DIRECTORY))
+        temp_folder = Path("{}/db/tmp_{}/".format(WORK_DIRECTORY, uuid.uuid4().hex))
 
         if not temp_folder.exists():
             temp_folder.mkdir(parents=True, mode=511)
@@ -92,8 +93,9 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
                                                                              mode_diamond))
         # dump
         os.system("diamond view -a {}.daa -o {}.m8".format(output_name, output_name))
-        # delete binary file
+        # delete binary file and tmp folder
         os.system("rm {}/*.daa".format(output_dir))
+        os.system("rm -rf {}".format(temp_folder))
         # add aligner extension to output
         output_name = "{}.m8".format(output_name)
 
