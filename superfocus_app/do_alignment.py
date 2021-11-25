@@ -3,6 +3,7 @@
 
 import os
 import csv
+import sys
 import time
 
 from pathlib import Path
@@ -91,8 +92,11 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
                                                                              mode_diamond))
         # if we are running on a cluster, we may need to pause here!
         # if latency_delay is 0 we don't do anything
+        oname = f"{output_name}.daa"
+        sys.stderr.write(f"Starting LATENCY at {time.time()} : output: {os.stat(oname)}\n")
         time.sleep(latency_delay)
         # dump
+        sys.stderr.write(f"Ending LATENCY at {time.time()} : output: {os.stat(oname)}\n")
         os.system("diamond view -a {}.daa -o {}.m8 -t {} -p {}".format(output_name, output_name, temp_folder, threads))
         # delete binary file
         os.system("rm {}/*.daa".format(output_dir))
