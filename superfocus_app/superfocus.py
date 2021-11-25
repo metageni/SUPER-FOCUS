@@ -234,6 +234,8 @@ def parse_args():
     parser.add_argument("-m", "--focus", help="runs FOCUS; 1 does run; 0 does not run: default 0.", default="0")
     parser.add_argument("-b", "--alternate_directory", help="Alternate directory for your databases.", default="")
     parser.add_argument('-d', '--delete_alignments', help='Delete alignments', action='store_true', required=False)
+    parser.add_argument('-w', '--latency_wait', help='Add a delay (in seconds) between writing the file and reading it',
+                        type=int, default=0)
     parser.add_argument('-l', '--log', help='Path to log file (Default: STDOUT).', required=False)
 
     return parser.parse_args()
@@ -360,8 +362,13 @@ def main():
         for counter, temp_query in enumerate(query_files):
             logger.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             logger.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
-            alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
-                                         threads, fast_mode, WORK_DIRECTORY, amino_acid, tmpdir)
+            alignment_name = align_reads(Path(queries_folder, temp_query),
+                                         output_dir=output_directory, aligner=aligner,
+                                         database=database, evalue=evalue,
+                                         threads=threads, fast_mode=fast_mode,
+                                         WORK_DIRECTORY=WORK_DIRECTORY,
+                                         amino_acid=amino_acid, temp_folder=tmpdir,
+                                         latency_delay=args.latency_wait)
             logger.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),

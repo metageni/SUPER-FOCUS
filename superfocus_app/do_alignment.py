@@ -3,6 +3,7 @@
 
 import os
 import csv
+import time
 
 from pathlib import Path
 from collections import defaultdict
@@ -54,7 +55,8 @@ def update_results(results, sample_index, data, normalise, number_samples):
     return results
 
 
-def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode, WORK_DIRECTORY, amino_acid, temp_folder):
+def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode, WORK_DIRECTORY, amino_acid,
+                temp_folder, latency_delay=0):
     """Align FAST(A/Q) file to database.
 
     Args:
@@ -68,6 +70,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         WORK_DIRECTORY (str): Path to directory where works happens.
         amino_acid (str): 0 input nucleotides, 1 amino acid.
         temp_folder: a temporary directory to write to
+        latency_delay: a time delay we will pause between writing and reading the files. This allows a cluster (or NFS mount) to catch up!
 
     Returns:
         str: Path to alignment that was written.
@@ -86,6 +89,9 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         os.system("diamond {} -t {} -d {} -q {} -a {} -p {} -e {} {}".format(blast_mode, temp_folder, database_diamond,
                                                                              query, output_name, threads, evalue,
                                                                              mode_diamond))
+        # if we are running on a cluster, we may need to pause here!
+        # if latency_delay is 0 we don't do anything
+        time.sleep(latency_delay)
         # dump
         os.system("diamond view -a {}.daa -o {}.m8 -t {} -p {}".format(output_name, output_name, temp_folder, threads))
         # delete binary file
