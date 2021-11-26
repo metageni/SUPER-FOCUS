@@ -3,6 +3,7 @@
 
 import os
 import csv
+import subprocess
 import sys
 import time
 
@@ -83,21 +84,50 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
     if aligner == "diamond":
-        mode_diamond = "" if fast_mode == "1" else "--sensitive"
+        #mode_diamond = "" if fast_mode == "1" else "--sensitive"
         database_diamond = "{}/db/static/diamond/{}.db".format(WORK_DIRECTORY, database)
 
         # align
-        os.system("diamond {} -t {} -d {} -q {} -a {} -p {} -e {} {}".format(blast_mode, temp_folder, database_diamond,
-                                                                             query, output_name, threads, evalue,
-                                                                             mode_diamond))
+        # os.system("diamond {} -t {} -d {} -q {} -a {} -p {} -e {} {}".format(blast_mode, temp_folder, database_diamond,
+        #                                                                     query, output_name, threads, evalue,
+        #                                                                     mode_diamond))
+        diamond_blast = [
+            "diamond", blast_mode,
+            "-d", database_diamond,
+            "-q", query,
+            "-a", output_name,
+            "-o", f"{output_name}.m8",
+            "-t", temp_folder,
+            "-p", threads,
+            "-e", evalue
+        ]
+        if fast_mode != "1":
+            diamond_blast.append("--sensitive")
+        try:
+            retcode = subprocess.call(diamond_blast)
+            print("Diamond blast was terminated by signal", -retcode, file=sys.stderr)
+        except OSError as e:
+            print("Diamond blast execution failed:", e, file=sys.stderr)
+
         # if we are running on a cluster, we may need to pause here!
         # if latency_delay is 0 we don't do anything
-        oname = f"{output_name}.daa"
-        sys.stderr.write(f"Starting LATENCY at {time.time()} : output: {os.stat(oname)}\n")
         time.sleep(latency_delay)
         # dump
-        sys.stderr.write(f"Ending LATENCY at {time.time()} : output: {os.stat(oname)}\n")
-        os.system("diamond view -a {}.daa -o {}.m8 -t {} -p {}".format(output_name, output_name, temp_folder, threads))
+        #os.system("diamond view -a {}.daa -o {}.m8 -t {} -p {}".format(output_name, output_name, temp_folder, threads))
+        diamond_view = [
+            "diamond view",
+            "-a", f"{output_name}.daa",
+            "-o", f"{output_name}.m8",
+            "-t", temp_folder,
+            "-p", threads
+        ]
+        try:
+            retcode = subprocess.call(diamond_view)
+            print("Diamond blast was terminated by signal", -retcode, file=sys.stderr)
+        except OSError as e:
+            print("Diamond blast execution failed:", e, file=sys.stderr)
+
+
         # delete binary file
         os.system("rm {}/*.daa".format(output_dir))
         # add aligner extension to output
