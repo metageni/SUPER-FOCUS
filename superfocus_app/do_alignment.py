@@ -96,7 +96,6 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
             "-d", database_diamond,
             "-q", query,
             "-a", output_name,
-            "-o", f"{output_name}.m8",
             "-t", temp_folder,
             "-p", threads,
             "-e", evalue
