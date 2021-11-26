@@ -114,7 +114,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         # dump
         #os.system("diamond view -a {}.daa -o {}.m8 -t {} -p {}".format(output_name, output_name, temp_folder, threads))
         diamond_view = [
-            "diamond view",
+            "diamond", "view",
             "-a", f"{output_name}.daa",
             "-o", f"{output_name}.m8",
             "-t", temp_folder,
