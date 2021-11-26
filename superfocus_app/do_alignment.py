@@ -82,10 +82,6 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     database = "{}_clusters".format(database)
     blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
-    if not os.path.exists(output_dir):
-        sys.stderr.write(f"ERROR: {output_dir} does not exist, even though created!\n")
-        os.makedirs(output_dir, exist_ok=True)
-
     if aligner == "diamond":
         mode_diamond = "" if fast_mode == "1" else "--sensitive"
         database_diamond = "{}/db/static/diamond/{}.db".format(WORK_DIRECTORY, database)
