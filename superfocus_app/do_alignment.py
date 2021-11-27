@@ -95,7 +95,8 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
             "diamond", blast_mode,
             "-d", database_diamond,
             "-q", query,
-            "-a", output_name,
+            "-a", f"{output_name}.m8",
+            "-f", "6",
             "-t", temp_folder,
             "-p", threads,
             "-e", evalue
@@ -108,27 +109,12 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         except OSError as e:
             print("Diamond blast execution failed:", e, file=sys.stderr)
 
-        # if we are running on a cluster, we may need to pause here!
-        # if latency_delay is 0 we don't do anything
-        time.sleep(latency_delay)
+        # note that this is no longer a two step process
+        # the daa format is legacy, and diamond supports native
+        # tab separated output
         # dump
         #os.system("diamond view -a {}.daa -o {}.m8 -t {} -p {}".format(output_name, output_name, temp_folder, threads))
-        diamond_view = [
-            "diamond", "view",
-            "-a", f"{output_name}.daa",
-            "-o", f"{output_name}.m8",
-            "-t", temp_folder,
-            "-p", threads
-        ]
-        try:
-            retcode = subprocess.call(diamond_view)
-            print("Diamond blast was terminated by signal", -retcode, file=sys.stderr)
-        except OSError as e:
-            print("Diamond blast execution failed:", e, file=sys.stderr)
 
-
-        # delete binary file
-        os.system("rm {}/*.daa".format(output_dir))
         # add aligner extension to output
         output_name = "{}.m8".format(output_name)
 
