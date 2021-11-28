@@ -99,15 +99,18 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
             "-f", "6",
             "-t", temp_folder,
             "-p", threads,
-            "-e", evalue
+            "-e", evalue,
         ]
         if fast_mode != "1":
             diamond_blast.append("--sensitive")
         try:
             retcode = subprocess.call(diamond_blast)
-            print("Diamond blast was terminated by signal", -retcode, file=sys.stderr)
+            if retcode != 0:
+                print("Diamond blast was terminated by signal", retcode, file=sys.stderr)
+                sys.exit(retcode)
         except OSError as e:
             print("Diamond blast execution failed:", e, file=sys.stderr)
+            sys.exit()
 
         # note that this is no longer a two step process
         # the daa format is legacy, and diamond supports native
