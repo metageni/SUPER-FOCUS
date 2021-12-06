@@ -101,7 +101,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
             "-p", threads,
             "-e", evalue,
         ]
-        if not fast_mode:
+        if fast_mode != "1":
             diamond_blast.append("--sensitive")
         try:
             retcode = subprocess.call(diamond_blast)
@@ -133,7 +133,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
             "--threads", threads,
             "-e", evalue,
         ]
-        if fast_mode:
+        if fast_mode == "1":
             mmseqs_blast += ["-s", 1.0]
         try:
             retcode = subprocess.call(mmseqs_blast)
@@ -144,7 +144,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
             print("mmseqs2 blast execution failed:", e, file=sys.stderr)
             sys.exit()
     elif aligner == "rapsearch":
-        mode_rapsearch = "T" if fast_mode else "F"
+        mode_rapsearch = "T" if fast_mode == "1" else "F"
         database_rapsearch = "{}/db/static/rapsearch2/{}.db".format(WORK_DIRECTORY, database)
 
         os.system('rapsearch -a {} -q {} -d {} -o {} -v 250 -z {} -e {} -b 0 -s f'.format(mode_rapsearch, query,

@@ -225,8 +225,8 @@ def parse_args():
                         default="DB_90")
     parser.add_argument("-p", "--amino_acid", help="amino acid input; 0 nucleotides; 1 amino acids (default 0).",
                         default="0")
-    parser.add_argument("-f", "--fast", help="runs RAPSearch2, DIAMOND or MMSEQS2 in fast mode (default: false).",
-                        action='store_true')
+    parser.add_argument("-f", "--fast", help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) "
+                        "(default: 1).", default="1")
 
     # extra
     parser.add_argument("-n", "--normalise_output", help="normalises each query counts based on number of hits; "
