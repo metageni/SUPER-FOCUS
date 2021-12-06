@@ -126,6 +126,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         output_name = f"{output_name}.m8"
         mmseqs_blast = [
             "mmseqs", "easy-search",
+            query,
             database_mmseqs,
             output_name,
             temp_folder,
