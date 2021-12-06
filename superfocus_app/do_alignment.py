@@ -122,7 +122,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         output_name = "{}.m8".format(output_name)
 
     elif aligner == 'mmseqs2':
-        database_mmseqs = f"{WORK_DIRECTORY}/db/static/mmseqs/{database}.db"
+        database_mmseqs = f"{WORK_DIRECTORY}/db/static/mmseqs2/{database}.db"
         output_name = f"{output_name}.m8"
         mmseqs_blast = [
             "mmseqs", "easy-search",
