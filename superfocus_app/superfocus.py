@@ -260,6 +260,10 @@ def main():
     fast_mode = args.fast
     del_alignments = args.delete_alignments
 
+    # rename mmseqs2 to mmseqs. This is the name of the command, but the program is mmseqs!
+    if aligner == 'mmseqs2':
+        aligner = 'mmseqs'
+
     # other metrics
     normalise_output = int(args.normalise_output)
     run_focus = args.focus
@@ -326,7 +330,7 @@ def main():
         logger.critical("DATABASE: DB_{} not valid. Choose DB_90/95/98/or 100".format(database))
 
     # check if aligner is valid
-    elif aligner not in ["diamond", "rapsearch", "blast", "mmseqs2"]:
+    elif aligner not in ["diamond", "rapsearch", "blast", "mmseqs"]:
         logger.critical("ALIGNER: {} is not a valid aligner. Please choose among (diamond, blast, rapsearch, or mmseqs2)".
                         format(aligner))
 
