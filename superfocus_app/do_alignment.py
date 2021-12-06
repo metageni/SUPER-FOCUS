@@ -134,7 +134,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
             "-e", evalue,
         ]
         if fast_mode == "1":
-            mmseqs_blast += ["-s", 1.0]
+            mmseqs_blast += ["-s", "1.0"]
         try:
             retcode = subprocess.call(mmseqs_blast)
             if retcode != 0:
