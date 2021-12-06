@@ -121,7 +121,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         # add aligner extension to output
         output_name = "{}.m8".format(output_name)
 
-    elif aligner == 'mmseqs2':
+    elif aligner == 'mmseqs':
         database_mmseqs = f"{WORK_DIRECTORY}/db/static/mmseqs2/{database}.db"
         output_name = f"{output_name}.m8"
         mmseqs_blast = [
@@ -156,6 +156,9 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
 
         os.system('{} -db {} -query {} -out {} -outfmt 6 -evalue {} -max_target_seqs 250 -num_threads {}'.format(
             blast_mode, database_blast, query, output_name, evalue, threads))
+    else:
+        sys.stderr.write(f"FATAL: Aligner {aligner} not known\n")
+        sys.exit(0)
 
     return output_name
 
