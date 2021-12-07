@@ -205,6 +205,9 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
             # extract need info from hit
             current_read_name = row[0]
             temp_mi = float(row[2])
+            if aligner == 'mmseqs' and temp_mi <= 1 and temp_mi >=0:
+                # mmseqs2 reports fraction identity not percent identity!
+                temp_mi *= 100
             temp_ml = float(row[3])
             current_evalue = row[10]
 
