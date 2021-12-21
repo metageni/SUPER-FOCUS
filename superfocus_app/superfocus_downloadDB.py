@@ -43,11 +43,14 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
         db_dir (str): Optional path to user-specified working directory to build databases in.
 
     """
-    if Path(db_dir).exists() and Path(db_dir).is_dir():
-        WORK_DIRECTORY = str(Path(db_dir).resolve())
-        LOGGER.info('Using work directory: {}'.format(WORK_DIRECTORY))
+    if db_dir and Path(db_dir).exists() and Path(db_dir).is_dir():
+        workdir = str(Path(db_dir).resolve())
+    else:
+        workdir = WORK_DIRECTORY
+    LOGGER.info('Using work directory: {}'.format(workdir))
 
-    LOGGER.info('Preparing database(s) in workdir: {}'.format(WORK_DIRECTORY))
+
+    LOGGER.info('Preparing database(s) in workdir: {}'.format(workdir))
     for dbname in cluster_identities:
         fasta_file = '{}_clusters.fasta'.format(dbname)
         cluster_dir = Path(target_files) / '{}_clusters'.format(dbname)
@@ -60,7 +63,7 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
         return_codes = []
         if 'prerapsearch' in aligners:
             LOGGER.info('RAPSearch2: DB_{}'.format(dbname))
-            outdir = Path('{}/{}'.format(WORK_DIRECTORY, "rapsearch2"))
+            outdir = Path('{}/{}'.format(workdir, "rapsearch2"))
             outdir.mkdir(parents=True, exist_ok=True)
             return_codes.append((
                 "prerapsearch", 
@@ -69,7 +72,7 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
             )))
         if 'diamond' in aligners:
             LOGGER.info('DIAMOND: DB_{}'.format(dbname))
-            outdir = Path('{}/{}'.format(WORK_DIRECTORY, "diamond"))
+            outdir = Path('{}/{}'.format(workdir, "diamond"))
             outdir.mkdir(parents=True, exist_ok=True)
             return_codes.append((
                 "diamond", 
@@ -78,7 +81,7 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
             )))
         if 'makeblastdb' in aligners:
             LOGGER.info('BLAST: DB_{}'.format(dbname))
-            outdir = Path('{}/{}'.format(WORK_DIRECTORY, "blast"))
+            outdir = Path('{}/{}'.format(workdir, "blast"))
             outdir.mkdir(parents=True, exist_ok=True)
             return_codes.append((
                 "blast", 
