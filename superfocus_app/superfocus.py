@@ -6,6 +6,9 @@ import csv
 import itertools
 import logging
 import os
+import shutil
+import sys
+import tempfile
 
 import numpy as np
 
@@ -207,6 +210,7 @@ def parse_args():
     parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files.", required=True)
     parser.add_argument("-dir", "--output_directory", help="Path to output files", required=True)
     parser.add_argument("-o", "--output_prefix", help="Output prefix (Default: output).", default="output_")
+    parser.add_argument("-tmp", "--temp_directory", help="specify an alternate temporary directory to use")
 
     # aligner related
     parser.add_argument("-a", "--aligner", help="aligner choice (rapsearch, diamond, or blast; default rapsearch).",
@@ -230,6 +234,8 @@ def parse_args():
     parser.add_argument("-m", "--focus", help="runs FOCUS; 1 does run; 0 does not run: default 0.", default="0")
     parser.add_argument("-b", "--alternate_directory", help="Alternate directory for your databases.", default="")
     parser.add_argument('-d', '--delete_alignments', help='Delete alignments', action='store_true', required=False)
+    parser.add_argument('-w', '--latency_wait', help='Add a delay (in seconds) between writing the file and reading it',
+                        type=int, default=0)
     parser.add_argument('-l', '--log', help='Path to log file (Default: STDOUT).', required=False)
 
     return parser.parse_args()
@@ -279,6 +285,24 @@ def main():
     if not output_directory.exists():
         Path(output_directory).mkdir(parents=True, mode=511)
         logger.info("OUTPUT: {} does not exist - just created it :)".format(output_directory))
+
+    # find a temp directory location
+    tmp = "/tmp"
+    if args.temp_directory:
+        tmp = args.temp_directory
+        if not os.path.exists(tmp):
+            logger.info(f"Creating temporary path: {tmp}")
+            os.makedirs(tmp, exist_ok=True)
+    elif 'TMPDIR' in os.environ:
+        tmp = os.environ['TMPDIR']
+        if not os.path.exists(tmp):
+            logger.info(f"Creating temporary path: {tmp}")
+            os.makedirs(tmp, exist_ok=True)
+    else:
+        sys.stderr.write(f"WARNING: Using {tmp} as the base temporary directory")
+    tmpdir = tempfile.mkdtemp(dir=tmp)
+    os.makedirs(tmpdir, exist_ok=True)
+    logger.info(f"Using {tmpdir} as the temporary directory")
 
     # check if at least one of the queries is valid
     if not queries_folder.is_dir():
@@ -334,11 +358,17 @@ def main():
 
         # get fasta/fastq files
         query_files = is_wanted_file([temp_query for temp_query in os.listdir(queries_folder)])
+
         for counter, temp_query in enumerate(query_files):
             logger.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             logger.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
-            alignment_name = align_reads(Path(queries_folder, temp_query), output_directory, aligner, database, evalue,
-                                         threads, fast_mode, WORK_DIRECTORY, amino_acid)
+            alignment_name = align_reads(Path(queries_folder, temp_query),
+                                         output_dir=output_directory, aligner=aligner,
+                                         database=database, evalue=evalue,
+                                         threads=threads, fast_mode=fast_mode,
+                                         WORK_DIRECTORY=WORK_DIRECTORY,
+                                         amino_acid=amino_acid, temp_folder=tmpdir,
+                                         latency_delay=args.latency_wait)
             logger.info("   Parsing Alignments")
             sample_position = query_files.index(temp_query)
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
@@ -372,6 +402,9 @@ def main():
         output_file = "{}/{}all_levels_and_function.xls".format(output_directory, prefix)
         temp_results = add_relative_abundance(results, normalizer)
         write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
+
+    # clean up our mess
+    shutil.rmtree(tmpdir)
 
     logger.info('Done')
 
