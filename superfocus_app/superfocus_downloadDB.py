@@ -16,7 +16,7 @@ LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
-WORK_DIRECTORY = str(Path(__file__).parents[0])
+WORK_DIRECTORY = str(Path(__file__).parents[0] / 'db/static/')
 
 
 def check_aligners():
@@ -33,49 +33,67 @@ def check_aligners():
     ]
 
 
-def format_database(aligners, target_files, cluster_identities):
-    """Format database for target aligner(s) and folder with files.
+def format_database(aligners, target_files, cluster_identities, db_dir):
+    """Format database(s) for target aligner(s) and folder with files.
 
     Args:
         aligners (list): Aligners to have the database formatted.
-        target_files (str): Download database.
-        cluster_identities (list): Clusters used when formating database.
+        target_files (str): Path to clusters database (fasta).
+        cluster_identities (list): Cluster identities used when formatting database.
+        db_dir (str): Optional path to user-specified working directory to build databases in.
 
     """
-    LOGGER.info('  Joining files')
-    [
-        os.system(
-            'cat {}/{}/*.faa > {}.fasta'.format(target_files, cluster, cluster)
-        )
-        for cluster in os.listdir(target_files) if cluster.endswith("_clusters")
-    ]
+    if Path(db_dir).exists() and Path(db_dir).is_dir():
+        WORK_DIRECTORY = str(Path(db_dir).resolve())
+        LOGGER.info('Using work directory: {}'.format(WORK_DIRECTORY))
 
-    # Format database
-    LOGGER.info('  Formatting Database')
+    LOGGER.info('Preparing database(s) in workdir: {}'.format(WORK_DIRECTORY))
     for dbname in cluster_identities:
-        for aligner in aligners:
-            if aligner == 'prerapsearch':
-                LOGGER.info('  RAPSearch2: DB_{}'.format(dbname))
+        fasta_file = '{}_clusters.fasta'.format(dbname)
+        cluster_dir = Path(target_files) / '{}_clusters'.format(dbname)
+        LOGGER.info('Concatenating {}/*.faa > {}'.format(cluster_dir, fasta_file))
+        os.system(
+            'cat {}/*.faa > {}'.format(cluster_dir, fasta_file)
+        )
+        
+        LOGGER.info('Formatting database(s) ...')
+        return_codes = []
+        if 'prerapsearch' in aligners:
+            LOGGER.info('RAPSearch2: DB_{}'.format(dbname))
+            outdir = Path('{}/{}'.format(WORK_DIRECTORY, "rapsearch2"))
+            outdir.mkdir(parents=True, exist_ok=True)
+            return_codes.append((
+                "prerapsearch", 
+                os.system('prerapsearch -d {} -n {}/{}_clusters.db'.
+                    format(fasta_file, outdir, dbname)
+            )))
+        if 'diamond' in aligners:
+            LOGGER.info('DIAMOND: DB_{}'.format(dbname))
+            outdir = Path('{}/{}'.format(WORK_DIRECTORY, "diamond"))
+            outdir.mkdir(parents=True, exist_ok=True)
+            return_codes.append((
+                "diamond", 
+                os.system('diamond makedb --in {} --db {}/{}_clusters.db'.
+                    format(fasta_file, outdir, dbname)
+            )))
+        if 'makeblastdb' in aligners:
+            LOGGER.info('BLAST: DB_{}'.format(dbname))
+            outdir = Path('{}/{}'.format(WORK_DIRECTORY, "blast"))
+            outdir.mkdir(parents=True, exist_ok=True)
+            return_codes.append((
+                "blast", 
                 os.system(
-                    'prerapsearch -d {}_clusters.fasta '
-                    ' -n {}/db/static/rapsearch2/{}_clusters.db'.format(dbname, WORK_DIRECTORY, dbname)
-                )
-            elif aligner == 'diamond':
-                LOGGER.info('  DIAMOND: DB_{}'.format(dbname))
-                os.system(
-                    'diamond makedb --in  {}_clusters.fasta '
-                    '--db {}/db/static/diamond/{}_clusters.db'.
-                        format(dbname, WORK_DIRECTORY, dbname)
-                )
-            elif aligner == 'makeblastdb':
-                LOGGER.info('  BLAST: DB_{}'.format(dbname))
-                os.system(
-                    'makeblastdb -in {}_clusters.fasta '
-                    '-out {}/db/static/blast/{}_clusters.db -title {}_clusters.db -dbtype prot'.
-                        format(dbname, WORK_DIRECTORY, dbname, dbname)
-                )
-        # remove joint file
-        os.remove("{}_clusters.fasta".format(dbname))
+                    'makeblastdb -in {} -out {}/{}_clusters.db '
+                    '-title {}_clusters.db -dbtype prot'.
+                    format(fasta_file, outdir, dbname, dbname)
+            )))
+        for aligner, return_code in return_codes:
+            if not return_code == 0:
+                LOGGER.error('Something went wrong with {}'.format(aligner))
+                sys.exit(1)
+
+        LOGGER.info('Removing temporary concatenated file "{}"'.format(fasta_file))
+        os.remove(fasta_file)
 
 
 def parse_args():
@@ -95,6 +113,9 @@ def parse_args():
             help="DB types separed by ',' if more than one (e.g 90,95,98,100). Default: 90")
     parser.add_argument("-i", "--input", required=True, 
             help="Target input files to be formatted into the database")
+    parser.add_argument("-d", "--db-dir", 
+            help="Alternate database directory to store DB files in. "
+            "Default: lib/python3.10/site-packages/superfocus_app/")
     parser.add_argument('-v', '--version', 
             action='version', 
             version='superfocus_downloadDB version {}'.format(version))
@@ -112,14 +133,14 @@ def main():
     valid_aligners = {'rapsearch', 'diamond', 'blast'}
     aligner_db_creators = {os.path.basename(x) for x in check_aligners() if x != 'None'}
     if not aligner_db_creators:
-        LOGGER.critical('  None of the required aligners are installed {}'.format(list(valid_aligners)))
+        LOGGER.critical('None of the required aligners are installed {}'.format(list(valid_aligners)))
         sys.exit(1)
 
     # Parse which aligner(s) the user wants to format the database to
     requested_aligners = {aligner.lower() for aligner in args.aligner.split(",")}
     for aligner in requested_aligners:
         if aligner not in valid_aligners:
-            LOGGER.critical('  None of the required aligners are installed {}'.format(list(valid_aligners)))
+            LOGGER.critical('None of the required aligners are installed {}'.format(list(valid_aligners)))
             sys.exit(1)
 
     aligners = []
@@ -138,11 +159,11 @@ def main():
                 '{} is not sa valid cluster. Please enter 90, 95, 98, or 100'.format(args.clusters))
 
     if aligners:
-        LOGGER.info('Formating Database for aligner(s): {} and cluster(s): {}'.format(args.aligner, args.clusters))
-        format_database(aligners, args.input, clusters_target)
-        LOGGER.info('  Done :)')
+        LOGGER.info('Formatting databases for aligner(s): {} and cluster(s): {}'.format(args.aligner, args.clusters))
+        format_database(aligners, args.input, clusters_target, args.db_dir)
+        LOGGER.info('Done :)')
     else:
-        LOGGER.critical('  No valid aligner. We cannot move on!')
+        LOGGER.critical('No valid aligner. We cannot move on!')
 
 
 if __name__ == "__main__":
