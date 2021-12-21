@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data"""
 
 import argparse
 import os
@@ -85,17 +85,23 @@ def parse_args():
         argparse.Namespace: Parsed arguments.
 
     """
-    parser = argparse.ArgumentParser(description="SUPER-FOCUS: A tool for agile functional analysis of shotgun "
-                                                 "metagenomic data",
-                                     epilog="superfocus_downloadDB -a diamond,rapsearch,blast -i clusters/")
-    # basic parameters
-    parser.add_argument("-a", "--aligner", help="Aligner name separed by ',' if more than one", required=True)
-    parser.add_argument("-c", "--clusters", help="DB types separed by ',' if more than one (e.g 90,95,98,"
-                                                 "100) - default 90",
-                        required=False, default="90")
-    parser.add_argument("-i", "--input", help="Target input files to be formatted into the database", required=True)
-    parser.add_argument('-v', '--version', action='version', version='superfocus_downloadDB version {}'.format(
-        version))
+    parser = argparse.ArgumentParser(
+            description=__doc__, 
+            epilog="superfocus_downloadDB -a diamond,rapsearch,blast -i clusters/")
+
+    parser.add_argument("-a", "--aligner", required=True,
+            help="Aligner name separed by ',' if more than one")
+    parser.add_argument("-c", "--clusters", default="90",
+            help="DB types separed by ',' if more than one (e.g 90,95,98,100). Default: 90")
+    parser.add_argument("-i", "--input", required=True, 
+            help="Target input files to be formatted into the database")
+    parser.add_argument('-v', '--version', 
+            action='version', 
+            version='superfocus_downloadDB version {}'.format(version))
+
+    if len(sys.argv) < 2:
+        parser.print_help()
+        sys.exit(1)
 
     return parser.parse_args()
 
