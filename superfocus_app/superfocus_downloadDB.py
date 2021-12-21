@@ -54,10 +54,18 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
     for dbname in cluster_identities:
         fasta_file = '{}_clusters.fasta'.format(dbname)
         cluster_dir = Path(target_files) / '{}_clusters'.format(dbname)
+        if not cluster_dir.exists():
+            LOGGER.error('Cluster directory "{}" does not exist'.format(cluster_dir))
+            LOGGER.error('Did you specify the input directory correctly?')
+            sys.exit(1)
+
         LOGGER.info('Concatenating {}/*.faa > {}'.format(cluster_dir, fasta_file))
-        os.system(
+        cat = os.system(
             'cat {}/*.faa > {}'.format(cluster_dir, fasta_file)
         )
+        if cat != 0:
+            LOGGER.error('Could not concatenate clusters at level {}'.format(dbname))
+            sys.exit(1)
         
         LOGGER.info('Formatting database(s) ...')
         return_codes = []
