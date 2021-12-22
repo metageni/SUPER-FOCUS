@@ -171,6 +171,7 @@ def main():
         LOGGER.info('Done :)')
     else:
         LOGGER.critical('No valid aligner. We cannot move on!')
+        sys.exit(1)
 
 
 if __name__ == "__main__":
