@@ -16,8 +16,6 @@ LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
-WORK_DIRECTORY = str(Path(__file__).parents[0] / 'db/static/')
-
 
 def check_aligners():
     """Check if aligners are installed on the system path.
@@ -46,9 +44,7 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
     if db_dir and Path(db_dir).exists() and Path(db_dir).is_dir():
         workdir = str(Path(db_dir).resolve())
     else:
-        workdir = WORK_DIRECTORY
-    LOGGER.info('Using work directory: {}'.format(workdir))
-
+        workdir = str(Path(__file__).parents[0] / 'db/static/')
 
     LOGGER.info('Preparing database(s) in workdir: {}'.format(workdir))
     for dbname in cluster_identities:
