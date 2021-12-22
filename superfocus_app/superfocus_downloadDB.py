@@ -115,14 +115,13 @@ def parse_args():
             epilog="superfocus_downloadDB -a diamond,rapsearch,blast -i clusters/")
 
     parser.add_argument("-a", "--aligner", required=True,
-            help="Aligner name separed by ',' if more than one")
+            help="Aligner name separed by ',' if more than one.")
     parser.add_argument("-c", "--clusters", default="90",
-            help="DB types separed by ',' if more than one (e.g 90,95,98,100). Default: 90")
+            help="DB types separed by ',' if more than one (e.g 90,95,98,100). Default: 90.")
     parser.add_argument("-i", "--input", required=True, 
-            help="Target input files to be formatted into the database")
+            help="Target input files to be formatted into the database.")
     parser.add_argument("-d", "--db-dir", 
-            help="Alternate database directory to store DB files in. "
-            "Default: lib/python3.10/site-packages/superfocus_app/")
+            help="Alternate database directory to store DB files in.")
     parser.add_argument('-v', '--version', 
             action='version', 
             version='superfocus_downloadDB version {}'.format(version))
