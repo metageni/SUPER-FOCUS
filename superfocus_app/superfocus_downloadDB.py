@@ -42,9 +42,10 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
 
     """
     if db_dir and Path(db_dir).exists() and Path(db_dir).is_dir():
-        workdir = str(Path(db_dir).resolve())
+        workdir = Path(db_dir).resolve()
     else:
-        workdir = str(Path(__file__).parents[0] / 'db/static/')
+        workdir = Path(__file__).parents[0]
+    db_static_dir = workdir / 'db/static/'
 
     LOGGER.info('Preparing database(s) in workdir: {}'.format(workdir))
     for dbname in cluster_identities:
@@ -67,7 +68,7 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
         return_codes = []
         if 'prerapsearch' in aligners:
             LOGGER.info('RAPSearch2: DB_{}'.format(dbname))
-            outdir = Path('{}/{}'.format(workdir, "rapsearch2"))
+            outdir = Path('{}/{}'.format(db_static_dir, "rapsearch2"))
             outdir.mkdir(parents=True, exist_ok=True)
             return_codes.append((
                 "prerapsearch", 
@@ -76,7 +77,7 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
             )))
         if 'diamond' in aligners:
             LOGGER.info('DIAMOND: DB_{}'.format(dbname))
-            outdir = Path('{}/{}'.format(workdir, "diamond"))
+            outdir = Path('{}/{}'.format(db_static_dir, "diamond"))
             outdir.mkdir(parents=True, exist_ok=True)
             return_codes.append((
                 "diamond", 
@@ -85,7 +86,7 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
             )))
         if 'makeblastdb' in aligners:
             LOGGER.info('BLAST: DB_{}'.format(dbname))
-            outdir = Path('{}/{}'.format(workdir, "blast"))
+            outdir = Path('{}/{}'.format(db_static_dir, "blast"))
             outdir.mkdir(parents=True, exist_ok=True)
             return_codes.append((
                 "blast", 
