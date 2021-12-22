@@ -41,7 +41,7 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
         db_dir (str): Optional path to user-specified working directory to build databases in.
 
     """
-    if db_dir and Path(db_dir).exists() and Path(db_dir).is_dir():
+    if db_dir:
         workdir = Path(db_dir).resolve()
     else:
         workdir = Path(__file__).parents[0]
@@ -141,6 +141,11 @@ def main():
     aligner_db_creators = {os.path.basename(x) for x in check_aligners() if x != 'None'}
     if not aligner_db_creators:
         LOGGER.critical('None of the required aligners are installed {}'.format(list(valid_aligners)))
+        sys.exit(1)
+
+    db_dir_exists = Path(args.db_dir).exists() and Path(args.db_dir).is_dir()
+    if args.db_dir and not db_dir_exists:
+        LOGGER.critical('Provided --db-dir "{}" does not exist'.format(args.db_dir))
         sys.exit(1)
 
     # Parse which aligner(s) the user wants to format the database to
