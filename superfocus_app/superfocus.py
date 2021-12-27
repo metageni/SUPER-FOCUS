@@ -207,7 +207,8 @@ def parse_args():
                                      epilog="superfocus -q input_folder -dir output_dir")
     parser.add_argument('-v', '--version', action='version', version='SUPER-FOCUS {}'.format(version))
     # basic parameters
-    parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files.", required=True)
+    parser.add_argument("-q", "--query", help="Path to FAST(A/Q) file or directory with these files.", required=True,
+                        action='append')
     parser.add_argument("-dir", "--output_directory", help="Path to output files", required=True)
     parser.add_argument("-o", "--output_prefix", help="Output prefix (Default: output).", default="output_")
     parser.add_argument("-tmp", "--temp_directory", help="specify an alternate temporary directory to use")
@@ -245,7 +246,6 @@ def main():
     args = parse_args()
 
     # basic parameters
-    queries_folder = Path(args.query)
     prefix = args.output_prefix
     output_directory = Path(args.output_directory)
 
@@ -286,6 +286,19 @@ def main():
         Path(output_directory).mkdir(parents=True, mode=511)
         logger.info("OUTPUT: {} does not exist - just created it :)".format(output_directory))
 
+    # parse directory and/or query files
+    query_files = []
+    for f in args.query:
+        p = Path(f)
+        if p.is_dir():
+            query_files += [Path(p, x) for x in os.listdir(p)]
+        elif p.is_file():
+            query_files.append(p)
+    query_files = is_wanted_file(query_files)
+    if query_files == []:
+        logger.critical("QUERY: {} does not have any fasta/fna/fastq files".format(args.query))
+        sys.exit(1)
+
     # find a temp directory location
     tmp = "/tmp"
     if args.temp_directory:
@@ -304,11 +317,7 @@ def main():
     os.makedirs(tmpdir, exist_ok=True)
     logger.info(f"Using {tmpdir} as the temporary directory")
 
-    # check if at least one of the queries is valid
-    if not queries_folder.is_dir():
-        logger.critical("QUERY: {} is not a directory".format(queries_folder))
-
-    # check if at least one of the queries is valid
+    # check if we can run focus
     if run_focus != '0':
         logger.critical("FOCUS: Running FOCUS is not avaliable on this version. "
                         "Please see https://github.com/metageni/FOCUS on how to run it")
@@ -316,10 +325,6 @@ def main():
     # check if amino_acid is valid
     elif aligner == 'blast' and amino_acid not in ['0', '1']:
         logger.critical("AMINO ACID OPTION: {} is not valid for --amino_acid. Only 0 or 1".format(amino_acid))
-
-    # check if at least one of the queries is valid
-    elif is_wanted_file(os.listdir(queries_folder)) == []:
-        logger.critical("QUERY: {} does not have any Fasta/Fna/Fastq file".format(queries_folder))
 
     # check if at database choice is valid
     elif database not in ["90", "95", "98", "100"]:
@@ -333,10 +338,6 @@ def main():
     # check if aligner exists
     elif not which(aligner) and aligner.lower() != "blast":
         logger.critical("ALIGNER: {} is not in the path of your system".format(aligner))
-
-    # check if query is exists
-    elif not queries_folder.exists():
-        logger.critical("QUERY: {} does not exist".format(queries_folder))
 
     # check if work directory exists
     elif WORK_DIRECTORY != WORK_DIRECTORY or not WORK_DIRECTORY.exists():
@@ -356,13 +357,10 @@ def main():
 
         subsystems_translation = get_subsystems(Path(WORK_DIRECTORY, "db/database_PKs.txt"))
 
-        # get fasta/fastq files
-        query_files = is_wanted_file([temp_query for temp_query in os.listdir(queries_folder)])
-
         for counter, temp_query in enumerate(query_files):
             logger.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             logger.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
-            alignment_name = align_reads(Path(queries_folder, temp_query),
+            alignment_name = align_reads(temp_query,
                                          output_dir=output_directory, aligner=aligner,
                                          database=database, evalue=evalue,
                                          threads=threads, fast_mode=fast_mode,
@@ -383,7 +381,7 @@ def main():
 
         # write binning
         output_file = "{}/{}binning.xls".format(output_directory, prefix)
-        write_binning(binning_reads, output_file, queries_folder, database, aligner)
+        write_binning(binning_reads, output_file, args.query, database, aligner)
         logger.info('  Working on writing binning')
 
         # write results for each of the levels
@@ -394,14 +392,14 @@ def main():
             temp_results = aggregate_level(results, level - 1, normalizer)
             output_file = "{}/{}subsystem_level_{}.xls".format(output_directory, prefix, level)
 
-            write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
+            write_results(temp_results, temp_header, output_file, args.query, database, aligner)
 
         # write result for all the levels in one file
         logger.info('  Working on Combined output')
         temp_header = ["Subsystem Level 1", "Subsystem Level 2", "Subsystem Level 3", "Function"] + header_files
         output_file = "{}/{}all_levels_and_function.xls".format(output_directory, prefix)
         temp_results = add_relative_abundance(results, normalizer)
-        write_results(temp_results, temp_header, output_file, queries_folder, database, aligner)
+        write_results(temp_results, temp_header, output_file, args.query, database, aligner)
 
     # clean up our mess
     shutil.rmtree(tmpdir)
