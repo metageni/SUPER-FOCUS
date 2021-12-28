@@ -32,7 +32,7 @@ def is_wanted_file(queries):
         list: Sorted list with only .fasta/.fastq/.fna files.
 
     """
-    queries = [query for query in queries if query.split(".")[-1].lower() in ["fna", "fasta", "fastq"]]
+    queries = [query for query in queries if query.name.split(".")[-1].lower() in ["fna", "fasta", "fastq"]]
     queries.sort()
 
     return queries
