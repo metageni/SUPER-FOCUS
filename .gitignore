@@ -83,3 +83,7 @@ Biochemistry/binary_data
 superfocus_app/clusters/
 superfocus_app/db/clusters/
 out/
+
+# virtual environments
+venv/
+virtualenv/

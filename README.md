@@ -141,6 +141,25 @@ available command line options:
 
     superfocus -q input_folder -dir output_dir
 
+## Query
+
+The query can be one or more fasta or fastq files, or a directory containing those files. We filter for
+files that end `.fasta`, `.fastq`, or `.fna`, so please ensure any file that you want processed has one
+of those file extensions.
+
+You can provide a mixture of input files or directories, and we will filter the files as appropriate.
+
+For example:
+
+```bash
+superfocus -q fastq1.fastq -q fastq2.fastq -q directory/ -dir output
+```
+
+will process the two fastq files `fastq1.fastq` and `fastq2.fastq` as well as any `fasta` or `fastq` files in `directory`
+and put the output in `output`.
+
+We currently do not handle `gzipped` or otherwise compressed input files.
+
 ## Recomendations
 - The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction)
 - Run RAPSearch for short sequences, it is less sensitive for long sequences
