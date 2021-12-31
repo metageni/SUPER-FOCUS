@@ -11,6 +11,7 @@ from pathlib import Path
 from shutil import which
 
 from superfocus_app import version
+import tempfile
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT, level=logging.INFO)
@@ -26,7 +27,7 @@ def check_aligners():
     """
     return [
         info
-        for info in [which(x) for x in ['prerapsearch', 'diamond', 'makeblastdb']]
+        for info in [which(x) for x in ['prerapsearch', 'diamond', 'makeblastdb', 'mmseqs']]
         if info != None
     ]
 
@@ -95,6 +96,17 @@ def format_database(aligners, target_files, cluster_identities, db_dir):
                     '-title {}_clusters.db -dbtype prot'.
                     format(fasta_file, outdir, dbname, dbname)
             )))
+        if 'mmseqs' in aligners:
+            LOGGER.info('MMSEQS: DB_{}'.format(dbname))
+            outdir = Path('{}/{}'.format(db_static_dir, "mmseqs2"))
+            outdir.mkdir(parents=True, exist_ok=True)
+            return_codes.append((
+                "mmseqs",
+                os.system(
+                    'mmseqs createdb {} {}/{}_clusters.db {}'.format(fasta_file, outdir, dbname)
+            )))
+
+
         for aligner, return_code in return_codes:
             if not return_code == 0:
                 LOGGER.error('Something went wrong with {}'.format(aligner))
@@ -137,7 +149,7 @@ def parse_args():
 def main():
     args = parse_args()
 
-    valid_aligners = {'rapsearch', 'diamond', 'blast'}
+    valid_aligners = {'rapsearch', 'diamond', 'blast', 'mmseqs'}
     aligner_db_creators = {os.path.basename(x) for x in check_aligners() if x != 'None'}
     if not aligner_db_creators:
         LOGGER.critical('None of the required aligners are installed {}'.format(list(valid_aligners)))
@@ -162,7 +174,8 @@ def main():
         aligners.append("diamond")
     if 'blast' in requested_aligners and 'makeblastdb' in aligner_db_creators:
         aligners.append("makeblastdb")
-
+    if 'mmseqs' in requested_aligners and 'mmseqs' in aligner_db_creators:
+        aligners.append("mmseqs")
     clusters_target = args.clusters.split(",")
 
     for cluster in clusters_target:
