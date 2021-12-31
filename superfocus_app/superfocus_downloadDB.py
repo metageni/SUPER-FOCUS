@@ -125,7 +125,7 @@ def parse_args():
     """
     parser = argparse.ArgumentParser(
             description=__doc__, 
-            epilog="superfocus_downloadDB -a diamond,rapsearch,blast -i clusters/")
+            epilog="superfocus_downloadDB -a diamond,rapsearch,blast,mmseqs -i clusters/")
 
     parser.add_argument("-a", "--aligner", required=True,
             help="Aligner name separed by ',' if more than one.")
