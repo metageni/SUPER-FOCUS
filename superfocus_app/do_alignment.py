@@ -121,6 +121,28 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         # add aligner extension to output
         output_name = "{}.m8".format(output_name)
 
+    elif aligner == 'mmseqs':
+        database_mmseqs = f"{WORK_DIRECTORY}/db/static/mmseqs2/{database}.db"
+        output_name = f"{output_name}.m8"
+        mmseqs_blast = [
+            "mmseqs", "easy-search",
+            query,
+            database_mmseqs,
+            output_name,
+            temp_folder,
+            "--threads", threads,
+            "-e", evalue,
+        ]
+        if fast_mode == "1":
+            mmseqs_blast += ["-s", "1.0"]
+        try:
+            retcode = subprocess.call(mmseqs_blast)
+            if retcode != 0:
+                print("mmseqs2 blast was terminated by signal", retcode, file=sys.stderr)
+                sys.exit(retcode)
+        except OSError as e:
+            print("mmseqs2 blast execution failed:", e, file=sys.stderr)
+            sys.exit()
     elif aligner == "rapsearch":
         mode_rapsearch = "T" if fast_mode == "1" else "F"
         database_rapsearch = "{}/db/static/rapsearch2/{}.db".format(WORK_DIRECTORY, database)
@@ -128,13 +150,18 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
         os.system('rapsearch -a {} -q {} -d {} -o {} -v 250 -z {} -e {} -b 0 -s f'.format(mode_rapsearch, query,
                                                                                           database_rapsearch,
                                                                                           output_name, threads, evalue))
+        # add aligner extension to output
+        output_name = "{}.m8".format(output_name)
     elif aligner == "blast":
         database_blast = "{}/db/static/blast/{}.db".format(WORK_DIRECTORY, database)
 
         os.system('{} -db {} -query {} -out {} -outfmt 6 -evalue {} -max_target_seqs 250 -num_threads {}'.format(
             blast_mode, database_blast, query, output_name, evalue, threads))
+    else:
+        sys.stderr.write(f"FATAL: Aligner {aligner} not known\n")
+        sys.exit(0)
 
-    return '{}.m8'.format(output_name) if aligner == 'rapsearch' else output_name
+    return output_name
 
 
 def parse_alignments(alignment, results, normalise, number_samples, sample_index, minimum_identity, minimum_alignment,
@@ -178,6 +205,9 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
             # extract need info from hit
             current_read_name = row[0]
             temp_mi = float(row[2])
+            if aligner == 'mmseqs' and temp_mi <= 1 and temp_mi >=0:
+                # mmseqs2 reports fraction identity not percent identity!
+                temp_mi *= 100
             temp_ml = float(row[3])
             current_evalue = row[10]
 

@@ -214,7 +214,7 @@ def parse_args():
     parser.add_argument("-tmp", "--temp_directory", help="specify an alternate temporary directory to use")
 
     # aligner related
-    parser.add_argument("-a", "--aligner", help="aligner choice (rapsearch, diamond, or blast; default rapsearch).",
+    parser.add_argument("-a", "--aligner", help="aligner choice (rapsearch, diamond, blast, or mmseqs2; default rapsearch).",
                         default="rapsearch")
     parser.add_argument("-mi", "--minimum_identity", help="minimum identity (default 60 perc).", default="60")
     parser.add_argument("-ml", "--minimum_alignment", help="minimum alignment (amino acids) (default: 15).",
@@ -227,7 +227,7 @@ def parse_args():
     parser.add_argument("-p", "--amino_acid", help="amino acid input; 0 nucleotides; 1 amino acids (default 0).",
                         default="0")
     parser.add_argument("-f", "--fast", help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) "
-                                             "(default: 1).", default="1")
+                        "(default: 1).", default="1")
 
     # extra
     parser.add_argument("-n", "--normalise_output", help="normalises each query counts based on number of hits; "
@@ -259,6 +259,10 @@ def main():
     amino_acid = args.amino_acid
     fast_mode = args.fast
     del_alignments = args.delete_alignments
+
+    # rename mmseqs2 to mmseqs. This is the name of the command, but the program is mmseqs!
+    if aligner == 'mmseqs2':
+        aligner = 'mmseqs'
 
     # other metrics
     normalise_output = int(args.normalise_output)
@@ -331,8 +335,8 @@ def main():
         logger.critical("DATABASE: DB_{} not valid. Choose DB_90/95/98/or 100".format(database))
 
     # check if aligner is valid
-    elif aligner not in ["diamond", "rapsearch", "blast"]:
-        logger.critical("ALIGNER: {} is not a valid aligner. Please chose among (diamond or rapsearch)".
+    elif aligner not in ["diamond", "rapsearch", "blast", "mmseqs"]:
+        logger.critical("ALIGNER: {} is not a valid aligner. Please choose among (diamond, blast, rapsearch, or mmseqs2)".
                         format(aligner))
 
     # check if aligner exists

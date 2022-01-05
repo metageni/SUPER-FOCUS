@@ -42,6 +42,7 @@ If you have Python 3.6, you can install both dependencies with:
 One of the below aligners, which can easily be installed with [`conda`](https://conda.io/docs/):
 - [DIAMOND 0.9.14](http://ab.inf.uni-tuebingen.de/software/diamond)
 - [RAPSearch2 2.24](http://rapsearch2.sourceforge.net)
+- [MMSEQS2](https://github.com/soedinglab/MMseqs2)
 - [BLAST 2.6.0](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
 
 To install the aligners, having [`conda`](https://conda.io/docs/installation.html) installed, simply run:  
@@ -56,7 +57,55 @@ to that directory. Alternatively, you can provide the `--alternate_directory` fl
 
 ### Installing the databases
 
-Some of the steps below could be automatized. However, many users have had problem with the database formatting, and it was requested for the initial steps to be manual.
+Some of the steps below could be automatized. However, many users have had problem with the database formatting, and
+it was requested for the initial steps to be manual.
+
+### Downloading prebuilt databases
+
+We have prebuilt several of the databases, so if you have made a `conda` install, choose the right version and 
+you should be able to download the databases
+
+***Diamond***
+
+Please check your `diamond` version with `diamond --version` and then read the [diamond documentation](https://github.com/bbuchfink/diamond/wiki/5.-Advanced-topics#database-format-versions) to know which version to download. You can also find out the database version you have installed with `diamond dbinfo`.
+
+Cluster Size | diamond version 1 databases | diamond version 2 databases | diamond version 3 databases
+--- | --- | --- | ---
+90 |  [90 v1](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v1/90_clusters.db.dmnd.zip)  | [90 v2](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v2/90_clusters.db.dmnd.zip)  | [90 v3](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v3/90_clusters.db.dmnd.zip) 
+95 |  [95 v1](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v1/95_clusters.db.dmnd.zip)  | [95 v2](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v2/95_clusters.db.dmnd.zip)  | [95 v3](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v3/95_clusters.db.dmnd.zip) 
+98 |  [98 v1](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v1/98_clusters.db.dmnd.zip)  | [98 v2](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v2/98_clusters.db.dmnd.zip)  | [98 v3](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v3/98_clusters.db.dmnd.zip) 
+100 |  [100 v1](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v1/100_clusters.db.dmnd.zip)  | [100 v2](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v2/100_clusters.db.dmnd.zip)  | [100 v3](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v3/100_clusters.db.dmnd.zip) 
+
+After downloading, you need to copy these to `lib/python3.8/site-packages/superfocus_app/db/static/diamond` in the same location as superfocus:
+
+e.g. for `90_clusters`:
+```bash
+mkdir -p  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/diamond#') &&
+unzip -d  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/diamond#') 90_clusters.db.dmnd.zip
+```
+
+***MMSEQS2***
+
+There is only one version of the MMSEQS2 databases and so the installation is easier!
+
+Cluster Size | mseqs2 databases
+--- | ---
+90 |  [mmseqs_90.zip](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/mmseqs2/mmseqs_90.zip)
+95 |  [mmseqs_95.zip](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/mmseqs2/mmseqs_95.zip)
+98 |  [mmseqs_98.zip](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/mmseqs2/mmseqs_98.zip)
+
+
+After downloading, you need to copy these to `lib/python3.8/site-packages/superfocus_app/db/static/diamond` in the same location as superfocus:
+
+e.g. for `90_clusters`:
+```bash
+mkdir -p  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/mmseqs2#') &&
+unzip -d  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/mmseqs2#') mmseqs_90.zip
+```
+
+### Manual installation
+
+If those databases don't work, you might need to try the manual installation:
 
 #### Download and uncompress
 First download the database with the steps below or using your favorite method to download and uncompress files:
@@ -109,7 +158,7 @@ available command line options:
       -o OUTPUT_PREFIX, --output_prefix OUTPUT_PREFIX
                             Output prefix (Default: output).
       -a ALIGNER, --aligner ALIGNER
-                            aligner choice (rapsearch, diamond, or blast; default
+                            aligner choice (rapsearch, diamond, mmseqs2, or blast; default
                             rapsearch).
       -mi MINIMUM_IDENTITY, --minimum_identity MINIMUM_IDENTITY
                             minimum identity (default 60 perc).
@@ -164,6 +213,7 @@ We currently do not handle `gzipped` or otherwise compressed input files.
 - The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction)
 - Run RAPSearch for short sequences, it is less sensitive for long sequences
 - Primarily use DIAMOND for large datasets only. It is slower than blastx for small datasets
+- Run mmseqs2 if you are running multiple jobs in parallel (e.g. on a cluster).
 - BLAST is known for being really slow
 
 ## Output
