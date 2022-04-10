@@ -43,7 +43,7 @@ def subsample_reads(input_file, output_directory, number_of_reads):
                         f"want to overwrite it while subsampling sequences\n")
         sys.exit(-1)
 
-    logger.info(f"Subsampling {input_file}, selecting {number_of_reads} and putting them in {tmpoutput}")
+    logger.info(f"   Subsampling {input_file}, selecting {number_of_reads} and putting them in {tmpoutput}")
     with open(input_file, 'r') as fin, open(tmpoutput, 'w') as out:
         seqcounter = 0
         if 'fna' in input_file.suffixes or '.fasta' in input_file.suffixes:
