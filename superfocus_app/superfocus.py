@@ -21,6 +21,49 @@ from superfocus_app import version
 
 LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
 
+def subsample_reads(input_file, output_directory, number_of_reads):
+    """
+    Subsample the fastq file in input_fq and create an output file in output_directory. We read
+    the first number_of_reads. Note that we read the first n rather than randomize so that
+    if we have paired end files we should maintain paired information
+    Args:
+        input_file (str): input fastq file name
+        output_directory (str): output directory for the temp file
+        number_of_reads (int): how many reads to subsample
+
+    Returns:
+        str: new temporary file name
+    """
+
+    logger = logging.getLogger(__name__)
+    baseoutput = os.path.basename(input_file)
+    tmpoutput = os.path.join(output_directory, baseoutput)
+    if os.path.exists(tmpoutput):
+        logger.critical(f"{baseoutput} already exists in the temporary directory {output_directory} and we don't "
+                        f"want to overwrite it while subsampling sequences\n")
+        sys.exit(-1)
+    with open(input_file, 'r') as fin, open(tmpoutput, 'w') as out:
+        seqcounter = 0
+        if input_file.endswith('.fna') or input_file.endswith('.fasta'):
+            for r in fin:
+                if r. startswith('>'):
+                    seqcounter += 1
+                    if seqcounter <= number_of_reads:
+                        out.write(r)
+        else:
+            linecounter = 0
+            for r in fin:
+                if linecounter == 0:
+                    seqcounter += 1
+                linecounter += 1
+                if linecounter == 4:
+                    linecounter = 0
+                if seqcounter <= number_of_reads:
+                    out.write(r)
+
+    return tmpoutput
+
+
 
 def is_wanted_file(queries):
     """Remove files from query files that not have extension .fasta/.fastq/.fna
@@ -237,6 +280,8 @@ def parse_args():
     parser.add_argument('-d', '--delete_alignments', help='Delete alignments', action='store_true', required=False)
     parser.add_argument('-w', '--latency_wait', help='Add a delay (in seconds) between writing the file and reading it',
                         type=int, default=0)
+    parser.add_argument('-s', '--subsample', help='subsample the sequences to reduce memory demand and speed up analysis',
+                        type=int)
     parser.add_argument('-l', '--log', help='Path to log file (Default: STDOUT).', required=False)
 
     return parser.parse_args()
@@ -364,7 +409,10 @@ def main():
         for counter, temp_query in enumerate(query_files):
             logger.info("1.{}) Working on: {}".format(counter + 1, temp_query))
             logger.info("   Aligning sequences in {} to {} using {}".format(temp_query, database, aligner))
-            alignment_name = align_reads(temp_query,
+            original_query = temp_query
+            if args.subsample:
+                temp_query = subsample_reads(temp_query, tmpdir, args.subsample)
+            alignment_name = align_reads(original_query,
                                          output_dir=output_directory, aligner=aligner,
                                          database=database, evalue=evalue,
                                          threads=threads, fast_mode=fast_mode,
@@ -372,10 +420,10 @@ def main():
                                          amino_acid=amino_acid, temp_folder=tmpdir,
                                          latency_delay=args.latency_wait)
             logger.info("   Parsing Alignments")
-            sample_position = query_files.index(temp_query)
+            sample_position = query_files.index(original_query)
             results, binning_reads = parse_alignments(alignment_name, results, normalise_output, len(query_files),
                                                       sample_position, minimum_identity, minimum_alignment,
-                                                      subsystems_translation, aligner, binning_reads, temp_query,
+                                                      subsystems_translation, aligner, binning_reads, original_query,
                                                       del_alignments)
 
         # write results
