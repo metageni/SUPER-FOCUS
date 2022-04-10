@@ -134,7 +134,7 @@ def parse_args():
     parser.add_argument("-i", "--input", required=True, 
             help="Target input files to be formatted into the database.")
     parser.add_argument("-d", "--db-dir", 
-            help="Alternate database directory to store DB files in.")
+            help="Alternate database directory to store DB files in.", default="")
     parser.add_argument('-v', '--version', 
             action='version', 
             version='superfocus_downloadDB version {}'.format(version))
