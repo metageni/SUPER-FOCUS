@@ -27,24 +27,26 @@ def subsample_reads(input_file, output_directory, number_of_reads):
     the first number_of_reads. Note that we read the first n rather than randomize so that
     if we have paired end files we should maintain paired information
     Args:
-        input_file (str): input fastq file name
+        input_file (Path): Path to input fasta/q file
         output_directory (str): output directory for the temp file
         number_of_reads (int): how many reads to subsample
 
     Returns:
-        str: new temporary file name
+        Path: new temporary file name
     """
 
     logger = logging.getLogger(__name__)
-    baseoutput = os.path.basename(input_file)
-    tmpoutput = os.path.join(output_directory, baseoutput)
+    baseoutput = input_file.name
+    tmpoutput = Path(os.path.join(output_directory, baseoutput))
     if os.path.exists(tmpoutput):
         logger.critical(f"{baseoutput} already exists in the temporary directory {output_directory} and we don't "
                         f"want to overwrite it while subsampling sequences\n")
         sys.exit(-1)
+
+    logger.info(f"Subsampling {input_file}, selecting {number_of_reads} and putting them in {tmpoutput}")
     with open(input_file, 'r') as fin, open(tmpoutput, 'w') as out:
         seqcounter = 0
-        if input_file.endswith('.fna') or input_file.endswith('.fasta'):
+        if 'fna' in input_file.suffixes or '.fasta' in input_file.suffixes:
             for r in fin:
                 if r. startswith('>'):
                     seqcounter += 1
@@ -412,7 +414,7 @@ def main():
             original_query = temp_query
             if args.subsample:
                 temp_query = subsample_reads(temp_query, tmpdir, args.subsample)
-            alignment_name = align_reads(original_query,
+            alignment_name = align_reads(temp_query,
                                          output_dir=output_directory, aligner=aligner,
                                          database=database, evalue=evalue,
                                          threads=threads, fast_mode=fast_mode,
