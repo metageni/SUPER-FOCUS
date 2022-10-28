@@ -71,10 +71,10 @@ Please check your `diamond` version with `diamond --version` and then read the [
 
 Cluster Size | diamond version 1 databases | diamond version 2 databases | diamond version 3 databases
 --- | --- | --- | ---
-90 |  [90 v1](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v1/90_clusters.db.dmnd.zip)  | [90 v2](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v2/90_clusters.db.dmnd.zip)  | [90 v3](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v3/90_clusters.db.dmnd.zip) 
-95 |  [95 v1](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v1/95_clusters.db.dmnd.zip)  | [95 v2](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v2/95_clusters.db.dmnd.zip)  | [95 v3](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v3/95_clusters.db.dmnd.zip) 
-98 |  [98 v1](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v1/98_clusters.db.dmnd.zip)  | [98 v2](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v2/98_clusters.db.dmnd.zip)  | [98 v3](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v3/98_clusters.db.dmnd.zip) 
-100 |  [100 v1](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v1/100_clusters.db.dmnd.zip)  | [100 v2](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v2/100_clusters.db.dmnd.zip)  | [100 v3](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/diamond_v3/100_clusters.db.dmnd.zip) 
+90 |  [90 v1](https://cloudstor.aarnet.edu.au/plus/s/EuxAj1TzZwFsLJs/download)  | [90 v2](https://cloudstor.aarnet.edu.au/plus/s/l6mJRxra2XEPjbL/download)  | [90 v3](https://cloudstor.aarnet.edu.au/plus/s/YCv7r8RnMXSQICb/download) 
+95 |  [95 v1](https://cloudstor.aarnet.edu.au/plus/s/nMvmxTEsRpHDdAx/download)  | [95 v2](https://cloudstor.aarnet.edu.au/plus/s/azqYAJGnd83R7Ec/download)  | [95 v3](https://cloudstor.aarnet.edu.au/plus/s/rWARkDtYdA3eXyi/download) 
+98 |  [98 v1](https://cloudstor.aarnet.edu.au/plus/s/U2lYcKDmt83I6Kr/download)  | [98 v2](https://cloudstor.aarnet.edu.au/plus/s/tUr8sa7K5r5AMne/download)  | [98 v3](https://cloudstor.aarnet.edu.au/plus/s/rsjc4DELkbSRWk1/download) 
+100 |  [100 v1](https://cloudstor.aarnet.edu.au/plus/s/Oyo388zQPOV5Ycw/download)  | [100 v2](https://cloudstor.aarnet.edu.au/plus/s/tCghmdqsPULtvdB/download)  | [100 v3](https://cloudstor.aarnet.edu.au/plus/s/s5iUTjpUJ3nR6w2/download) 
 
 After downloading, you need to copy these to `lib/python3.8/site-packages/superfocus_app/db/static/diamond` in the same location as superfocus:
 
@@ -90,9 +90,9 @@ There is only one version of the MMSEQS2 databases and so the installation is ea
 
 Cluster Size | mseqs2 databases
 --- | ---
-90 |  [mmseqs_90.zip](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/mmseqs2/mmseqs_90.zip)
-95 |  [mmseqs_95.zip](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/mmseqs2/mmseqs_95.zip)
-98 |  [mmseqs_98.zip](https://edwards.sdsu.edu/SUPERFOCUS/downloads/conda/mmseqs2/mmseqs_98.zip)
+90 |  [mmseqs_90.zip](https://cloudstor.aarnet.edu.au/plus/s/QqCHMFXUteiksh2/download)
+95 |  [mmseqs_95.zip](https://cloudstor.aarnet.edu.au/plus/s/2Fw2Et9NyCiASod/download)
+98 |  [mmseqs_98.zip](https://cloudstor.aarnet.edu.au/plus/s/Sch0dx9aAnsAzyS/download)
 
 
 After downloading, you need to copy these to `lib/python3.8/site-packages/superfocus_app/db/static/diamond` in the same location as superfocus:
@@ -102,20 +102,6 @@ e.g. for `90_clusters`:
 mkdir -p  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/mmseqs2#') &&
 unzip -d  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/mmseqs2#') mmseqs_90.zip
 ```
-
-### Manual installation
-
-If those databases don't work, you might need to try the manual installation:
-
-#### Download and uncompress
-First download the database with the steps below or using your favorite method to download and uncompress files:
-```
-# download
-wget edwards.sdsu.edu/superfocus/downloads/db.zip
-# uncompress
-unzip db.zip
-```
-**NOTE**: You can also download the small file named `db_small.zip` and test the instalation before downloading the large file.
 
 #### Format
 Now that you downloaded the database, please use the instructions below to format it and move into the database folder.
@@ -228,7 +214,7 @@ If you use SUPER-FOCUS in your research, please cite:
 
     Silva, G. G. Z., Green K., B. E. Dutilh, and R. A. Edwards:
     SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data.
-	Bioinformatics. 2015 Oct 9. pii: btv584. Website: https://edwards.sdsu.edu/SUPERFOCUS
+	Bioinformatics. 2015 Oct 9. pii: btv584. 
 
 #### Extended tool manual
     Silva, G. G. Z., F. A. Lopes, and R. A. Edwards
