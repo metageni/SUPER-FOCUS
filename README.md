@@ -73,10 +73,10 @@ Please check your `diamond` version with `diamond --version` and then read the [
 
 Cluster Size | diamond version 1 databases | diamond version 2 databases | diamond version 3 databases
 --- | --- | --- | ---
-90 |  [90 v1](https://open.flinders.edu.au/ndownloader/files/44075159) | [90 v2]()  | [90 v3]() 
-95 |  [95 v1](https://open.flinders.edu.au/ndownloader/files/44075153) | [95 v2]()  | [95 v3]() 
-98 |  [98 v1](https://open.flinders.edu.au/ndownloader/files/44075156)  | [98 v2]()  | [98 v3]() 
-100 |  [100 v1](https://open.flinders.edu.au/ndownloader/files/44075165)  | [100 v2]()  | [100 v3]() 
+90 |  [90 v1](https://open.flinders.edu.au/ndownloader/files/44075159) | [90 v2](https://open.flinders.edu.au/ndownloader/files/44075207)  | [90 v3](https://open.flinders.edu.au/ndownloader/files/44075225) 
+95 |  [95 v1](https://open.flinders.edu.au/ndownloader/files/44075153) | [95 v2](https://open.flinders.edu.au/ndownloader/files/44075201)  | [95 v3](https://open.flinders.edu.au/ndownloader/files/44075231) 
+98 |  [98 v1](https://open.flinders.edu.au/ndownloader/files/44075156)  | [98 v2](https://open.flinders.edu.au/ndownloader/files/44075204)  | [98 v3](https://open.flinders.edu.au/ndownloader/files/44075234) 
+100 |  [100 v1](https://open.flinders.edu.au/ndownloader/files/44075165)  | [100 v2](https://open.flinders.edu.au/ndownloader/files/44075210)  | [100 v3](https://open.flinders.edu.au/ndownloader/files/44075228) 
 
 After downloading, you need to copy these to `lib/python3.8/site-packages/superfocus_app/db/static/diamond` in the same location as superfocus:
 
@@ -92,9 +92,9 @@ There is only one version of the MMSEQS2 databases and so the installation is ea
 
 Cluster Size | mseqs2 databases
 --- | ---
-90 |  [mmseqs_90.zip](https://cloudstor.aarnet.edu.au/plus/s/QqCHMFXUteiksh2/download)
-95 |  [mmseqs_95.zip](https://cloudstor.aarnet.edu.au/plus/s/2Fw2Et9NyCiASod/download)
-98 |  [mmseqs_98.zip](https://cloudstor.aarnet.edu.au/plus/s/Sch0dx9aAnsAzyS/download)
+90 |  [mmseqs_90.zip](https://open.flinders.edu.au/ndownloader/files/44075237)
+95 |  [mmseqs_95.zip](https://open.flinders.edu.au/ndownloader/files/44075240)
+98 |  [mmseqs_98.zip](https://open.flinders.edu.au/ndownloader/files/44075243)
 
 
 After downloading, you need to copy these to `lib/python3.8/site-packages/superfocus_app/db/static/diamond` in the same location as superfocus:
