@@ -69,6 +69,8 @@ you should be able to download the databases
 
 Please check your `diamond` version with `diamond --version` and then read the [diamond documentation](https://github.com/bbuchfink/diamond/wiki/5.-Advanced-topics#database-format-versions) to know which version to download. You can also find out the database version you have installed with `diamond dbinfo`.
 
+<iframe src="https://widgets.figshare.com/articles/25009694/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+
 Cluster Size | diamond version 1 databases | diamond version 2 databases | diamond version 3 databases
 --- | --- | --- | ---
 90 |  [90 v1](https://cloudstor.aarnet.edu.au/plus/s/EuxAj1TzZwFsLJs/download)  | [90 v2](https://cloudstor.aarnet.edu.au/plus/s/l6mJRxra2XEPjbL/download)  | [90 v3](https://cloudstor.aarnet.edu.au/plus/s/YCv7r8RnMXSQICb/download) 
