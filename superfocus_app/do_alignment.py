@@ -192,7 +192,7 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
 
     # test for an empty file
     if not os.path.exists(alignment) or os.stat(alignment).st_size == 0:
-        return defaultdict(int)
+        return results, binning_reads
 
     with open(alignment, encoding='ISO-8859-1') as alignment_file:
         alignment_reader = csv.reader(alignment_file, delimiter='\t')
