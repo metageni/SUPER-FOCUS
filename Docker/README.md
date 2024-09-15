@@ -18,7 +18,7 @@ apt remove -y docker.io && rm -rf /var/lib/docker && apt install -y docker.io
 
 ### Remove any existing docker images
 
-````
+```
 docker images
 docker images | awk '{print $3}' | grep -v IM | xargs docker rmi -f {}
 ```
