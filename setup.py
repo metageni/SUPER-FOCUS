@@ -12,14 +12,10 @@ requirements = [
 test_requirements = [
     'pytest'
 ]
-##
-setup_requirements = [
-
-]
 
 setup(
     name = 'superfocus',
-    use_scm_version=True,
+    version = '1.8',
     description = 'SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data',
     author = 'Genivaldo G.Z. Silva',
     author_email = 'genivaldo.gueiros@gmail.com',
@@ -30,7 +26,6 @@ setup(
     package_dir={'superfocus_app': 'superfocus_app'},
     include_package_data=True,
     install_requires=requirements,
-    setup_requires=setup_requirements,
     zip_safe=False,
     keywords='superfocus_app',
     classifiers=[
