@@ -1,4 +1,5 @@
 numpy>=1.12
 scipy>=0.19
+click>=8.0
 setuptools_scm
 twine

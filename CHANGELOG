@@ -1,5 +1,25 @@
 -- Version history --
 
+-> SUPERFOCUS 1.8:
+- Refactored codebase to Python Kiro coding standards
+  - utils.py: all pure/stateless functions (is_valid_number, is_wanted_file, get_subsystems, write_results, write_binning, subsample_reads, etc.)
+  - pipeline.py: orchestration logic with run() — no CLI code
+  - cli.py: click-based CLI (replaces argparse); logging.basicConfig() here only
+  - main.py: entry point delegating to cli.main()
+  - do_alignment.py: logging replaces print(); clean import order
+- All files: shebang #!/usr/bin/env python3, module docstrings, PEP 257 docstrings, imports sorted by line length
+- Added end-to-end CLI integration tests for diamond, mmseqs2, and blast
+- Added test fixtures and pre-built databases under tests/fixtures/
+- Added pytest.ini with integration marker
+- Updated setup.py entry point to superfocus_app.cli:main
+- Added click >= 8.0 dependency
+- Verified aligners: diamond 2.2.1, mmseqs2 18.8cc5c, blast 2.16.0 (rapsearch2 unavailable on macOS ARM64)
+
+-> SUPERFOCUS 1.7:
+- Updated database download URLs for diamond and mmseqs2
+- Added Docker image for Singularity container support
+- Updated README with new database links and Docker instructions
+
 -> SUPERFOCUS 0.34:
 - A manual download of the database and better script for formatting it to help with debugging for bioconda
 - A parameter to delete alignment post-parsing. It will save some people when some really large files are generated (set

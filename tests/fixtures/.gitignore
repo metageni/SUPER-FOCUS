@@ -1,0 +1,25 @@
+# Diamond indexes
+*.dmnd
+
+# BLAST indexes
+*.pdb
+*.phr
+*.pin
+*.pjs
+*.pot
+*.psq
+*.ptf
+*.pto
+
+# MMseqs2 indexes
+db_mmseqs
+db_mmseqs_h
+db_mmseqs_h.dbtype
+db_mmseqs_h.index
+db_mmseqs.dbtype
+db_mmseqs.index
+db_mmseqs.lookup
+db_mmseqs.source
+
+# work_dir (all generated indexes; keep only source fastas)
+work_dir/
