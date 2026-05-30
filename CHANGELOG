@@ -14,6 +14,8 @@
 - Updated setup.py entry point to superfocus_app.cli:main
 - Added click >= 8.0 dependency
 - Verified aligners: diamond 2.2.1, mmseqs2 18.8cc5c, blast 2.16.0 (rapsearch2 unavailable on macOS ARM64)
+- Fixed concurrent job safety: alignment files namespaced by PID (multiple jobs can share output directory)
+- Fixed empty/missing alignment file bug: results from prior samples now preserved instead of discarded
 
 -> SUPERFOCUS 1.7:
 - Updated database download URLs for diamond and mmseqs2
