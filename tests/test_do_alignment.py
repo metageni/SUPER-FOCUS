@@ -144,29 +144,53 @@ def test_parse_alignments_alignment_length_filter(tmp_path):
 def test_parse_alignments_empty_file(tmp_path):
     aln = tmp_path / "empty.m8"
     aln.write_text("")
+    # Pre-populate results from a previous sample
     results = defaultdict(list)
+    results["Metabolism\tCarbon\tGlycolysis\tGlycolysisFunc"] = [1]
     binning = defaultdict(lambda: defaultdict(list))
-    out = parse_alignments(
+    out_results, out_binning = parse_alignments(
         str(aln), results, normalise=0, number_samples=1, sample_index=0,
         minimum_identity=60.0, minimum_alignment=15,
         subsystems_translation=FAKE_SUBSYSTEMS,
         aligner="diamond", binning_reads=binning,
         query_name="sample.fasta", delete_alignments=False,
     )
-    # returns defaultdict(int) for empty file
-    assert dict(out) == {}
+    # Bug fix (PR #90): prior results must be preserved, not discarded
+    assert "Metabolism\tCarbon\tGlycolysis\tGlycolysisFunc" in out_results
 
 
 def test_parse_alignments_missing_file(tmp_path):
-    out = parse_alignments(
+    # Pre-populate results from a previous sample
+    results = defaultdict(list)
+    results["Metabolism\tCarbon\tGlycolysis\tGlycolysisFunc"] = [1]
+    binning = defaultdict(lambda: defaultdict(list))
+    out_results, out_binning = parse_alignments(
         str(tmp_path / "nonexistent.m8"),
-        defaultdict(list), normalise=0, number_samples=1, sample_index=0,
+        results, normalise=0, number_samples=1, sample_index=0,
         minimum_identity=60.0, minimum_alignment=15,
         subsystems_translation=FAKE_SUBSYSTEMS,
-        aligner="diamond", binning_reads=defaultdict(lambda: defaultdict(list)),
+        aligner="diamond", binning_reads=binning,
         query_name="sample.fasta", delete_alignments=False,
     )
-    assert dict(out) == {}
+    # Bug fix (PR #90): prior results must be preserved, not discarded
+    assert "Metabolism\tCarbon\tGlycolysis\tGlycolysisFunc" in out_results
+
+
+def test_parse_alignments_empty_file_preserves_binning(tmp_path):
+    """Empty alignment file must not wipe binning_reads from prior samples."""
+    aln = tmp_path / "empty.m8"
+    aln.write_text("")
+    results = defaultdict(list)
+    binning = defaultdict(lambda: defaultdict(list))
+    binning["prior_sample.fasta"]["read1"].append([80.0, 20, "1e-5", "some\tfunction"])
+    out_results, out_binning = parse_alignments(
+        str(aln), results, normalise=0, number_samples=2, sample_index=1,
+        minimum_identity=60.0, minimum_alignment=15,
+        subsystems_translation=FAKE_SUBSYSTEMS,
+        aligner="diamond", binning_reads=binning,
+        query_name="sample.fasta", delete_alignments=False,
+    )
+    assert "read1" in out_binning["prior_sample.fasta"]
 
 
 def test_parse_alignments_delete_file(tmp_path):
