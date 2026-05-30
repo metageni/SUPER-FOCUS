@@ -160,10 +160,10 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
         delete_alignments (bool): Delete the alignment file after parsing.
 
     Returns:
-        tuple: (results, binning_reads) or defaultdict(int) if file is empty/missing.
+        tuple: (results, binning_reads) — unchanged if file is empty/missing.
     """
     if not os.path.exists(alignment) or os.stat(alignment).st_size == 0:
-        return defaultdict(int)
+        return results, binning_reads
 
     previous_read_name = None
     best_evalue = None
