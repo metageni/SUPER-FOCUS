@@ -127,54 +127,34 @@ system.
 The main SUPER-FOCUS program is `superfocus`. Here is a list of the
 available command line options:
 
-    usage: superfocus    [-h] [-v] -q QUERY -dir OUTPUT_DIRECTORY
-                         [-o OUTPUT_PREFIX] [-a ALIGNER] [-mi MINIMUM_IDENTITY]
-                         [-ml MINIMUM_ALIGNMENT] [-t THREADS] [-e EVALUE]
-                         [-db DATABASE] [-p AMINO_ACID] [-f FAST]
-                         [-n NORMALISE_OUTPUT] [-m FOCUS] [-b ALTERNATE_DIRECTORY]
-                         [-d] [-l LOG]
+```
+Usage: superfocus [OPTIONS]
 
-    SUPER-FOCUS: A tool for agile functional analysis of shotgun metagenomic data.
+  SUPER-FOCUS: agile functional analysis of shotgun metagenomic data.
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -v, --version         show program's version number and exit
-      -q QUERY, --query QUERY
-                            Path to FAST(A/Q) file or directory with these files.
-      -dir OUTPUT_DIRECTORY, --output_directory OUTPUT_DIRECTORY
-                            Path to output files
-      -o OUTPUT_PREFIX, --output_prefix OUTPUT_PREFIX
-                            Output prefix (Default: output).
-      -a ALIGNER, --aligner ALIGNER
-                            aligner choice (rapsearch, diamond, mmseqs2, or blast; default
-                            rapsearch).
-      -mi MINIMUM_IDENTITY, --minimum_identity MINIMUM_IDENTITY
-                            minimum identity (default 60 perc).
-      -ml MINIMUM_ALIGNMENT, --minimum_alignment MINIMUM_ALIGNMENT
-                            minimum alignment (amino acids) (default: 15).
-      -t THREADS, --threads THREADS
-                            Number Threads used in the k-mer counting (Default:
-                            4).
-      -e EVALUE, --evalue EVALUE
-                            e-value (default 0.00001).
-      -db DATABASE, --database DATABASE
-                            database (DB_90, DB_95, DB_98, or DB_100; default
-                            DB_90)
-      -p AMINO_ACID, --amino_acid AMINO_ACID
-                            amino acid input; 0 nucleotides; 1 amino acids
-                            (default 0).
-      -f FAST, --fast FAST  runs RAPSearch2 or DIAMOND on fast mode - 0 (False) /
-                            1 (True) (default: 1).
-      -n NORMALISE_OUTPUT, --normalise_output NORMALISE_OUTPUT
-                            normalises each query counts based on number of hits;
-                            0 doesn't normalize; 1 normalizes (default: 1).
-      -m FOCUS, --focus FOCUS
-                            runs FOCUS; 1 does run; 0 does not run: default 0.
-      -b ALTERNATE_DIRECTORY, --alternate_directory ALTERNATE_DIRECTORY
-                            Alternate directory for your databases.
-      -d, --delete_alignments
-                            Delete alignments
-      -l LOG, --log LOG     Path to log file (Default: STDOUT).
+Options:
+  -v, --version                   Show the version and exit.
+  -q, --query TEXT                Path to FAST(A/Q) file or directory. Repeatable.  [required]
+  -dir, --output_directory TEXT   Path to output directory.  [required]
+  -o, --output_prefix TEXT        Output file prefix.  [default: output_]
+  -a, --aligner TEXT              Aligner: diamond, blast, mmseqs2, or rapsearch.  [default: rapsearch]
+  -db, --database TEXT            Database: DB_90, DB_95, DB_98, or DB_100.  [default: DB_90]
+  -e, --evalue TEXT               E-value threshold.  [default: 0.00001]
+  -t, --threads TEXT              Number of threads.  [default: 4]
+  -mi, --minimum_identity FLOAT   Minimum percent identity.  [default: 60.0]
+  -ml, --minimum_alignment INT    Minimum alignment length (amino acids).  [default: 15]
+  -f, --fast TEXT                 Fast mode: 1 (fast) or 0 (sensitive).  [default: 1]
+  -p, --amino_acid TEXT           Input type: 0 nucleotides, 1 amino acids.  [default: 0]
+  -n, --normalise_output INT      Normalise counts: 1 yes, 0 no.  [default: 1]
+  -m, --focus TEXT                Run FOCUS reduction: 1 yes, 0 no.  [default: 0]
+  -b, --alternate_directory TEXT  Alternate directory for databases.
+  -d, --delete_alignments         Delete alignment files after parsing.
+  -s, --subsample INTEGER         Subsample reads to this count.
+  -w, --latency_wait INTEGER      Seconds to wait after alignment (NFS latency).  [default: 0]
+  -tmp, --temp_directory TEXT     Alternate temporary directory.
+  -l, --log TEXT                  Path to log file (default: STDOUT).
+  -h, --help                      Show this message and exit.
+```
 
     superfocus -q input_folder -dir output_dir
 
@@ -203,9 +183,29 @@ We currently do not handle `gzipped` or otherwise compressed input files.
 - Primarily use DIAMOND for large datasets only. It is slower than blastx for small datasets
 - Run mmseqs2 if you are running multiple jobs in parallel (e.g. on a cluster).
 - BLAST is known for being really slow
+- **Concurrent jobs are safe**: multiple SUPER-FOCUS jobs can share the same output directory without conflict. Alignment files are namespaced by process ID, and each run uses its own isolated temporary directory.
 
 ## Output
 SUPER-FOCUS output will be add the folder selected by the `-dir` argument.
+
+## Testing
+
+The test suite covers unit tests and end-to-end CLI integration tests for each supported aligner.
+
+### Run all tests
+```bash
+pytest tests/
+```
+
+### Run only integration tests (requires diamond, mmseqs2, blast installed)
+```bash
+pytest -m integration
+```
+
+Integration tests invoke the `superfocus` CLI against pre-built fixture databases in `tests/fixtures/` and assert that all expected output files are produced with hits.
+
+**Supported aligners tested:** diamond, mmseqs2, blast  
+**Note:** rapsearch2 is not available on macOS ARM64.
 
 ## Citing
 SUPER-FOCUS was written by Genivaldo G. Z. Silva. Feel free to create an [issue or ask questions](https://github.com/metageni/SUPER-FOCUS/issues)
