@@ -6,6 +6,7 @@ from setuptools import setup
 requirements = [
     'numpy >= 1.12.1',
     'scipy >= 0.19.0',
+    'click >= 8.0',
 ]
 
 test_requirements = [
@@ -43,7 +44,7 @@ setup(
     tests_require=test_requirements,
     entry_points={
         'console_scripts': [
-            'superfocus = superfocus_app.superfocus:main',
+            'superfocus = superfocus_app.cli:main',
             'superfocus_downloadDB = superfocus_app.superfocus_downloadDB:main',
         ]
     },
