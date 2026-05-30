@@ -1,5 +1,10 @@
 -- Version history --
 
+-> SUPERFOCUS 1.7:
+- Updated database download URLs for diamond and mmseqs2
+- Added Docker image for Singularity container support
+- Updated README with new database links and Docker instructions
+
 -> SUPERFOCUS 0.34:
 - A manual download of the database and better script for formatting it to help with debugging for bioconda
 - A parameter to delete alignment post-parsing. It will save some people when some really large files are generated (set
