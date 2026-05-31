@@ -75,6 +75,9 @@ Biochemistry/binary_data
 # pycharm files
 .idea/
 
+# macOS metadata
+.DS_Store
+
 # ipython notebook
 .ipynb_checkpoints/
 
