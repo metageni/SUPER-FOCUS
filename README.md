@@ -16,10 +16,6 @@ This [blog post](https://onestopdataanalysis.com/metagenome-functional-profile/)
 ## Installation
 This will give you command line program:
 
-	pip3 install superfocus
-
-or
-
 	# clone super-focus
 	git clone https://github.com/metageni/SUPER-FOCUS.git
 
@@ -41,9 +37,7 @@ If you have Python 3.6, you can install both dependencies with:
 ## Aligners
 One of the below aligners, which can easily be installed with [`conda`](https://conda.io/docs/):
 - [DIAMOND 0.9.14](http://ab.inf.uni-tuebingen.de/software/diamond)
-- [RAPSearch2 2.24](http://rapsearch2.sourceforge.net)
 - [MMSEQS2](https://github.com/soedinglab/MMseqs2)
-- [BLAST 2.6.0](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
 
 To install the aligners, having [`conda`](https://conda.io/docs/installation.html) installed, simply run:  
  `conda install -c bioconda <aligner>`
@@ -55,21 +49,13 @@ To install the aligners, having [`conda`](https://conda.io/docs/installation.htm
 If you have the superfocus databases downloaded already, you can set the `SUPERFOCUS_DB` environment variable to point
 to that directory. Alternatively, you can provide the `--alternate_directory` flag to point to that location.
 
-### Installing the databases
-
-Some of the steps below could be automatized. However, many users have had problem with the database formatting, and
-it was requested for the initial steps to be manual.
-
 ### Downloading prebuilt databases
 
-We have prebuilt several of the databases, so if you have made a `conda` install, choose the right version and 
-you should be able to download the databases
+We have prebuilt databases for both supported aligners. Download the one matching your aligner and cluster size.
 
 ***Diamond***
 
 Please check your `diamond` version with `diamond --version` and then read the [diamond documentation](https://github.com/bbuchfink/diamond/wiki/5.-Advanced-topics#database-format-versions) to know which version to download. You can also find out the database version you have installed with `diamond dbinfo`.
-
-
 
 Cluster Size | diamond version 1 databases | diamond version 2 databases | diamond version 3 databases
 --- | --- | --- | ---
@@ -78,9 +64,8 @@ Cluster Size | diamond version 1 databases | diamond version 2 databases | diamo
 98 |  [98 v1](https://open.flinders.edu.au/ndownloader/files/44075156)  | [98 v2](https://open.flinders.edu.au/ndownloader/files/44075204)  | [98 v3](https://open.flinders.edu.au/ndownloader/files/44075234) 
 100 |  [100 v1](https://open.flinders.edu.au/ndownloader/files/44075165)  | [100 v2](https://open.flinders.edu.au/ndownloader/files/44075210)  | [100 v3](https://open.flinders.edu.au/ndownloader/files/44075228) 
 
-After downloading, you need to copy these to `lib/python3.8/site-packages/superfocus_app/db/static/diamond` in the same location as superfocus:
+After downloading, unzip into `db/static/diamond/` in the same location as superfocus:
 
-e.g. for `90_clusters`:
 ```bash
 mkdir -p  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/diamond#') &&
 unzip -d  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/diamond#') 90_clusters.db.dmnd.zip
@@ -88,40 +73,20 @@ unzip -d  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-pack
 
 ***MMSEQS2***
 
-There is only one version of the MMSEQS2 databases and so the installation is easier!
+There is only one version of the MMSEQS2 databases.
 
-Cluster Size | mseqs2 databases
+Cluster Size | mmseqs2 databases
 --- | ---
 90 |  [mmseqs_90.zip](https://open.flinders.edu.au/ndownloader/files/44075237)
 95 |  [mmseqs_95.zip](https://open.flinders.edu.au/ndownloader/files/44075240)
 98 |  [mmseqs_98.zip](https://open.flinders.edu.au/ndownloader/files/44075243)
 
+After downloading, unzip into `db/static/mmseqs2/` in the same location as superfocus:
 
-After downloading, you need to copy these to `lib/python3.8/site-packages/superfocus_app/db/static/diamond` in the same location as superfocus:
-
-e.g. for `90_clusters`:
 ```bash
 mkdir -p  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/mmseqs2#') &&
 unzip -d  $(which superfocus | sed -e 's#bin/superfocus$#lib/python3.8/site-packages/superfocus_app/db/static/mmseqs2#') mmseqs_90.zip
 ```
-
-#### Format
-Now that you downloaded the database, please use the instructions below to format it and move into the database folder.
-```
-superfocus_downloadDB -i <clusters_folder> -a <aligner> -c <clusters>
-```
-where
-- `<clusters_folder>` is the path to the database you downloaded and uncompressed above (folder `clusters/`)
-- `<aligner>` is `rapsearch`, `diamond`, or `blast` (or all of them separated by `,`). You
-may choose as many aligners as you want among the three, as long as they are
-installed.
-- `<clusters>` is the cluster of the database you want to format which are `90`, `95`, `98`, and/or `100`. Default: `90`. If more than one, please separe by comma (e.g. 90,95,98,100).
-
-**NOTE**: RAPSearch2 and DIAMOND won't work properly if you are trying to use a
-database formatted with an incorrect version of the aligner. Thus, please
-re-run `superfocus_downloadDB` in case any aligner was updated on your
-system.
-
 
 ## Run
 The main SUPER-FOCUS program is `superfocus`. Here is a list of the
@@ -137,7 +102,7 @@ Options:
   -q, --query TEXT                Path to FAST(A/Q) file or directory. Repeatable.  [required]
   -dir, --output_directory TEXT   Path to output directory.  [required]
   -o, --output_prefix TEXT        Output file prefix.  [default: output_]
-  -a, --aligner TEXT              Aligner: diamond, blast, mmseqs2, or rapsearch.  [default: rapsearch]
+  -a, --aligner TEXT              Aligner: diamond or mmseqs2.  [default: diamond]
   -db, --database TEXT            Database: DB_90, DB_95, DB_98, or DB_100.  [default: DB_90]
   -e, --evalue TEXT               E-value threshold.  [default: 0.00001]
   -t, --threads TEXT              Number of threads.  [default: 4]
@@ -179,10 +144,8 @@ We currently do not handle `gzipped` or otherwise compressed input files.
 
 ## Recomendations
 - The FOCUS reduction is not necessary if not wanted (it is off by default: set `-focus 1` to run FOCUS reduction)
-- Run RAPSearch for short sequences, it is less sensitive for long sequences
-- Primarily use DIAMOND for large datasets only. It is slower than blastx for small datasets
-- Run mmseqs2 if you are running multiple jobs in parallel (e.g. on a cluster).
-- BLAST is known for being really slow
+- Primarily use DIAMOND for large datasets
+- Run mmseqs2 if you are running multiple jobs in parallel (e.g. on a cluster)
 - **Concurrent jobs are safe**: multiple SUPER-FOCUS jobs can share the same output directory without conflict. Alignment files are namespaced by process ID, and each run uses its own isolated temporary directory.
 
 ## Output
@@ -197,15 +160,14 @@ The test suite covers unit tests and end-to-end CLI integration tests for each s
 pytest tests/
 ```
 
-### Run only integration tests (requires diamond, mmseqs2, blast installed)
+### Run only integration tests (requires diamond, mmseqs2 installed)
 ```bash
 pytest -m integration
 ```
 
 Integration tests invoke the `superfocus` CLI against pre-built fixture databases in `tests/fixtures/` and assert that all expected output files are produced with hits.
 
-**Supported aligners tested:** diamond, mmseqs2, blast  
-**Note:** rapsearch2 is not available on macOS ARM64.
+**Supported aligners tested:** diamond, mmseqs2
 
 ## Citing
 SUPER-FOCUS was written by Genivaldo G. Z. Silva. Feel free to create an [issue or ask questions](https://github.com/metageni/SUPER-FOCUS/issues)

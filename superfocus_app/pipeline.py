@@ -78,13 +78,11 @@ def _validate(aligner, amino_acid, database, threads, evalue, work_directory, ru
     """
     if run_focus != '0':
         return "FOCUS: not available in this version. See https://github.com/metageni/FOCUS"
-    if aligner == 'blast' and amino_acid not in ('0', '1'):
-        return f"AMINO ACID OPTION: {amino_acid} is not valid. Only 0 or 1"
     if database not in ("90", "95", "98", "100"):
         return f"DATABASE: DB_{database} not valid. Choose DB_90/95/98/100"
-    if aligner not in ("diamond", "rapsearch", "blast", "mmseqs"):
-        return f"ALIGNER: {aligner} is not valid. Choose diamond, blast, rapsearch, or mmseqs2"
-    if aligner != "blast" and not which(aligner):
+    if aligner not in ("diamond", "mmseqs"):
+        return f"ALIGNER: {aligner} is not valid. Choose diamond or mmseqs2"
+    if not which(aligner):
         return f"ALIGNER: {aligner} is not in PATH"
     if not work_directory.exists():
         return f"WORK_DIRECTORY: {work_directory} does not exist"
@@ -105,7 +103,7 @@ def run(query_paths, output_directory, prefix, aligner, database, evalue, thread
         query_paths (list): List of query file/directory path strings.
         output_directory (str): Path to output directory.
         prefix (str): Output file prefix.
-        aligner (str): Aligner name (diamond, mmseqs2, blast, rapsearch).
+        aligner (str): Aligner name (diamond or mmseqs2).
         database (str): Database cluster size (DB_90, DB_95, DB_98, DB_100).
         evalue (str): E-value threshold.
         threads (str): Thread count or 'all'.

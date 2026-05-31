@@ -60,7 +60,7 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     Args:
         query (Path): Path to query FAST(A/Q) file.
         output_dir (Path): Directory for alignment output.
-        aligner (str): One of diamond, mmseqs, rapsearch, blast.
+        aligner (str): One of diamond, mmseqs.
         database (str): Database cluster size (e.g. '90').
         evalue (str): E-value threshold.
         threads (str): Thread count or 'all'.
@@ -75,12 +75,11 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
     """
     output_name = "{}/{}_{}_alignments".format(output_dir, query.parts[-1], _PID)
     database = "{}_clusters".format(database)
-    blast_mode = 'blastp' if amino_acid == '1' else 'blastx'
 
     if aligner == "diamond":
         database_diamond = "{}/db/static/diamond/{}.db".format(WORK_DIRECTORY, database)
         cmd = [
-            "diamond", blast_mode,
+            "diamond", 'blastp' if amino_acid == '1' else 'blastx',
             "-d", database_diamond,
             "-q", query,
             "-o", f"{output_name}.m8",
@@ -121,18 +120,6 @@ def align_reads(query, output_dir, aligner, database, evalue, threads, fast_mode
             logger.error("mmseqs2 execution failed: %s", e)
             sys.exit(1)
 
-    elif aligner == "rapsearch":
-        mode_rapsearch = "T" if fast_mode == "1" else "F"
-        database_rapsearch = "{}/db/static/rapsearch2/{}.db".format(WORK_DIRECTORY, database)
-        os.system('rapsearch -a {} -q {} -d {} -o {} -v 250 -z {} -e {} -b 0 -s f'.format(
-            mode_rapsearch, query, database_rapsearch, output_name, threads, evalue))
-        output_name = "{}.m8".format(output_name)
-
-    elif aligner == "blast":
-        database_blast = "{}/db/static/blast/{}.db".format(WORK_DIRECTORY, database)
-        os.system('{} -db {} -query {} -out {} -outfmt 6 -evalue {} -max_target_seqs 250 -num_threads {}'.format(
-            blast_mode, database_blast, query, output_name, evalue, threads))
-
     else:
         logger.error("Unknown aligner: %s", aligner)
         sys.exit(1)
@@ -170,9 +157,6 @@ def parse_alignments(alignment, results, normalise, number_samples, sample_index
 
     with open(alignment, encoding='ISO-8859-1') as f:
         reader = csv.reader(f, delimiter='\t')
-        if aligner == "rapsearch":
-            [next(reader, None) for _ in range(5)]
-
         temp_results = defaultdict(int)
         for row in reader:
             current_read_name = row[0]

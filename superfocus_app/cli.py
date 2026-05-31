@@ -19,8 +19,8 @@ LOGGER_FORMAT = '[%(asctime)s - %(levelname)s] %(message)s'
               help="Path to output directory.")
 @click.option("-o", "--output_prefix", default="output_", show_default=True,
               help="Output file prefix.")
-@click.option("-a", "--aligner", default="rapsearch", show_default=True,
-              help="Aligner: diamond, blast, mmseqs2, or rapsearch.")
+@click.option("-a", "--aligner", default="diamond", show_default=True,
+              help="Aligner: diamond or mmseqs2.")
 @click.option("-db", "--database", default="DB_90", show_default=True,
               help="Database: DB_90, DB_95, DB_98, or DB_100.")
 @click.option("-e", "--evalue", default="0.00001", show_default=True,

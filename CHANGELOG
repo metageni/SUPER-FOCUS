@@ -1,6 +1,8 @@
 -- Version history --
 
 -> SUPERFOCUS 1.8:
+- Removed blast and rapsearch aligner support; only diamond and mmseqs2 are supported
+- Updated aligner validation in pipeline.py and superfocus.py to reject any aligner other than diamond/mmseqs2
 - Refactored codebase to Python Kiro coding standards
   - utils.py: all pure/stateless functions (is_valid_number, is_wanted_file, get_subsystems, write_results, write_binning, subsample_reads, etc.)
   - pipeline.py: orchestration logic with run() — no CLI code

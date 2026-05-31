@@ -179,7 +179,7 @@ def _assert_outputs(out_dir):
 # helpers shared across per-aligner parametrized tests
 # ---------------------------------------------------------------------------
 
-ALIGNERS = pytest.mark.parametrize("aligner", ["diamond", "mmseqs2", "blast"])
+ALIGNERS = pytest.mark.parametrize("aligner", ["diamond", "mmseqs2"])
 
 
 # ---------------------------------------------------------------------------
@@ -336,7 +336,7 @@ def test_cli_delete_alignments_flag(aligner, tmp_path):
 
 @pytest.mark.integration
 def test_all_aligners_agree_on_subsystem_level1(tmp_path):
-    """diamond, mmseqs2, and blast all report identical L1 subsystems.
+    """diamond and mmseqs2 report identical L1 subsystems.
 
     Args:
         tmp_path (Path): pytest temporary directory.
@@ -345,20 +345,20 @@ def test_all_aligners_agree_on_subsystem_level1(tmp_path):
         None
     """
     results = {}
-    for aligner in ("diamond", "mmseqs2", "blast"):
+    for aligner in ("diamond", "mmseqs2"):
         out = tmp_path / aligner
         out.mkdir()
         _run_new(aligner, out)
         rows = _data_rows(out / "output_subsystem_level_1.xls")
         results[aligner] = {r[0] for r in rows}
 
-    assert results["diamond"] == results["mmseqs2"] == results["blast"], \
+    assert results["diamond"] == results["mmseqs2"], \
         f"L1 subsystems differ: {results}"
 
 
 @pytest.mark.integration
 def test_all_aligners_agree_on_subsystem_level2(tmp_path):
-    """diamond, mmseqs2, and blast all report identical L2 subsystems.
+    """diamond and mmseqs2 report identical L2 subsystems.
 
     Args:
         tmp_path (Path): pytest temporary directory.
@@ -367,20 +367,20 @@ def test_all_aligners_agree_on_subsystem_level2(tmp_path):
         None
     """
     results = {}
-    for aligner in ("diamond", "mmseqs2", "blast"):
+    for aligner in ("diamond", "mmseqs2"):
         out = tmp_path / aligner
         out.mkdir()
         _run_new(aligner, out)
         rows = _data_rows(out / "output_subsystem_level_2.xls")
         results[aligner] = {r[0] for r in rows}
 
-    assert results["diamond"] == results["mmseqs2"] == results["blast"], \
+    assert results["diamond"] == results["mmseqs2"], \
         f"L2 subsystems differ: {results}"
 
 
 @pytest.mark.integration
 def test_all_aligners_agree_on_function_set(tmp_path):
-    """diamond, mmseqs2, and blast all report the same set of functions.
+    """diamond and mmseqs2 report the same set of functions.
 
     Args:
         tmp_path (Path): pytest temporary directory.
@@ -389,14 +389,14 @@ def test_all_aligners_agree_on_function_set(tmp_path):
         None
     """
     results = {}
-    for aligner in ("diamond", "mmseqs2", "blast"):
+    for aligner in ("diamond", "mmseqs2"):
         out = tmp_path / aligner
         out.mkdir()
         _run_new(aligner, out)
         rows = _data_rows(out / "output_all_levels_and_function.xls")
         results[aligner] = {r[3] for r in rows if len(r) > 3}
 
-    assert results["diamond"] == results["mmseqs2"] == results["blast"], \
+    assert results["diamond"] == results["mmseqs2"], \
         f"Function sets differ: {results}"
 
 

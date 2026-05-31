@@ -259,8 +259,8 @@ def parse_args():
     parser.add_argument("-tmp", "--temp_directory", help="specify an alternate temporary directory to use")
 
     # aligner related
-    parser.add_argument("-a", "--aligner", help="aligner choice (rapsearch, diamond, blast, or mmseqs2; default rapsearch).",
-                        default="rapsearch")
+    parser.add_argument("-a", "--aligner", help="aligner choice (diamond or mmseqs2; default diamond).",
+                        default="diamond")
     parser.add_argument("-mi", "--minimum_identity", help="minimum identity (default 60 perc).", default="60")
     parser.add_argument("-ml", "--minimum_alignment", help="minimum alignment (amino acids) (default: 15).",
                         default="15")
@@ -271,7 +271,7 @@ def parse_args():
                         default="DB_90")
     parser.add_argument("-p", "--amino_acid", help="amino acid input; 0 nucleotides; 1 amino acids (default 0).",
                         default="0")
-    parser.add_argument("-f", "--fast", help="runs RAPSearch2 or DIAMOND on fast mode - 0 (False) / 1 (True) "
+    parser.add_argument("-f", "--fast", help="runs DIAMOND or mmseqs2 on fast mode - 0 (False) / 1 (True) "
                         "(default: 1).", default="1")
 
     # extra
@@ -373,21 +373,16 @@ def main():
         logger.critical("FOCUS: Running FOCUS is not avaliable on this version. "
                         "Please see https://github.com/metageni/FOCUS on how to run it")
 
-    # check if amino_acid is valid
-    elif aligner == 'blast' and amino_acid not in ['0', '1']:
-        logger.critical("AMINO ACID OPTION: {} is not valid for --amino_acid. Only 0 or 1".format(amino_acid))
-
     # check if at database choice is valid
     elif database not in ["90", "95", "98", "100"]:
         logger.critical("DATABASE: DB_{} not valid. Choose DB_90/95/98/or 100".format(database))
 
     # check if aligner is valid
-    elif aligner not in ["diamond", "rapsearch", "blast", "mmseqs"]:
-        logger.critical("ALIGNER: {} is not a valid aligner. Please choose among (diamond, blast, rapsearch, or mmseqs2)".
-                        format(aligner))
+    elif aligner not in ["diamond", "mmseqs"]:
+        logger.critical("ALIGNER: {} is not a valid aligner. Please choose diamond or mmseqs2".format(aligner))
 
     # check if aligner exists
-    elif not which(aligner) and aligner.lower() != "blast":
+    elif not which(aligner):
         logger.critical("ALIGNER: {} is not in the path of your system".format(aligner))
 
     # check if work directory exists
