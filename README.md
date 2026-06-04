@@ -14,16 +14,15 @@
 This [blog post](https://onestopdataanalysis.com/metagenome-functional-profile/) talks about SUPER_FOCUS. Please read it and make sure the tool is right for you.
 
 ## Installation
-This will give you command line program:
 
-	# clone super-focus
+**Recommended — via [bioconda](https://bioconda.github.io/):**
+
+	conda install -c bioconda -c conda-forge superfocus
+
+**From source:**
+
 	git clone https://github.com/metageni/SUPER-FOCUS.git
-
-	# install super-focus
-	cd SUPER-FOCUS && python setup.py install
-
-	# if you do not have super user privileges, you can install it like this
-	cd SUPER-FOCUS && python setup.py install --user
+	cd SUPER-FOCUS && pip install .
 
 
 ## Dependencies
